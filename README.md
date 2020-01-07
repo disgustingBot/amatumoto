@@ -1,2 +1,2 @@
-# amatumoto
-Tema de Wordpress
+# WordPress Theme
+Custom Wordpress Theme
