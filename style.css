@@ -584,3 +584,122 @@ body{
   margin-left: auto;
   background: linear-gradient(to right, transparent, rgba(0,0,0,.4));
 }
+
+
+
+
+.singleSideContact{
+  background:white;
+  border:2px solid black;
+  padding: .4rem 1rem;
+  display: block;
+  /* margin:.2rem 0; */
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+  font-weight:700;
+}
+.singleSideContact:hover{
+  background:#DDD;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.single{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-auto-rows: min-content;
+  grid-gap:.8rem;
+  padding: 1rem 2rem;
+}
+.singleSide{
+  display: grid;
+  grid-gap:.5rem;
+}
+.singleSideTitle{
+  font-weight: 200;
+}
+.singleSidePrice,.singleSideStock,.singleSideCond,.singleSideData{
+  font-weight: 200;
+  color:#666;
+}
+.singleSideCond{
+  font-size: .6rem;
+  font-weight: 400;
+
+}
+.singleSideData{
+  font-size: .6rem;
+  font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.galleryMain{
+  width: 100%;
+}
+.galleryStock{
+  display: grid;
+  grid-template-columns:repeat(8, 1fr);
+  grid-gap:1rem;
+  grid-row-gap:.3rem;
+}
+.galleryImgs{
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.
