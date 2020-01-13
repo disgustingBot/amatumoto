@@ -27,3 +27,15 @@ const carousel=()=>{j++;
 }
 const plusDivs=n=>{showDivs(j+=n)}
 if(x.length>0){showDivs(j);carousel()}
+
+
+// Mobile behavior
+
+const alternateMobileMenu=()=> {
+  const navBar=d.querySelector("#mobileNav");
+  if(navBar.classList.contains("menuActive")){
+    navBar.classList.remove("menuActive")
+  }else{
+    navBar.classList.add("menuActive")
+  }
+}

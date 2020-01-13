@@ -77,6 +77,12 @@ FIN DE MAPA DE CONTENIDOS */
   ------------------------------------------------------------------------------
   --------------------------------------------------------------------------- */
 
+  /* HEADER */
+  --navBarDesktopDisplay: none;
+  --upperNavDektop: none;
+  --navBarMobileDisplay: flex;
+  --headerDisplay: flex;
+  --mobileNavButtonDisplay: flex;
 }
 
 
@@ -116,6 +122,19 @@ FIN DE MAPA DE CONTENIDOS */
 @media screen and (min-width: 768px) {
   :root {
     --sizeR: calc(calc(var(--sizeRc) * 1px) + (var(--sizeRd) - var(--sizeRc)) * ((100vw - 768px) / (1200 - 768)));
+
+    /* HEADER */
+    --headerGridTemplateColums: 30% 1fr;
+    --logoWidth: 90%;
+    --upperNavAlignment: center;
+    --navBarMargin: auto 2rem;
+    --socialMediaLink: 25px;
+
+    --navBarDesktopDisplay: flex;
+    --upperNavDektop: flex;
+    --navBarMobileDisplay: none;
+    --headerDisplay: grid;
+    --mobileNavButtonDisplay: none;
   }
 }
 
@@ -138,6 +157,13 @@ FIN DE MAPA DE CONTENIDOS */
 @media  screen and (min-width: 1200px) {
   :root {
     --sizeR: calc(var(--sizeRd) * 1px);
+
+    /* HEADER */
+    --headerGridTemplateColums: 40% 1fr;
+    --logoWidth: 70%;
+    --upperNavAlignment: flex-start;
+    --navBarMargin: auto 4rem;
+    --socialMediaLink: 30px;
   }
 }
 
@@ -212,26 +238,35 @@ body{
                             6.1) =header:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-.header{
-  display: grid;
-  grid-template-columns: 40% 1fr;
+.header {
+  display: var(--headerDisplay);
+  grid-template-columns: var(--headerGridTemplateColums);
   grid-template-rows: 1fr 1fr;
   padding: .3rem;
   height: 120px;
+  width: 100%;
   background: white;
+  z-index: 10;
+  position: fixed;
 }
-.logo{
-  width: auto;
+
+.logo {
+  width: var(--logoWidth);
   grid-row: span 2;
-  height: 60px;
-  margin: .3rem auto auto 1.5rem;
+  height: auto;
+  margin: auto;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  width: 70%;
 }
 
 
-.upperNav{
+.upperNav {
   font-size: .6rem;
-  display: flex;
-  justify-content: space-around;
+  display: var(--upperNavDektop);
+  justify-content: space-evenly;
+  align-items: var(--upperNavAlignment);
+  margin: 0 1rem;
 }
 
 .upperNavInfo {
@@ -240,9 +275,12 @@ body{
   align-items: center;
 }
 
+.upperNavIconTxt {font-size: .5rem;}
+
 .upperNavIcon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
+  margin-right: .2rem;
 }
 
 .socialMedia {
@@ -250,15 +288,15 @@ body{
   justify-content: space-between;
   width: 140px;
   height: min-content;
-  margin-left: 4.5rem;
+  margin-left: 1rem;
 }
 
-.socialMediaLink{
+.socialMediaLink {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: var(--socialMediaLink);
+  height: var(--socialMediaLink);
   color: white;
   border-radius: 4px;
 }
@@ -276,15 +314,89 @@ body{
 
 
 .navBar{
-  display: flex;
+  display: var(--navBarDesktopDisplay);
   justify-content: space-around;
   align-items: center;
-  font-size:.6rem;
+  font-size: .6rem;
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
-  margin: auto 8rem auto 1rem;
+  margin: var(--navBarMargin);
 }
 
+/* NAV BAR FOR MOBILE DEVICES */
+
+.mobileNavButton {
+  display: var(--mobileNavButtonDisplay);
+  flex-direction: column;
+  width: 80px;
+  height: 60px;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 12;
+  justify-content: space-around;
+  cursor: pointer;
+}
+.navStripe {
+  width: 90%;
+  height: 10px;
+  background: black;
+  margin: 0 auto;
+}
+.mobileNav.menuActive {
+  left: 0;
+}
+
+
+.mobileNav {
+  display: var(--navBarMobileDisplay);
+  width: 100%;
+  height: calc(100% - 120px);
+  position: fixed;
+  background: white;
+  flex-direction: column;
+  z-index: 10;
+  left: 100%;
+  transition: .5s;
+  bottom: 0;
+}
+
+.upperNavMobile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap
+}
+
+.navBarMobile {
+  padding: 2rem 0;
+  font-size: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 40%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.upperNavInfoMobile svg {
+  width: 100px;
+  height: 100px;
+}
+
+.upperNavInfoMobile {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.upperNavIconTxtMobile {
+  font-size: 2rem;
+  height: min-content;
+  margin: auto .3rem;
+}
+
+
+.socialMediaLinkMobile svg {width: 50px; height: 50px;}
 
 
 
