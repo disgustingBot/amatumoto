@@ -30,7 +30,8 @@
     <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" class=""></path>
     </svg>
-    <p>Search Inventory</p>
+    <!-- <p>Search Inventory</p> -->
+    <input type="text">
   </div>
   <div class="lines"></div>
 </div>
@@ -40,6 +41,7 @@
 
 
 <section class="hotAuctions">
+  <h3 class="hotAuctionsTitle">HOT AUCTIONS</h3>
   <?php
   $args = array(
     'post_type'=>'product',
@@ -47,10 +49,13 @@
   );
   $blogPosts=new WP_Query($args);
   while($blogPosts->have_posts()){$blogPosts->the_post(); ?>
-    <figure class="productCard">
-      <a class="productCardImg rowcol1" href="<?php echo get_permalink(); ?>"><img class="productCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""></a>
-      <figcaption class="productCardCaption">
-        <h5 class="productCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
+    <?php global $product; ?>
+
+    <figure class="hotCard">
+      <a class="hotCardImg rowcol1" href="<?php echo get_permalink(); ?>"><img class="productCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""></a>
+      <figcaption class="hotCardCaption">
+        <h5 class="hotCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
+        <p class="hotCardPrice"><?php echo $product->get_price_html(); ?></p>
       </figcaption>
     </figure>
   <?php } ?>
@@ -77,10 +82,10 @@
   <h5 class="consignSubTitle">LETTTING GO IS HARD, SELLING WITH ___________ IS EASY</h5>
   <button class="consignButton">CONSIGN WITH ___________</button>
   <div class="consignGallery">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/gallery1.png" alt="" class="consignImg">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/gallery2.png" alt="" class="consignImg">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/gallery3.png" alt="" class="consignImg">
-    <img src="<?php echo get_template_directory_uri(); ?>/img/gallery4.png" alt="" class="consignImg">
+    <img class="consignImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery1.png" alt="">
+    <img class="consignImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery2.png" alt="">
+    <img class="consignImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery3.png" alt="">
+    <img class="consignImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery4.png" alt="">
   </div>
 </section>
 

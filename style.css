@@ -30,6 +30,10 @@ Version: 1.0
 6) =COMPONENTES:
 6.1) =header:
 6.2) =carusATF:
+6.3) =searchSeparator:
+6.4) =multiCards:
+6.4.1) =productCard:
+6.4.2) =hotCard:
 
 FIN DE MAPA DE CONTENIDOS */
 
@@ -329,7 +333,7 @@ body{
   grid-gap:1rem;
   grid-auto-flow:column;
   grid-template-columns:1.3fr 1fr 1.3fr;
-  height: 3rem;
+  /* height: 3rem; */
   align-items: center;
   justify-content: center;
   padding: .5rem 0;
@@ -350,55 +354,161 @@ body{
   grid-gap:.5rem;
 }
 
-
-
-
-
-
-
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4) =multiCards:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 
 .hotAuctions{
   display:grid;
   grid-template-columns:1fr 1fr 1fr;
   grid-gap:1rem;
-  padding: 0 4rem;
+  padding:2rem 4rem;
+  margin:2rem 0;
 }
-.productCard{
+.hotAuctionsTitle{
+  grid-column: 1/4;
+  font-size: .7rem;
+  margin-left:-1rem;
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.1) =productCard:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.productCard {
   display: grid;
+  margin:.5rem;
+  grid-template-rows: min-content min-content;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  padding: .3rem .5rem;
 }
-.productCardImg{
+.productCard:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.newArrival{
+  background: #007EFF;
+  color: white;
+  padding: .2rem .4rem;
+  font-size: .6rem;
+}
+.productCardImg {
   width: 100%;
-  height: auto;
+}
+.productCardCaption{
+  font-weight: 100;
+}
+.productCardTitle{
+  font-weight: 300;
+}
+.productCardTxt{
+  font-size: .6rem;
 }
 
 
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.2) =hotCard:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 
+.hotCard{
+  display:grid;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.hotCard:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.hotCardCaption{
+  padding:.5rem;
+  padding-top: 0;
+}
+.hotCardTitle{
+  color: #666;
+  text-align: center;
+  padding:.3rem;
+  margin-bottom: .5rem;
+  margin-top:0;
+  border-bottom: solid 1px #AAA;
+}
+.hotCardPrice{
+  color: #D95D61;
+  font-size:.8rem;
+}
 
-
-
-
-
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.3) =dosMotos:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 
 .dosMotos{
+  align-items: center;
   display: grid;
   grid-template-columns:1fr 1fr;
   padding: 1rem;
   grid-gap:1rem;
+  margin: 2rem 0;
+}
+.dosMotosCaption{
+  padding: 1rem;
+  padding-right: 3rem;
+  display:grid;
 }
 .dosMotosImg{
   width: 100%;
   height: auto;
 }
+.dosMotosTitle{
+  font-size: 2rem;
+  font-weight: 300;
+}
+.dosMotosSubTitle{
+  margin:.5rem 0;
+}
+.dosMotosTxt{
+  font-size: .66rem;
+}
+.dosMotosButton{
+  background:transparent;
+  border:solid 2px black;
+  padding:.4rem 1.4rem;
+  margin: auto;
+  font-weight: 600;
+  margin:.3rem auto;
+}
 
-
-
-
-
-
-
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.5) =consign:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 .consign{
   text-align: center;
+  margin: 2rem 0;
+}
+.consignTitle{
+  font-size: 2rem;
+  font-weight: 300;
+}
+.consignSubTitle{
+  font-size:.63rem;
+  letter-spacing: .095rem;
+  /* font-weight:300; */
+}
+.consignButton{
+  background:transparent;
+  border:solid 2px black;
+  padding:.4rem 1.4rem;
+  font-weight: 600;
+  margin:.8rem auto;
 }
 .consignGallery{
   display:grid;
@@ -526,41 +636,6 @@ body{
 
 
 
-
-/* ---------------------------------------------------------------------------
-------------------------------------------------------------------------------
-                          6.5.02) =producCard:
-------------------------------------------------------------------------------
---------------------------------------------------------------------------- */
-.productCard {
-  display: grid;
-  margin:.5rem;
-  grid-template-rows: min-content min-content;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  padding: .3rem .5rem;
-}
-.productCard:hover{
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-.newArrival{
-  background: #007EFF;
-  color: white;
-  padding: .2rem .4rem;
-  font-size: .6rem;
-}
-.productCardImg {
-  width: 100%;
-}
-.productCardCaption{
-  font-weight: 100;
-}
-.productCardTitle{
-  font-weight: 300;
-}
-.productCardTxt{
-  font-size: .6rem;
-}
 
 
 /* ---------------------------------------------------------------------------
