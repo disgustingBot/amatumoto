@@ -87,9 +87,11 @@ FIN DE MAPA DE CONTENIDOS */
   --navBarMobileDisplay: flex;
   --headerDisplay: flex;
   --mobileNavButtonDisplay: flex;
+  --logoPaddingRight: 5rem;
 
   /* FRONT PAGE */
 
+  --hotAuctionsDisplay: block;
   --dosMotosGridTemplateRows: min-content 1fr;
   --dosMotosGridTemplateColumns: 1fr;
   --consignGalleryGridTemplateColumns: 1fr;
@@ -100,6 +102,7 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAutcionsPadding: 1rem;
   --hotAuctionsPadding: 0;
   --dosMotosMargin: 1rem 0;
+  --hotAuctionsDisplay: grid;
   --hotAuctionsGridTemplateColumns: 1fr;
   --hotAuctionsTitleFontSize: 2rem;
   --hotAuctionsTitleMarginLeft: 0;
@@ -153,6 +156,15 @@ FIN DE MAPA DE CONTENIDOS */
   :root {
   /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - 400px) / (1024 - 400))); */
   --sizeR: calc(calc(var(--sizeRa) * 1px) + (var(--sizeRb) - var(--sizeRa)) * ((100vw - 360px) / (768 - 360)));
+
+  /* HEADER */
+  --logoPaddingRight: 5rem;
+
+
+  /* FRONT PAGE */
+  --hotAuctionsGridTemplateRows: 1fr 1fr 1fr;
+  --hotAuctionsGridTemplateColumns: 1fr;
+  --hotAuctionsDisplay: block;
 }}
 
 /* ---------------------------------------------------------------------------
@@ -163,11 +175,17 @@ FIN DE MAPA DE CONTENIDOS */
 @media screen and (min-width: 576px) {
   :root {
 
+
+
+
     /* FRONT PAGE */
     --searchLinesDisplay: block;
     --searchSeparatorDisplay: grid;
 
     /* FOOTER */
+
+    --characterMargin: .5rem 3rem;
+    --dataFontSize: .8rem;
 
 
 
@@ -187,7 +205,8 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* HEADER */
     --headerGridTemplateColums: 30% 1fr;
-    --logoWidth: 90%;
+    --logoWidth: 70%;
+    --logoPaddingRight: 0;
     --upperNavAlignment: center;
     --navBarMargin: auto 2rem;
     --socialMediaLink: 25px;
@@ -207,7 +226,9 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAutcionsPadding: 2rem 4rem;
     --hotAuctionsPadding: 2rem 0;
     --dosMotosMargin: 2rem 0;
-    --hotAuctionsGridTemplateColumns: 1fr 1fr 1fr;
+    --hotAuctionsMargin: 1rem;
+    --hotAuctionsGridTemplateColumns: 1;
+    --hotAuctionsGridTemplateRows: 1fr;
     --hotAuctionsTitleFontSize: 2rem;
     --hotAuctionsTitleMarginLeft: -1rem;
     --hotAuctionsGridGap: 1rem;
@@ -229,7 +250,7 @@ FIN DE MAPA DE CONTENIDOS */
     --characterContainerPadding: 1rem 4rem;
     --contactContainerDisplay: grid;
     --dataTextAlign: left;
-    --dataPadding: 0;
+    --dataPadding: .4rem;
     --dataWidth: 100%;
     --newsletterMargin: ;
     --characterMargin: ;
@@ -239,6 +260,9 @@ FIN DE MAPA DE CONTENIDOS */
     --characterCaptionP: .5rem;
     --contactContainerFontSize: .6rem;
     --footerContainerDisplay: grid;
+
+
+
   }
 }
 
@@ -251,10 +275,14 @@ FIN DE MAPA DE CONTENIDOS */
   :root {
 
 
+
         /* FOOTER */
         --characterContainerPadding: 0;
         --footerDisplay: grid;
         --lowerFooterDisplay: grid;
+        --dataFontSize: .8rem;
+
+
   }
 }
 
@@ -274,10 +302,13 @@ FIN DE MAPA DE CONTENIDOS */
     --upperNavAlignment: flex-start;
     --navBarMargin: auto 4rem;
     --socialMediaLink: 30px;
+    --hotAuctionsDisplay:grid;
+    --hotAuctionsGridTemplateColumns: 1fr 1fr 1fr;
 
 
     /* FOOTER */
     --footerPadding: 5rem;
+    --characterSvgWidth: 50%;
   }
 }
 
@@ -370,10 +401,9 @@ body{
   grid-row: span 2;
   height: auto;
   margin: auto;
-  margin-left: 2rem;
-  margin-top: 1rem;
   width: 70%;
   object-fit: contain;
+  padding-right: var(--logoPaddingRight);
 }
 
 
@@ -424,6 +454,7 @@ body{
   height: var(--socialMediaLink);
   color: white;
   border-radius: 4px;
+  margin: .5rem;
 }
 
 .socialMediaLink svg {
@@ -457,7 +488,7 @@ body{
   width: 80px;
   height: 60px;
   position: fixed;
-  top: 3rem;
+  top: 2rem;
   right: 2rem;
   z-index: 12;
   justify-content: space-around;
@@ -637,11 +668,12 @@ body{
 --------------------------------------------------------------------------- */
 
 .hotAuctions{
-  display: grid;
+  display: var(--hotAuctionsDisplay);
   grid-template-columns: var(--hotAuctionsGridTemplateColumns);
+  grid-template-rows: var(--hotAuctionsGridTemplateRows);
   grid-gap: var(--hotAuctionsGridGap);
   padding: var(--hotAutcionsPadding);
-  margin: var(--hotAuctionsPadding);
+  margin: var(--hotAuctionsMargin);
 }
 .hotAuctionsTitle{
   grid-column: 1/4;
@@ -699,6 +731,7 @@ body{
   display:grid;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  margin: 1rem;
 }
 .hotCard:hover{
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -809,7 +842,7 @@ body{
 
 .footer {
   display: var(--footerDisplay);
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1fr 2fr;
   padding: var(--footerPadding);
   grid-gap: 1rem;
   flex-wrap: wrap;
@@ -842,10 +875,11 @@ body{
   border: 1px solid #666;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   flex-direction: var(--characterFlexDirection);
   text-align: center;
   font-size: .6rem;
-  padding: .3rem;
+  padding: .3rem 1rem;
   font-family: 'Montserrat', sans-serif;
   width: 100%;
   margin: var(--characterMargin);
@@ -874,6 +908,8 @@ body{
   display:var(--lowerFooterDisplay);
   grid-template-columns: 3fr 1fr;
   flex-wrap: wrap;
+  justify-content: center;
+
 }
 .contactContainer {
   display: var(--contactContainerDisplay);
@@ -881,6 +917,7 @@ body{
   font-size: var(--contactContainerFontSize);
   flex-wrap: wrap;
   justify-content: center;
+  padding: .4rem;
 }
 
 
@@ -889,8 +926,12 @@ body{
   text-align: var(--dataTextAlign);
   padding: var(--dataPadding);
   width: var(--dataWidth);
+  font-size: var(--dataFontSize);
 }
 
+.data h5{
+  font-size: 1rem;
+}
 
 
 
