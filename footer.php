@@ -1,6 +1,6 @@
 
 
-  <!-- <footer class="footer" id="footer">
+  <footer class="footer" id="footer">
     <div class="newsletter">
       <h4 class="newsletterTitle">Newsletter</h4>
       <h5 class="newsletterSubTitle">STAY INFORMED OF OUR NEWS</h5>
@@ -40,7 +40,7 @@
     <div class="lowerFooter">
       <div class="contactContainer">
         <div class="data">
-          <h4>Amatumoto Grand Prix Motorbikes</h4>
+          <h5>Amatumoto Grand Prix Motorbikes</h5>
           <p>Castellbisbal - Barcelona</p>
           <p>Spain</p>
           <a href="">+34 938 364 911</a>
@@ -89,7 +89,7 @@
           </a>
         </div>
     </div>
-  </footer> -->
+  </footer>
   <?php wp_footer(); ?>
 </body>
 </html>
