@@ -169,8 +169,6 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* FOOTER */
 
-    --dataWidth: 50%;
-    --footerContainerDisplay: grid;
 
 
   }
@@ -240,6 +238,7 @@ FIN DE MAPA DE CONTENIDOS */
     --characterCaptionh5: .5rem;
     --characterCaptionP: .5rem;
     --contactContainerFontSize: .6rem;
+    --footerContainerDisplay: grid;
   }
 }
 
@@ -1049,4 +1048,3 @@ body{
 .galleryImgs{
   width: 100%;
 }
-
