@@ -87,6 +87,33 @@ FIN DE MAPA DE CONTENIDOS */
   --navBarMobileDisplay: flex;
   --headerDisplay: flex;
   --mobileNavButtonDisplay: flex;
+
+  /* FRONT PAGE */
+
+  --dosMotosGridTemplateRows: min-content 1fr;
+  --dosMotosGridTemplateColumns: 1fr;
+  --consignGalleryGridTemplateColumns: 1fr;
+  --consignGalleryGridTemplateRows: repeat(4,1fr);
+  --searchLinesDisplay: none;
+  --searchSeparatorDisplay: flex;
+  --searchBox: 100%;
+  --hotAutcionsPadding: 1rem;
+  --hotAuctionsPadding: 0;
+  --dosMotosMargin: 1rem 0;
+  --hotAuctionsGridTemplateColumns: 1fr;
+  --hotAuctionsTitleFontSize: 2rem;
+  --hotAuctionsTitleMarginLeft: 0;
+  --hotAuctionsGridGap: ;
+  --hotAuctionsTextAlign: center;
+  --dosMotosPaddingRight: 1rem;
+  --dosMotosTxt: .9rem;
+  --dosMotosLineHeight: 1.3rem;
+  --dosMotosButtonPadding: 1rem 2rem;
+  --dosMotosButtonMargin: 1rem auto;
+  --dosMotosFontSize: 1.1rem;
+  --dosMotosGridGap: 2rem;
+  --consignMargin: 1rem 0;
+
 }
 
 
@@ -115,7 +142,13 @@ FIN DE MAPA DE CONTENIDOS */
 --------------------------------------------------------------------------- */
 @media screen and (min-width: 576px) {
   :root {
+
+    /* FRONT PAGE */
+    --searchLinesDisplay: block;
+    --searchSeparatorDisplay: grid;
   }
+
+
 }
 
 /* ---------------------------------------------------------------------------
@@ -139,6 +172,29 @@ FIN DE MAPA DE CONTENIDOS */
     --navBarMobileDisplay: none;
     --headerDisplay: grid;
     --mobileNavButtonDisplay: none;
+
+    /* FRONT PAGE */
+    --dosMotosGridTemplateRows: 1fr;
+    --dosMotosGridTemplateColumns: 1fr 1fr;
+    --consignGalleryGridTemplateColumns: repeat(4,1fr);
+    --consignGalleryGridTemplateRows: 1fr;
+    --searchBox: ;
+    --hotAutcionsPadding: 2rem 4rem;
+    --hotAuctionsPadding: 2rem 0;
+    --dosMotosMargin: 2rem 0;
+    --hotAuctionsGridTemplateColumns: 1fr 1fr 1fr;
+    --hotAuctionsTitleFontSize: 2rem;
+    --hotAuctionsTitleMarginLeft: -1rem;
+    --hotAuctionsGridGap: 1rem;
+    --hotAuctionsTextAlign: left;
+    --dosMotosPaddingRight: 3rem;
+    --dosMotosTxt: .66rem;
+    --dosMotosLineHeight: 1.1rem;
+    --dosMotosButtonPadding: .4rem 1.4rem;
+    --dosMotosButtonMargin: .3rem auto;
+    --dosMotosFontSize: .8rem;
+    --dosMotosGridGap: 1rem;
+    --consignMargin: 2rem 0;
   }
 }
 
@@ -479,7 +535,7 @@ body{
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .searchSeparator{
-  display:grid;
+  display: var(--searchSeparatorDisplay);
   grid-gap:1rem;
   grid-auto-flow:column;
   grid-template-columns:1.3fr 1fr 1.3fr;
@@ -492,6 +548,7 @@ body{
   width: 100%;
   box-shadow: 0 0 4px 0 #666;
   height: .2rem;
+  display: var(--searchLinesDisplay);
 }
 /* TODO: hacer bien el search */
 .searchBox{
@@ -499,9 +556,14 @@ body{
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: 50px 1fr;
-  padding: .5rem;
   align-items: center;
   grid-gap:.5rem;
+  width: var(--searchBox);
+}
+
+.searchInput {
+  height: 100%;
+  font-size: 1.5rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -511,16 +573,17 @@ body{
 --------------------------------------------------------------------------- */
 
 .hotAuctions{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  grid-gap:1rem;
-  padding:2rem 4rem;
-  margin:2rem 0;
+  display: grid;
+  grid-template-columns: var(--hotAuctionsGridTemplateColumns);
+  grid-gap: var(--hotAuctionsGridGap);
+  padding: var(--hotAutcionsPadding);
+  margin: var(--hotAuctionsPadding);
 }
 .hotAuctionsTitle{
   grid-column: 1/4;
-  font-size: .7rem;
-  margin-left:-1rem;
+  font-size: var(--hotAuctionsTitleFontSize);
+  margin-left: var(--hotAuctionsTitleMarginLeft);
+  text-align: var(--hotAuctionsTextAlign);
 }
 
 /* ---------------------------------------------------------------------------
@@ -602,14 +665,15 @@ body{
 .dosMotos{
   align-items: center;
   display: grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns: var(--dosMotosGridTemplateColumns);
+  grid-template-rows: var(--dosMotosGridTemplateRows);
   padding: 1rem;
-  grid-gap:1rem;
-  margin: 2rem 0;
+  grid-gap: var(--dosMotosGridGap);
+  margin: var(--dosMotosMargin);
 }
 .dosMotosCaption{
   padding: 1rem;
-  padding-right: 3rem;
+  padding-right: var(--dosMotosPaddingRight);
   display:grid;
 }
 .dosMotosImg{
@@ -624,15 +688,16 @@ body{
   margin:.5rem 0;
 }
 .dosMotosTxt{
-  font-size: .66rem;
+  font-size: var(--dosMotosTxt);
+  line-height: var(--dosMotosLineHeight);
 }
 .dosMotosButton{
   background:transparent;
   border:solid 2px black;
-  padding:.4rem 1.4rem;
-  margin: auto;
+  padding: var(--dosMotosButtonPadding);
+  margin: var(--dosMotosButtonMargin);
   font-weight: 600;
-  margin:.3rem auto;
+  font-size: var(--dosMotosFontSize);
 }
 
 /* ---------------------------------------------------------------------------
@@ -640,9 +705,10 @@ body{
                           6.5) =consign:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-.consign{
+.consign {
   text-align: center;
-  margin: 2rem 0;
+  margin: var(--consignMargin);
+  padding: 1rem;
 }
 .consignTitle{
   font-size: 2rem;
@@ -662,7 +728,8 @@ body{
 }
 .consignGallery{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns: var(--consignGalleryGridTemplateColumns);
+  grid-template-rows: var(--consignGalleryGridTemplateRows);
   grid-gap:.5rem;
   padding: .5rem;
   align-items: center;
