@@ -39,3 +39,12 @@ const alternateMobileMenu=()=> {
     navBar.classList.add("menuActive")
   }
 }
+
+
+
+
+
+const gallerySingle=(a)=>{
+  c.log(a)
+  d.getElementById("galleryMain").src = a;
+}
