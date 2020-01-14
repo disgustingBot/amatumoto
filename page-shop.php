@@ -44,6 +44,11 @@
 
   </div>
 
+  <div class="pagination">
+    <?php echo paginate_links(); ?>
+    <h1>ggg</h1>
+  </div>
+
 
 
   <section class="consign">
