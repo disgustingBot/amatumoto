@@ -1,6 +1,6 @@
 
 
-  <footer class="footer" id="footer">
+  <!-- <footer class="footer" id="footer">
     <div class="newsletter">
       <h4 class="newsletterTitle">Newsletter</h4>
       <h5 class="newsletterSubTitle">STAY INFORMED OF OUR NEWS</h5>
@@ -89,7 +89,7 @@
           </a>
         </div>
     </div>
-  </footer>
+  </footer> -->
   <?php wp_footer(); ?>
 </body>
 </html>
