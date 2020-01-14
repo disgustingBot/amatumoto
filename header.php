@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="header loading" id="header">
+  <!-- <header class="header loading" id="header">
     <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo" class="logo">
     <nav class="upperNav">
       <div class="socialMedia">
@@ -102,7 +102,7 @@
 
     <nav class="mobileNav" id="mobileNav">
       <div class="navBarMobile">
-        <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>" class="navBarLink">INVENTORY</a>
+        <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>" class="navBarLinkMobile">INVENTORY</a>
         <a href="" class="navBarLinkMobile">PARTS & RACING PRODUCTS</a>
         <a href="" class="navBarLinkMobile">THE GARAGE</a>
         <a href="" class="navBarLinkMobile">SERVICES</a>
@@ -111,9 +111,10 @@
       <div class="upperNavMobile">
 
 
+
         <a href="" class="mailMobile upperNavInfoMobile">
           <svg class="upperNavIconMobile" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-          <p class="upperNavIconTxtMobile">motorsport@amatumoto.com</p>
+          <p class="upperNavIconTxtMobile">Write Us</p>
         </a>
         <a href="" class="langButtonMobile upperNavInfoMobile">
           <svg class="upperNavIconMobile" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -194,4 +195,4 @@
       <div class="navStripe"></div>
       <div class="navStripe"></div>
     </div>
-  </header>
+  </header> -->
