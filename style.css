@@ -1006,19 +1006,27 @@ body{
 
 
 
+
+
+
+
+
+
 .single{
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 3fr;
   grid-auto-rows: min-content;
-  grid-gap:.8rem;
-  padding: 1rem 2rem;
+  grid-gap:4rem;
+  padding: 1rem 4rem;
+  margin-top:120px;
 }
 .singleSide{
   display: grid;
   grid-gap:.5rem;
 }
 .singleSideTitle{
-  font-weight: 200;
+  font-weight: 300;
+  font-size: 1.8rem;
 }
 .singleSidePrice,.singleSideStock,.singleSideCond,.singleSideData{
   font-weight: 200;
@@ -1036,15 +1044,52 @@ body{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .galleryMain{
   width: 100%;
+  height: 350px;
 }
 .galleryStock{
   display: grid;
-  grid-template-columns:repeat(8, 1fr);
-  grid-gap:1rem;
+  grid-template-columns:repeat(10, 1fr);
+  grid-gap:.2rem;
   grid-row-gap:.3rem;
+  overflow: hidden;
+  height: 3rem;
+  position: relative;
 }
 .galleryImgs{
   width: 100%;
+  cursor:pointer;
+  transition: .3s ease-in-out;
+  position: relative;
+  z-index: 0;
+  cursor:pointer;
+}
+.galleryImgs:hover{
+  /* margin:-.5rem; */
+  /* width: 100%; */
+  /* width: calc(100% + 1rem); */
+  /* z-index: 2; */
+}
+.galleryFade{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background:linear-gradient( rgba(0,0,0,0) 50%, rgba(255,255,255,1));
 }
