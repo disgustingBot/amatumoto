@@ -1,0 +1,6 @@
+
+/* ESTO es para que el editor de bloques Gutenberg sea WIDE!!! */
+body.gutenberg-editor-page .editor-post-title__block,
+body.gutenberg-editor-page .editor-default-block-appender,
+body.gutenberg-editor-page .editor-block-list__block,
+.block-editor__container .wp-block{max-width:none!important}

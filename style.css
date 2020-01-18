@@ -94,8 +94,8 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAuctionsDisplay: block;
   --dosMotosGridTemplateRows: min-content 1fr;
   --dosMotosGridTemplateColumns: 1fr;
-  --consignGalleryGridTemplateColumns: 1fr;
-  --consignGalleryGridTemplateRows: repeat(4, min-content);
+  --consignSectionGalleryGridTemplateColumns: 1fr;
+  --consignSectionGalleryGridTemplateRows: repeat(4, min-content);
   --searchLinesDisplay: none;
   --searchSeparatorDisplay: flex;
   --searchBox: 100%;
@@ -109,14 +109,15 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAuctionsGridGap: ;
   --hotAuctionsTextAlign: center;
   --dosMotosPaddingRight: 1rem;
-  --dosMotosTxt: .9rem;
-  --dosMotosLineHeight: 1.3rem;
+  --mainTxtType1FontSize: .9rem;
+  --maintTxtType1LineHeight: 1.3rem;
+  --mainTxtType1TextA: justify;
   --dosMotosButtonPadding: 1rem 2rem;
   --dosMotosButtonMargin: 1rem auto;
   --dosMotosFontSize: 1.1rem;
   --dosMotosGridGap: 2rem;
-  --consignMargin: 1rem 0;
-  --consignGalleryWidth: 80%;
+  --consignSectionMargin: 1rem 0;
+  --consignSectionGalleryWidth: 80%;
 
   /* FOOTER */
 
@@ -137,7 +138,15 @@ FIN DE MAPA DE CONTENIDOS */
   --characterCaptionh5: .8rem;
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
+
+  /* ESTRUCTURA */
+  --mainContentMargin: 0 2rem;
+  --consignmentSingleStepMarginB: 2rem;
+  --consignmentStepsTextAlign: center;
 }
+
+
+
 
 
 /* ---------------------------------------------------------------------------
@@ -220,8 +229,8 @@ FIN DE MAPA DE CONTENIDOS */
     /* FRONT PAGE */
     --dosMotosGridTemplateRows: 1fr;
     --dosMotosGridTemplateColumns: 1fr 1fr;
-    --consignGalleryGridTemplateColumns: repeat(4,1fr);
-    --consignGalleryGridTemplateRows: 1fr;
+    --consignSectionGalleryGridTemplateColumns: repeat(4,1fr);
+    --consignSectionGalleryGridTemplateRows: 1fr;
     --searchBox: ;
     --hotAutcionsPadding: 2rem 4rem;
     --hotAuctionsPadding: 2rem 0;
@@ -234,14 +243,15 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAuctionsGridGap: 1rem;
     --hotAuctionsTextAlign: left;
     --dosMotosPaddingRight: 3rem;
-    --dosMotosTxt: .66rem;
-    --dosMotosLineHeight: 1.1rem;
+    --mainTxtType1FontSize: .66rem;
+    --maintTxtType1LineHeight: 1.1rem;
+    --mainTxtType1TextA: left;
     --dosMotosButtonPadding: .4rem 1.4rem;
     --dosMotosButtonMargin: .3rem auto;
     --dosMotosFontSize: .8rem;
     --dosMotosGridGap: 1rem;
-    --consignMargin: 2rem 0;
-    --consignGalleryWidth: 100%;
+    --consignSectionMargin: 2rem 0;
+    --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
 
     /* FOOTER */
@@ -260,6 +270,10 @@ FIN DE MAPA DE CONTENIDOS */
     --characterCaptionP: .5rem;
     --contactContainerFontSize: .6rem;
     --footerContainerDisplay: grid;
+
+    /* ESTRUCTURA */
+    --consignmentStepsTextAlign: left;
+
 
 
 
@@ -281,6 +295,12 @@ FIN DE MAPA DE CONTENIDOS */
         --footerDisplay: grid;
         --lowerFooterDisplay: grid;
         --dataFontSize: .8rem;
+
+        /* ESTRUCTURA */
+        --mainContentMargin: 0 5rem;
+        --consignmentSingleStepMarginB: 0;
+
+
 
 
   }
@@ -324,13 +344,6 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
-
-
-
-
-
-
-
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               3) =TIPOGRAFIAS:
@@ -352,6 +365,10 @@ body{
   display: grid;
   font-family: 'Roboto', sans-serif;
 }
+
+body:after {
+  content: ' ';
+}
  img{object-fit:cover}
 
  a{
@@ -371,6 +388,12 @@ body{
 .flex2>*{flex:2 1 calc(50% - 1rem)}
 .flex3>*{flex:3 1 calc(33% - 1rem)}
 .flex4>*{flex:4 1 calc(25% - 1rem)}
+
+main {
+  margin: var(--mainContentMargin);
+}
+
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -392,7 +415,8 @@ body{
   width: 100%;
   background: white;
   z-index: 10;
-  position: fixed;
+  position: sticky;
+  top: 0;
   align-items: flex-end;
 }
 
@@ -603,7 +627,6 @@ body{
   height: 70vh;
   overflow: hidden;
   width: 100%;
-  margin-top:120px;
 }
 
 .carus{
@@ -777,17 +800,19 @@ body{
   width: 100%;
   height: auto;
 }
-.dosMotosTitle{
+.titleType1{
   font-size: 2rem;
   font-weight: 300;
 }
-.dosMotosSubTitle{
+.subtitleType1{
   margin:.5rem 0;
 }
-.dosMotosTxt{
-  font-size: var(--dosMotosTxt);
-  line-height: var(--dosMotosLineHeight);
+.mainTxtType1{
+  font-size: var(--mainTxtType1FontSize);
+  line-height: var(--maintTxtType1LineHeight);
+  text-align: var(--mainTxtType1TextA);
 }
+
 .dosMotosButton{
   background:transparent;
   border:solid 2px black;
@@ -799,44 +824,44 @@ body{
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
-                          6.5) =consign:
+                          6.5) =consignSection:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-.consign {
+.consignSection {
   text-align: center;
-  margin: var(--consignMargin);
+  margin: var(--consignSectionMargin);
   padding: 1rem;
 }
-.consignTitle{
+.consignSectionTitle{
   font-size: 2rem;
   font-weight: 300;
 }
-.consignSubTitle{
+.consignSectionSubTitle{
   font-size:.63rem;
   letter-spacing: .095rem;
   /* font-weight:300; */
 }
-.consignButton{
+.consignSectionButton{
   background:transparent;
   border:solid 2px black;
   padding:.4rem 1.4rem;
   font-weight: 600;
   margin:.8rem auto;
 }
-.consignGallery{
+.consignSectionGallery{
   display:grid;
-  grid-template-columns: var(--consignGalleryGridTemplateColumns);
-  grid-template-rows: var(--consignGalleryGridTemplateRows);
+  grid-template-columns: var(--consignSectionGalleryGridTemplateColumns);
+  grid-template-rows: var(--consignSectionGalleryGridTemplateRows);
   grid-gap:.5rem;
   padding: .5rem;
   align-items: center;
-  width: var(--consignGalleryWidth);
+  width: var(--consignSectionGalleryWidth);
   margin: auto;
 }
-.consignImg{
+.consignSectionImg{
   width:100%;
   height:auto;
-  padding: var(--consignImgWidth);
+  padding: var(--consignSectionImgWidth);
 }
 
 
@@ -941,7 +966,6 @@ body{
   color: white;
   background: linear-gradient(135deg, rgba(0,0,0,1), rgba(0,0,0,0));
   height: 5rem;
-  margin-top: 120px;
 }
 .inventoryImg{
   width: 100%;
@@ -1020,39 +1044,7 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* SINGLE */
 
 
 .single{
@@ -1061,7 +1053,6 @@ body{
   grid-auto-rows: min-content;
   grid-gap:4rem;
   padding: 1rem 4rem;
-  margin-top:120px;
 }
 .singleSide{
   display: grid;
@@ -1089,7 +1080,30 @@ body{
 
 
 
+/* CONSIGNMENT PAGE */
 
+.consignmentSteps {
+  margin-top: 2rem;
+}
+
+.consignmentSteps figcaption {
+  margin: 2rem 0;
+}
+
+.consignmentSteps figcaption {
+  text-align: center;
+  margin: .5rem 0;
+}
+
+
+.consignmentSteps img {
+  height: 100px;
+}
+
+
+.wp-block-image {
+  margin-bottom: 0;
+}
 
 
 
@@ -1136,4 +1150,75 @@ body{
   height: 100%;
   pointer-events: none;
   background:linear-gradient( rgba(0,0,0,0) 50%, rgba(255,255,255,1));
+}
+
+
+
+.consignSectionmentSection1 {
+  margin-top: 2rem;
+}
+
+.consignmentSingleStep {
+  margin-bottom: var(--consignmentSingleStepMarginB);
+  text-align: var(--consignmentStepsTextAlign);
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.consignmentSingleStep:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.bottomConsignmentTxt {
+  margin-bottom: 2rem;
+}
+
+#wpcf7-f124-p96-o1 .wpcf7-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wpcf7-form > * {
+  margin: 1rem;
+  width: calc(50% - 2rem);
+}
+
+.consignmentTitle1 {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.consignmentTitle2 {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.consignmentTextArea {
+  width: 100%;
+}
+
+.consignmentFormTxt {
+  width: 100%;
+}
+
+#wpcf7-f124-p96-o1 p:nth-last-child(3) {
+  width: 100%;
+}
+
+
+#wpcf7-f124-p96-o1 p:nth-last-child(2) {
+  width: min-content;
+    margin: auto;
+}
+
+
+#wpcf7-f124-p96-o1 .wpcf7-form p label {
+  font-size: .7rem;
+}
+
+#wpcf7-f124-p96-o1 .wpcf7-form input {
+  height: 100%;
+  width: 100%;
+  font-size: .7rem;
 }
