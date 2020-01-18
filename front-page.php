@@ -66,9 +66,9 @@
 <section class="dosMotos">
   <img class="dosMotosImg" src="<?php echo get_template_directory_uri(); ?>/img/dosMotos.png" alt="">
   <div class="dosMotosCaption">
-    <h4 class="dosMotosTitle">Unparalleled Quality</h4>
-    <h5 class="dosMotosSubTitle">A COLLECTION OF ONLY THE EXTRAORDINARY</h5>
-    <p class="dosMotosTxt">Amatumoto is a prestigious company specializing in the sale motorcycle of Grand Prix and exclusive models. We have been recognized for selling very exclusive motorcycles as well as working with great collectors, museums and world championship teams. <br> <br>
+    <h4 class="titleType1">Unparalleled Quality</h4>
+    <h5 class="subtitleType1">A COLLECTION OF ONLY THE EXTRAORDINARY</h5>
+    <p class="mainTxtType1">Amatumoto is a prestigious company specializing in the sale motorcycle of Grand Prix and exclusive models. We have been recognized for selling very exclusive motorcycles as well as working with great collectors, museums and world championship teams. <br> <br>
       We offer the ultimate motorbike services experience, providing personal attention to each client that generates our existing success in sales. We are proud that we are able to share our passion for special bikes with a select group of people, our customers. Enter the world of Amatumoto!</p>
     <button class="dosMotosButton">VIRTUAL TOUR</button>
   </div>
@@ -77,15 +77,15 @@
 
 
 
-<section class="consign">
-  <h3 class="consignTitle">World Class Consignment</h3>
-  <h5 class="consignSubTitle">LETTTING GO IS HARD, SELLING WITH ___________ IS EASY</h5>
-  <button class="consignButton">CONSIGN WITH ___________</button>
-  <div class="consignGallery">
-    <img class="consignImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery1.png" alt="">
-    <img class="consignImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery2.png" alt="">
-    <img class="consignImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery3.png" alt="">
-    <img class="consignImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery4.png" alt="">
+<section class="consignSection">
+  <h3 class="consignSectionTitle">World Class consignSectionment</h3>
+  <h5 class="consignSectionSubTitle">LETTTING GO IS HARD, SELLING WITH ___________ IS EASY</h5>
+  <button class="consignSectionButton">consignSection WITH ___________</button>
+  <div class="consignSectionGallery">
+    <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery1.png" alt="">
+    <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery2.png" alt="">
+    <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery3.png" alt="">
+    <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery4.png" alt="">
   </div>
 </section>
 
