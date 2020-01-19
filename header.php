@@ -15,7 +15,7 @@
 
   <header class="header loading" id="header">
     <a href="<?php echo site_url('');  ?>" class="logo">
-      <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo" class="logo">
+      <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo" class="logoImg">
     </a>
     <nav class="upperNav">
       <div class="socialMedia">
