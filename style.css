@@ -143,6 +143,15 @@ FIN DE MAPA DE CONTENIDOS */
   --mainContentMargin: 0 2rem;
   --consignmentSingleStepMarginB: 2rem;
   --consignmentStepsTextAlign: center;
+
+  /* FORMULARIO */
+
+    --formInputWidth: 100%;
+
+  /* CONSIGNMENT */
+
+  --consignmentOrder1: 1;
+  --consignmentOrder2: 2;
 }
 
 
@@ -182,6 +191,8 @@ FIN DE MAPA DE CONTENIDOS */
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 @media screen and (min-width: 576px) {
+
+
   :root {
 
 
@@ -196,6 +207,10 @@ FIN DE MAPA DE CONTENIDOS */
     --characterMargin: .5rem 3rem;
     --dataFontSize: .8rem;
 
+    /* ESTRUCTURA */
+
+    /* FORMULARIO */
+    --formInputWidth: calc(50% - 2rem);
 
 
   }
@@ -273,6 +288,12 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* ESTRUCTURA */
     --consignmentStepsTextAlign: left;
+
+    /* CONSIGNMENT */
+    --consignmentOrder1: auto;
+    --consignmentOrder2: auto;
+
+
 
 
 
@@ -360,10 +381,11 @@ FIN DE MAPA DE CONTENIDOS */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
+
 }
 body{
   display: grid;
-  font-family: 'Roboto', sans-serif;
 }
 
 body:after {
@@ -391,6 +413,8 @@ body:after {
 
 main {
   margin: var(--mainContentMargin);
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -1086,6 +1110,10 @@ main {
   margin-top: 2rem;
 }
 
+.consignmentSteps:nth-child(1){order: 3;}
+.consignmentSteps:nth-child(2){order: 4;}
+
+
 .consignmentSteps figcaption {
   margin: 2rem 0;
 }
@@ -1154,8 +1182,9 @@ main {
 
 
 
-.consignSectionmentSection1 {
+.consignmentSection1 {
   margin-top: 2rem;
+  order: var(--consignmentOrder1);
 }
 
 .consignmentSingleStep {
@@ -1179,9 +1208,14 @@ main {
   flex-wrap: wrap;
 }
 
+#wpcf7-f124-p96-o1 {
+  order: var(--consignmentOrder2);
+}
+
 .wpcf7-form > * {
   margin: 1rem;
-  width: calc(50% - 2rem);
+  width: var(--formInputWidth);
+  height: min-content;
 }
 
 .consignmentTitle1 {
@@ -1209,7 +1243,7 @@ main {
 
 #wpcf7-f124-p96-o1 p:nth-last-child(2) {
   width: min-content;
-    margin: auto;
+  margin: auto;
 }
 
 
@@ -1218,7 +1252,7 @@ main {
 }
 
 #wpcf7-f124-p96-o1 .wpcf7-form input {
-  height: 100%;
-  width: 100%;
   font-size: .7rem;
+  width: 100%;
+  padding: .5rem;
 }

@@ -45,11 +45,3 @@ function excerpt($charNumber){
     return $result;
   }
 }
-
-
-// Backoffice Stylesheet
-
-function initialization() { // phpcs:ignore
- wp_enqueue_style('backoffice', get_stylesheet_uri(), NULL, microtime(), 'all');
-}
-add_action( 'init', 'initialization' );

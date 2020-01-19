@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 
+<?php while(have_posts()){the_post();the_content();} ?>
+
+
 <section class="carusATF">
 <?php
   $args=array(
@@ -78,9 +81,9 @@
 
 
 <section class="consignSection">
-  <h3 class="consignSectionTitle">World Class consignSectionment</h3>
-  <h5 class="consignSectionSubTitle">LETTTING GO IS HARD, SELLING WITH ___________ IS EASY</h5>
-  <button class="consignSectionButton">consignSection WITH ___________</button>
+  <h3 class="consignSectionTitle">World Class consignment</h3>
+  <h5 class="consignSectionSubTitle">LETTTING GO IS HARD, SELLING WITH amatumoto.com IS EASY</h5>
+  <button class="consignSectionButton">consignSection WITH amatumoto.com</button>
   <div class="consignSectionGallery">
     <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery1.png" alt="">
     <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery2.png" alt="">
