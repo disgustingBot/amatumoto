@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 </head>
-<body>
+<body <?php body_class(); ?>>
   <header class="header loading" id="header">
     <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo" class="logo">
     <nav class="upperNav">

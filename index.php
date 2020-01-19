@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
-<?php
+<h1>index.php</h1>
 
+<?php
 $args = array(
   // 'post_type' => 'project',
   'post_type' => 'post',
