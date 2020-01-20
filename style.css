@@ -29,6 +29,7 @@ Version: 1.0
 
 6) =COMPONENTES:
 6.1) =header:
+6.1.1) =tapaHeader:
 6.2) =carusATF:
 6.3) =searchSeparator:
 6.4) =multiCards:
@@ -101,6 +102,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
+
   /* FRONT PAGE */
 
   --hotAuctionsDisplay: block;
@@ -130,6 +132,19 @@ FIN DE MAPA DE CONTENIDOS */
   --dosMotosGridGap: 2rem;
   --consignSectionMargin: 1rem 0;
   --consignSectionGalleryWidth: 80%;
+
+  /* ABOUT US */
+
+  --aboutSectionFlexDirection: column;
+
+
+  /* SERVICES */
+
+  --serviceDisplayDisplay: grid;
+  --serviceDisplayGridTemplateRows: 1fr;
+  --serviceDisplayGridTemplateColumns: 1fr;
+  --serviceCardWidth: 100%;
+
 
   /* FOOTER */
 
@@ -281,6 +296,15 @@ FIN DE MAPA DE CONTENIDOS */
     --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
 
+    /* ABOUT US */
+
+
+    /* SERVICES */
+
+    --serviceDisplayGridTemplateColumns: 1fr 1fr;
+
+
+
     /* FOOTER */
 
     --footerPadding: 2rem;
@@ -324,6 +348,12 @@ FIN DE MAPA DE CONTENIDOS */
         --lowerFooterDisplay: grid;
         --dataFontSize: .8rem;
 
+        /* ABOUT US */
+
+          --aboutSectionFlexDirection: ;
+
+        /* SERVICES */
+
         /* ESTRUCTURA */
         --mainContentMargin: 0 5rem;
         --consignmentSingleStepMarginB: 0;
@@ -348,6 +378,8 @@ FIN DE MAPA DE CONTENIDOS */
     --socialMediaLink: 30px;
     --hotAuctionsDisplay:grid;
     --hotAuctionsGridTemplateColumns: 1fr 1fr 1fr;
+
+    /* ABOUT US */
 
 
     /* FOOTER */
@@ -507,6 +539,10 @@ main {
   top: 0;
   align-items: flex-end;
 }
+
+
+
+
 
 .logo {
   display: flex;
@@ -677,7 +713,9 @@ main {
   border-radius: 50%;
 }
 
+
 .socialMediaLinkMobile svg {width: 35px; height: 35px;}
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -860,7 +898,119 @@ main {
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
+                          6.4.4) =aboutSection:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+
+.aboutSection{
+  display: flex;
+  margin: 1.5rem;
+  flex-direction: var(--aboutSectionFlexDirection);
+  align-items: center;
+}
+
+.aboutSection .wp-block-column{
+  width: 100%;
+  margin: 0!important;
+}
+
+.aboutSectionText{
+  font-size: .8rem;
+}
+
+.aboutSectionTitle{
+  margin: 1.5rem 0;
+}
+
+.aboutSectionGallery{
+  margin: 1.5rem 0;
+}
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.4) =servicesSection:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.serviceDisplay{
+  display: grid;
+  grid-template-rows: var(--serviceDisplayGridTemplateRows);
+  grid-template-columns: var(--serviceDisplayGridTemplateColumns);
+
+  grid-gap: 1.5rem;
+  justify-items: center;
+
+}
+
+.serviceDisplay .wp-block-column{
+  margin: 0 1rem;
+  margin: 2rem 2rem;
+}
+
+
+
+.serviceCard{
+  max-width: 600px;
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: box-shadow .4s;
+
+}
+.serviceCard.alt {
+  background: red;
+}
+
+.serviceCard:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+.serviceCard .wp-block-columns{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  margin: 0;
+}
+
+
+.serviceCard .wp-block-columns .wp-block-column{
+  margin: auto;
+}
+
+.serviceTitle{
+  margin: 0.2rem .2rem;
+
+}
+
+
+.serviceImg{
+  width: 100%;
+  margin: 0;
+
+}
+
+.serviceImg img{
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  min-height: 180px;
+  border-radius: 4px 4px 0 0;
+}
+
+.serviceButtonContact{
+  word-break: normal;
+  margin: .5rem .5rem;
+
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+
                           6.5) =consignSection:
+
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .consignSection {
@@ -1021,6 +1171,11 @@ main {
   border:none;
   width: 50px;
   height:50px;
+  /* margin-left:3rem; */
+
+  margin-right:.3rem;
+  border-right:2px solid #E9E9E9;
+  padding-right:.3rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1071,32 +1226,205 @@ main {
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .filterBar{
-  display:grid;
+  /* display:grid; */
   align-items: center;
-  grid-auto-flow:column;
-  padding: .3rem 1rem;
+  /* grid-auto-flow:column; */
+  grid-template-rows:50px;
+  padding: .3rem 0;
+}
+.filterBarTop{
+  padding: .3rem 2.5rem;
+  width:100%;
+  display:grid;
+  grid-template-columns: min-content 1fr max-content max-content max-content;
 }
 .filterBarSearch{
   padding: .5rem;
   border: 2px solid #E9E9E9;
+  width: 100%;
 }
 .filterBarLink{
   text-transform: uppercase;
+  font-size: .6rem;
+  padding: .4rem 1rem;
+  color:#464646;
+  transition:.3s;
+}
+.filterBarLink:hover{
+  text-transform: uppercase;
+  padding: .4rem 1rem;
+  color:#FCAF4A;
+}
+.filterBarBotttom{
+  align-items: center;
+  background: #F4F4F4;
+  display: grid;
+  /* grid-auto-flow:column; */
+  grid-template-columns:repeat(6,1fr);
+  grid-row:2;
+  grid-column:1/6;
+  grid-gap:1rem;
+  border-top:2px solid #DDDDDD;
+  height: 0;
+  overflow: hidden;
+  padding:0 2.5rem;
+  /* transition-duration: .6s, .6s, 0;
+  transition-property: height, padding, overflow;
+  transition-delay: 0, 0, .6s; */
+  transition:.6s;
+  width: 100%;
+}
+.alt .filterBarBotttom{
+  animation: filterBarExpand 1s forwards;
+  /* height:calc(4.5rem + 2px); */
+  /* padding:1rem 2.5rem; */
+  /* position: relative; */
+  /* overflow:visible; */
+  /* z-index: 0; */
+}
+@keyframes filterBarExpand {
+  to{
+    /* background: red; */
+    height:calc(4.5rem + 2px);
+    padding:1rem 2.5rem;
+    position: relative;
+    overflow:visible;
+    z-index: 0;
+  }
+}
+.filterBarSelect{
+  padding: .3rem 1rem;
+  color:#222;
+  border:none;
+  /* border:1px solid #333; */
+  border:1px solid transparent;
+  transition: .6s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.filterBarSelect:focus{
+  border:1px solid #333;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  outline: none;
+}
+.filterBarOption{
+  padding: .5rem 1rem;
+  margin: .5rem 1rem;
+  color:#333;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.filterBarOption:checked{
+  display:none;
+}
 
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.8) =selectBox:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.selectBox{
+  --selectBoxHeight:2.5rem;
+  display: grid;
+  align-items: center;
+  grid-template-rows: var(--selectBoxHeight);
+  width:100%;
+  position: relative;
+}
+
+
+.selectBoxButton{
+  background: white;
+  border-radius:4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color:#333;
+  cursor: pointer;
+  display:grid;
+  grid-row:1;
+  grid-column:1;
+  height: var(--selectBoxHeight);
+  position: relative;
+  transition:.4s;
+  width:100%;
+}
+
+.selectBoxPlaceholder{
+  font-size: 1rem;
+  height:1rem;
+  line-height:1rem;
+  left:16px;
+  position: absolute;
+  top:calc(50% - .5rem);
+  transition:.3s;
+  transform-origin:left;
+}
+.selectBoxCurrent{
+  padding:20px 52px 4px 16px;
+  position: relative;
+  border-bottom:2px solid #666;
+}
+.selectBoxCurrent::after{
+  content:'';
+  position:absolute;
+  bottom:-2px;
+  left:0;
+  width: 100%;
+  transform-origin: center;
+  transform: scaleX(0);
+  height: 2px;
+  transition:.2s;
+  background: #555;
+}
+.selectBox:focus{
+  outline:none;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.selectBox:focus .selectBoxCurrent::after{
+  background:black;
+  transform:scaleX(1);
+}
+.selectBox:focus .selectBoxPlaceholder{
+  transform:translateY(-70%) scale(.6);
 }
 
 
 
 
 
+.selectBoxList{
+  width:100%;
+  /* display: none; */
+  position: absolute;
+  pointer-events: none;
+  opacity:0;
+  top:0;
+  left:0;
+  transition:.3s;
+  transition-delay:.2s;
+  z-index: 10;
+  right:0;
+}
+.selectBox:focus .selectBoxList{
+  opacity:1;
+  top:2.5rem;
 
+}
+.selectBoxOption{
 
+}
+.selectBoxInput{
+  display: none;
+}
+.selectBoxOption:hover{
+  background: #AAA;
+}
+.selectBoxCurrent:focus + .selectBoxList{
+  /* margin-top:-200px; */
+  transform: translateY(calc(-20px - 50%));
+  background: red;
+  transition: .7s;
 
-
-
-
-
-
+}
 
 
 
