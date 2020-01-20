@@ -29,6 +29,7 @@ Version: 1.0
 
 6) =COMPONENTES:
 6.1) =header:
+6.1.1) =tapaHeader:
 6.2) =carusATF:
 6.3) =searchSeparator:
 6.4) =multiCards:
@@ -101,6 +102,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
+
   /* FRONT PAGE */
 
   --hotAuctionsDisplay: block;
@@ -130,6 +132,19 @@ FIN DE MAPA DE CONTENIDOS */
   --dosMotosGridGap: 2rem;
   --consignSectionMargin: 1rem 0;
   --consignSectionGalleryWidth: 80%;
+
+  /* ABOUT US */
+
+  --aboutSectionFlexDirection: column;
+
+
+  /* SERVICES */
+
+  --serviceDisplayDisplay: grid;
+  --serviceDisplayGridTemplateRows: 1fr;
+  --serviceDisplayGridTemplateColumns: 1fr;
+  --serviceCardWidth: 100%;
+
 
   /* FOOTER */
 
@@ -281,6 +296,15 @@ FIN DE MAPA DE CONTENIDOS */
     --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
 
+    /* ABOUT US */
+
+
+    /* SERVICES */
+
+    --serviceDisplayGridTemplateColumns: 1fr 1fr;
+
+
+
     /* FOOTER */
 
     --footerPadding: 2rem;
@@ -324,6 +348,12 @@ FIN DE MAPA DE CONTENIDOS */
         --lowerFooterDisplay: grid;
         --dataFontSize: .8rem;
 
+        /* ABOUT US */
+
+          --aboutSectionFlexDirection: ;
+
+        /* SERVICES */
+
         /* ESTRUCTURA */
         --mainContentMargin: 0 5rem;
         --consignmentSingleStepMarginB: 0;
@@ -348,6 +378,8 @@ FIN DE MAPA DE CONTENIDOS */
     --socialMediaLink: 30px;
     --hotAuctionsDisplay:grid;
     --hotAuctionsGridTemplateColumns: 1fr 1fr 1fr;
+
+    /* ABOUT US */
 
 
     /* FOOTER */
@@ -507,6 +539,10 @@ main {
   top: 0;
   align-items: flex-end;
 }
+
+
+
+
 
 .logo {
   display: flex;
@@ -677,7 +713,9 @@ main {
   border-radius: 50%;
 }
 
+
 .socialMediaLinkMobile svg {width: 35px; height: 35px;}
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -860,7 +898,118 @@ main {
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
+                          6.4.4) =aboutSection:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+
+.aboutSection{
+  display: flex;
+  margin: 1.5rem;
+  flex-direction: var(--aboutSectionFlexDirection);
+  align-items: center;
+}
+
+.aboutSection .wp-block-column{
+  width: 100%;
+  margin: 0!important;
+}
+
+.aboutSectionText{
+  font-size: .8rem;
+}
+
+.aboutSectionTitle{
+  margin: 1.5rem 0;
+}
+
+.aboutSectionGallery{
+  margin: 1.5rem 0;
+}
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.4) =servicesSection:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.serviceDisplay{
+  display: grid;
+  grid-template-rows: var(--serviceDisplayGridTemplateRows);
+  grid-template-columns: var(--serviceDisplayGridTemplateColumns);
+
+  grid-gap: 1.5rem;
+  justify-items: center;
+
+}
+
+.serviceDisplay .wp-block-column{
+  margin: 0 1rem;
+  margin: 2rem 2rem;
+}
+
+
+
+.serviceCard{
+  max-width: 600px;
+  width: 100%;
+  /* var(--serviceCardWidth); */
+
+  /* border: solid black 1px; */
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: box-shadow .4s;
+}
+
+.serviceCard:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+.serviceCard .wp-block-columns{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  margin: 0;
+}
+
+
+.serviceCard .wp-block-columns .wp-block-column{
+  margin: auto;
+}
+
+.serviceTitle{
+  margin: 0.2rem .2rem;
+
+}
+
+
+.serviceImg{
+  width: 100%;
+  margin: 0;
+
+}
+
+.serviceImg img{
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  min-height: 180px;
+  border-radius: 4px 4px 0 0;
+}
+
+.serviceButtonContact{
+  word-break: normal;
+  margin: .5rem .5rem;
+
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------                      
+
                           6.5) =consignSection:
+
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .consignSection {
