@@ -21,9 +21,9 @@
 
     </div>
     <input class="filterBarSearch" placeholder="Search" type="text" name="" value="">
-    <a href="" class="filterBarLink">current inventory</a>
-    <a href="" class="filterBarLink">auction inventory</a>
-    <a href="" class="filterBarLink">sold inventory</a>
+    <a href="" class="filterBarLink">inventory</a>
+    <a href="" class="filterBarLink">auctions</a>
+    <a href="" class="filterBarLink">sold</a>
   </div>
   <div class="filterBarBotttom">
     <!-- <select class="filterBarSelect" placeholder="test">
@@ -56,23 +56,25 @@
       <option class="filterBarOption" value="mercedes">Mercedes</option>
       <option class="filterBarOption" value="audi">Audi</option>
     </select> -->
+    
 
 
-
-    <div class="selectBox" tabindex="1">
+    <div class="selectBox" tabindex="1" id="selectBox">
       <div class="selectBoxButton">
         <span class="selectBoxPlaceholder">Year</span>
         <p class="selectBoxCurrent" id="selectBoxCurrent"></p>
       </div>
       <div class="selectBoxList">
-        <label for="ver" class="selectBoxOption"><input type="radio" name="colr" id="ver" class="selectBoxInput" onclick="box.selectColor(this.value)" value="1"><span id="amrCirc" class="checkmark"></span><p class="colrOptP">Bolt  </p></label>
-        <label for="roj" class="selectBoxOption"><input type="radio" name="colr" id="roj" class="selectBoxInput" onclick="box.selectColor(this.value)" value="2"><span id="rojCirc" class="checkmark"></span><p class="colrOptP">Fire  </p></label>
-        <label for="amr" class="selectBoxOption"><input type="radio" name="colr" id="amr" class="selectBoxInput" onclick="box.selectColor(this.value)" value="3"><span id="verCirc" class="checkmark"></span><p class="colrOptP">Gold  </p></label>
-        <label for="azl" class="selectBoxOption"><input type="radio" name="colr" id="azl" class="selectBoxInput" onclick="box.selectColor(this.value)" value="4"><span id="azlCirc" class="checkmark"></span><p class="colrOptP">Marine</p></label>
-        <label for="blc" class="selectBoxOption"><input type="radio" name="colr" id="blc" class="selectBoxInput" onclick="box.selectColor(this.value)" value="5"><span id="blcCirc" class="checkmark"></span><p class="colrOptP">Void  </p></label>
-        <label for="nja" class="selectBoxOption"><input type="radio" name="colr" id="nja" class="selectBoxInput" onclick="box.selectColor(this.value)" value="6"><span id="njaCirc" class="checkmark"></span><p class="colrOptP">Ninja </p></label>
+        <label for="nul" class="selectBoxOption"><input type="radio" name="colr" id="nul" class="selectBoxInput" onclick="selectBoxControler(''    , '#selectBox', '#selectBoxCurrent')" value="0"><span class="checkmark"></span><p class="colrOptP"></p></label>
+        <label for="ver" class="selectBoxOption"><input type="radio" name="colr" id="ver" class="selectBoxInput" onclick="selectBoxControler('1992', '#selectBox', '#selectBoxCurrent')" value="1"><span class="checkmark"></span><p class="colrOptP">1992</p></label>
+        <label for="roj" class="selectBoxOption"><input type="radio" name="colr" id="roj" class="selectBoxInput" onclick="selectBoxControler('1994', '#selectBox', '#selectBoxCurrent')" value="2"><span class="checkmark"></span><p class="colrOptP">1994</p></label>
+        <label for="amr" class="selectBoxOption"><input type="radio" name="colr" id="amr" class="selectBoxInput" onclick="selectBoxControler('1995', '#selectBox', '#selectBoxCurrent')" value="3"><span class="checkmark"></span><p class="colrOptP">1995</p></label>
+        <label for="azl" class="selectBoxOption"><input type="radio" name="colr" id="azl" class="selectBoxInput" onclick="selectBoxControler('1997', '#selectBox', '#selectBoxCurrent')" value="4"><span class="checkmark"></span><p class="colrOptP">1997</p></label>
+        <label for="blc" class="selectBoxOption"><input type="radio" name="colr" id="blc" class="selectBoxInput" onclick="selectBoxControler('1999', '#selectBox', '#selectBoxCurrent')" value="5"><span class="checkmark"></span><p class="colrOptP">1999</p></label>
+        <label for="nja" class="selectBoxOption"><input type="radio" name="colr" id="nja" class="selectBoxInput" onclick="selectBoxControler('2015', '#selectBox', '#selectBoxCurrent')" value="6"><span class="checkmark"></span><p class="colrOptP">2015</p></label>
       </div>
     </div>
+
 
 
 
