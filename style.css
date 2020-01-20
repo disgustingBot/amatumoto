@@ -36,6 +36,10 @@ Version: 1.0
 6.4.1) =productCard:
 6.4.2) =hotCard:
 
+6.5) =BUTTONS:
+6.5.1) =filterButton:
+6.6.2) =slideButton:
+
 FIN DE MAPA DE CONTENIDOS */
 
 
@@ -83,12 +87,20 @@ FIN DE MAPA DE CONTENIDOS */
   --------------------------------------------------------------------------- */
 
   /* HEADER */
+  --headerHeight: 80px;
   --navBarDesktopDisplay: none;
   --upperNavDektop: none;
   --navBarMobileDisplay: flex;
   --headerDisplay: flex;
   --mobileNavButtonDisplay: flex;
   --logoPaddingRight: 5rem;
+  --mobileNavBtnWidth: 45px;
+  --mobileNavBtnHeight: 30px;
+  --mobileNavBtnTop: 1.5rem;
+  --mobileNavBtnRight: 1rem;
+  --navStripeHeight: 5px;
+
+
 
 
   /* FRONT PAGE */
@@ -96,8 +108,8 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAuctionsDisplay: block;
   --dosMotosGridTemplateRows: min-content 1fr;
   --dosMotosGridTemplateColumns: 1fr;
-  --consignGalleryGridTemplateColumns: 1fr;
-  --consignGalleryGridTemplateRows: repeat(4, min-content);
+  --consignSectionGalleryGridTemplateColumns: 1fr;
+  --consignSectionGalleryGridTemplateRows: repeat(4, min-content);
   --searchLinesDisplay: none;
   --searchSeparatorDisplay: flex;
   --searchBox: 100%;
@@ -111,14 +123,15 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAuctionsGridGap: ;
   --hotAuctionsTextAlign: center;
   --dosMotosPaddingRight: 1rem;
-  --dosMotosTxt: .9rem;
-  --dosMotosLineHeight: 1.3rem;
+  --mainTxtType1FontSize: .9rem;
+  --maintTxtType1LineHeight: 1.3rem;
+  --mainTxtType1TextA: justify;
   --dosMotosButtonPadding: 1rem 2rem;
   --dosMotosButtonMargin: 1rem auto;
   --dosMotosFontSize: 1.1rem;
   --dosMotosGridGap: 2rem;
-  --consignMargin: 1rem 0;
-  --consignGalleryWidth: 80%;
+  --consignSectionMargin: 1rem 0;
+  --consignSectionGalleryWidth: 80%;
 
   /* ABOUT US */
 
@@ -152,9 +165,24 @@ FIN DE MAPA DE CONTENIDOS */
   --characterCaptionh5: .8rem;
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
+
+  /* ESTRUCTURA */
+  --mainContentMargin: 0 2rem;
+  --consignmentSingleStepMarginB: 2rem;
+  --consignmentStepsTextAlign: center;
+
+  /* FORMULARIO */
+
+    --formInputWidth: 100%;
+
+  /* CONSIGNMENT */
+
+  --order1: 1;
+  --order2: 2;
+  --order3: 3;
+  --order4: 4;
+  --order5: 5;
 }
-
-
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                             2) =MEDIA QUERIES:
@@ -188,11 +216,9 @@ FIN DE MAPA DE CONTENIDOS */
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 @media screen and (min-width: 576px) {
+
+
   :root {
-
-
-
-
     /* FRONT PAGE */
     --searchLinesDisplay: block;
     --searchSeparatorDisplay: grid;
@@ -202,10 +228,12 @@ FIN DE MAPA DE CONTENIDOS */
     --characterMargin: .5rem 3rem;
     --dataFontSize: .8rem;
 
+    /* ESTRUCTURA */
 
+    /* FORMULARIO */
+    --formInputWidth: calc(50% - 2rem);
 
   }
-
 
 }
 
@@ -220,6 +248,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* HEADER */
     --headerGridTemplateColums: 30% 1fr;
+    --headerHeight: 120px;
     --logoWidth: 70%;
     --logoPaddingRight: 0;
     --upperNavAlignment: center;
@@ -232,11 +261,18 @@ FIN DE MAPA DE CONTENIDOS */
     --headerDisplay: grid;
     --mobileNavButtonDisplay: none;
 
+    --mobileNavBtnWidth: 80px;
+    --mobileNavBtnHeight: 60px;
+    --mobileNavBtnTop: 2rem;
+    --mobileNavBtnRight: 2rem;
+    --navStripeHeight: 10px;
+
+
     /* FRONT PAGE */
     --dosMotosGridTemplateRows: 1fr;
     --dosMotosGridTemplateColumns: 1fr 1fr;
-    --consignGalleryGridTemplateColumns: repeat(4,1fr);
-    --consignGalleryGridTemplateRows: 1fr;
+    --consignSectionGalleryGridTemplateColumns: repeat(4,1fr);
+    --consignSectionGalleryGridTemplateRows: 1fr;
     --searchBox: ;
     --hotAutcionsPadding: 2rem 4rem;
     --hotAuctionsPadding: 2rem 0;
@@ -249,14 +285,15 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAuctionsGridGap: 1rem;
     --hotAuctionsTextAlign: left;
     --dosMotosPaddingRight: 3rem;
-    --dosMotosTxt: .66rem;
-    --dosMotosLineHeight: 1.1rem;
+    --mainTxtType1FontSize: .66rem;
+    --maintTxtType1LineHeight: 1.1rem;
+    --mainTxtType1TextA: left;
     --dosMotosButtonPadding: .4rem 1.4rem;
     --dosMotosButtonMargin: .3rem auto;
     --dosMotosFontSize: .8rem;
     --dosMotosGridGap: 1rem;
-    --consignMargin: 2rem 0;
-    --consignGalleryWidth: 100%;
+    --consignSectionMargin: 2rem 0;
+    --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
 
     /* ABOUT US */
@@ -285,8 +322,15 @@ FIN DE MAPA DE CONTENIDOS */
     --contactContainerFontSize: .6rem;
     --footerContainerDisplay: grid;
 
+    /* ESTRUCTURA */
+    --consignmentStepsTextAlign: left;
 
-
+    /* CONSIGNMENT */
+    --order1: auto;
+    --order2: auto;
+    --order3: auto;
+    --order4: auto;
+    --order5: auto;
   }
 }
 
@@ -298,17 +342,11 @@ FIN DE MAPA DE CONTENIDOS */
 @media screen and (min-width: 992px) {
   :root {
 
-
-
-
-
-
         /* FOOTER */
         --characterContainerPadding: 0;
         --footerDisplay: grid;
         --lowerFooterDisplay: grid;
         --dataFontSize: .8rem;
-
 
         /* ABOUT US */
 
@@ -316,10 +354,9 @@ FIN DE MAPA DE CONTENIDOS */
 
         /* SERVICES */
 
-
-
-
-
+        /* ESTRUCTURA */
+        --mainContentMargin: 0 5rem;
+        --consignmentSingleStepMarginB: 0;
   }
 }
 
@@ -363,13 +400,6 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
-
-
-
-
-
-
-
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               3) =TIPOGRAFIAS:
@@ -386,17 +416,12 @@ FIN DE MAPA DE CONTENIDOS */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-body{
-  display: grid;
   font-family: 'Roboto', sans-serif;
 }
- img{object-fit:cover}
-
- a{
-   color: inherit;
-   text-decoration: none;
- }
+body{display: grid;}
+body:after {content: ' ';}
+img{object-fit:cover}
+a{color: inherit;text-decoration: none;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -411,11 +436,90 @@ body{
 .flex3>*{flex:3 1 calc(33% - 1rem)}
 .flex4>*{flex:4 1 calc(25% - 1rem)}
 
+main {
+  margin: var(--mainContentMargin);
+  display: flex;
+  flex-direction: column;
+}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               6) =COMPONENTES:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
+
+/* GALERIA */
+
+.wp-block-image {
+  margin-bottom: 0;
+}
+.galleryMain{
+  width: 100%;
+  height: 350px;
+}
+.galleryStock{
+  display: grid;
+  grid-template-columns:repeat(10, 1fr);
+  grid-gap:.2rem;
+  grid-row-gap:.3rem;
+  overflow: hidden;
+  height: 3rem;
+  position: relative;
+}
+.galleryImgs{
+  width: 100%;
+  cursor:pointer;
+  transition: .3s ease-in-out;
+  position: relative;
+  z-index: 0;
+  cursor:pointer;
+}
+
+.galleryImgs:hover{
+}
+
+.galleryFade{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background:linear-gradient( rgba(0,0,0,0) 50%, rgba(255,255,255,1));
+}
+
+/* FORMULARIOS */
+
+.wpcf7-form > * {
+  margin: .5rem;
+  width: var(--formInputWidth);
+  height: min-content;
+}
+.wpcf7-submit {
+  padding: 1rem 2rem!important;
+  font-size: 1.2rem;
+  margin: auto;
+  width: min-content!important;
+}
+
+.wpcf7-list-item {
+  display: flex!important;
+  align-items: center;
+  margin:auto!important;
+  width: max-content;
+}
+.wpcf7-list-item input {width: 1rem!important; height: 1rem;}
+.wpcf7-list-item-label {margin-left: 1rem;}
+.wpcf7-form input {
+  font-size: .7rem;
+  width: 100%;
+  padding: .2rem;
+  border: #212121 solid 1px;
+}
+
+.formTitle {width: 100%; margin-bottom: .5rem;}
+
+.consignmentTextArea {width: 100%; border: #212121 solid 1px;}
+
+.consignmentFormTxt {width: 100%;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -427,7 +531,7 @@ body{
   grid-template-columns: var(--headerGridTemplateColums);
   grid-template-rows: 1fr 1fr;
   padding: .3rem;
-  height: 120px;
+  height: var(--headerHeight);
   width: 100%;
   background: white;
   z-index: 10;
@@ -441,13 +545,19 @@ body{
 
 
 .logo {
+  display: flex;
   width: var(--logoWidth);
   grid-row: span 2;
+  height: 100%;
+  width: auto;
+  padding-right: var(--logoPaddingRight);
+}
+.logoImg {
+  object-fit: contain;
+  width: 80%;
   height: auto;
   margin: auto;
-  width: 70%;
-  object-fit: contain;
-  padding-right: var(--logoPaddingRight);
+
 }
 
 
@@ -478,17 +588,11 @@ body{
   justify-content: space-between;
   width: 140px;
   height: min-content;
-  margin-left: 1rem;
 }
 
-.footer .socialMedia svg {
-  justify-content: space-around;
-}
+.footer .socialMedia svg {justify-content: space-around;}
 
-.footer .socialMedia svg {
-  width: 40px;
-  height: 40px;
-}
+.footer .socialMedia svg {width: 40px;height: 40px;}
 
 .socialMediaLink {
   display: flex;
@@ -498,20 +602,14 @@ body{
   height: var(--socialMediaLink);
   color: white;
   border-radius: 4px;
-  margin: .5rem;
 }
 
-.socialMediaLink svg {
-  width: 15px;
-  height: 15px;
-}
+.socialMediaLink svg {width: 15px;height: 15px;}
 
 .socialMediaInst{background:#262626}
 .socialMediaFace{background:#3B5998}
 .socialMediaYouT{background:#CD201F}
 .socialMediaSrch{background:#F2F2F2}
-
-
 
 .navBar{
   display: var(--navBarDesktopDisplay);
@@ -529,38 +627,34 @@ body{
   display: var(--mobileNavButtonDisplay);
   flex-direction: column;
   flex-wrap: nowrap;
-  width: 80px;
-  height: 60px;
+  width: var(--mobileNavBtnWidth);
+  height: var(--mobileNavBtnHeight);
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: var(--mobileNavBtnTop);
+  right: var(--mobileNavBtnRight);
   z-index: 12;
   justify-content: space-around;
   cursor: pointer;
 }
+
 .navStripe {
   width: 90%;
-  height: 10px;
+  height: var(--navStripeHeight);
   background: black;
   margin: 0 auto;
 }
-.mobileNav.menuActive {
-  left: 0;
-}
 
-.navBarLink:hover{
-  border-bottom: solid black 2px;
-}
+.mobileNav.menuActive {left: 0;}
 
-.navBarLinkMobile:hover{
-  border-bottom: solid black 2px;
-}
+.navBarLink:hover{border-bottom: solid black 2px;}
+
+.navBarLinkMobile:hover{border-bottom: solid black 2px;}
 
 
 .mobileNav {
   display: var(--navBarMobileDisplay);
   width: 100%;
-  height: calc(100% - 120px);
+  height: calc(100% - 78px);
   position: fixed;
   background: white;
   flex-direction: column;
@@ -570,34 +664,24 @@ body{
   bottom: 0;
 }
 
-.navBarLinkMobile{
-  /* width: 100%; */
-  text-align: center;
-  font-size: 1.5rem;
-}
+.navBarLinkMobile{text-align: center;font-size: 1rem; margin: 1rem auto;}
 
 .upperNavMobile {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  padding: .5rem 0;
 }
 
 .navBarMobile {
-  padding: 2rem 0;
   font-size: 2.5rem;
   display: flex;
   flex-direction: column;
-  /* flex-wrap: wrap; */
-  height: 40%;
-  justify-content: space-around;
   align-items: center;
   border-bottom: solid black 1px;
 }
 
-.upperNavInfoMobile svg {
-  width: 75px;
-  height: 75px;
-}
+.upperNavInfoMobile svg {width: 35px; height: 35px;}
 
 .upperNavInfoMobile {
   width: 100%;
@@ -605,10 +689,7 @@ body{
   margin-bottom: 1rem;
 }
 
-.upperNavInfoMobile:hover{
-  background: rgba(0,0,0,.1);
-  border-radius: 2rem;
-}
+.upperNavInfoMobile:hover{background: rgba(0,0,0,.1);border-radius: 2rem;}
 
 .upperNavIconTxtMobile {
   font-size: 1.5rem;
@@ -632,18 +713,9 @@ body{
   border-radius: 50%;
 }
 
-.socialMediaLinkMobile svg {width: 75px; height: 75px;}
 
-/* ---------------------------------------------------------------------------
-------------------------------------------------------------------------------
-                          6.1.1) =tapaHeader:
-------------------------------------------------------------------------------
---------------------------------------------------------------------------- */
+.socialMediaLinkMobile svg {width: 35px; height: 35px;}
 
-
-.tapaHeader{
-  margin-top: 120px;
-}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -652,7 +724,6 @@ body{
 --------------------------------------------------------------------------- */
 .carusATF{
   display: grid;
-  /* grid-row: 1/3; */
   height: 70vh;
   overflow: hidden;
   width: 100%;
@@ -664,17 +735,13 @@ body{
   transform-origin: 100% 0;
   background-size: cover;
 }
-.carus.inactive{
-  opacity: 0;
-  pointer-events: none;
-}
+.carus.inactive{opacity: 0;pointer-events: none;}
 
 .carusImg{
   height: 70vh;
   width: 100%;
   object-position: center;
 }
-
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -686,7 +753,6 @@ body{
   grid-gap:1rem;
   grid-auto-flow:column;
   grid-template-columns:1.3fr 1fr 1.3fr;
-  /* height: 3rem; */
   align-items: center;
   justify-content: center;
   padding: .5rem 0;
@@ -698,6 +764,7 @@ body{
   display: var(--searchLinesDisplay);
 }
 /* TODO: hacer bien el search */
+
 .searchBox{
   border: 2px solid black;
   display: grid;
@@ -708,10 +775,7 @@ body{
   width: var(--searchBox);
 }
 
-.searchInput {
-  height: 100%;
-  font-size: 1.5rem;
-}
+.searchInput {height: 100%;font-size: 1.5rem;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -748,9 +812,7 @@ body{
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   padding: .3rem .5rem;
 }
-.productCard:hover{
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
+.productCard:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
 
 .newArrival{
   background: #007EFF;
@@ -758,20 +820,10 @@ body{
   padding: .2rem .4rem;
   font-size: .6rem;
 }
-.productCardImg {
-  width: 100%;
-}
-.productCardCaption{
-  font-weight: 100;
-}
-.productCardTitle{
-  font-weight: 300;
-}
-.productCardTxt{
-  font-size: .6rem;
-}
-
-
+.productCardImg {width: 100%;}
+.productCardCaption{font-weight: 100;}
+.productCardTitle{font-weight: 300;}
+.productCardTxt{font-size: .6rem;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -785,13 +837,11 @@ body{
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   margin: 1rem;
 }
-.hotCard:hover{
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-.hotCardCaption{
-  padding:.5rem;
-  padding-top: 0;
-}
+
+.hotCard:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
+
+.hotCardCaption{padding:.5rem;padding-top: 0;}
+
 .hotCardTitle{
   color: #666;
   text-align: center;
@@ -800,10 +850,8 @@ body{
   margin-top:0;
   border-bottom: solid 1px #AAA;
 }
-.hotCardPrice{
-  color: #D95D61;
-  font-size:.8rem;
-}
+
+.hotCardPrice{color: #D95D61;font-size:.8rem;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -820,26 +868,25 @@ body{
   grid-gap: var(--dosMotosGridGap);
   margin: var(--dosMotosMargin);
 }
+
 .dosMotosCaption{
   padding: 1rem;
   padding-right: var(--dosMotosPaddingRight);
   display:grid;
 }
-.dosMotosImg{
-  width: 100%;
-  height: auto;
+
+.dosMotosImg{width: 100%;height: auto;}
+
+.titleType1{font-size: 2rem;font-weight: 300;}
+
+.subtitleType1{margin:.5rem 0;}
+
+.mainTxtType1{
+  font-size: var(--mainTxtType1FontSize);
+  line-height: var(--maintTxtType1LineHeight);
+  text-align: var(--mainTxtType1TextA);
 }
-.dosMotosTitle{
-  font-size: 2rem;
-  font-weight: 300;
-}
-.dosMotosSubTitle{
-  margin:.5rem 0;
-}
-.dosMotosTxt{
-  font-size: var(--dosMotosTxt);
-  line-height: var(--dosMotosLineHeight);
-}
+
 .dosMotosButton{
   background:transparent;
   border:solid 2px black;
@@ -959,47 +1006,45 @@ body{
 }
 
 /* ---------------------------------------------------------------------------
-------------------------------------------------------------------------------
-                          6.5) =consign:
+------------------------------------------------------------------------------                      
+
+                          6.5) =consignSection:
+
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-.consign {
+.consignSection {
   text-align: center;
-  margin: var(--consignMargin);
+  margin: var(--consignSectionMargin);
   padding: 1rem;
 }
-.consignTitle{
-  font-size: 2rem;
-  font-weight: 300;
+.consignSectionTitle{font-size: 2rem;font-weight: 300;
 }
-.consignSubTitle{
-  font-size:.63rem;
-  letter-spacing: .095rem;
-  /* font-weight:300; */
+.consignSectionSubTitle{font-size:.63rem;letter-spacing: .095rem;
 }
-.consignButton{
+.consignSectionButton{
   background:transparent;
   border:solid 2px black;
   padding:.4rem 1.4rem;
   font-weight: 600;
   margin:.8rem auto;
 }
-.consignGallery{
+
+.consignSectionGallery{
   display:grid;
-  grid-template-columns: var(--consignGalleryGridTemplateColumns);
-  grid-template-rows: var(--consignGalleryGridTemplateRows);
+  grid-template-columns: var(--consignSectionGalleryGridTemplateColumns);
+  grid-template-rows: var(--consignSectionGalleryGridTemplateRows);
   grid-gap:.5rem;
   padding: .5rem;
   align-items: center;
-  width: var(--consignGalleryWidth);
+  width: var(--consignSectionGalleryWidth);
   margin: auto;
 }
-.consignImg{
+
+.consignSectionImg{
   width:100%;
   height:auto;
-  padding: var(--consignImgWidth);
+  padding: var(--consignSectionImgWidth);
 }
-
 
 .footer {
   display: var(--footerDisplay);
@@ -1013,15 +1058,10 @@ body{
   margin: var(--newsletterMargin);
 }
 
-
-
 .newsletterTitle {
   font-size:3rem;
   width: 100%;
 }
-
-
-
 
 .characterContainer {
   display: var(--footerContainerDisplay);
@@ -1045,7 +1085,6 @@ body{
   width: 100%;
   margin: var(--characterMargin);
 }
-
 .characterSvg {
   width: var(--characterSvgWidth);
   height: auto;
@@ -1060,18 +1099,14 @@ body{
   color:#B3905A;
 }
 
-
-
-
-
 .lowerFooter{
   grid-column:span 2;
   display:var(--lowerFooterDisplay);
   grid-template-columns: 3fr 1fr;
   flex-wrap: wrap;
   justify-content: center;
-
 }
+
 .contactContainer {
   display: var(--contactContainerDisplay);
   grid-template-columns:1fr 1fr 1fr;
@@ -1081,8 +1116,6 @@ body{
   padding: .4rem;
 }
 
-
-
 .data {
   text-align: var(--dataTextAlign);
   padding: var(--dataPadding);
@@ -1090,11 +1123,7 @@ body{
   font-size: var(--dataFontSize);
 }
 
-.data h5{
-  font-size: 1rem;
-}
-
-
+.data h5{font-size: 1rem;}
 
 .inventory{
   display: grid;
@@ -1103,7 +1132,7 @@ body{
   background: linear-gradient(135deg, rgba(0,0,0,1), rgba(0,0,0,0));
   height: 5rem;
 }
-.inventoryImg{
+.inventory .inventoryImg{
   width: 100%;
   height: 5rem;
   z-index: -1;
@@ -1118,13 +1147,6 @@ body{
   font-weight:100;
 }
 
-
-
-
-
-
-
-
 .shopArchive{
   display: grid;
   grid-template-columns:1fr 1fr 1fr;
@@ -1132,15 +1154,32 @@ body{
   grid-gap:1rem;
 }
 
-
-
-
-
-
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.5) =BUTTONS:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
-                          6.6.5) =slideButton:
+                          6.5.1) =filterButton:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.filterButton{
+  background: none;
+  border:none;
+  width: 50px;
+  height:50px;
+  /* margin-left:3rem; */
+
+  margin-right:.3rem;
+  border-right:2px solid #E9E9E9;
+  padding-right:.3rem;
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.6.2) =slideButton:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .slideButton{
@@ -1151,24 +1190,20 @@ body{
   height: 70vh;
   font-size: 2.5rem;
   cursor: pointer;
-  /* padding-top:20vh; */
   width: 10%;
   z-index: 2;
 }
+
 .slideRight{
   margin-left: auto;
   background: linear-gradient(to right, transparent, rgba(0,0,0,.4));
 }
 
-
-
-
-.singleSideContact{
+.contactButton{
   background:white;
   border:2px solid black;
   padding: .4rem 1rem;
   display: block;
-  /* margin:.2rem 0; */
   width: 100%;
   text-align: center;
   cursor: pointer;
@@ -1184,6 +1219,211 @@ body{
 
 
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.7) =filterBar:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.filterBar{
+  /* display:grid; */
+  align-items: center;
+  /* grid-auto-flow:column; */
+  grid-template-rows:50px;
+  padding: .3rem 0;
+}
+.filterBarTop{
+  padding: .3rem 2.5rem;
+  width:100%;
+  display:grid;
+  grid-template-columns: min-content 1fr max-content max-content max-content;
+}
+.filterBarSearch{
+  padding: .5rem;
+  border: 2px solid #E9E9E9;
+  width: 100%;
+}
+.filterBarLink{
+  text-transform: uppercase;
+  font-size: .6rem;
+  padding: .4rem 1rem;
+  color:#464646;
+  transition:.3s;
+}
+.filterBarLink:hover{
+  text-transform: uppercase;
+  padding: .4rem 1rem;
+  color:#FCAF4A;
+}
+.filterBarBotttom{
+  align-items: center;
+  background: #F4F4F4;
+  display: grid;
+  /* grid-auto-flow:column; */
+  grid-template-columns:repeat(6,1fr);
+  grid-row:2;
+  grid-column:1/6;
+  grid-gap:1rem;
+  border-top:2px solid #DDDDDD;
+  height: 0;
+  overflow: hidden;
+  padding:0 2.5rem;
+  /* transition-duration: .6s, .6s, 0;
+  transition-property: height, padding, overflow;
+  transition-delay: 0, 0, .6s; */
+  transition:.6s;
+  width: 100%;
+}
+.alt .filterBarBotttom{
+  animation: filterBarExpand 1s forwards;
+  /* height:calc(4.5rem + 2px); */
+  /* padding:1rem 2.5rem; */
+  /* position: relative; */
+  /* overflow:visible; */
+  /* z-index: 0; */
+}
+@keyframes filterBarExpand {
+  to{
+    /* background: red; */
+    height:calc(4.5rem + 2px);
+    padding:1rem 2.5rem;
+    position: relative;
+    overflow:visible;
+    z-index: 0;
+  }
+}
+.filterBarSelect{
+  padding: .3rem 1rem;
+  color:#222;
+  border:none;
+  /* border:1px solid #333; */
+  border:1px solid transparent;
+  transition: .6s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.filterBarSelect:focus{
+  border:1px solid #333;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  outline: none;
+}
+.filterBarOption{
+  padding: .5rem 1rem;
+  margin: .5rem 1rem;
+  color:#333;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.filterBarOption:checked{
+  display:none;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.8) =selectBox:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.selectBox{
+  --selectBoxHeight:2.5rem;
+  display: grid;
+  align-items: center;
+  grid-template-rows: var(--selectBoxHeight);
+  width:100%;
+  position: relative;
+}
+
+
+.selectBoxButton{
+  background: white;
+  border-radius:4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  color:#333;
+  cursor: pointer;
+  display:grid;
+  grid-row:1;
+  grid-column:1;
+  height: var(--selectBoxHeight);
+  position: relative;
+  transition:.4s;
+  width:100%;
+}
+
+.selectBoxPlaceholder{
+  font-size: 1rem;
+  height:1rem;
+  line-height:1rem;
+  left:16px;
+  position: absolute;
+  top:calc(50% - .5rem);
+  transition:.3s;
+  transform-origin:left;
+}
+.selectBoxCurrent{
+  padding:20px 52px 4px 16px;
+  position: relative;
+  border-bottom:2px solid #666;
+}
+.selectBoxCurrent::after{
+  content:'';
+  position:absolute;
+  bottom:-2px;
+  left:0;
+  width: 100%;
+  transform-origin: center;
+  transform: scaleX(0);
+  height: 2px;
+  transition:.2s;
+  background: #555;
+}
+.selectBox:focus{
+  outline:none;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.selectBox:focus .selectBoxCurrent::after{
+  background:black;
+  transform:scaleX(1);
+}
+.selectBox:focus .selectBoxPlaceholder{
+  transform:translateY(-70%) scale(.6);
+}
+
+
+
+
+
+.selectBoxList{
+  width:100%;
+  /* display: none; */
+  position: absolute;
+  pointer-events: none;
+  opacity:0;
+  top:0;
+  left:0;
+  transition:.3s;
+  transition-delay:.2s;
+  z-index: 10;
+  right:0;
+}
+.selectBox:focus .selectBoxList{
+  opacity:1;
+  top:2.5rem;
+
+}
+.selectBoxOption{
+
+}
+.selectBoxInput{
+  display: none;
+}
+.selectBoxOption:hover{
+  background: #AAA;
+}
+.selectBoxCurrent:focus + .selectBoxList{
+  /* margin-top:-200px; */
+  transform: translateY(calc(-20px - 50%));
+  background: red;
+  transition: .7s;
+
+}
 
 
 
@@ -1194,22 +1434,9 @@ body{
 
 
 
+.contactButton:hover{background:#DDD;}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* SINGLE */
 
 .single{
   display: grid;
@@ -1217,78 +1444,51 @@ body{
   grid-auto-rows: min-content;
   grid-gap:4rem;
   padding: 1rem 4rem;
-  margin-top:120px;
 }
-.singleSide{
-  display: grid;
-  grid-gap:.5rem;
-}
-.singleSideTitle{
-  font-weight: 300;
-  font-size: 1.8rem;
-}
-.singleSidePrice,.singleSideStock,.singleSideCond,.singleSideData{
-  font-weight: 200;
-  color:#666;
-}
-.singleSideCond{
-  font-size: .6rem;
-  font-weight: 400;
+.singleSide{display: grid;grid-gap:.5rem;margin-bottom: auto;}
 
-}
-.singleSideData{
-  font-size: .6rem;
-  font-weight: 400;
+.singleSideTitle{font-weight: 300;font-size: 1.8rem;}
+
+.singleSidePrice,.singleSideStock,.singleSideCond,.singleSideData{ font-weight: 200; color:#666;
 }
 
+.singleSideCond{font-size: .6rem;font-weight: 400;}
 
+.singleSideData{font-size: .6rem;font-weight: 400;}
 
+/* CONSIGNMENT PAGE */
 
+.consignmentATFTxt {margin-bottom: 1rem;}
 
+.consignmentSteps {margin-top: 2rem;}
 
+.consignmentSteps1{order: var(--order3);}
+.consignmentSteps2{order: var(--order4);}
 
+.consignmentSteps figcaption {margin: 2rem 0;}
 
+.consignmentSteps figcaption {text-align: center;margin: .5rem 0;}
 
+.consignmentSteps img {height: 100px;}
 
+.consignmentSection1 {margin-top: 2rem;order: var(--order1);}
 
-
-
-
-
-
-
-
-.galleryMain{
-  width: 100%;
-  height: 350px;
+.consignmentSingleStep {
+  margin-bottom: var(--consignmentSingleStepMarginB);
+  text-align: var(--consignmentStepsTextAlign);
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
-.galleryStock{
-  display: grid;
-  grid-template-columns:repeat(10, 1fr);
-  grid-gap:.2rem;
-  grid-row-gap:.3rem;
-  overflow: hidden;
-  height: 3rem;
-  position: relative;
-}
-.galleryImgs{
-  width: 100%;
-  cursor:pointer;
-  transition: .3s ease-in-out;
-  position: relative;
-  z-index: 0;
-  cursor:pointer;
-}
-.galleryImgs:hover{
-  /* margin:-.5rem; */
-  /* width: 100%; */
-  /* width: calc(100% + 1rem); */
-  /* z-index: 2; */
-}
-.galleryFade{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background:linear-gradient( rgba(0,0,0,0) 50%, rgba(255,255,255,1));
-}
+
+.consignmentSingleStep:hover {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
+
+.bottomConsignmentTxt {margin-bottom: 2rem;order: var(--order5);}
+
+#wpcf7-f124-p96-o1 .wpcf7-form {display: flex;flex-wrap: wrap;}
+
+#wpcf7-f124-p96-o1 {order: var(--order2);}
+
+#wpcf7-f124-p96-o1 p:nth-last-child(4) {width: 100%;}
+
+#wpcf7-f124-p96-o1 .wpcf7-form p label {font-size: .7rem;}
