@@ -644,7 +644,7 @@ main {
   margin: 0 auto;
 }
 
-.mobileNav.menuActive {left: 0;}
+.mobileNav.menuActive {left: 0; padding: 1rem}
 
 .navBarLink:hover{border-bottom: solid black 2px;}
 
