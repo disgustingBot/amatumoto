@@ -48,3 +48,22 @@ const gallerySingle=(a)=>{
   c.log(a)
   d.getElementById("galleryMain").src = a;
 }
+
+
+
+
+
+
+
+
+
+// alternates a class from a selector of choice zB.:
+// <div class="someButton" onclick="altClassFromSelector('activ', '#navBar')"></div> 
+const altClassFromSelector=(clase,selector)=> {
+  const x=d.querySelector(selector);
+  if(x.classList.contains(clase)){
+    x.classList.remove(clase)
+  }else{
+    x.classList.add(clase)
+  }
+}
