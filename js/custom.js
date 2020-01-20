@@ -58,7 +58,7 @@ const gallerySingle=(a)=>{
 
 
 // alternates a class from a selector of choice zB.:
-// <div class="someButton" onclick="altClassFromSelector('activ', '#navBar')"></div> 
+// <div class="someButton" onclick="altClassFromSelector('activ', '#navBar')"></div>
 const altClassFromSelector=(clase,selector)=> {
   const x=d.querySelector(selector);
   if(x.classList.contains(clase)){
@@ -66,4 +66,22 @@ const altClassFromSelector=(clase,selector)=> {
   }else{
     x.classList.add(clase)
   }
+}
+
+
+
+
+
+
+
+
+
+
+// SELECT BOX CONTROLER
+const selectBoxControler=(a, selectBoxId, current)=>{
+  if(!!a){d.querySelector(selectBoxId).classList.add('alt')}
+  else   {d.querySelector(selectBoxId).classList.remove('alt')}
+
+  d.querySelector(current).innerHTML=a;
+  d.activeElement.blur();
 }
