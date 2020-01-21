@@ -20,15 +20,6 @@
   <button class="" onclick="plusTesti(+1)">&#10095;</button>
 
 
-
-
-
-
-
-
-
-
-
 </main>
 
 
