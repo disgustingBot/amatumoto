@@ -34,17 +34,17 @@ var t=1,e=d.getElementsByClassName("testimonialCarusel");
 const showTesti=n=>{
   if(n>e.length){t=1}
   if(n<1){t=e.length}
-  for(i=0;i<e.length;i++){e[i].classList.add("inactive")}
+  for(i=0;i<e.length;i++){e[i].classList.add("inactive");}
   e[t-1].classList.remove("inactive");
 }
 const testi=()=>{t++;
-  for(i=0;i<e.length;i++){e[i].classList.add("inactive")}
+  for(i=0;i<e.length;i++){e[i].classList.add("inactive");}
   if(t>e.length){t=1}
   e[t-1].classList.remove("inactive");
   setTimeout(testi, 10000); // Change image every N/1000 seconds
 }
 const plusTesti=n=>{showTesti(t+=n)}
-if(x.length>0){showTesti(t);testi()}
+if(e.length>0){showTesti(t);testi()}
 
 // Mobile behavior
 
