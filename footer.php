@@ -1,11 +1,23 @@
 
 
   <footer class="footer" id="footer">
-    <div class="newsletter">
-      <h4 class="newsletterTitle">Newsletter</h4>
-      <h5 class="newsletterSubTitle">STAY INFORMED OF OUR NEWS</h5>
-      <p>TODO: hacer el campo de newsletter</p>
-    </div>
+
+    <!-- <div class="newsletter">
+      <p class="newsLetterSignUp">SIGN UP FOR <span class="newsLetterWord">NEWSLETTER:</span></p>
+
+      <p class="newsLetterEnterMail">
+        <label>
+          <input class="enterEmail" type="email" name="EMAIL" placeholder="Tu dirección de correo electrónico" required />
+        </label>
+      </p>
+
+      <p >
+        <input class="newsLetterSubmit" type="submit" value="Registro" />
+      </p>
+    </div> -->
+
+    <?php echo do_shortcode("[mc4wp_form id='168']") ?>
+
     <div class="characterContainer">
       <figure class="character">
         <svg class="characterSvg" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
