@@ -45,19 +45,21 @@ function lattedev_custom_posts() {
 
     /* Añado las etiquetas que aparecerán en el escritorio de WordPress */
 	$labels = array(
-		'name'               => _x( 'Restaurants', 'post type general name', 'text-domain' ),
-		'singular_name'      => _x( 'Restaurant', 'post type singular name', 'text-domain' ),
-		'menu_name'          => _x( 'Restaurants', 'admin menu', 'text-domain' ),
-		'add_new'            => _x( 'Add new', 'restaurant', 'text-domain' ),
-		'add_new_item'       => __( 'Add new restaurant', 'text-domain' ),
-		'new_item'           => __( 'New restaurant', 'text-domain' ),
-		'edit_item'          => __( 'Edit restaurant', 'text-domain' ),
-		'view_item'          => __( 'See restaurant', 'text-domain' ),
-		'all_items'          => __( 'All restaurants', 'text-domain' ),
-		'search_items'       => __( 'Search restaurants', 'text-domain' ),
-		'not_found'          => __( 'There are no restaurants.', 'text-domain' ),
-		'not_found_in_trash' => __( 'No restaurants in the bin.', 'text-domain' )
+		'name'               => _x( 'Testimonials', 'post type general name', 'text-domain' ),
+		'singular_name'      => _x( 'Testimonial', 'post type singular name', 'text-domain' ),
+		'menu_name'          => _x( 'Testimonials', 'admin menu', 'text-domain' ),
+		'add_new'            => _x( 'Add new', 'testimonial', 'text-domain' ),
+		'add_new_item'       => __( 'Add new testimonial', 'text-domain' ),
+		'new_item'           => __( 'New testimonial', 'text-domain' ),
+		'edit_item'          => __( 'Edit testimonial', 'text-domain' ),
+		'view_item'          => __( 'See testimonial', 'text-domain' ),
+		'all_items'          => __( 'All testimonials', 'text-domain' ),
+		'search_items'       => __( 'Search testimonials', 'text-domain' ),
+		'not_found'          => __( 'There are no testimonials.', 'text-domain' ),
+		'not_found_in_trash' => __( 'No testimonials in the bin.', 'text-domain' )
 	);
+
+
     /* Configuro el comportamiento y funcionalidades del nuevo custom post type */
 	$args = array(
 		'labels'             => $labels,
@@ -74,11 +76,11 @@ function lattedev_custom_posts() {
 		'has_archive'        => true,
 		'hierarchical'       => false,
     'taxonomies'         => array('loc'),
-		'menu_icon'          => 'dashicons-store',
+		'menu_icon'          => 'dashicons-format-quote',
 		'menu_position'      => 5,
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' )
 	);
-	register_post_type( 'restaurant', $args );
+	register_post_type( 'testimonials', $args );
 
 
 
