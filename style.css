@@ -418,6 +418,11 @@ FIN DE MAPA DE CONTENIDOS */
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
+
+*:focus, *:focus, *:focus{
+        outline: none;
+    }
+
 body{display: grid;}
 body:after {content: ' ';}
 img{object-fit:cover}
@@ -765,7 +770,7 @@ main {
 }
 /* TODO: hacer bien el search */
 
-.searchBox{
+.searchBox {
   border: 2px solid black;
   display: grid;
   grid-auto-flow: column;
@@ -773,9 +778,13 @@ main {
   align-items: center;
   grid-gap:.5rem;
   width: var(--searchBox);
+  padding: .5rem;
+}
+.searchBoxSvg {
+  width: 80%;
 }
 
-.searchInput {height: 100%;font-size: 1.5rem;}
+.searchInput {height: 100%;font-size: 1.5rem; border: none;font-size: 1rem;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1049,20 +1058,59 @@ main {
 
 .footer {
   display: var(--footerDisplay);
-  grid-template-columns:1fr 2fr;
+  grid-template-columns:1fr 1fr;
   padding: var(--footerPadding);
   grid-gap: 1rem;
   flex-wrap: wrap;
 }
 
-.newsletter {
-  margin: var(--newsletterMargin);
+/* NEWSLETTER */
+#mc4wp-form-1 {
+  margin: auto;
 }
 
-.newsletterTitle {
-  font-size:3rem;
-  width: 100%;
+.newsLetterWord {color: #F78D15; font-style: italic; letter-spacing: 2px;}
+
+.newsletter {
+  margin: var(--newsletterMargin);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: min-content;
 }
+
+
+.newsLetterSignUp {
+  grid-column: span 2;
+  font-weight: 700;
+  margin: .2rem 0;
+  font-size: 1.3rem;
+}
+
+.newsLetterEnterMail {
+  width: 100%;
+  height: 100%;
+  transform: skew(-20deg, 0deg);
+  border: solid 4px #bdbdbd;
+  border-radius: 4px;
+}
+.enterEmail{width: 100%; border: none; font-size: .6rem; padding: .2rem;}
+
+.newsLetterSubmit {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #F78D15;
+  transform: skew(-20deg, 0deg);
+  margin-left: -1rem;
+  border: solid 1px #F78D15;
+  box-sizing: content-box;
+  margin-top: -1px;
+  border-radius: 4px;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
 
 .characterContainer {
   display: var(--footerContainerDisplay);
