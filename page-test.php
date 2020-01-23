@@ -29,6 +29,7 @@
       </svg>
 
     </div>
+    <div class="filterSeparator"></div>
     <input class="filterBarSearch" placeholder="Search" type="text" name="filter_search" value="">
     <a href="" class="filterBarLink">inventory</a>
     <a href="" class="filterBarLink">auctions</a>
