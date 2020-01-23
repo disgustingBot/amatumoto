@@ -78,7 +78,7 @@ const altClassFromSelector=(clase,selector)=> {
 
 
 // SELECT BOX CONTROLER
-const selectBoxControler=(a, selectBoxId, current)=>{
+const selectBoxControler=(a, selectBoxId, current)=>{c.log(a)
   if(!!a){d.querySelector(selectBoxId).classList.add('alt')}
   else   {d.querySelector(selectBoxId).classList.remove('alt')}
 

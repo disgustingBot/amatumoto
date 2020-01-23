@@ -8,8 +8,17 @@
   </figcaption>
 </figure>
 
-<!-- <h1>Filters</h1> -->
-<form action="../page-test.php" method="get" class="filterBar" id="filterBar">
+
+
+
+
+<!-- <form action="<?php // echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="get" class="filterBar" id="filterBar"> -->
+<form method="get" class="filterBar" id="filterBar">
+  <?php // $filter_nonce = wp_create_nonce( 'filer' ); ?>
+  <!-- <input type="hidden" name="action" value="nds_form_response"> -->
+  <!-- <input type="hidden" name="filter_nonce" value="<?php echo $filter_nonce ?>" /> -->
+
+
   <div class="filterBarTop">
     <div class="filterButton" onclick="altClassFromSelector('alt', '#filterBar')">
       <svg viewBox="0 0 293 293" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,114 +29,93 @@
       </svg>
 
     </div>
-    <input class="filterBarSearch" placeholder="Search" type="text" name="" value="">
+    <input class="filterBarSearch" placeholder="Search" type="text" name="filter_search" value="">
     <a href="" class="filterBarLink">inventory</a>
     <a href="" class="filterBarLink">auctions</a>
     <a href="" class="filterBarLink">sold</a>
   </div>
   <div class="filterBarBotttom">
-    <!-- <select class="filterBarSelect" placeholder="test">
-      <option class="filterBarOption" value="volvo">Year</option>
-      <option class="filterBarOption" value="saab">Saab</option>
-      <option class="filterBarOption" value="mercedes">Mercedes</option>
-      <option class="filterBarOption" value="audi">Audi</option>
-    </select>
-    <select class="filterBarSelect">
-      <option class="filterBarOption" value="volvo">Segment</option>
-      <option class="filterBarOption" value="saab">Saab</option>
-      <option class="filterBarOption" value="mercedes">Mercedes</option>
-      <option class="filterBarOption" value="audi">Audi</option>
-    </select>
-    <select class="filterBarSelect">
-      <option class="filterBarOption" value="volvo">Make</option>
-      <option class="filterBarOption" value="saab">Saab</option>
-      <option class="filterBarOption" value="mercedes">Mercedes</option>
-      <option class="filterBarOption" value="audi">Audi</option>
-    </select>
-    <select class="filterBarSelect">
-      <option class="filterBarOption" value="volvo">Model</option>
-      <option class="filterBarOption" value="saab">Saab</option>
-      <option class="filterBarOption" value="mercedes">Mercedes</option>
-      <option class="filterBarOption" value="audi">Audi</option>
-    </select>
-    <select class="filterBarSelect">
-      <option class="filterBarOption" value="volvo">Price Range</option>
-      <option class="filterBarOption" value="saab">Saab</option>
-      <option class="filterBarOption" value="mercedes">Mercedes</option>
-      <option class="filterBarOption" value="audi">Audi</option>
-    </select> -->
-    
 
 
-    <div class="selectBox" tabindex="1" id="selectBox">
-      <div class="selectBoxButton">
-        <span class="selectBoxPlaceholder">Year</span>
-        <p class="selectBoxCurrent" id="selectBoxCurrent"></p>
+
+
+    <?php function woocommerce_subcats_from_parentcat_by_ID($id){
+      $term = get_term( $id, 'product_cat' );
+      $args = array(
+       'hierarchical' => 1,
+       'show_option_none' => '',
+       'hide_empty' => 0,
+       'parent' => $id,
+       'taxonomy' => 'product_cat'
+      );
+      $subcats = get_categories($args); ?>
+
+      <div class="selectBox" tabindex="1" id="selectBox<?php echo $id; ?>">
+        <div class="selectBoxButton">
+          <span class="selectBoxPlaceholder"><?php echo $term->name; ?></span>
+          <p class="selectBoxCurrent" id="selectBoxCurrent<?php echo $id; ?>"></p>
+        </div>
+        <div class="selectBoxList">
+          <label for="nul<?php echo $id; ?>" class="selectBoxOption">
+            <input type="radio" name="filter_<?php echo $term->slug; ?>" id="nul<?php echo $id; ?>" class="selectBoxInput" onclick="selectBoxControler('','#selectBox<?php echo $id; ?>','#selectBoxCurrent<?php echo $id; ?>')" value="0">
+            <span class="checkmark"></span>
+            <p class="colrOptP"></p>
+          </label>
+          <?php foreach ($subcats as $sc) { ?>
+            <label for="<?php echo $sc->slug; ?>" class="selectBoxOption">
+              <input type="radio" name="filter_<?php echo $term->slug; ?>" id="<?php echo $sc->slug; ?>" class="selectBoxInput" onclick="selectBoxControler('<?php echo $sc->name ?>', '#selectBox<?php echo $id; ?>', '#selectBoxCurrent<?php echo $id; ?>')" value="<?php echo $sc->slug; ?>">
+              <span class="checkmark"></span>
+              <p class="colrOptP"><?php echo $sc->name ?></p>
+            </label>
+          <?php } ?>
+        </div>
       </div>
-      <div class="selectBoxList">
-        <label for="nul" class="selectBoxOption"><input type="radio" name="colr" id="nul" class="selectBoxInput" onclick="selectBoxControler(''    , '#selectBox', '#selectBoxCurrent')" value="0"><span class="checkmark"></span><p class="colrOptP"></p></label>
-        <label for="ver" class="selectBoxOption"><input type="radio" name="colr" id="ver" class="selectBoxInput" onclick="selectBoxControler('1992', '#selectBox', '#selectBoxCurrent')" value="1"><span class="checkmark"></span><p class="colrOptP">1992</p></label>
-        <label for="roj" class="selectBoxOption"><input type="radio" name="colr" id="roj" class="selectBoxInput" onclick="selectBoxControler('1994', '#selectBox', '#selectBoxCurrent')" value="2"><span class="checkmark"></span><p class="colrOptP">1994</p></label>
-        <label for="amr" class="selectBoxOption"><input type="radio" name="colr" id="amr" class="selectBoxInput" onclick="selectBoxControler('1995', '#selectBox', '#selectBoxCurrent')" value="3"><span class="checkmark"></span><p class="colrOptP">1995</p></label>
-        <label for="azl" class="selectBoxOption"><input type="radio" name="colr" id="azl" class="selectBoxInput" onclick="selectBoxControler('1997', '#selectBox', '#selectBoxCurrent')" value="4"><span class="checkmark"></span><p class="colrOptP">1997</p></label>
-        <label for="blc" class="selectBoxOption"><input type="radio" name="colr" id="blc" class="selectBoxInput" onclick="selectBoxControler('1999', '#selectBox', '#selectBoxCurrent')" value="5"><span class="checkmark"></span><p class="colrOptP">1999</p></label>
-        <label for="nja" class="selectBoxOption"><input type="radio" name="colr" id="nja" class="selectBoxInput" onclick="selectBoxControler('2015', '#selectBox', '#selectBoxCurrent')" value="6"><span class="checkmark"></span><p class="colrOptP">2015</p></label>
-      </div>
-    </div>
+    <?php } ?>
 
 
 
+
+
+<!-- Voy a tener un porro pronto -->
+
+
+    <?php woocommerce_subcats_from_parentcat_by_ID(27); ?>
 
 
   </div>
 </form>
+
+
+
+
 <div class="shopArchive">
 
 
 
   <?php
-    // The tax query
-    $tax_query[] = array(
-        'taxonomy' => 'product_visibility',
-        'field'    => 'name',
-        'terms'    => 'featured',
-        'operator' => 'IN', // or 'NOT IN' to exclude feature products
-    );
-    $tax_query[] = array(
-        'taxonomy' => 'product_type',
-        'field'    => 'slug',
-        'terms'    => 'auction',
-    );
 
-    $meta_query = array(
-      array('key'     => 'year'       ,'value'   => $_GET['year']       ,),
-    	// array('key'     => 'year'       ,'value'   => '1'       ,),
-    	// array('key'     => 'segment'    ,'value'   => 'Segmento',),
-    	// array('key'     => 'make'       ,'value'   => 'Marca'   ,),
-    	// array('key'     => 'model'      ,'value'   => 'modelo'  ,),
-    	// array('key'     => 'price_range','value'   => 'precio'  ,),
-    );
-
-
-
-    // $tax_query[] = '';
     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
     $args = array(
       'post_type'=>'product',
       'posts_per_page'=>9,
       'paged' => $paged,
-      // 'meta_key' => 'test',
-
-      // 'tax_query' => array(
-      //     array(
-      //         'taxonomy' => 'product_type',
-      //         'field'    => 'slug',
-      //         'terms'    => 'auction',
-      //     ),
-      //     // $tax_query,
-      // ),
-      // 'tax_query'           => $tax_query // <=== for featured products
     );
+    if (isset($_GET['filter_year']) AND $_GET['filter_year']!='') {
+      $args['tax_query'] = array(
+          array(
+              'taxonomy' => 'product_cat',
+              'field'    => 'slug',
+              'terms'    => $_GET['filter_year'],
+          ),
+      );
+    }
+    if (isset($_GET['filter_search']) AND $_GET['filter_search']!='') {
+      $args['s'] = $_GET['filter_search'];
+    }
+
+  // echo json_encode($args['tax_query']);
+  // echo json_encode($args['s']);
+  // var_dump($args);
   $blogPosts=new WP_Query($args);
   while($blogPosts->have_posts()){$blogPosts->the_post();$product_id = get_the_ID(); ?>
 

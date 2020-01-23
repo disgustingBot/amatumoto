@@ -54,3 +54,22 @@ function excerpt($charNumber){
     return $result;
   }
 }
+
+
+
+
+
+
+
+
+
+// add_action( 'admin_post_nopriv_nds_form_response', 'the_form_response');
+// function the_form_response() {
+//  if( isset( $_POST['filter_nonce'] ) && wp_verify_nonce( $_POST['filter_nonce'], 'nds_add_user_meta_form_nonce') ) {
+//    var_dump($_POST['year']);
+//    echo 'hello World';
+//    $url = 'http://localhost/grandPrix/test/';
+//    wp_redirect( $url );
+//    exit;
+//  }
+// }
