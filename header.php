@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 </head>
 <body <?php body_class(); ?>>
-  
+
   <header class="header loading" id="header">
     <a href="<?php echo site_url('');  ?>" class="logo">
       <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo" class="logoImg">
@@ -96,20 +96,20 @@
       </a>
     </nav>
     <nav class="navBar">
-      <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>" class="navBarLink">INVENTORY</a>
+      <a href="<?php echo get_permalink( get_page_by_path( 'test' ) ); ?>" class="navBarLink">INVENTORY</a>
       <a href="" class="navBarLink">PARTS & RACING PRODUCTS</a>
-      <a href="" class="navBarLink">THE GARAGE</a>
-      <a href="" class="navBarLink">SERVICES</a>
-      <a href="" class="navBarLink">CONTACT</a>
+      <a href="<?php echo get_permalink( get_page_by_path( 'the-garage' ) ); ?>" class="navBarLink">THE GARAGE</a>
+      <a href="<?php echo get_permalink( get_page_by_path( 'services' ) ); ?>" class="navBarLink">SERVICES</a>
+      <a href="<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>" class="navBarLink">CONTACT</a>
     </nav>
 
     <nav class="mobileNav" id="mobileNav">
       <div class="navBarMobile">
-        <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>" class="navBarLinkMobile">INVENTORY</a>
+        <a href="<?php echo get_permalink( get_page_by_path( 'test' ) ); ?>" class="navBarLinkMobile">INVENTORY</a>
         <a href="" class="navBarLinkMobile">PARTS & RACING PRODUCTS</a>
-        <a href="" class="navBarLinkMobile">THE GARAGE</a>
-        <a href="" class="navBarLinkMobile">SERVICES</a>
-        <a href="" class="navBarLinkMobile">CONTACT</a>
+        <a href="<?php echo get_permalink( get_page_by_path( 'the-garage' ) ); ?>" class="navBarLinkMobile">THE GARAGE</a>
+        <a href="<?php echo get_permalink( get_page_by_path( 'services' ) ); ?>" class="navBarLinkMobile">SERVICES</a>
+        <a href="<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>" class="navBarLinkMobile">CONTACT</a>
       </div>
       <div class="upperNavMobile">
 
