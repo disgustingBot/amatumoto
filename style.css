@@ -86,7 +86,7 @@ FIN DE MAPA DE CONTENIDOS */
   ------------------------------------------------------------------------------
   --------------------------------------------------------------------------- */
 
-  /* HEADER */
+  /*---ROOT-----/* HEADER */
   --headerHeight: 80px;
   --navBarDesktopDisplay: none;
   --upperNavDektop: none;
@@ -103,7 +103,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
-  /* FRONT PAGE */
+  /*---ROOT-----/* FRONT PAGE */
 
   --hotAuctionsDisplay: block;
   --dosMotosGridTemplateRows: min-content 1fr;
@@ -133,20 +133,20 @@ FIN DE MAPA DE CONTENIDOS */
   --consignSectionMargin: 1rem 0;
   --consignSectionGalleryWidth: 80%;
 
-  /* ABOUT US */
+  /*---ROOT-----/* ABOUT US */
 
   --aboutSectionFlexDirection: column;
 
 
-  /* SERVICES */
+  /*---ROOT-----/* SERVICES */
 
   --serviceDisplayDisplay: grid;
-  --serviceDisplayGridTemplateRows: 1fr;
   --serviceDisplayGridTemplateColumns: 1fr;
   --serviceCardWidth: 100%;
+  --servSectionTitleGridColumn: span 1;
 
 
-  /* FOOTER */
+  /*---ROOT-----/* FOOTER */
 
   --footerDisplay: flex;
   --footerPadding: 1rem;
@@ -166,16 +166,20 @@ FIN DE MAPA DE CONTENIDOS */
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
 
-  /* ESTRUCTURA */
+  /*---ROOT-----/* ESTRUCTURA */
   --mainContentMargin: 0 2rem;
   --consignmentSingleStepMarginB: 2rem;
   --consignmentStepsTextAlign: center;
 
-  /* FORMULARIO */
+
+  /*---ROOT-----/* ARCHIVE */
+  --shopArchiveGridTemplateC: 1fr;
+
+  /*---ROOT-----/* FORMULARIO */
 
     --formInputWidth: 100%;
 
-  /* CONSIGNMENT */
+  /*---ROOT-----/* CONSIGNMENT */
 
   --order1: 1;
   --order2: 2;
@@ -232,6 +236,10 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* FORMULARIO */
     --formInputWidth: calc(50% - 2rem);
+
+    /* ARCHIVE */
+    --shopArchiveGridTemplateC: 1fr 1fr;
+
 
   }
 
@@ -302,6 +310,10 @@ FIN DE MAPA DE CONTENIDOS */
     /* SERVICES */
 
     --serviceDisplayGridTemplateColumns: 1fr 1fr;
+    --servSectionTitleGridColumn: span 2;
+
+
+
 
 
 
@@ -357,6 +369,9 @@ FIN DE MAPA DE CONTENIDOS */
         /* ESTRUCTURA */
         --mainContentMargin: 0 5rem;
         --consignmentSingleStepMarginB: 0;
+
+        /* ARCHIVE */
+        --shopArchiveGridTemplateC: 1fr 1fr 1fr;
   }
 }
 
@@ -418,6 +433,11 @@ FIN DE MAPA DE CONTENIDOS */
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
+
+*:focus, *:focus, *:focus{
+        outline: none;
+    }
+
 body{display: grid;}
 body:after {content: ' ';}
 img{object-fit:cover}
@@ -644,7 +664,7 @@ main {
   margin: 0 auto;
 }
 
-.mobileNav.menuActive {left: 0;}
+.mobileNav.menuActive {left: 0; padding: 1rem}
 
 .navBarLink:hover{border-bottom: solid black 2px;}
 
@@ -765,7 +785,7 @@ main {
 }
 /* TODO: hacer bien el search */
 
-.searchBox{
+.searchBox {
   border: 2px solid black;
   display: grid;
   grid-auto-flow: column;
@@ -773,9 +793,13 @@ main {
   align-items: center;
   grid-gap:.5rem;
   width: var(--searchBox);
+  padding: .5rem;
+}
+.searchBoxSvg {
+  width: 80%;
 }
 
-.searchInput {height: 100%;font-size: 1.5rem;}
+.searchInput {height: 100%;font-size: 1.5rem; border: none;font-size: 1rem;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -810,20 +834,27 @@ main {
   grid-template-rows: min-content min-content;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  padding: .3rem .5rem;
 }
+
 .productCard:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
 
-.newArrival{
-  background: #007EFF;
-  color: white;
+.newArrival {
+  background: #F78D15;
+  letter-spacing: 2px;
   padding: .2rem .4rem;
-  font-size: .6rem;
+  font-size: .8rem;
+  grid-column: 1; grid-row: 1;
+  width: max-content;
+  height: min-content;
+  z-index: 2;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-.productCardImg {width: 100%;}
-.productCardCaption{font-weight: 100;}
-.productCardTitle{font-weight: 300;}
-.productCardTxt{font-size: .6rem;}
+.productCardImg {width: 100%; height: 8rem; grid-column: 1; grid-row: 1;}
+.productCardCaption{font-weight: 100; padding: .3rem .5rem;}
+.productCardCaption>* {margin-bottom: .4rem;}
+.productCardTitle{font-weight: 300; font-weight: bold;}
+.productCardTxt{font-size: .8rem; font-weight: 400;}
+.productCardPrice {font-size: .8rem; font-weight: 500;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -843,7 +874,6 @@ main {
 .hotCardCaption{padding:.5rem;padding-top: 0;}
 
 .hotCardTitle{
-  color: #666;
   text-align: center;
   padding:.3rem;
   margin-bottom: .5rem;
@@ -851,7 +881,7 @@ main {
   border-bottom: solid 1px #AAA;
 }
 
-.hotCardPrice{color: #D95D61;font-size:.8rem;}
+.hotCardPrice{font-size:.8rem;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -934,25 +964,37 @@ main {
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
-.serviceDisplay{
+
+.servSectionBanner{
   display: grid;
-  grid-template-rows: var(--serviceDisplayGridTemplateRows);
+}
+.servSection {
+  display: grid;
   grid-template-columns: var(--serviceDisplayGridTemplateColumns);
-
   grid-gap: 1.5rem;
-  justify-items: center;
 
 }
 
-.serviceDisplay .wp-block-column{
-  margin: 0 1rem;
-  margin: 2rem 2rem;
+.servSectionFigC {
+  grid-column: 1;
+  grid-row: 1;
 }
+
+.serviceTitleImg{
+  width: 100%;
+  height: 5rem;
+  object-fit: cover;
+  margin: 0 0 3rem 0;
+  grid-row: 1;
+  grid-column: 1;
+
+}
+
+
 
 
 
 .serviceCard{
-  max-width: 600px;
   width: 100%;
   border-radius: 4px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -967,43 +1009,72 @@ main {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-
-.serviceCard .wp-block-columns{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  margin: 0;
+.serviceCardContent{
+  display: none;
 }
 
 
-.serviceCard .wp-block-columns .wp-block-column{
-  margin: auto;
+
+.serviceCardTitle{
+  margin: 1% 0 1% 8%;
 }
 
-.serviceTitle{
-  margin: 0.2rem .2rem;
-
+.serviceCardSubtitle + p{
+  color: rgba(0,0,0,.8);
+  font-size: .8rem;
+  margin: 1% 0 1% 8%;
+  grid-column: span 2;
 }
 
 
 .serviceImg{
   width: 100%;
   margin: 0;
-
 }
 
-.serviceImg img{
+.serviceCardImg{
   width: 100%;
   height: auto;
-  max-height: 180px;
-  min-height: 180px;
+  max-height: 194px;
+  min-height: 194px;
   border-radius: 4px 4px 0 0;
 }
 
-.serviceButtonContact{
-  word-break: normal;
-  margin: .5rem .5rem;
+.serviceCardCaption{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
+.serviceCardDivisor{
+  margin: .5rem 0;
+  grid-column: span 2;
+}
+
+.serviceCardContact{
+  word-break: normal;
+  margin: 3% 0 3% 8%;
+  background: rgba(0,0,0,.5);
+  padding: .2rem;
+  border-radius: 2px;
+
+
+}
+
+
+
+.servSectionTitle{
+  text-align: center;
+  grid-row: 1;
+  grid-column: 1;
+  color: white;
+}
+
+.serviceCardButton{
+  margin: 1% 0 1% 55%;
+  border-width: 0px;
+  background: white;
+  font-size: 1rem;
+  color: #A871F5;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1049,20 +1120,59 @@ main {
 
 .footer {
   display: var(--footerDisplay);
-  grid-template-columns:1fr 2fr;
+  grid-template-columns:1fr 1fr;
   padding: var(--footerPadding);
   grid-gap: 1rem;
   flex-wrap: wrap;
 }
 
-.newsletter {
-  margin: var(--newsletterMargin);
+/* NEWSLETTER */
+#mc4wp-form-1 {
+  margin: auto;
 }
 
-.newsletterTitle {
-  font-size:3rem;
-  width: 100%;
+.newsLetterWord {color: #F78D15; font-style: italic; letter-spacing: 2px;}
+
+.newsletter {
+  margin: var(--newsletterMargin);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: min-content;
 }
+
+
+.newsLetterSignUp {
+  grid-column: span 2;
+  font-weight: 700;
+  margin: .2rem 0;
+  font-size: 1.3rem;
+}
+
+.newsLetterEnterMail {
+  width: 100%;
+  height: 100%;
+  transform: skew(-20deg, 0deg);
+  border: solid 4px #bdbdbd;
+  border-radius: 4px;
+}
+.enterEmail{width: 100%; border: none; font-size: .6rem; padding: .2rem;}
+
+.newsLetterSubmit {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #F78D15;
+  transform: skew(-20deg, 0deg);
+  margin-left: -1rem;
+  border: solid 1px #F78D15;
+  box-sizing: content-box;
+  margin-top: -1px;
+  border-radius: 4px;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
 
 .characterContainer {
   display: var(--footerContainerDisplay);
@@ -1150,9 +1260,9 @@ main {
 
 .shopArchive{
   display: grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns: var(--shopArchiveGridTemplateC);
   padding: 2rem;
-  grid-gap:1rem;
+  grid-gap: 1rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1176,6 +1286,7 @@ main {
   margin-right:.3rem;
   border-right:2px solid #E9E9E9;
   padding-right:.3rem;
+  cursor: pointer;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1447,12 +1558,74 @@ main {
 
 
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.9) =Section Testimonials:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.testimonialsMain {
+  padding: 1rem;
+}
+
+.testimonialsTitle {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.testimonialsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 2.5rem;
+}
+
+.testimonialBtn {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #d50000;
+  font-size: 2rem;
+  transition: .25s;
+}
+
+.testimonialBtn:hover {
+  background: black;
+  color: white;
+}
+
+.testimonial.inactive {
+  display: none;
+}
+
+.testimonial {
+  width: 500px;
+  height: 300px;
+  border-left: #d50000 solid 10px;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: min-content 1fr 1fr min-content;
+  margin: 3rem auto;
+  transition: 25s;
+}
+
+.testimonialTxt {
+  grid-column: 2/ span 2;
+  margin: auto;
+  padding: 1rem;
+}
+
+.testiQuote {
+  width:50px;
+  height: 50px;
+  color: #d50000;
+}
+.testiQuote1 {margin: .2rem auto auto .2rem;}
+.testiQuote2 {margin: auto .2rem .2rem auto;}
 
 
-
-
-
-
+.testimonialAuthor {font-size: 1.5rem; margin-bottom: .5rem;}
 
 .contactButton:hover{background:#DDD;}
 

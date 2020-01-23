@@ -38,7 +38,6 @@
 
 
 
-
     <?php function woocommerce_subcats_from_parentcat_by_ID($id){
       $term = get_term( $id, 'product_cat' );
       $args = array(
@@ -120,21 +119,21 @@
   while($blogPosts->have_posts()){$blogPosts->the_post();$product_id = get_the_ID(); ?>
 
   <figure class="productCard">
-    <p>
-      <?php
-      // $key_1_value = get_post_meta( get_the_ID(), '_auction_start_price', true );
-      // Check if the custom field has a value.
-      // if(!empty($key_1_value)){echo $key_1_value;}
-
-
-      $product = wc_get_product( $product_id );
-      echo $product->get_price_html(); ?> /
-      <span class="newArrival">NEW ARRIVAL</span>
-    </p>
+    <span class="newArrival"><i>New arrival</i></span>
     <a class="productCardImg" href="<?php echo get_permalink(); ?>"><img class="productCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""></a>
     <figcaption class="productCardCaption">
       <h5 class="productCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
       <p class="productCardTxt"><a href="<?php echo get_permalink(); ?>"><?php echo excerpt(70); ?></a></p>
+      <p class="productCardPrice">
+        <?php
+        // $key_1_value = get_post_meta( get_the_ID(), '_auction_start_price', true );
+        // Check if the custom field has a value.
+        // if(!empty($key_1_value)){echo $key_1_value;}
+
+
+        $product = wc_get_product( $product_id );
+        echo $product->get_price_html(); ?>
+      </p>
     </figcaption>
   </figure>
   <?php
