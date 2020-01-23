@@ -166,7 +166,7 @@ FIN DE MAPA DE CONTENIDOS */
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
 
-  /*---ROOT-----/* ESTRUCTURA */
+  /*---ROOT=ESTRUCTURA */
   --mainContentMargin: 0 2rem;
   --consignmentSingleStepMarginB: 2rem;
   --consignmentStepsTextAlign: center;
@@ -219,7 +219,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
   :root {
-    /* FRONT PAGE */
+    /* 576=FRONT PAGE */
     --searchLinesDisplay: block;
     --searchSeparatorDisplay: grid;
 
@@ -938,11 +938,14 @@ main {
 
 .servSectionBanner{
   display: grid;
+
 }
 .servSection {
   display: grid;
   grid-template-columns: var(--serviceDisplayGridTemplateColumns);
   grid-gap: 1.5rem;
+  margin-top: 1.5rem;
+  margin: 1.5rem 1.5rem;
 
 }
 
@@ -970,6 +973,7 @@ main {
   border-radius: 4px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: box-shadow .4s;
+  height: min-content;
 
 }
 .serviceCard.alt {
@@ -988,6 +992,7 @@ main {
 
 .serviceCardTitle{
   margin: 1% 0 1% 8%;
+  grid-column: span 2;
 }
 
 .serviceCardSubtitle + p{
@@ -1005,48 +1010,72 @@ main {
 
 .serviceCardImg{
   width: 100%;
-  height: auto;
-  max-height: 194px;
-  min-height: 194px;
+  height: 194px;
   border-radius: 4px 4px 0 0;
 }
-
 .serviceCardCaption{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
 .serviceCardDivisor{
-  margin: .5rem 0;
   grid-column: span 2;
 }
 
-.serviceCardContact{
+.serviceCardCtA{
   word-break: normal;
-  margin: 3% 0 3% 8%;
-  background: rgba(0,0,0,.5);
+   margin: .3rem;
+  color: #D58D15;
   padding: .2rem;
   border-radius: 2px;
-
-
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
 }
 
-
+.serviceCardCtAExpand{
+  color: purple;
+  font-size: .9rem;
+  text-transform: capitalize;
+}
 
 .servSectionTitle{
   text-align: center;
   grid-row: 1;
   grid-column: 1;
   color: white;
+  z-index: 2;
 }
 
 .serviceCardButton{
-  margin: 1% 0 1% 55%;
+  margin: 1% 16% 1% auto;
   border-width: 0px;
   background: white;
   font-size: 1rem;
   color: #A871F5;
 }
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.5) =theGarageSection:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+
+.theGarageSection{
+  margin: 0 3rem;
+
+}
+
+.theGarageFigure{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
