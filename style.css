@@ -1463,7 +1463,7 @@ main {
   position: relative;
   transition:.4s;
   width:100%;
-  z-index:1;
+  z-index:4;
 }
 
 .selectBoxPlaceholder{
@@ -1512,10 +1512,11 @@ main {
 
 
 .selectBoxList{
+  align-items: center;
   background: #FFF;
   display: grid;
   grid-gap: .2rem;
-  grid-auto-rows:1.2rem;
+  grid-auto-rows:1.8rem;
   padding: .2rem;
   /* display: none; */
   left:0;
@@ -1527,7 +1528,8 @@ main {
   transition:.3s;
   transition-delay:.2s;
   width:100%;
-  z-index: 0;
+  z-index: 3;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .selectBox:focus .selectBoxList{
   opacity:1;
@@ -1536,16 +1538,17 @@ main {
 
 }
 .selectBoxOption{
-
+  cursor:pointer;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  transition:.3s;
+  /* padding: .2rem .6rem; */
 }
 .selectBoxOption:hover{
-  background: red;
+  background:#BBB;
 }
 .selectBoxInput{
   display: none;
-}
-.selectBoxOption:hover{
-  background: #AAA;
 }
 .selectBoxCurrent:focus + .selectBoxList{
   /* margin-top:-200px; */
