@@ -1,11 +1,13 @@
 <?php get_header(); ?>
 
 
-<div class="servSectionBanner">
-  <p class="servSectionPreTitle">Our</p><br>
-  <h1 class="servSectionTitle"><?php the_title(); ?></h1>
-  <img class="lazy serviceTitleImg" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" src="" alt="">
-</div>
+<figure class="inventory">
+  <img class="inventoryImg rowcol1" src="<?php echo get_template_directory_uri(); ?>/img/inventoryBanner.jpg" alt="">
+  <figcaption class="inventoryCaption rowcol1">
+    <p>Our</p>
+    <h2><?php the_title(); ?></h2>
+  </figcaption>
+</figure>
 
 <main class="servSection">
 
@@ -24,8 +26,8 @@
           <h3 class="serviceCardTitle"><?php the_title(); ?></h3>
           <p class="serviceCardSubtitle"><?php the_excerpt(); ?></p>
           <hr class="serviceCardDivisor">
-          <a href="" class="serviceCardContact">Contact</a>
-          <button class="serviceCardButton">Expand</button>
+          <a href="" class="serviceCardCtA">Contact</a>
+          <button class="serviceCardCtA serviceCardCtAExpand">Expand</button>
           <div class="serviceCardContent"><?php the_content(); ?></div>
         </figcaption>
       </figure>
