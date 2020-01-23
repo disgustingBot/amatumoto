@@ -86,7 +86,7 @@ FIN DE MAPA DE CONTENIDOS */
   ------------------------------------------------------------------------------
   --------------------------------------------------------------------------- */
 
-  /* HEADER */
+  /*---ROOT-----/* HEADER */
   --headerHeight: 80px;
   --navBarDesktopDisplay: none;
   --upperNavDektop: none;
@@ -103,7 +103,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
-  /* FRONT PAGE */
+  /*---ROOT-----/* FRONT PAGE */
 
   --hotAuctionsDisplay: block;
   --dosMotosGridTemplateRows: min-content 1fr;
@@ -133,20 +133,20 @@ FIN DE MAPA DE CONTENIDOS */
   --consignSectionMargin: 1rem 0;
   --consignSectionGalleryWidth: 80%;
 
-  /* ABOUT US */
+  /*---ROOT-----/* ABOUT US */
 
   --aboutSectionFlexDirection: column;
 
 
-  /* SERVICES */
+  /*---ROOT-----/* SERVICES */
 
   --serviceDisplayDisplay: grid;
-  --serviceDisplayGridTemplateRows: 1fr;
   --serviceDisplayGridTemplateColumns: 1fr;
   --serviceCardWidth: 100%;
+  --servSectionTitleGridColumn: span 1;
 
 
-  /* FOOTER */
+  /*---ROOT-----/* FOOTER */
 
   --footerDisplay: flex;
   --footerPadding: 1rem;
@@ -166,16 +166,16 @@ FIN DE MAPA DE CONTENIDOS */
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
 
-  /* ESTRUCTURA */
+  /*---ROOT-----/* ESTRUCTURA */
   --mainContentMargin: 0 2rem;
   --consignmentSingleStepMarginB: 2rem;
   --consignmentStepsTextAlign: center;
 
-  /* FORMULARIO */
+  /*---ROOT-----/* FORMULARIO */
 
     --formInputWidth: 100%;
 
-  /* CONSIGNMENT */
+  /*---ROOT-----/* CONSIGNMENT */
 
   --order1: 1;
   --order2: 2;
@@ -302,6 +302,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* SERVICES */
 
     --serviceDisplayGridTemplateColumns: 1fr 1fr;
+    --servSectionTitleGridColumn: span 2;
 
 
 
@@ -934,25 +935,37 @@ main {
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
-.serviceDisplay{
+
+.servSectionBanner{
   display: grid;
-  grid-template-rows: var(--serviceDisplayGridTemplateRows);
+}
+.servSection {
+  display: grid;
   grid-template-columns: var(--serviceDisplayGridTemplateColumns);
-
   grid-gap: 1.5rem;
-  justify-items: center;
 
 }
 
-.serviceDisplay .wp-block-column{
-  margin: 0 1rem;
-  margin: 2rem 2rem;
+.servSectionFigC {
+  grid-column: 1;
+  grid-row: 1;
 }
+
+.serviceTitleImg{
+  width: 100%;
+  height: 5rem;
+  object-fit: cover;
+  margin: 0 0 3rem 0;
+  grid-row: 1;
+  grid-column: 1;
+
+}
+
+
 
 
 
 .serviceCard{
-  max-width: 600px;
   width: 100%;
   border-radius: 4px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -967,43 +980,72 @@ main {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-
-.serviceCard .wp-block-columns{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  margin: 0;
+.serviceCardContent{
+  display: none;
 }
 
 
-.serviceCard .wp-block-columns .wp-block-column{
-  margin: auto;
+
+.serviceCardTitle{
+  margin: 1% 0 1% 8%;
 }
 
-.serviceTitle{
-  margin: 0.2rem .2rem;
-
+.serviceCardSubtitle + p{
+  color: rgba(0,0,0,.8);
+  font-size: .8rem;
+  margin: 1% 0 1% 8%;
+  grid-column: span 2;
 }
 
 
 .serviceImg{
   width: 100%;
   margin: 0;
-
 }
 
-.serviceImg img{
+.serviceCardImg{
   width: 100%;
   height: auto;
-  max-height: 180px;
-  min-height: 180px;
+  max-height: 194px;
+  min-height: 194px;
   border-radius: 4px 4px 0 0;
 }
 
-.serviceButtonContact{
-  word-break: normal;
-  margin: .5rem .5rem;
+.serviceCardCaption{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
+.serviceCardDivisor{
+  margin: .5rem 0;
+  grid-column: span 2;
+}
+
+.serviceCardContact{
+  word-break: normal;
+  margin: 3% 0 3% 8%;
+  background: rgba(0,0,0,.5);
+  padding: .2rem;
+  border-radius: 2px;
+
+
+}
+
+
+
+.servSectionTitle{
+  text-align: center;
+  grid-row: 1;
+  grid-column: 1;
+  color: white;
+}
+
+.serviceCardButton{
+  margin: 1% 0 1% 55%;
+  border-width: 0px;
+  background: white;
+  font-size: 1rem;
+  color: #A871F5;
 }
 
 /* ---------------------------------------------------------------------------
