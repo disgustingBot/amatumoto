@@ -26,7 +26,6 @@
 
 
 
-
 <div class="searchSeparator">
   <div class="lines"></div>
   <div class="searchBox">
