@@ -99,7 +99,7 @@
       'posts_per_page'=>9,
       'paged' => $paged,
     );
-    if (isset($_GET['filter_year']) AND $_GET['filter_year']!='') {
+    if (isset($_GET['filter_year']) AND $_GET['filter_year']!=0) {
       $args['tax_query'] = array(
           array(
               'taxonomy' => 'product_cat',
