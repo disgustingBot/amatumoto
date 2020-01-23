@@ -1461,7 +1461,7 @@ main {
   position: relative;
   transition:.4s;
   width:100%;
-  z-index:1;
+  z-index:4;
 }
 
 .selectBoxPlaceholder{
@@ -1526,7 +1526,7 @@ main {
   transition:.3s;
   transition-delay:.2s;
   width:100%;
-  z-index: 0;
+  z-index: 3;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .selectBox:focus .selectBoxList{
