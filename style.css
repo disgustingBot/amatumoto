@@ -171,6 +171,10 @@ FIN DE MAPA DE CONTENIDOS */
   --consignmentSingleStepMarginB: 2rem;
   --consignmentStepsTextAlign: center;
 
+
+  /*---ROOT-----/* ARCHIVE */
+  --shopArchiveGridTemplateC: 1fr;
+
   /*---ROOT-----/* FORMULARIO */
 
     --formInputWidth: 100%;
@@ -232,6 +236,10 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* FORMULARIO */
     --formInputWidth: calc(50% - 2rem);
+
+    /* ARCHIVE */
+    --shopArchiveGridTemplateC: 1fr 1fr;
+
 
   }
 
@@ -306,6 +314,9 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
+
+
+
     /* FOOTER */
 
     --footerPadding: 2rem;
@@ -358,6 +369,9 @@ FIN DE MAPA DE CONTENIDOS */
         /* ESTRUCTURA */
         --mainContentMargin: 0 5rem;
         --consignmentSingleStepMarginB: 0;
+
+        /* ARCHIVE */
+        --shopArchiveGridTemplateC: 1fr 1fr 1fr;
   }
 }
 
@@ -820,20 +834,27 @@ main {
   grid-template-rows: min-content min-content;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  padding: .3rem .5rem;
 }
+
 .productCard:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
 
-.newArrival{
-  background: #007EFF;
-  color: white;
+.newArrival {
+  background: #F78D15;
+  letter-spacing: 2px;
   padding: .2rem .4rem;
-  font-size: .6rem;
+  font-size: .8rem;
+  grid-column: 1; grid-row: 1;
+  width: max-content;
+  height: min-content;
+  z-index: 2;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-.productCardImg {width: 100%;}
-.productCardCaption{font-weight: 100;}
-.productCardTitle{font-weight: 300;}
-.productCardTxt{font-size: .6rem;}
+.productCardImg {width: 100%; height: 8rem; grid-column: 1; grid-row: 1;}
+.productCardCaption{font-weight: 100; padding: .3rem .5rem;}
+.productCardCaption>* {margin-bottom: .4rem;}
+.productCardTitle{font-weight: 300; font-weight: bold;}
+.productCardTxt{font-size: .8rem; font-weight: 400;}
+.productCardPrice {font-size: .8rem; font-weight: 500;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -853,7 +874,6 @@ main {
 .hotCardCaption{padding:.5rem;padding-top: 0;}
 
 .hotCardTitle{
-  color: #666;
   text-align: center;
   padding:.3rem;
   margin-bottom: .5rem;
@@ -861,7 +881,7 @@ main {
   border-bottom: solid 1px #AAA;
 }
 
-.hotCardPrice{color: #D95D61;font-size:.8rem;}
+.hotCardPrice{font-size:.8rem;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1240,7 +1260,7 @@ main {
 
 .shopArchive{
   display: grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns: var(--shopArchiveGridTemplateC);
   padding: 2rem;
   grid-gap: 1rem;
 }
