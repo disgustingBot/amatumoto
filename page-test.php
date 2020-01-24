@@ -22,11 +22,12 @@
     <div class="filterButton" onclick="altClassFromSelector('alt', '#filterBar')">
       <svg width="50" height="50" viewBox="0 0 275 231" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9167 50L263.542 50L264 50L264 49.9902C270.116 49.7277 275 44.2361 275 37.5C275 30.7639 270.116 25.2723 264 25.0098L264 25L263.542 25L11.9167 25L11.9167 25.0098C11.7647 25.0033 11.612 25 11.4586 25C5.1304 25 0.000335449 30.5964 0.000335147 37.5C0.000334845 44.4035 5.1304 50 11.4586 50C11.612 50 11.7647 49.9967 11.9167 49.9902L11.9167 50Z" fill="black"/>
-        <circle cx="202.5" cy="37.5" r="37.5" transform="rotate(90 202.5 37.5)" fill="black"/>
+        <circle class="filterButtonCircle1" cx="202.5" cy="37.5" r="37.5" transform="rotate(90 202.5 37.5)" fill="black"/>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4167 114.828C23.4449 114.828 23.4731 114.829 23.5012 114.829L252.167 114.829L252.167 114.838C252.305 114.832 252.444 114.829 252.584 114.829C258.336 114.829 263 119.917 263 126.192C263 132.468 258.336 137.556 252.584 137.556C252.444 137.556 252.305 137.553 252.167 137.547L252.167 137.556L22.9999 137.556L22.9999 137.547C17.4402 137.308 13 132.316 13 126.192C13 120.068 17.4402 115.076 22.9999 114.837L22.9999 114.829L23.3322 114.829C23.3603 114.829 23.3885 114.828 23.4167 114.828Z" fill="black"/>
-        <circle cx="79" cy="126" r="34" transform="rotate(-90 79 126)" fill="black"/>
+        <circle class="filterButtonCircle2" cx="79" cy="126" r="34" transform="rotate(-90 79 126)" fill="black"/>
         <path fill-rule="evenodd" clip-rule="evenodd" d="M238 204.154C238 209.053 234.448 213.047 230.001 213.238L230.001 213.245L229.684 213.245L229.667 213.245L229.651 213.245L46.6668 213.245L46.6668 213.238C46.5563 213.243 46.4452 213.245 46.3336 213.245C41.7312 213.245 38.0002 209.175 38.0002 204.154C38.0002 199.133 41.7312 195.063 46.3336 195.063C46.4452 195.063 46.5563 195.066 46.6668 195.07L46.6668 195.063L230.001 195.063L230.001 195.07C234.448 195.261 238 199.255 238 204.154Z" fill="black"/>
-        <ellipse rx="27" ry="27" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 185 204)" fill="black"/>
+        <!-- <circle cx="27" cy="27" r="34" transform="rotate(-90 79 126)" fill="black"/> -->
+        <ellipse class="filterButtonCircle3" rx="27" ry="27" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 185 204)" fill="black"/>
       </svg>
     </div>
     <div class="filterSeparator"></div>
@@ -131,8 +132,17 @@
   $blogPosts=new WP_Query($args);
   while($blogPosts->have_posts()){$blogPosts->the_post();$product_id = get_the_ID(); ?>
 
+
+
   <figure class="productCard">
-    <span class="newArrival"><i>New arrival</i></span>
+    <?php
+    global $product;
+    $newness_days = 1;
+    $created = strtotime( $product->get_date_created() );
+    if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
+      <span class="newArrival"><i>New arrival</i></span>
+    <?php } ?>
+    <!-- <span class="newArrival"><i>New arrival</i></span> -->
     <a class="productCardImg" href="<?php echo get_permalink(); ?>"><img class="productCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""></a>
     <figcaption class="productCardCaption">
       <h5 class="productCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
