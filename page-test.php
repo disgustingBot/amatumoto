@@ -11,7 +11,6 @@
 
 
 
-
 <!-- <form action="<?php // echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="get" class="filterBar" id="filterBar"> -->
 <form method="get" class="filterBar" id="filterBar">
   <?php // $filter_nonce = wp_create_nonce( 'filer' ); ?>
@@ -21,21 +20,25 @@
 
   <div class="filterBarTop">
     <div class="filterButton" onclick="altClassFromSelector('alt', '#filterBar')">
-      <svg width="45" height="45" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="12.5" y="12.5" width="325" height="325" fill="white" stroke="black" stroke-width="25"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M187 49.9167V301.542V302H186.99C186.728 308.116 181.236 313 174.5 313C167.764 313 162.272 308.116 162.01 302H162V301.542V49.9167H162.01C162.003 49.7647 162 49.6119 162 49.4585C162 43.1302 167.596 38.0002 174.5 38.0002C181.404 38.0002 187 43.1302 187 49.4585C187 49.6119 186.997 49.7647 186.99 49.9167H187Z" fill="black"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M284 301.083V49.4583V49H283.99C283.728 42.8842 278.236 38 271.5 38C264.764 38 259.272 42.8842 259.01 49H259V49.4583V301.083H259.01C259.003 301.235 259 301.388 259 301.542C259 307.87 264.596 313 271.5 313C278.404 313 284 307.87 284 301.542C284 301.388 283.997 301.235 283.99 301.083H284Z" fill="black"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M90 301.083V49.4583V49H89.9902C89.7277 42.8842 84.2361 38 77.5 38C70.7639 38 65.2723 42.8842 65.0098 49H65V49.4583V301.083H65.0098C65.0033 301.235 65 301.388 65 301.542C65 307.87 70.5964 313 77.5 313C84.4036 313 90 307.87 90 301.542C90 301.388 89.9967 301.235 89.9902 301.083H90Z" fill="black"/>
-        <circle cx="271" cy="264" r="18.75" fill="white" stroke="black" stroke-width="12.5"/>
-        <circle cx="78" cy="264" r="18.75" fill="white" stroke="black" stroke-width="12.5"/>
-        <circle r="18.75" transform="matrix(1 0 0 -1 175 87)" fill="white" stroke="black" stroke-width="12.5"/>
+      <svg width="50" height="50" viewBox="0 0 275 231" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9167 50L263.542 50L264 50L264 49.9902C270.116 49.7277 275 44.2361 275 37.5C275 30.7639 270.116 25.2723 264 25.0098L264 25L263.542 25L11.9167 25L11.9167 25.0098C11.7647 25.0033 11.612 25 11.4586 25C5.1304 25 0.000335449 30.5964 0.000335147 37.5C0.000334845 44.4035 5.1304 50 11.4586 50C11.612 50 11.7647 49.9967 11.9167 49.9902L11.9167 50Z" fill="black"/>
+        <circle cx="202.5" cy="37.5" r="37.5" transform="rotate(90 202.5 37.5)" fill="black"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4167 114.828C23.4449 114.828 23.4731 114.829 23.5012 114.829L252.167 114.829L252.167 114.838C252.305 114.832 252.444 114.829 252.584 114.829C258.336 114.829 263 119.917 263 126.192C263 132.468 258.336 137.556 252.584 137.556C252.444 137.556 252.305 137.553 252.167 137.547L252.167 137.556L22.9999 137.556L22.9999 137.547C17.4402 137.308 13 132.316 13 126.192C13 120.068 17.4402 115.076 22.9999 114.837L22.9999 114.829L23.3322 114.829C23.3603 114.829 23.3885 114.828 23.4167 114.828Z" fill="black"/>
+        <circle cx="79" cy="126" r="34" transform="rotate(-90 79 126)" fill="black"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M238 204.154C238 209.053 234.448 213.047 230.001 213.238L230.001 213.245L229.684 213.245L229.667 213.245L229.651 213.245L46.6668 213.245L46.6668 213.238C46.5563 213.243 46.4452 213.245 46.3336 213.245C41.7312 213.245 38.0002 209.175 38.0002 204.154C38.0002 199.133 41.7312 195.063 46.3336 195.063C46.4452 195.063 46.5563 195.066 46.6668 195.07L46.6668 195.063L230.001 195.063L230.001 195.07C234.448 195.261 238 199.255 238 204.154Z" fill="black"/>
+        <ellipse rx="27" ry="27" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 185 204)" fill="black"/>
       </svg>
     </div>
     <div class="filterSeparator"></div>
     <input class="filterBarSearch" placeholder="Search" type="text" name="filter_search" value="">
-    <a href="" class="filterBarLink">inventory</a>
-    <a href="" class="filterBarLink">auctions</a>
-    <a href="" class="filterBarLink">sold</a>
+    <button class="searchBtn">
+      <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" class=""></path>
+      </svg>
+    </button>
+    <a href="" class="filterBarLink buttonType1">inventory</a>
+    <a href="" class="filterBarLink buttonType1">auctions</a>
+    <a href="" class="filterBarLink buttonType1">sold</a>
   </div>
   <div class="filterBarBotttom">
 
@@ -81,7 +84,14 @@
 <!-- Voy a tener un porro pronto -->
 
 
-    <?php woocommerce_subcats_from_parentcat_by_ID(27); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(24); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(23); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(22); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(19); ?>
+
+    <button class="filterSearch buttonType1" type="submit">Search</button>
+
+
 
 
   </div>

@@ -102,3 +102,9 @@ const selectBoxControler=(a, selectBoxId, current)=>{c.log(a)
   d.querySelector(current).innerHTML=a;
   d.activeElement.blur();
 }
+
+
+// GO BACK BUTTONS
+function goBack() {
+  window.history.back();
+}
