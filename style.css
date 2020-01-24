@@ -1074,9 +1074,9 @@ main {
 
 }
 .servSection {
+  grid-template-columns: var(--serviceDisplayGridTemplateColumns);
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
   margin: 0;
   padding: 1.5rem;
   grid-gap:1rem;
@@ -1086,7 +1086,6 @@ main {
   display:flex;
   margin: 0;
   flex-direction: column;
-
 }
 
 .servSectionFigC {
@@ -1113,11 +1112,14 @@ main {
   margin:1rem 0;
   background: #fff;
 }
-.serviceCard.alt {
-}
 
 .serviceCard:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.serviceCardContentSection1>*{
+  display: grid;
+  align-items: center;
 }
 
 .serviceCardContent{
@@ -1128,6 +1130,27 @@ main {
   font-size: .7rem;
 }
 
+.serviceCardContentSection1{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1rem;
+  grid-gap: 1rem;
+
+}
+
+.serviceCardContentText2{
+  margin: 1rem;
+}
+
+.serviceCardContentImg{
+  display: grid;
+  align-items: center;
+}
+
+.serviceCardContent .wp-block-image .size-large{
+  grid-column: span 2;
+}
+
 .serviceCardContent .serviceCardSeparator{
   width: 90%;
   margin: auto;
@@ -1135,7 +1158,6 @@ main {
 
 .serviceCard.alt .serviceCardContent{
   height: min-content;
-
 }
 
 .serviceCard.alt .serviceCardExpandArrow{
@@ -1163,7 +1185,6 @@ main {
   grid-column: 1/span 2;
   grid-row: 2;
 }
-
 
 .serviceImg{
   width: 100%;

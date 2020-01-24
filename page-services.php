@@ -22,7 +22,7 @@
     );
     $services=new WP_Query($args); $i=0;
     while($services->have_posts()){$services->the_post(); $product_id = get_the_ID(); ?>
-      <?php if($i*2>$services->post_count){$i=0; ?>
+      <?php if($i>=$services->post_count/2){$i=0; ?>
         </div>
         <div class="servColumn">
       <?php } ?>
