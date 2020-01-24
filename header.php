@@ -96,7 +96,7 @@
       </a>
     </nav>
     <nav class="navBar">
-      <?php // wp_nav_menu( array( 'theme_location' => 'navBar', 'navBar' => 'new_menu_class' ) ); ?>
+      <?php wp_nav_menu( array( 'theme_location' => 'navBar', 'navBar' => 'new_menu_class' ) ); ?>
 
       <a class="navBarLink" href="<?php echo get_permalink( get_page_by_path( 'test' ) ); ?>">INVENTORY</a>
       <a class="navBarLink" href="">PARTS & RACING PRODUCTS</a>
@@ -107,12 +107,12 @@
 
     <nav class="mobileNav" id="mobileNav">
       <div class="navBarMobile">
-        <?php wp_nav_menu( array( 'theme_location' => 'navBar', 'navBar' => 'new_menu_class' ) ); ?>
-        <a href="<?php echo get_permalink( get_page_by_path( 'test' ) ); ?>" class="navBarLinkMobile">INVENTORY</a>
-        <a href="" class="navBarLinkMobile">PARTS & RACING PRODUCTS</a>
-        <a href="<?php echo get_permalink( get_page_by_path( 'the-garage' ) ); ?>" class="navBarLinkMobile">THE GARAGE</a>
-        <a href="<?php echo get_permalink( get_page_by_path( 'services' ) ); ?>" class="navBarLinkMobile">SERVICES</a>
-        <a href="<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>" class="navBarLinkMobile">CONTACT</a>
+        <?php wp_nav_menu( array( 'theme_location' => 'navBarMobile', 'navBarMobile' => 'new_menu_class' ) ); ?>
+        <a class="navBarLinkMobile" href="<?php echo get_permalink( get_page_by_path( 'test' ) ); ?>">INVENTORY</a>
+        <a class="navBarLinkMobile" href="">PARTS & RACING PRODUCTS</a>
+        <a class="navBarLinkMobile" href="<?php echo get_permalink( get_page_by_path( 'the-garage' ) ); ?>">THE GARAGE</a>
+        <a class="navBarLinkMobile" href="<?php echo get_permalink( get_page_by_path( 'services' ) ); ?>">SERVICES</a>
+        <a class="navBarLinkMobile" href="<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>">CONTACT</a>
       </div>
       <div class="upperNavMobile">
 
