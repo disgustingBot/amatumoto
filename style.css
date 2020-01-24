@@ -1461,8 +1461,14 @@ main {
   cursor: pointer;
 }
 .filterButtonCircle{
-  animation:filterButtonCircle 5s infinite alternate linear;
-  transform:translateX(0);
+  animation:filterButtonCircle .6s infinite alternate linear;
+  /* transform:translateX(0); */
+  animation-play-state: running;
+}
+.filterButtonCircle.inactive{
+  animation-play-state: paused;
+}
+.filterButton:hover .filterButtonCircle{
   animation-play-state: running;
 }
 .filterButtonCircle:nth-child(1){
@@ -1479,6 +1485,9 @@ main {
 }
 @keyframes filterButtonCircle {
   10%, 100%{transform:translateX(0)}
+  to{transform:translateX(0)}
+  /* 10%, 100%{transform:translateX(0)} */
+  /* 100%{transform:translateX(100%)} */
 }
 
 .filterSearch {
@@ -1770,6 +1779,78 @@ main {
   background: red;
   transition: .7s;
 
+}
+
+
+
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.8.1) =mateput:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.mateput{
+  width: 50%;
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+
+    /* padding: .5rem; */
+    /* border: 2px solid #E9E9E9; */
+    width: var(--filterBarSearchWidth);
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.mateput input{
+  width: 100%;
+  height: 100%;
+  color:#595f6e;
+  border:none;
+  padding-top:20px;
+  outline: none;
+}
+
+.mateputLabel{
+  position: absolute;
+  bottom:0;
+  left:0;
+  height: 100%;
+  width:100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+
+.mateputLabel::after{
+  border-bottom:3px solid #5fa8d3;
+  content:'';
+  position: absolute;
+  left: 0;
+  bottom:-1px;
+  height:100%;
+  width: 100%;
+  transform: translateX(-100%);
+  transition: .3s ease-in-out;
+}
+
+.mateputName{
+  position: absolute;
+  bottom:5px;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.mateput input:focus + .mateputLabel .mateputName,
+.mateput input:valid + .mateputLabel .mateputName{
+  transform:translateY(-150%);
+  font-size: 14px;
+  color:#5fa8d3;
+}
+
+.mateput input:focus + .mateputLabel::after,
+.mateput input:valid + .mateputLabel::after{
+  transform: translateX(0);
 }
 
 
