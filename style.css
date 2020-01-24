@@ -144,6 +144,11 @@ FIN DE MAPA DE CONTENIDOS */
   --serviceCardWidth: 100%;
   --servSectionTitleGridColumn: span 1;
 
+  /*---ROOT-----/* THE GARAGE */
+
+  --theGarageFigureDisplay: block;
+
+
 
   /*---ROOT-----/* FOOTER */
 
@@ -312,7 +317,9 @@ FIN DE MAPA DE CONTENIDOS */
     --servSectionTitleGridColumn: span 2;
 
 
+    /* THE GARAGE */
 
+    --theGarageFigureDisplay: grid;
 
 
 
@@ -995,10 +1002,6 @@ main {
 
 }
 
-
-
-
-
 .serviceCard{
   width: 100%;
   border-radius: 4px;
@@ -1008,7 +1011,11 @@ main {
 
 }
 .serviceCard.alt {
-  background: red;
+  max-height: calc(100vh - 120px);
+  width: calc(100vw - 200px);
+  top: 0;
+
+
 }
 
 .serviceCard:hover {
@@ -1017,20 +1024,48 @@ main {
 
 .serviceCardContent{
   display: none;
+  grid-column: span 2;
+  margin: .3rem 1rem;
+  animation: serviceCardContract 1s forwards;
+  font-size: .7rem;
 }
 
+.serviceCardContent .serviceCardSeparator{
+  width: 90%;
+  margin: auto;
+}
 
+.serviceCard.alt .serviceCardContent{
+  display: block;
+  animation: serviceCardExpand 1s forwards;
+  height: min-content;
+
+}
+
+.serviceCard.alt .serviceCardExpandArrow{
+  transform: rotate(180deg);
+
+}
+
+.serviceCardExpandArrow{
+  height: 1rem;
+  margin: auto;
+  margin-right: 1rem;
+  transition: .4s;
+}
 
 .serviceCardTitle{
-  margin: 1% 0 1% 8%;
-  grid-column: span 2;
+  margin: .3rem 1rem;
+  grid-column: 1/span 2;
+  grid-row: 1;
 }
 
-.serviceCardSubtitle + p{
+.serviceCardSubtitle{
   color: rgba(0,0,0,.8);
   font-size: .8rem;
-  margin: 1% 0 1% 8%;
-  grid-column: span 2;
+  margin: .3rem 1rem;
+  grid-column: 1/span 2;
+  grid-row: 2;
 }
 
 
@@ -1055,7 +1090,7 @@ main {
 
 .serviceCardCtA{
   word-break: normal;
-   margin: .3rem;
+  margin: .3rem 1rem;
   color: #D58D15;
   padding: .2rem;
   border-radius: 2px;
@@ -1063,14 +1098,8 @@ main {
   background: none;
   border: none;
   font-size: 1rem;
-  text-align: center;
 }
 
-.serviceCardCtAExpand{
-  color: purple;
-  font-size: .9rem;
-  text-transform: capitalize;
-}
 
 .servSectionTitle{
   text-align: center;
@@ -1080,13 +1109,6 @@ main {
   z-index: 2;
 }
 
-.serviceCardButton{
-  margin: 1% 16% 1% auto;
-  border-width: 0px;
-  background: white;
-  font-size: 1rem;
-  color: #A871F5;
-}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1096,16 +1118,38 @@ main {
 
 
 .theGarageSection{
-  margin: 0 3rem;
 
+    display: grid;
+    grid-gap: 1.5rem;
+    margin: 0 3rem;
+    margin-top: 1.5rem;
+}
+
+.theGarageContent{
 }
 
 .theGarageFigure{
-  display: grid;
+  display: var(--theGarageFigureDisplay);
   grid-template-columns: 1fr 1fr;
+  margin: 1.5rem 0;
 }
 
+.theGarageFigure figure img{
+}
 
+.theGarageFigcaption{
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+}
+
+.theGarageFigure .wp-block-media-text__content{
+  padding: 0;
+}
+
+.theGarageSeparator{
+  width: 90%;
+  margin: auto;
+}
 
 
 /* ---------------------------------------------------------------------------

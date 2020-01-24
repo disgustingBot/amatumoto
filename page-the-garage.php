@@ -14,14 +14,9 @@
 
 
 
-  <?php
-  while(have_posts()){the_post();?>
-          <div class="theGarageContent"><?php the_content(); ?></div>
-      </figcaption>
-    </figure>
-  <?php } ?>
+  <?php while(have_posts()){the_post();the_content();} ?>
 
 
-</main>
+  </main>
 
 <?php get_footer(); ?>
