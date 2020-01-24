@@ -102,6 +102,18 @@ FIN DE MAPA DE CONTENIDOS */
   --logoImgWidth: 80%;
   --upperNavMarginLeft: .5rem;
 
+  /* FILTER */
+  --filterBarTopDisplay: flex;
+  --filterSeparatorDisplay: none;
+  --filterBarSearchWidth: calc(100% - 50px - 1rem);
+  --filterBarBottomCol: 1fr;
+  --filterLinkBarWidth: 30%;
+  --filterBarLinkPadding: .5rem;
+  --filterBarContraction: 400px;
+  --varSearchBtnPosition: absolute;
+  --varSearchBtnTop: 1rem;
+  --varSearchBtnRight: 2rem;
+
 
 
 
@@ -125,9 +137,9 @@ FIN DE MAPA DE CONTENIDOS */
   --mainTxtType1FontSize: .9rem;
   --maintTxtType1LineHeight: 1.3rem;
   --mainTxtType1TextA: justify;
-  --dosMotosButtonPadding: 1rem 2rem;
-  --dosMotosButtonMargin: 1rem auto;
-  --dosMotosFontSize: 1.1rem;
+  --buttonType1Padding: 1rem 2rem;
+  --buttonType1Margin: 1rem auto;
+  --buttonType1FontSize: 1.1rem;
   --dosMotosGridGap: 2rem;
   --consignSectionMargin: 1rem 0;
   --consignSectionGalleryWidth: 80%;
@@ -166,6 +178,10 @@ FIN DE MAPA DE CONTENIDOS */
   --characterCaptionh5: .8rem;
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
+  --newsLetterMarginLeft: auto;
+  --socialMediaFooterMargin: auto auto auto 1.4rem;
+  --socialMediaLinkSize: 25px;
+
 
   /*---ROOT=ESTRUCTURA */
   --mainContentMargin: 0 2rem;
@@ -187,6 +203,9 @@ FIN DE MAPA DE CONTENIDOS */
   --order3: 3;
   --order4: 4;
   --order5: 5;
+
+  /* 404 NOT FOUND */
+  --notFoundPadding: 2rem;
 }
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -240,7 +259,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* FOOTER */
 
     --characterMargin: .5rem 3rem;
-    --dataFontSize: .8rem;
+    --dataFontSize: .6rem;
 
     /* ESTRUCTURA */
 
@@ -249,6 +268,9 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* ARCHIVE */
     --shopArchiveGridTemplateC: 1fr 1fr;
+
+    /* 404 NOT FOUND */
+    --notFoundPadding: 4rem;
 
 
   }
@@ -273,7 +295,6 @@ FIN DE MAPA DE CONTENIDOS */
     --logoPaddingRight: 0;
     --upperNavAlignment: center;
     --navBarMargin: auto 2rem;
-    --socialMediaLink: 25px;
 
     --navBarDesktopDisplay: flex;
     --upperNavDektop: flex;
@@ -286,6 +307,21 @@ FIN DE MAPA DE CONTENIDOS */
     --mobileNavBtnTop: 2rem;
     --mobileNavBtnRight: 2rem;
     --navStripeHeight: 10px;
+
+    /* FILTER */
+    --filterBarTopDisplay: grid;
+    --filterSeparatorDisplay: block;
+    --filterBarSearchWidth: 100%;
+    --filterBarBottomCol: repeat(5,1fr);
+    --filterLinkBarWidth: ;
+    --filterBarLinkPadding: .4rem 1.4rem;
+    --filterBarContraction: calc(4.5rem + 2px);
+    --varSearchBtnPosition: relative;
+    --varSearchBtnTop: ;
+    --varSearchBtnRight: ;
+
+
+
 
 
     /* FRONT PAGE */
@@ -305,9 +341,9 @@ FIN DE MAPA DE CONTENIDOS */
     --mainTxtType1FontSize: .66rem;
     --maintTxtType1LineHeight: 1.1rem;
     --mainTxtType1TextA: left;
-    --dosMotosButtonPadding: .4rem 1.4rem;
-    --dosMotosButtonMargin: .3rem auto;
-    --dosMotosFontSize: .8rem;
+    --buttonType1Padding: .4rem 1.4rem;
+    --buttonType1Margin: .3rem auto;
+    --buttonType1FontSize: .8rem;
     --dosMotosGridGap: 1rem;
     --consignSectionMargin: 2rem 0;
     --consignSectionGalleryWidth: 100%;
@@ -346,6 +382,7 @@ FIN DE MAPA DE CONTENIDOS */
     --contactContainerFontSize: .6rem;
     --footerContainerDisplay: grid;
 
+
     /* ESTRUCTURA */
     --consignmentStepsTextAlign: left;
 
@@ -355,6 +392,9 @@ FIN DE MAPA DE CONTENIDOS */
     --order3: auto;
     --order4: auto;
     --order5: auto;
+
+    /* 404 NOT FOUND */
+    --notFoundPadding: 6rem;
   }
 }
 
@@ -370,7 +410,10 @@ FIN DE MAPA DE CONTENIDOS */
         --characterContainerPadding: 0;
         --footerDisplay: grid;
         --lowerFooterDisplay: grid;
-        --dataFontSize: .8rem;
+        --dataFontSize: .6rem;
+        --newsLetterMarginLeft: .8rem;
+        --socialMediaFooterMargin: 0rem 0rem auto auto;
+
 
         /* ABOUT US */
 
@@ -387,6 +430,9 @@ FIN DE MAPA DE CONTENIDOS */
 
         /* ARCHIVE */
         --shopArchiveGridTemplateC: 1fr 1fr 1fr;
+
+        /* 404 NOT FOUND */
+        --notFoundPadding:5rem 10rem;
   }
 }
 
@@ -407,7 +453,7 @@ FIN DE MAPA DE CONTENIDOS */
     --logoImgWidth: 65%;
     --logoWidth: 70%;
     --navBarMargin: auto 4rem;
-    --socialMediaLink: 30px;
+    --socialMediaLinkSize: 30px;
     --hotAuctionsDisplay: grid;
 
 
@@ -415,7 +461,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* FOOTER */
-    --footerPadding: 5rem;
+    --footerPadding: 3rem;
     --characterSvgWidth: 50%;
   }
 }
@@ -628,6 +674,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 .3rem;
 }
 
 .upperNavIconTxt {font-size: .5rem;}
@@ -643,6 +690,7 @@ main {
   justify-content: space-between;
   width: 140px;
   height: min-content;
+  margin: auto;
 }
 
 
@@ -650,8 +698,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--socialMediaLink);
-  height: var(--socialMediaLink);
+  width: var(--socialMediaLinkSize);
+  height: var(--socialMediaLinkSize);
   color: white;
   border-radius: 4px;
 }
@@ -950,13 +998,22 @@ main {
   text-align: var(--mainTxtType1TextA);
 }
 
-.dosMotosButton{
+.buttonType1 {
   background:transparent;
   border:solid 2px black;
-  padding: var(--dosMotosButtonPadding);
-  margin: var(--dosMotosButtonMargin);
+  padding: var(--buttonType1Padding);
+  margin: var(--buttonType1Margin);
   font-weight: 600;
-  font-size: var(--dosMotosFontSize);
+  font-size: var(--buttonType1FontSize);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  transition: .25s;
+  border-radius: 4px;
+}
+
+.buttonType1:hover {
+  color: white;
+  background-color: black;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1182,7 +1239,7 @@ main {
 
 .footer {
   display: var(--footerDisplay);
-  grid-template-columns:1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   padding: var(--footerPadding);
   grid-gap: 1rem;
   flex-wrap: wrap;
@@ -1191,6 +1248,8 @@ main {
 /* NEWSLETTER */
 #mc4wp-form-1 {
   margin: auto;
+  margin-left: var(--newsLetterMarginLeft);
+  margin-bottom: 2rem;
 }
 
 .newsLetterWord {color: #F78D15; font-style: italic; letter-spacing: 2px;}
@@ -1233,6 +1292,7 @@ main {
   font-size: .7rem;
   font-weight: 500;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 
@@ -1273,7 +1333,7 @@ main {
 }
 
 .lowerFooter{
-  grid-column:span 2;
+  grid-column: span 2;
   display:var(--lowerFooterDisplay);
   grid-template-columns: 3fr 1fr;
   flex-wrap: wrap;
@@ -1296,9 +1356,13 @@ main {
   font-size: var(--dataFontSize);
 }
 
-.data h5{font-size: 1rem;}
+.footerTitle {font-size: .7rem;}
 
-.inventory{
+.socialMediaFooter {
+  margin: var(--socialMediaFooterMargin);
+}
+
+.inventory {
   display: grid;
   align-items: center;
   color: white;
@@ -1338,17 +1402,15 @@ main {
                           6.5.1) =filterButton:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-.filterButton{
+.filterButton {
   background: none;
   border:none;
   width: 50px;
-  height:50px;
-  /* margin-left:3rem; */
+  cursor: pointer;
+}
 
-  /* margin-right:.3rem;
-  border-right:2px solid #E9E9E9;
-  padding-right:.3rem;
-  cursor: pointer; */
+.filterSearch {
+  padding: .5rem 1rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1398,48 +1460,73 @@ main {
                           6.7) =filterBar:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-.filterBar{
-  /* display:grid; */
+
+
+
+.searchBtn {
+  width: 30px;
+  height: 30px;
+  grid-column: 3;
+  grid-row: 1;
+  background: none;
+  border: none;
+  margin: auto;
+  margin-right: 1rem;
+  cursor: pointer;
+  position: var(--varSearchBtnPosition);
+  top: var(--varSearchBtnTop);
+  right: var(--varSearchBtnRight);
+}
+.searchBtn svg {
+  color: #616161;
+}
+
+.filterBar {
   align-items: center;
-  /* grid-auto-flow:column; */
   grid-template-rows:50px;
   padding: .3rem 0;
 }
-.filterBarTop{
+
+.filterBarTop {
   padding: .3rem 2.5rem;
   width:100%;
-  display:grid;
-  grid-gap: .3rem;
+  display: var(--filterBarTopDisplay);
+  grid-gap: .5rem;
   grid-template-columns: min-content min-content 1fr max-content max-content max-content;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  position: relative;
 }
 .filterSeparator{
+  display: var(--filterSeparatorDisplay)
   height: 2.5rem;
   width: .1rem;
   background:#aaa;
   margin: auto;
 }
-.filterBarSearch{
+.filterBarSearch {
   padding: .5rem;
   border: 2px solid #E9E9E9;
-  width: 100%;
+  width: var(--filterBarSearchWidth);
+  grid-column: 3;
+  grid-row: 1;
 }
-.filterBarLink{
+
+.filterBarLink {
   text-transform: uppercase;
   font-size: .6rem;
-  padding: .4rem 1rem;
   color:#464646;
   transition:.3s;
+  width: var(--filterLinkBarWidth);
+  padding: var(--filterBarLinkPadding)!important;
+  text-align: center;
 }
-.filterBarLink:hover{
-  text-transform: uppercase;
-  padding: .4rem 1rem;
-  color:#FCAF4A;
-}
+
 .filterBarBotttom{
   align-items: center;
   background: #F4F4F4;
   display: grid;
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns: var(--filterBarBottomCol);
   grid-row:2;
   grid-column:1/6;
   grid-gap:1rem;
@@ -1458,14 +1545,14 @@ main {
   99.99%{overflow:hidden}
   100%{
     /* background: red; */
-    height:calc(4.5rem + 2px);
+    height: var(--filterBarContraction);
     padding:1rem 2.5rem;
     overflow:visible;
   }
 }
 @keyframes filterBarContract {
   0%{
-    height:calc(4.5rem + 2px);
+    height: var(--filterBarContraction);
     padding:1rem 2.5rem;
     overflow:visible;
   }
@@ -1755,3 +1842,22 @@ main {
 #wpcf7-f124-p96-o1 p:nth-last-child(4) {width: 100%;}
 
 #wpcf7-f124-p96-o1 .wpcf7-form p label {font-size: .7rem;}
+
+/* 404 NOT FOUND */
+
+.notFoundContainer {
+  height: 60vh;
+  padding: var(--notFoundPadding);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.notFoundTxt {
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+}
+.notFoundBtns {
+  height: min-content;
+  margin-top: 1rem;
+}
