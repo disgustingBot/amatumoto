@@ -63,6 +63,20 @@ function excerpt($charNumber){
 
 
 
+ function register_menus() {
+   register_nav_menu('navBar',__( 'Home Menu' ));
+   // register_nav_menu('homeMobile-menu',__( 'Home Mobile Menu' ));
+   // register_nav_menu('magazine-menu',__( 'Magazine Menu' ));
+   // register_nav_menu('magazineMobile-menu',__( 'Magazine Mobile Menu' ));
+ }
+ add_action( 'init', 'register_menus' );
+
+
+
+
+
+
+
 // add_action( 'admin_post_nopriv_nds_form_response', 'the_form_response');
 // function the_form_response() {
 //  if( isset( $_POST['filter_nonce'] ) && wp_verify_nonce( $_POST['filter_nonce'], 'nds_add_user_meta_form_nonce') ) {
