@@ -1023,14 +1023,9 @@ main {
 
 }
 .servSection {
-  /* display: grid; */
-  /* grid-template-columns: var(--serviceDisplayGridTemplateColumns); */
-  /* grid-gap: 1.5rem; */
-  /* margin-top: 1.5rem; */
-  /* margin: 1.5rem 1.5rem; */
+  grid-template-columns: var(--serviceDisplayGridTemplateColumns);
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
   margin: 0;
   padding: 1.5rem;
   grid-gap:1rem;
@@ -1040,7 +1035,7 @@ main {
   display:flex;
   margin: 0;
   flex-direction: column;
-  /* justify-content: space-between; */
+  flex-wrap: wrap;
 
 }
 
@@ -1067,20 +1062,6 @@ main {
   height: min-content;
   margin:1rem 0;
   background: #fff;
-  /* flex: 2 1 auto; */
-  /* width: calc((100% - 2rem)/2); */
-  /* flex-basis: 25%; */
-
-}
-.serviceCard.alt {
-  /* max-height: calc(100vh - 120px); */
-  /* transform: translateX(-100%); */
-  /* margin-left:-100%; */
-  /* width:calc(100vw - 5rem); */
-  /* width: calc(100vw - 200px); */
-  /* top: 0; */
-  /* z-index: 2; */
-
 
 }
 
@@ -1088,14 +1069,38 @@ main {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
+.serviceCardContentSection1>*{
+  display: grid;
+  align-items: center;
+}
+
 .serviceCardContent{
-  /* display: none; */
   height: 0;
   overflow: hidden;
   grid-column: span 2;
   margin: .3rem 1rem;
-  /* animation: serviceCardContract 1s forwards; */
   font-size: .7rem;
+}
+
+.serviceCardContentSection1{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 1rem;
+  grid-gap: 1rem;
+
+}
+
+.serviceCardContentText2{
+  margin: 1rem;
+}
+
+.serviceCardContentImg{
+  display: grid;
+  align-items: center;
+}
+
+.serviceCardContent .wp-block-image .size-large{
+  grid-column: span 2;
 }
 
 .serviceCardContent .serviceCardSeparator{
@@ -1104,10 +1109,7 @@ main {
 }
 
 .serviceCard.alt .serviceCardContent{
-  /* display: block; */
-  /* animation: serviceCardExpand 1s forwards; */
   height: min-content;
-
 }
 
 .serviceCard.alt .serviceCardExpandArrow{
@@ -1135,7 +1137,6 @@ main {
   grid-column: 1/span 2;
   grid-row: 2;
 }
-
 
 .serviceImg{
   width: 100%;
