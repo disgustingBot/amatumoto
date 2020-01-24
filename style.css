@@ -722,8 +722,8 @@ main {
   width: 100%;
   height: 100%;
 }
-#menu-barra-de-navegacion-header,
-#menu-barra-de-navegacion-header-1{
+.navBar ul,
+.navBarMobile ul{
   justify-content: space-around;
   align-items: center;
   font-size: .6rem;
@@ -732,8 +732,8 @@ main {
   margin: var(--navBarMargin);
 
 }
-#menu-barra-de-navegacion-header li,
-#menu-barra-de-navegacion-header-1 li{
+.navBar ul li,
+.navBarMobile ul li{
   list-style: none;
   font-family: 'Oswald', sans-serif;
   font-size: 1rem;
@@ -742,15 +742,15 @@ main {
   text-align: center;
   margin: 1rem auto;
 }
-#menu-barra-de-navegacion-header{
+.navBar ul{
   display: var(--navBarDesktopDisplay);
 }
-#menu-barra-de-navegacion-header-1{
+.navBarMobile ul{
   display: var(--mobileNavButtonDisplay);
   flex-direction: column;
 }
-#menu-barra-de-navegacion-header   li:hover{border-bottom: solid black 2px;}
-#menu-barra-de-navegacion-header-1 li:hover{border-bottom: solid black 2px;}
+.navBar ul   li:hover{border-bottom: solid black 2px;}
+.navBarMobile ul li:hover{border-bottom: solid black 2px;}
 
 /* .navBarLinkMobile:hover{border-bottom: solid black 2px;} */
 .navBar{
@@ -1514,26 +1514,32 @@ main {
   width: 50px;
   cursor: pointer;
 }
-.filterButtonCircle1{
-  animation:filterButtonCircle1 5s infinite alternate linear;
+.filterButtonCircle{
+  animation:filterButtonCircle 5s infinite alternate linear;
   transform:translateX(0);
   animation-play-state: running;
   /* animation-play-state: paused; */
 }
-.filterButtonCircle3{
-  animation:filterButtonCircle3 5s infinite alternate linear;
-  transform:translateX(0);
-  animation-play-state: running;
-  /* animation-play-state: paused; */
+.filterButtonCircle:nth-child(1){
+  transform:translateX(72px);
+  animation-delay:-1s;
 }
-@keyframes filterButtonCircle1 {
+.filterButtonCircle:nth-child(2){
+  transform:translateX(66px);
+  animation-delay:-1.5s;
+}
+.filterButtonCircle:nth-child(3){
+  transform:translateX(52px);
+  animation-delay:-1.3s;
+}
+@keyframes filterButtonCircle {
+  10%, 100%{transform:translateX(0)}
+  /* 100%{transform:translateX(100%)} */
+}
+/* @keyframes filterButtonCircle3 {
   90%{transform:translateX(0)}
   100%{transform:translateX(-7rem)}
-}
-@keyframes filterButtonCircle3 {
-  90%{transform:translateX(0)}
-  100%{transform:translateX(-7rem)}
-}
+} */
 /* .filterButton */
 
 .filterSearch {
