@@ -9,17 +9,23 @@
   </figcaption>
 </figure>
 
+
+
+
+
 <main class="servSection">
+  <div class="servColumn">
 
   <?php
-
-
-
     $args = array(
       'post_type'=>'service',
     );
-    $services=new WP_Query($args);
+    $services=new WP_Query($args); $i=0;
     while($services->have_posts()){$services->the_post(); $product_id = get_the_ID(); ?>
+      <?php if($i*2>$services->post_count){$i=0; ?>
+        </div>
+        <div class="servColumn">
+      <?php } ?>
       <figure class="serviceCard" id="serviceCard<?php echo $product_id; ?>">
         <img class="serviceCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" src="" alt="">
         <figcaption class="serviceCardCaption">
@@ -33,7 +39,7 @@
           </svg>
         </figcaption>
       </figure>
-    <?php } ?>
+    <?php $i++;} ?>
 
 
 
@@ -43,7 +49,7 @@
 
 
 
-
+  </div>
 </main>
 
 
