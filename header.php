@@ -108,11 +108,6 @@
     <nav class="mobileNav" id="mobileNav">
       <div class="navBarMobile">
         <?php wp_nav_menu( array( 'theme_location' => 'navBarMobile', 'navBarMobile' => 'new_menu_class' ) ); ?>
-        <a class="navBarLinkMobile" href="<?php echo get_permalink( get_page_by_path( 'test' ) ); ?>">INVENTORY</a>
-        <a class="navBarLinkMobile" href="">PARTS & RACING PRODUCTS</a>
-        <a class="navBarLinkMobile" href="<?php echo get_permalink( get_page_by_path( 'the-garage' ) ); ?>">THE GARAGE</a>
-        <a class="navBarLinkMobile" href="<?php echo get_permalink( get_page_by_path( 'services' ) ); ?>">SERVICES</a>
-        <a class="navBarLinkMobile" href="<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>">CONTACT</a>
       </div>
       <div class="upperNavMobile">
 
