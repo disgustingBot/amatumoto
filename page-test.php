@@ -46,7 +46,14 @@
       </svg> -->
     </div>
     <div class="filterSeparator"></div>
-    <input class="filterBarSearch" placeholder="Search" type="text" name="filter_search" value="">
+
+      <div class="mateput">
+        <input type="text" name="name" autocomplete="off" required>
+        <label for="name" class="mateputLabel">
+          <span class="mateputName">Name</span>
+        </label>
+      </div>
+    <!-- <input class="filterBarSearch" placeholder="Search" type="text" name="filter_search" value=""> -->
     <button class="searchBtn">
       <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
         <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" class=""></path>
@@ -100,10 +107,10 @@
 <!-- Voy a tener un porro pronto -->
 
 
-    <?php woocommerce_subcats_from_parentcat_by_ID(24); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(23); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(22); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(19); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(30); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(32); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(29); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(31); ?>
 
     <button class="filterSearch buttonType1" type="submit">Search</button>
 
