@@ -632,7 +632,19 @@ main {
 .socialMediaYouT{background:#CD201F}
 .socialMediaSrch{background:#F2F2F2}
 
+
+#menu-barra-de-navegacion-header{
+  display: var(--navBarDesktopDisplay);
+  justify-content: space-around;
+  align-items: center;
+  font-size: .6rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  margin: var(--navBarMargin);
+
+}
 .navBar{
+  /* display: var(--navBarDesktopDisplay); */
   display: var(--navBarDesktopDisplay);
   justify-content: space-around;
   align-items: center;
@@ -641,6 +653,7 @@ main {
   font-weight: 500;
   margin: var(--navBarMargin);
 }
+.navBarLink{display:none;}
 
 /* NAV BAR FOR MOBILE DEVICES */
 
