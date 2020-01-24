@@ -99,6 +99,8 @@ FIN DE MAPA DE CONTENIDOS */
   --mobileNavBtnTop: 1.5rem;
   --mobileNavBtnRight: 1rem;
   --navStripeHeight: 5px;
+  --logoImgWidth: 80%;
+  --upperNavMarginLeft: .5rem;
 
 
 
@@ -219,7 +221,16 @@ FIN DE MAPA DE CONTENIDOS */
 
 
   :root {
+
+
+    /* HEADER */
+    --logoImgWidth: 70%;
+
+
+   /* FRONT PAGE */
+
     /* 576=FRONT PAGE */
+
     --searchLinesDisplay: block;
     --searchSeparatorDisplay: grid;
     --hotCardWidth: 40%;
@@ -257,6 +268,8 @@ FIN DE MAPA DE CONTENIDOS */
     --headerGridTemplateColums: 30% 1fr;
     --headerHeight: 120px;
     --logoWidth: 70%;
+    --logoImgWidth: 100%;
+    --upperNavMarginLeft: .5rem;
     --logoPaddingRight: 0;
     --upperNavAlignment: center;
     --navBarMargin: auto 2rem;
@@ -389,11 +402,14 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* HEADER */
     --headerGridTemplateColums: 40% 1fr;
-    --logoWidth: 70%;
     --upperNavAlignment: flex-start;
+    --upperNavMarginLeft: auto;
+    --logoImgWidth: 65%;
+    --logoWidth: 70%;
     --navBarMargin: auto 4rem;
     --socialMediaLink: 30px;
-    --hotAuctionsDisplay:grid;
+    --hotAuctionsDisplay: grid;
+
 
     /* ABOUT US */
 
@@ -401,6 +417,24 @@ FIN DE MAPA DE CONTENIDOS */
     /* FOOTER */
     --footerPadding: 5rem;
     --characterSvgWidth: 50%;
+  }
+}
+
+@media  screen and (min-width: 1500px) {
+  :root {
+    --sizeR: calc(var(--sizeRd) * 1px);
+
+    /* HEADER */
+    --logoImgWidth: 70%;
+  }
+}
+
+@media  screen and (min-width: 1600px) {
+  :root {
+    --sizeR: calc(var(--sizeRd) * 1px);
+
+    /* HEADER */
+    --logoImgWidth: 60%;
   }
 }
 
@@ -575,10 +609,10 @@ main {
 }
 .logoImg {
   object-fit: contain;
-  width: 80%;
+  width: var(--logoImgWidth);
   height: auto;
   margin: auto;
-
+  margin-left: var(--upperNavMarginLeft);
 }
 
 
@@ -611,9 +645,6 @@ main {
   height: min-content;
 }
 
-.footer .socialMedia svg {justify-content: space-around;}
-
-.footer .socialMedia svg {width: 40px;height: 40px;}
 
 .socialMediaLink {
   display: flex;
