@@ -1505,7 +1505,7 @@ main {
   animation-delay:-1.3s;
 }
 @keyframes filterButtonCircle {
-  10%, 100%{transform:translateX(0)}
+  /* 10%, 100%{transform:translateX(0)} */
   to{transform:translateX(0)}
   /* 10%, 100%{transform:translateX(0)} */
   /* 100%{transform:translateX(100%)} */
