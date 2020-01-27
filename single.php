@@ -56,12 +56,13 @@
 
 
 
-  <form action="" class="singleContact" id="singleContact">
+  <!-- <form action="" class="singleContact" id="singleContact">
+    <div class="singleContactMessage"></div>
     <input type="text" class="singleContactInput">
     <input type="text" class="singleContactInput">
     <textarea name="name" rows="8" cols="80"></textarea>
     <button class="singleContactButton">Send</button>
-  </form>
+  </form> -->
 
 
 <!-- <h1>single.php</h1> -->
