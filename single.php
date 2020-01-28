@@ -23,7 +23,8 @@
       <p class="singleSideData">4,417 mile Corvette Z06/Z07 LT4 Supercharged 6.2L V8 7-speed 2LZ</p>
       <!-- <video src="" class="singleSideVideo"></video> -->
       <!-- TODO: aca va un video, pero puse una imagen como placeholder -->
-      <img style="width:100%;" class="singleSideVideo" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+      <iframe class="singleSideVideo" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+      <!-- <img style="width:100%;" class="singleSideVideo" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""> -->
       <div class="singleSideSocialCont"> social media 1</div>
       <button class="singleSideContact">REQUEST MORE INFO</button>
       <button class="singleSideContact">MAKE OFFER</button>

@@ -79,7 +79,8 @@
       </div>
     <?php } ?>
 
-    <?php woocommerce_subcats_from_parentcat_by_ID(30); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(27); ?>
+    <?php // woocommerce_subcats_from_parentcat_by_ID(30); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(32); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(29); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(31); ?>

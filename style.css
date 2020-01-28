@@ -2036,6 +2036,9 @@ main {
 .singleSideCond{font-size: .6rem;font-weight: 400;}
 
 .singleSideData{font-size: .6rem;font-weight: 400;}
+.singleSideVideo{
+  width: 100%;
+}
 
 
 .singleSideContact{
