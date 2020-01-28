@@ -28,8 +28,8 @@ Version: 1.0
 5) =ESTRUCTURA:
 
 6) =COMPONENTES:
+6.0) =gallery:
 6.1) =header:
-6.1.1) =tapaHeader:
 6.2) =carusATF:
 6.3) =searchSeparator:
 6.4) =multiCards:
@@ -39,6 +39,12 @@ Version: 1.0
 6.5) =BUTTONS:
 6.5.1) =filterButton:
 6.6.2) =slideButton:
+
+6.7) =filterBar:
+6.8) =selectBox:
+6.8.1) =mateput:
+6.9) =Section Testimonials:
+6.10) =singlePage:
 
 FIN DE MAPA DE CONTENIDOS */
 
@@ -544,10 +550,18 @@ main {
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
-/* GALERIA */
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                            6.0) =gallery:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 
 .wp-block-image {
   margin-bottom: 0;
+}
+.gallery{
+  position: relative;
+  margin-bottom: 2rem;
 }
 .galleryMain{
   width: 100%;
@@ -559,8 +573,11 @@ main {
   grid-gap:.2rem;
   grid-row-gap:.3rem;
   overflow: hidden;
-  height: 3rem;
+  height: 3.2rem;
   position: relative;
+}
+.galleryStock.alt{
+  height:min-content;
 }
 .galleryImgs{
   width: 100%;
@@ -581,6 +598,36 @@ main {
   pointer-events: none;
   background:linear-gradient( rgba(0,0,0,0) 50%, rgba(255,255,255,1));
 }
+.galleryStock.alt .galleryFade{
+  background:linear-gradient( rgba(0,0,0,0) 50%, rgba(255,255,255,0));
+}
+.galleryMore{
+  position:absolute;
+  left:50%;
+  transform: translate(-50%,100%);
+  background:#000;
+  color:#fff;
+  padding:.3rem 1rem;
+  border:2px solid #000;
+  border-radius:4px;
+  text-transform: uppercase;
+  transition:.3s;
+  bottom:0;
+  cursor: pointer;
+}
+.galleryMore:hover{
+  background:#fff;
+  color:#000;
+  border:2px solid #000;
+}
+
+
+
+
+
+
+
+
 
 /* FORMULARIOS */
 
@@ -1533,10 +1580,7 @@ main {
   animation-delay:-1.3s;
 }
 @keyframes filterButtonCircle {
-  /* 10%, 100%{transform:translateX(0)} */
   to{transform:translateX(0)}
-  /* 10%, 100%{transform:translateX(0)} */
-  /* 100%{transform:translateX(100%)} */
 }
 
 .filterSearch {
@@ -1575,9 +1619,6 @@ main {
   cursor: pointer;
   transition: .3s;
   font-weight:700;
-}
-.singleSideContact:hover{
-  background:#DDD;
 }
 
 
@@ -1710,8 +1751,6 @@ main {
 .filterBarOption:checked{
   display:none;
 }
-
-
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1974,9 +2013,13 @@ main {
 
 .contactButton:hover{background:#DDD;}
 
-/* SINGLE */
 
-.single{
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.10) =singlePage:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.singlePage{
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-auto-rows: min-content;
@@ -1993,6 +2036,51 @@ main {
 .singleSideCond{font-size: .6rem;font-weight: 400;}
 
 .singleSideData{font-size: .6rem;font-weight: 400;}
+
+
+.singleSideContact{
+  background:white;
+  border:2px solid black;
+  padding: .4rem 1rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+  font-weight:700;
+}
+.singleSideContact:hover{
+  background:#DDD;
+}
+
+
+.singleContact{
+  background:#fff;
+  position: fixed;
+  width:50%;
+  width: min-content;
+  height: min-content;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.singleContactMessage{
+}
+.singleContactMessage::after{
+  content:"Hola";
+}
+
+
+
+
+
+
+
+
+
 
 /* CONSIGNMENT PAGE */
 
