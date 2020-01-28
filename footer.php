@@ -16,7 +16,7 @@
       </p>
     </div> -->
 
-    <?php echo do_shortcode("[mc4wp_form id='168']") ?>
+    <?php echo do_shortcode("[mc4wp_form id='486']") ?>
 
     <div class="characterContainer">
       <figure class="character">
