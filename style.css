@@ -167,6 +167,7 @@ FIN DE MAPA DE CONTENIDOS */
   /*---ROOT-----/* THE GARAGE */
 
   --theGarageFigureDisplay: block;
+  --theGarageSectionMargin: 0 1rem;
 
 
 
@@ -371,6 +372,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* THE GARAGE */
 
     --theGarageFigureDisplay: grid;
+    --theGarageSectionMargin: 0 3rem;
 
 
 
@@ -738,14 +740,18 @@ main {
   height: var(--socialMediaLinkSize);
   color: white;
   border-radius: 4px;
+  transition: .25s;
 }
+.socialMediaLink:hover {background: #F78D15;}
 
-.socialMediaLink svg {width: 15px;height: 15px;}
+.socialMediaLink svg {width: 15px;height: 15px; transition: 25s}
+.socialMediaLink svg:hover {color: black;}
+
 
 .socialMediaInst{background:#262626}
 .socialMediaFace{background:#3B5998}
 .socialMediaYouT{background:#CD201F}
-.socialMediaSrch{background:#F2F2F2}
+.socialMediaSrch{background:#262626}
 
 .menu-barra-de-navegacion-header-container{
   width: 100%;
@@ -770,6 +776,28 @@ main {
   text-align: center;
   margin: 1rem auto;
 }
+.navBar ul li a {position: relative;}
+
+
+.navBar ul li a::after {
+  content:' ';
+  position: absolute;
+  transform-origin:center;
+  transform:scaleX(0);
+  bottom: -4px;
+  width:100%;
+  height: 3px;
+  background: black;
+  left:0;
+  transition: .3s;
+}
+
+.navBar ul li a:hover::after {
+  transform-origin: right;
+  transform: scaleX(1);
+}
+
+
 .navBarMobile ul li{
   font-size: 1rem;
 }
@@ -1205,7 +1233,9 @@ main {
 
 .serviceCard.alt .serviceCardContent{
   height: min-content;
+  transition: 5s;
 }
+
 
 .serviceCard.alt .serviceCardExpandArrow{
   transform: rotate(180deg);
@@ -1281,11 +1311,10 @@ main {
 --------------------------------------------------------------------------- */
 
 
-.theGarageSection{
-
+.theGarageSection {
     display: grid;
     grid-gap: 1.5rem;
-    margin: 0 3rem;
+    margin: var(--theGarageSectionMargin);
     margin-top: 1.5rem;
 }
 
@@ -1298,8 +1327,7 @@ main {
   margin: 1.5rem 0;
 }
 
-.theGarageFigure figure img{
-}
+.theGarageFigure figure img {max-height: 20rem;}
 
 .theGarageFigcaption{
   margin-top: 1.5rem;
@@ -2087,13 +2115,13 @@ main {
 
 .bottomConsignmentTxt {margin-bottom: 2rem;order: var(--order5);}
 
-#wpcf7-f124-p96-o1 .wpcf7-form {display: flex;flex-wrap: wrap;}
+#wpcf7-f532-p432-o1 .wpcf7-form {display: flex;flex-wrap: wrap;}
 
-#wpcf7-f124-p96-o1 {order: var(--order2);}
+#wpcf7-f532-p432-o1 {order: var(--order2);}
 
-#wpcf7-f124-p96-o1 p:nth-last-child(4) {width: 100%;}
+#wpcf7-f532-p432-o1 p:nth-last-child(4) {width: 100%;}
 
-#wpcf7-f124-p96-o1 .wpcf7-form p label {font-size: .7rem;}
+#wpcf7-f532-p432-o1 .wpcf7-form p label {font-size: .7rem;}
 
 /* 404 NOT FOUND */
 
@@ -2112,4 +2140,31 @@ main {
 .notFoundBtns {
   height: min-content;
   margin-top: 1rem;
+}
+
+.lawLinks {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* PRIVACY LINKS */
+
+.lawLink {
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+  margin: auto;
+}
+
+.moreInfoPolicy {
+  text-align: center;
+  width: 100%;
+}
+
+.lawLinkRight {
+  margin-left: 1rem
+}
+
+.lawLinkLeft {
+  margin-right: 1rem
 }

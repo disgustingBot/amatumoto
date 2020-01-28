@@ -81,8 +81,8 @@
 
     <?php woocommerce_subcats_from_parentcat_by_ID(30); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(32); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(29); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(31); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(29); ?>
 
     <button class="filterSearch buttonType1" type="submit">Search</button>
 
