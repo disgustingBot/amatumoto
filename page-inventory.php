@@ -85,10 +85,10 @@
 <!-- Voy a tener un porro pronto -->
 
 
-    <?php woocommerce_subcats_from_parentcat_by_ID(24); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(23); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(22); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(19); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(30); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(32); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(31); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(29); ?>
 
     <button class="filterSearch buttonType1" type="submit">Search</button>
 
