@@ -302,7 +302,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* HEADER */
     --headerGridTemplateColums: 23% 1fr;
-    --headerHeight: 120px;
+    --headerHeight: 112px;
     --logoWidth: 70%;
     --logoImgWidth: 100%;
     --upperNavMarginLeft: .5rem;
@@ -876,7 +876,9 @@ main {
 --------------------------------------------------------------------------- */
 .carusATF{
   display: grid;
-  height: 70vh;
+  /* height: 70vh; */
+  --carusHeight:29.3vw;
+  height:var(--carusHeight);
   overflow: hidden;
   width: 100%;
 }
@@ -890,7 +892,8 @@ main {
 .carus.inactive{opacity: 0;pointer-events: none;}
 
 .carusImg{
-  height: 70vh;
+  /* height: 70vh; */
+  height:var(--carusHeight);
   width: 100%;
   object-position: center;
 }
@@ -1728,7 +1731,7 @@ main {
   background: linear-gradient(to left, transparent, rgba(0,0,0,.4));
   border: none;
   color:white;
-  height: 70vh;
+  /* height: 70vh; */
   font-size: 2.5rem;
   cursor: pointer;
   width: 10%;
