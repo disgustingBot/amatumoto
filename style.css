@@ -138,7 +138,7 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAutcionsPadding: 1rem;
   --hotAuctionsPadding: 0;
   --dosMotosMargin: 1rem 0;
-  --hotAuctionsTitleFontSize: 2rem;
+  --hotAuctionsTitleFontSize: .8rem;
   --hotAuctionsTitleMarginLeft: 0;
   --hotAuctionsTextAlign: center;
   --dosMotosPaddingRight: 1rem;
@@ -350,7 +350,7 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAuctionsPadding: 2rem 0;
     --dosMotosMargin: 2rem 0;
     --hotAuctionsMargin: 1rem;
-    --hotAuctionsTitleFontSize: 2rem;
+    --hotAuctionsTitleFontSize: .8rem;
     --hotAuctionsTitleMarginLeft: 1.2rem;
     --hotAuctionsTextAlign: left;
     --dosMotosPaddingRight: 3rem;
@@ -714,7 +714,6 @@ main {
   height: var(--socialMediaLinkSize);
   color: white;
   background: white;
-  border-radius: 4px;
   transition: .25s;
 }
 .socialMediaLink:hover {background: #F78D15;}
@@ -898,7 +897,6 @@ main {
 --------------------------------------------------------------------------- */
 .carusATF{
   display: grid;
-  /* height: 70vh; */
   --carusHeight:29.3vw;
   height:var(--carusHeight);
   overflow: hidden;
@@ -957,8 +955,9 @@ main {
   width: 40%;
 }
 
-.searchInput {height: 100%;font-size: 1.5rem; border: none;font-size: 1rem;}
+.searchInput {height: 100%;font-size: 1rem; border: none;font-size: 1rem;}
 
+.searchBox .searchBoxSvg{font-size: 1rem;}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.4) =multiCards:
@@ -977,6 +976,8 @@ main {
   font-size: var(--hotAuctionsTitleFontSize);
   margin: .5rem auto .5rem var(--hotAuctionsTitleMarginLeft);
   text-align: var(--hotAuctionsTextAlign);
+  font-family: 'Raleway', sans-serif;
+;
 }
 
 /* ---------------------------------------------------------------------------
