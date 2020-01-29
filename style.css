@@ -45,6 +45,7 @@ Version: 1.0
 6.8.1) =mateput:
 6.9) =Section Testimonials:
 6.10) =singlePage:
+6.11) =pageMain:
 
 FIN DE MAPA DE CONTENIDOS */
 
@@ -299,7 +300,7 @@ FIN DE MAPA DE CONTENIDOS */
     --sizeR: calc(calc(var(--sizeRc) * 1px) + (var(--sizeRd) - var(--sizeRc)) * ((100vw - 768px) / (1200 - 768)));
 
     /* HEADER */
-    --headerGridTemplateColums: 30% 1fr;
+    --headerGridTemplateColums: 23% 1fr;
     --headerHeight: 120px;
     --logoWidth: 70%;
     --logoImgWidth: 100%;
@@ -326,7 +327,7 @@ FIN DE MAPA DE CONTENIDOS */
     --filterBarSearchWidth: 100%;
     --filterBarBottomCol: repeat(5,1fr);
     --filterLinkBarWidth: ;
-    --filterBarLinkPadding: .4rem 1.4rem;
+    --filterBarLinkPadding: .4rem .6rem;
     --filterBarContraction: calc(4.5rem + 2px);
     --varSearchBtnPosition: relative;
     --varSearchBtnTop: ;
@@ -457,7 +458,7 @@ FIN DE MAPA DE CONTENIDOS */
     --sizeR: calc(var(--sizeRd) * 1px);
 
     /* HEADER */
-    --headerGridTemplateColums: 40% 1fr;
+    --headerGridTemplateColums: 30% 1fr;
     --upperNavAlignment: flex-start;
     --upperNavMarginLeft: auto;
     --logoImgWidth: 65%;
@@ -569,7 +570,7 @@ main {
 }
 .galleryStock{
   display: grid;
-  grid-template-columns:repeat(10, 1fr);
+  grid-template-columns:repeat(8, 1fr);
   grid-gap:.2rem;
   grid-row-gap:.3rem;
   overflow: hidden;
@@ -605,20 +606,20 @@ main {
   position:absolute;
   left:50%;
   transform: translate(-50%,100%);
-  background:#000;
+  background:#252525;
   color:#fff;
   padding:.3rem 1rem;
-  border:2px solid #000;
-  border-radius:4px;
+  /* border:2px solid #000; */
+  border:none;
   text-transform: uppercase;
   transition:.3s;
   bottom:0;
   cursor: pointer;
 }
 .galleryMore:hover{
-  background:#fff;
-  color:#000;
-  border:2px solid #000;
+  background:#F78D15;
+  /* color:#000; */
+  /* border:2px solid #F78D15; */
 }
 
 
@@ -1000,11 +1001,9 @@ main {
   display: grid;
   margin:.5rem;
   grid-template-rows: min-content min-content;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  border:1px solid #ddd;
 }
 
-.productCard:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
 
 .newArrival {
   background: #F78D15;
@@ -1032,14 +1031,11 @@ main {
 
 .hotCard{
   display:grid;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   width: var(--hotCardWidth);
   margin: var(--hotCardMargin);
   transition: .25s;
+  border:1px solid #ddd;
 }
-
-.hotCard:hover{box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
 
 .hotCardCaption{padding:.5rem;padding-top: 0;}
 
@@ -1094,10 +1090,8 @@ main {
   margin: var(--buttonType1Margin);
   font-weight: 600;
   font-size: var(--buttonType1FontSize);
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
   cursor: pointer;
   transition: .25s;
-  border-radius: 4px;
 }
 
 .buttonType1:hover {
@@ -1180,16 +1174,17 @@ main {
 
 .serviceCard{
   width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  /* border-radius: 4px; */
+  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
   transition: .4s;
+  border: 1px solid #ddd;
   height: min-content;
   margin:1rem 0;
   background: #fff;
 }
 
 .serviceCard:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
 }
 
 .serviceCardContentSection1>*{
@@ -1271,7 +1266,7 @@ main {
 .serviceCardImg{
   width: 100%;
   height: 194px;
-  border-radius: 4px 4px 0 0;
+  /* border-radius: 4px 4px 0 0; */
 }
 .serviceCardCaption{
   display: grid;
@@ -1287,7 +1282,7 @@ main {
   margin: .3rem 1rem;
   color: #D58D15;
   padding: .2rem;
-  border-radius: 2px;
+  /* border-radius: 2px; */
   text-transform: uppercase;
   background: none;
   border: none;
@@ -1583,9 +1578,6 @@ main {
   to{transform:translateX(0)}
 }
 
-.filterSearch {
-  padding: .5rem 1rem;
-}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1682,11 +1674,39 @@ main {
 .filterBarLink {
   text-transform: uppercase;
   font-size: .6rem;
+  font-weight: 600;
+  letter-spacing:.08rem;
   color:#464646;
   transition:.3s;
   width: var(--filterLinkBarWidth);
-  padding: var(--filterBarLinkPadding)!important;
+  padding: var(--filterBarLinkPadding);
   text-align: center;
+  display:grid;
+  align-items:center;
+}
+.filterBarLink:hover,
+.filterSearch:hover {
+  color:#F78D15;
+}
+
+
+.filterSearch {
+  padding: .5rem 1rem;
+  background: none;
+  border: none;
+
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: .6rem;
+    font-weight: 600;
+    letter-spacing:.08rem;
+    color:#464646;
+    transition:.3s;
+    width: var(--filterLinkBarWidth);
+    padding: var(--filterBarLinkPadding);
+    text-align: center;
+    display:grid;
+    align-items:center;
 }
 
 .filterBarBotttom{
@@ -1769,8 +1789,8 @@ main {
 
 .selectBoxButton{
   background: white;
-  border-radius:4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  /* border-radius:4px; */
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
   color:#333;
   cursor: pointer;
   display:grid;
@@ -1911,7 +1931,7 @@ main {
 }
 
 .mateputLabel::after{
-  border-bottom:3px solid #5fa8d3;
+  border-bottom:1px solid #F78D15;
   content:'';
   position: absolute;
   left: 0;
@@ -1933,7 +1953,7 @@ main {
 .mateput input:valid + .mateputLabel .mateputName{
   transform:translateY(-150%);
   font-size: 14px;
-  color:#5fa8d3;
+  color:#F78D15;
 }
 
 .mateput input:focus + .mateputLabel::after,
@@ -2070,12 +2090,36 @@ main {
   border-radius: 8px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-.singleContactMessage{
+
+
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.11) =pageMain:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.pageMain{
+  margin:var(--mainContentMargin);
 }
-.singleContactMessage::after{
-  content:"Hola";
+.pageMain p,
+.pageMain h1,
+.pageMain h2,
+.pageMain h3,
+.pageMain h4,
+.pageMain h5,
+.pageMain h6,
+.pageMain ul,
+.pageMain ol,
+.pageMain li{
+  margin:.2rem 0;
 }
 
+.pageMain ul,
+.pageMain ol{
+  list-style: unset;
+  padding: unset;
+}
 
 
 

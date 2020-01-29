@@ -38,9 +38,9 @@
         <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" class=""></path>
       </svg>
     </button>
-    <a href="" class="filterBarLink buttonType1">inventory</a>
-    <a href="" class="filterBarLink buttonType1">auctions</a>
-    <a href="" class="filterBarLink buttonType1">sold</a>
+    <a href="" class="filterBarLink">inventory</a>
+    <a href="" class="filterBarLink">auctions</a>
+    <a href="" class="filterBarLink">sold</a>
   </div>
   <div class="filterBarBotttom">
 
@@ -81,10 +81,10 @@
 
     <?php woocommerce_subcats_from_parentcat_by_ID(30); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(32); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(31); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(29); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(31); ?>
 
-    <button class="filterSearch buttonType1" type="submit">Search</button>
+    <button class="filterSearch" type="submit">Search</button>
 
   </div>
 </form>
