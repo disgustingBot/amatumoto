@@ -13,15 +13,23 @@
         <span class="newArrival"><i>New arrival</i></span>
       <?php } ?>
       <!-- <div class="newArrival">NEW ARRIVAL</div> -->
+      <?php
+      $terms = get_the_terms( get_the_ID(), 'product_cat' );
+
+      foreach ($terms as $term) {
+
+          echo '<h1 itemprop="name" class="product-title entry-title">'.$term->name.'</h1>';
+      }
+      // AUCTION INFORRMATION HERE
+      // var_dump(get_post_meta( $product->id));
+      ?>
       <h4 class="singleSideAnoMarca"></h4>
       <h2 class="singleSideTitle"><?php the_title(); ?></h2>
       <p class="singleSidePrice"><?php echo $product->get_price_html(); ?></p>
       <p class="singleSideStock">Stock # <?php echo $product->id; ?><br>
-        <span class="singleSideCond">Used Condition</span>
+        <span class="singleSideCond">Condition: <?php echo esc_html( $product->get_condition() ); ?></span>
       </p>
-      <!-- <p class="singleSideCond">Used Condition</p> -->
-      <p class="singleSideData">4,417 mile Corvette Z06/Z07 LT4 Supercharged 6.2L V8 7-speed 2LZ</p>
-      <!-- <video src="" class="singleSideVideo"></video> -->
+      <p class="singleSideData"><?php echo excerpt(140); ?></p>
       <!-- TODO: aca va un video, pero puse una imagen como placeholder -->
       <iframe class="singleSideVideo" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
       <!-- <img style="width:100%;" class="singleSideVideo" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""> -->
