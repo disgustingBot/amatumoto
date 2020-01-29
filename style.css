@@ -149,6 +149,11 @@ FIN DE MAPA DE CONTENIDOS */
   /*---ROOT-----/* ABOUT US */
 
   --aboutSectionFlexDirection: column;
+  --aboutSection1FlexDirection: column;
+  --aboutSectionImgMargin: .5rem 0;
+  --aboutSectionMargin: .5rem 0rem;
+  --aboutSection1ImgMargin: .5rem 0;
+
 
 
   /*---ROOT-----/* SERVICES */
@@ -420,6 +425,8 @@ FIN DE MAPA DE CONTENIDOS */
         /* ABOUT US */
 
           --aboutSectionFlexDirection: ;
+          --aboutSectionMargin: 0 .5rem;
+          --aboutSectionImgMargin: 0 .5rem;
 
         /* SERVICES */
 
@@ -460,6 +467,10 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* ABOUT US */
+    --aboutSection1FlexDirection: ;
+    --aboutSection1ImgMargin: 0 1rem;
+
+
 
 
     /* FOOTER */
@@ -1036,15 +1047,40 @@ main {
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
+.theAboutUsSection{
+  margin: 0 3rem;
+}
 
 .aboutSection{
   display: flex;
-  margin: 1.5rem;
+  margin: .5rem; /*var(--aboutSectionMargin);*/
   flex-direction: var(--aboutSectionFlexDirection);
   align-items: center;
 }
 
+.aboutSection1{
+  display: flex;
+  margin: .5rem;
+  flex-direction: var(--aboutSection1FlexDirection);
+  align-items: center;
+}
+
+.aboutSection1Img{
+  margin: var(--aboutSection1ImgMargin);
+}
+
+.aboutSectionImg{
+  margin: var(--aboutSection1ImgMargin);
+}
+
 .aboutSection .wp-block-column{
+  width: 100%;
+  margin: .5rem 0;
+   /* height: 100%; */
+  flex-basis: 50%!important;
+}
+
+.aboutSection1 .wp-block-column{
   width: 100%;
   margin: 0!important;
 }
@@ -1054,11 +1090,32 @@ main {
 }
 
 .aboutSectionTitle{
-  margin: 1.5rem 0;
+  margin: 1rem 0;
+  width: 100%;
 }
 
+.companyGroupCard{
+    width: 85%;
+    border-radius: 4px;
+    border: solid 1px black;
+    /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+    transition: .4s;
+    height: min-content;
+    margin: .5rem auto;
+    background: #fff;
+    padding: 1rem;
+}
+
+.companyGroupTitle{
+  margin: .5rem 0;
+}
+.companyCardText{
+  margin: .5rem 0;
+}
+
+
 .aboutSectionGallery{
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 
@@ -1105,22 +1162,17 @@ main {
 
 .serviceCard{
   width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  /* border-radius: 4px; */
+  border: solid black 1px;
   transition: .4s;
   height: min-content;
   margin:1rem 0;
   background: #fff;
 }
-
+/*
 .serviceCard:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.serviceCardContentSection1>*{
-  display: grid;
-  align-items: center;
-}
+} */
 
 .serviceCardContent{
   height: 0;
@@ -1135,7 +1187,23 @@ main {
   grid-template-columns: 1fr 1fr;
   margin: 1rem;
   grid-gap: 1rem;
+}
 
+.serviceCardContentSection1>*{
+  display: grid;
+  align-items: center;
+}
+
+.serviceCardContentSection2{
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 1rem;
+  grid-gap: 1rem;
+}
+
+.serviceCardContentSection2>*{
+  display: grid;
+  align-items: center;
 }
 
 .serviceCardContentText2{
