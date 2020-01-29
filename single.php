@@ -26,7 +26,7 @@
       <iframe class="singleSideVideo" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
       <!-- <img style="width:100%;" class="singleSideVideo" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""> -->
       <div class="singleSideSocialCont"> social media 1</div>
-      <button class="singleSideContact">REQUEST MORE INFO</button>
+      <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleContact')">REQUEST MORE INFO</button>
       <button class="singleSideContact">MAKE OFFER</button>
       <button class="singleSideContact">TRADE</button>
       <button class="singleSideContact">FINANCE</button>
@@ -57,13 +57,59 @@
 
 
 
-  <!-- <form action="" class="singleContact" id="singleContact">
-    <div class="singleContactMessage"></div>
-    <input type="text" class="singleContactInput">
-    <input type="text" class="singleContactInput">
-    <textarea name="name" rows="8" cols="80"></textarea>
-    <button class="singleContactButton">Send</button>
-  </form> -->
+  <div class="singleFormContainer">
+    <form action="index.php" class="singleContact SingleContactMoreInfo" id="singleRequestInfo">
+      <label  class="formLabel">CONTACT DETAILS</label>
+      <input type="text" placeholder="First Name"  class="formInput100 formInput">
+      <input type="text" placeholder="Last Name"  class="formInput100 formInput">
+      <input type="email" placeholder="Email" class="formInput100 formInput">
+      <input type="number" placeholder="Number" class="formInput100 formInput">
+      <input type="text" placeholder="Country"  class="formInput100 formInput">
+      <select name="bestTime" value="time-preference" id="bestTimeToCall" class="formInput100 formInput">
+        <option value="any_time" class="form">Any Time</option>
+        <option value="from-9-to-13">9:00 a.m. - 1:00 p.m.</option>
+        <option value="from-13-to-17">1:00 p.m. - 5:00 p.m.</option>
+        <option value="from-17-to-20">5:00 p.m. - 8:00 p.m.</option></select>
+      </select>
+      <label  class="formLabel ">TRADE VEHICLE</label>
+      <div class="tradeOrNot">
+        <label for="yes" class="formRadioFor">yes</label>
+        <input type="radio" name="trade" id="yes" value="yes">
+        <label for="no" class="formRadioFor">no</label>
+        <input type="radio" name="trade" id="no" value="no">
+      </div>
+      <label  class="formLabel">COMMENT</label>
+      <textarea value="comments" placeholder="comments..." name="name"></textarea>
+      <button class="singleContactButton contactButton" type="submit">Send</button>
+    </form>
+  </div>
+
+  <form action="index.php" class="" id="">
+    <input type="text" class="">
+    <input type="" class="">
+    <input type="" class="">
+    <input type="" class="">
+    <textarea name="name"></textarea>
+    <button class="singleContactButton" type="submit">Send</button>
+  </form>
+
+  <form action="index.php" class="" id="">
+    <input type="text" class="">
+    <input type="" class="">
+    <input type="" class="">
+    <input type="" class="">
+    <textarea name="name"></textarea>
+    <button class="singleContactButton" type="submit">Send</button>
+  </form>
+
+  <form action="index.php" class="" id="">
+    <input type="text" class="">
+    <input type="" class="">
+    <input type="" class="">
+    <input type="" class="">
+    <textarea name="name"></textarea>
+    <button class="singleContactButton" type="submit">Send</button>
+  </form>
 
 
 <!-- <h1>single.php</h1> -->

@@ -75,7 +75,13 @@ function excerpt($charNumber){
 
 
 
+// DISABLES AUTO SPAN ON CONTACT FORM 7
 
+add_filter('wpcf7_form_elements', function($content) {
+    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+
+    return $content;
+});
 
 
 // add_action( 'admin_post_nopriv_nds_form_response', 'the_form_response');
