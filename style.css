@@ -342,7 +342,8 @@ FIN DE MAPA DE CONTENIDOS */
     --filterBarBottomCol: repeat(5,1fr);
     --filterLinkBarWidth: ;
     --filterBarLinkPadding: .4rem .6rem;
-    --filterBarContraction: calc(4.5rem + 2px);
+    /* --filterBarContraction: calc(4.5rem + 2px); */
+    --filterBarContraction: calc(2rem + 40px + 2px);
     --varSearchBtnPosition: relative;
     --varSearchBtnTop: ;
     --varSearchBtnRight: ;
@@ -1792,22 +1793,28 @@ main {
 
 
 .searchBtn {
-  width: 30px;
-  height: 30px;
-  grid-column: 3;
-  grid-row: 1;
   background: none;
   border: none;
-  margin: auto;
-  margin-right: 1rem;
+  color: #616161;
   cursor: pointer;
+  grid-column: 3;
+  grid-row: 1;
+  height: 30px;
+  margin: auto;
+  /* margin-right: 1rem; */
+  margin-right:0;
   position: var(--varSearchBtnPosition);
   top: var(--varSearchBtnTop);
+  transition:.3s;
   right: var(--varSearchBtnRight);
+  width: 30px;
 }
-.searchBtn svg {
+.searchBtn:hover{
+  color:black;
+}
+/* .searchBtn svg {
   color: #616161;
-}
+} */
 
 .filterBar {
   align-items: center;
@@ -1853,29 +1860,32 @@ main {
   display:grid;
   align-items:center;
 }
-.filterBarLink:hover,
-.filterSearch:hover {
+.filterBarLink:hover{
   color:#F78D15;
+}
+
+.filterSearch:hover {
+  background: rgba(0,0,0,.1);
 }
 
 
 .filterSearch {
-  padding: .5rem 1rem;
+  align-items:center;
   background: none;
-  border: none;
-
-    text-transform: uppercase;
-    cursor: pointer;
-    font-size: .6rem;
-    font-weight: 600;
-    letter-spacing:.08rem;
-    color:#464646;
-    transition:.3s;
-    width: var(--filterLinkBarWidth);
-    padding: var(--filterBarLinkPadding);
-    text-align: center;
-    display:grid;
-    align-items:center;
+  border: 2px solid black;
+  color:#000;
+  cursor: pointer;
+  display:grid;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing:.08rem;
+  min-height:40px;
+  padding:.5rem 1rem;
+  padding: var(--filterBarLinkPadding);
+  text-transform: uppercase;
+  text-align: center;
+  transition:.3s;
+  width: var(--filterLinkBarWidth);
 }
 
 .filterBarBotttom{
@@ -1888,6 +1898,7 @@ main {
   grid-gap:1rem;
   border-top:2px solid #DDDDDD;
   height: 0;
+  /* margin:0 2.5rem; */
   overflow: hidden;
   padding:0 2.5rem;
   transition:.6s;
@@ -1944,7 +1955,8 @@ main {
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .selectBox{
-  --selectBoxHeight:2.5rem;
+  /* --selectBoxHeight:2.5rem; */
+  --selectBoxHeight:40px;
   display: grid;
   align-items: center;
   grid-template-rows: var(--selectBoxHeight);
@@ -1964,11 +1976,12 @@ main {
   position: relative;
   transition:.4s;
   width:100%;
+  height:40px;
   z-index:4;
 }
 
 .selectBoxPlaceholder{
-  font-size: 1rem;
+  font-size: .8rem;
   height:1rem;
   line-height:1rem;
   left:16px;
@@ -1978,7 +1991,9 @@ main {
   transform-origin:left;
 }
 .selectBoxCurrent{
-  padding:20px 52px 4px 16px;
+  /* padding:20px 52px 4px 16px; */
+  padding:16px 52px 2px 16px;
+  font-size: .8rem;
   position: relative;
   border-bottom:2px solid #666;
 }
@@ -1999,12 +2014,13 @@ main {
 }
 .selectBox:focus .selectBoxCurrent::after,
 .selectBox.alt .selectBoxCurrent::after{
-  background:black;
+  /* background:black; */
+  background:#F78D15;
   transform:scaleX(1);
 }
 .selectBox:focus .selectBoxPlaceholder,
 .selectBox.alt .selectBoxPlaceholder{
-  transform:translateY(-70%) scale(.6);
+  transform:translateY(-50%) scale(.6);
 }
 
 
@@ -2013,7 +2029,7 @@ main {
   background: #FFF;
   display: grid;
   grid-gap: .2rem;
-  grid-auto-rows:1.8rem;
+  grid-auto-rows:1.5rem;
   padding: .2rem;
   left:0;
   position: absolute;
@@ -2028,13 +2044,14 @@ main {
 }
 .selectBox:focus .selectBoxList{
   opacity:1;
-  top:2.5rem;
+  top:40px;
   pointer-events: unset;
 
 }
 .selectBoxOption{
   cursor:pointer;
-  height: 1.8rem;
+  font-size: .7rem;
+  height: 1.5rem;
   line-height: 1.8rem;
   transition:.3s;
 }
@@ -2066,38 +2083,41 @@ main {
   height: 50px;
   overflow: hidden;
 
-    /* padding: .5rem; */
-    /* border: 2px solid #E9E9E9; */
-    width: var(--filterBarSearchWidth);
-    grid-column: 3;
-    grid-row: 1;
+  /* padding: .5rem; */
+  /* border: 2px solid #E9E9E9; */
+  width: var(--filterBarSearchWidth);
+  grid-column: 3;
+  grid-row: 1;
 }
 
 .mateput input{
   width: 100%;
   height: 100%;
-  color:#595f6e;
+  /* color:#595f6e; */
+  color:#000;
   border:none;
   padding-top:20px;
   outline: none;
 }
 
 .mateputLabel{
-  position: absolute;
+  border-bottom: 2px solid #666;
   bottom:0;
-  left:0;
+  color:#333;
+  font-size:.7rem;
   height: 100%;
-  width:100%;
+  left:0;
   pointer-events: none;
-  border-bottom: 1px solid black;
+  position: absolute;
+  width:100%;
 }
 
 .mateputLabel::after{
-  border-bottom:1px solid #F78D15;
+  border-bottom:2px solid #F78D15;
   content:'';
   position: absolute;
   left: 0;
-  bottom:-1px;
+  bottom:-2px;
   height:100%;
   width: 100%;
   transform: translateX(-100%);
@@ -2112,14 +2132,14 @@ main {
 }
 
 .mateput input:focus + .mateputLabel .mateputName,
-.mateput input:valid + .mateputLabel .mateputName{
+.mateput input.alt + .mateputLabel .mateputName{
   transform:translateY(-150%);
   font-size: 14px;
   color:#F78D15;
 }
 
 .mateput input:focus + .mateputLabel::after,
-.mateput input:valid + .mateputLabel::after{
+.mateput input.alt + .mateputLabel::after{
   transform: translateX(0);
 }
 
