@@ -629,17 +629,22 @@ main {
   background:#252525;
   color:#fff;
   padding:.3rem 1rem;
-  /* border:2px solid #000; */
   border:none;
   text-transform: uppercase;
   transition:.3s;
   bottom:0;
   cursor: pointer;
+  font-size: .9rem;
+  font-weight: bold;
+  transition: .25s;
 }
 .galleryMore:hover{
-  background:#F78D15;
-  /* color:#000; */
-  /* border:2px solid #F78D15; */
+  background: white;
+  color: black;
+  border: solid black 4px;
+  box-sizing: border-box;
+
+
 }
 
 
@@ -868,7 +873,7 @@ main {
   margin-bottom: 1rem;
 }
 
-.upperNavInfoMobile:hover{background: rgba(0,0,0,.1);border-radius: 2rem;}
+.upperNavInfoMobile:hover{background: rgba(0,0,0,.1);}
 
 .upperNavIconTxtMobile {
   font-size: 1.5rem;
@@ -889,7 +894,6 @@ main {
 .upperNavIconMobile{
   width: 75px;
   height: 75px;
-  border-radius: 50%;
 }
 
 
@@ -1154,7 +1158,6 @@ main {
 
 .companyGroupCard{
     width: 85%;
-    border-radius: 4px;
     border: solid 1px black;
     transition: .4s;
     height: min-content;
@@ -1323,7 +1326,6 @@ main {
 .serviceCardImg{
   width: 100%;
   height: 194px;
-  /* border-radius: 4px 4px 0 0; */
 }
 .serviceCardCaption{
   display: grid;
@@ -1339,7 +1341,6 @@ main {
   margin: .3rem 1rem;
   color: #D58D15;
   padding: .2rem;
-  /* border-radius: 2px; */
   text-transform: uppercase;
   background: none;
   border: none;
@@ -2131,7 +2132,6 @@ main {
   width: 500px;
   height: 300px;
   border-left: #d50000 solid 10px;
-  border-radius: 4px;
   display: grid;
   grid-template-columns: min-content 1fr 1fr min-content;
   margin: 3rem auto;
@@ -2170,6 +2170,9 @@ main {
   grid-gap: 4rem;
   padding: 1rem 5.5rem;
 }
+
+/* SINGLE ASIDE */
+
 .singleSide{
   display: grid;
   grid-gap:.3rem;
@@ -2180,9 +2183,6 @@ main {
 .productCategoryTitle {
     font-weight: 300;
     font-size: 1.8rem;
-}
-
-.product-title {
 }
 
 .singleSideTitle {
@@ -2200,25 +2200,113 @@ main {
 .singleSideCond{font-size: .6rem;font-weight: 400;}
 
 .singleSideData{font-size: 1rem;font-weight: 400;}
-.singleSideVideo{width: 100%;margin: 2rem 0;}
+.singleSideVideo{width: 100%;height: 10rem;margin: 2rem 0;}
 
 
 .singleSideContact{
   background:white;
-  border:2px solid black;
-  padding: .4rem 1rem;
+  border:3px solid black;
+  padding: .6rem 1rem;
   display: block;
-  width: 100%;
+  width: 70%;
   text-align: center;
   cursor: pointer;
   transition: .3s;
   font-weight:700;
+  font-size: .9rem;
+  margin-bottom: 1rem;
 }
 .singleSideContact:hover{
-  background:#DDD;
+  color:#F78D15;
+  border-color: #F78D15;
 }
 
+.singleSideSocialCont {
+  display: flex;
+}
+.singleSocialLink {margin: 0 1rem 2rem 0;}
 
+.singleSocialSvg {
+  height: 1.5rem;
+}
+
+.singleSideStock2 {
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: .9rem;
+}
+
+.singleStock2ID {
+  position: relative;
+  padding: 1rem;
+  font-size: 2rem;
+  position: relative;
+  background: #e0e0e0;
+  width: min-content;
+}
+
+.singleStock2ID:after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #e0e0e0;
+  transform-origin: bottom left;
+  transform: skew(-30deg, 0deg);
+}
+
+/* SINGLE MAIN */
+
+.singleFeatures {
+  display: flex;
+  justify-content: space-evenly;
+}
+.singleFeature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.singleFeatureDesc {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+}
+
+.singleFeatureIcon {
+  height: 100px;
+  margin: 2rem;
+}
+
+.breaksRotation {
+  transform: rotate(45deg);
+}
+
+.singleDescription ul {
+  list-style: none;
+  margin: 2rem 0;
+  padding: 2rem;
+  border-top: solid 2px #ddd;
+  border-bottom: solid 2px #ddd;
+}
+.singleDescription ul li {
+  margin: .5rem 0;
+}
+.singleDescription ul li::before {
+  content: "\25A0";
+  color:#F78D15;
+  display: inline-block;
+  width: 1.5rem;
+  margin-left: -1rem;
+  font-size: .75rem;
+}
+
+.singleDescription p {
+  padding: 1rem 2rem;
+  background: #eee;
+}
 
 
 /* ---------------------------------------------------------------------------
@@ -2425,7 +2513,6 @@ main {
   height: 100%;
   transform: skew(-20deg, 0deg);
   border: solid 4px #bdbdbd;
-  border-radius: 4px;
 }
 .enterEmail{width: 100%; border: none; font-size: .6rem; padding: .2rem;}
 
@@ -2439,7 +2526,6 @@ main {
   border: solid 1px #F78D15;
   box-sizing: content-box;
   margin-top: -1px;
-  border-radius: 4px;
   font-size: .7rem;
   font-weight: 500;
   letter-spacing: 2px;
