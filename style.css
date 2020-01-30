@@ -138,7 +138,7 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAutcionsPadding: 1rem;
   --hotAuctionsPadding: 0;
   --dosMotosMargin: 1rem 0;
-  --hotAuctionsTitleFontSize: 2rem;
+  --hotAuctionsTitleFontSize: .8rem;
   --hotAuctionsTitleMarginLeft: 0;
   --hotAuctionsTextAlign: center;
   --dosMotosPaddingRight: 1rem;
@@ -307,7 +307,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* HEADER */
     --headerGridTemplateColums: 23% 1fr;
-    --headerHeight: 120px;
+    --headerHeight: 112px;
     --logoWidth: 70%;
     --logoImgWidth: 100%;
     --upperNavMarginLeft: .5rem;
@@ -350,7 +350,7 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAuctionsPadding: 2rem 0;
     --dosMotosMargin: 2rem 0;
     --hotAuctionsMargin: 1rem;
-    --hotAuctionsTitleFontSize: 2rem;
+    --hotAuctionsTitleFontSize: .8rem;
     --hotAuctionsTitleMarginLeft: 1.2rem;
     --hotAuctionsTextAlign: left;
     --dosMotosPaddingRight: 3rem;
@@ -714,19 +714,24 @@ main {
   width: var(--socialMediaLinkSize);
   height: var(--socialMediaLinkSize);
   color: white;
-  border-radius: 4px;
+  background: white;
   transition: .25s;
 }
 .socialMediaLink:hover {background: #F78D15;}
 
-.socialMediaLink svg {width: 15px;height: 15px; transition: 25s}
+.socialMediaLink svg {width: 90%;height: 90%; transition: 1s}
 .socialMediaLink svg:hover {color: black;}
 
 
-.socialMediaInst{background:#262626}
+/* .socialMediaInst{background:#262626}
 .socialMediaFace{background:#3B5998}
 .socialMediaYouT{background:#CD201F}
-.socialMediaSrch{background:#262626}
+.socialMediaSrch{background:#262626} */
+
+.socialMediaInst{background:black;}
+.socialMediaFace{background:black;}
+.socialMediaYouT{background:black;}
+.socialMediaSrch{background:black;}
 
 .menu-barra-de-navegacion-header-container{
   width: 100%;
@@ -745,13 +750,18 @@ main {
 .navBar ul li,
 .navBarMobile ul li{
   list-style: none;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'prox-b', sans-serif;
+  /* font-family: 'Oswald', sans-serif; */
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
   margin: 1rem auto;
 }
-.navBar ul li a {position: relative;}
+.navBar ul li a {
+  position: relative;
+  font-family: 'prox-b';
+  font-weight: 600;
+}
 
 
 .navBar ul li a::after {
@@ -888,7 +898,8 @@ main {
 --------------------------------------------------------------------------- */
 .carusATF{
   display: grid;
-  height: 70vh;
+  --carusHeight:29.3vw;
+  height:var(--carusHeight);
   overflow: hidden;
   width: 100%;
 }
@@ -902,7 +913,8 @@ main {
 .carus.inactive{opacity: 0;pointer-events: none;}
 
 .carusImg{
-  height: 70vh;
+  /* height: 70vh; */
+  height:var(--carusHeight);
   width: 100%;
   object-position: center;
 }
@@ -923,7 +935,13 @@ main {
 }
 .lines{
   width: 100%;
+
   height: .2rem;
+
+  border-top: solid gray 1px;
+  border-bottom: solid gray 1px;
+  height: .4rem;
+
   display: var(--searchLinesDisplay);
 }
 /* TODO: hacer bien el search */
@@ -939,11 +957,12 @@ main {
   padding: .5rem;
 }
 .searchBoxSvg {
-  width: 80%;
+  width: 40%;
 }
 
-.searchInput {height: 100%;font-size: 1.5rem; border: none;font-size: 1rem;}
+.searchInput {height: 100%;font-size: 1rem; border: none;font-size: 1rem;}
 
+.searchBox .searchBoxSvg{font-size: 1rem;}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.4) =multiCards:
@@ -962,6 +981,8 @@ main {
   font-size: var(--hotAuctionsTitleFontSize);
   margin: .5rem auto .5rem var(--hotAuctionsTitleMarginLeft);
   text-align: var(--hotAuctionsTextAlign);
+  font-family: 'Raleway', sans-serif;
+;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1796,7 +1817,7 @@ main {
   background: linear-gradient(to left, transparent, rgba(0,0,0,.4));
   border: none;
   color:white;
-  height: 70vh;
+  /* height: 70vh; */
   font-size: 2.5rem;
   cursor: pointer;
   width: 10%;
