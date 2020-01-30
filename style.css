@@ -655,6 +655,7 @@ main {
   position: sticky;
   top: 0;
   align-items: flex-end;
+  border: 1px solid #ddd;
 }
 
 .logo {
@@ -934,9 +935,13 @@ main {
 }
 .lines{
   width: 100%;
+
+  height: .2rem;
+
   border-top: solid gray 1px;
   border-bottom: solid gray 1px;
   height: .4rem;
+
   display: var(--searchLinesDisplay);
 }
 /* TODO: hacer bien el search */
@@ -995,15 +1000,16 @@ main {
 
 
 .newArrival {
-  background: #F78D15;
-  letter-spacing: 2px;
-  padding: .2rem .4rem;
-  font-size: .8rem;
+  background: #007EFF;
+  letter-spacing: 1px;
+  padding: .3rem .5rem;
+  font-size: 1.5rem;
   grid-column: 1; grid-row: 1;
   width: max-content;
   height: min-content;
   z-index: 2;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  font-weight: 500;
+  color: white;
 }
 .productCardImg {width: 100%; height: 8rem; grid-column: 1; grid-row: 1;}
 .productCardCaption{font-weight: 100; padding: .3rem .5rem;}
@@ -1145,7 +1151,6 @@ main {
     width: 85%;
     border-radius: 4px;
     border: solid 1px black;
-    /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
     transition: .4s;
     height: min-content;
     margin: .5rem auto;
@@ -1508,7 +1513,6 @@ main {
 
 /* FINANCE */
 
-#singleFinance {display: flex;}
 #singleFinance.alt {
   display: flex;
 }
@@ -1999,18 +2003,15 @@ main {
   border:none;
   border:1px solid transparent;
   transition: .6s;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .filterBarSelect:focus{
   border:1px solid #333;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   outline: none;
 }
 .filterBarOption{
   padding: .5rem 1rem;
   margin: .5rem 1rem;
   color:#333;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .filterBarOption:checked{
   display:none;
@@ -2033,8 +2034,6 @@ main {
 
 .selectBoxButton{
   background: white;
-  /* border-radius:4px; */
-  /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
   color:#333;
   cursor: pointer;
   display:grid;
@@ -2076,7 +2075,6 @@ main {
 }
 .selectBox:focus{
   outline:none;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .selectBox:focus .selectBoxCurrent::after,
 .selectBox.alt .selectBoxCurrent::after{
@@ -2106,7 +2104,6 @@ main {
   transition-delay:.2s;
   width:100%;
   z-index: 3;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .selectBox:focus .selectBoxList{
   opacity:1;
@@ -2250,7 +2247,6 @@ main {
   width: 500px;
   height: 300px;
   border-left: #d50000 solid 10px;
-  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.14);
   border-radius: 4px;
   display: grid;
   grid-template-columns: min-content 1fr 1fr min-content;
@@ -2285,24 +2281,42 @@ main {
 --------------------------------------------------------------------------- */
 .singlePage{
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2.5fr;
   grid-auto-rows: min-content;
-  grid-gap:4rem;
-  padding: 1rem 4rem;
+  grid-gap: 4rem;
+  padding: 1rem 5.5rem;
 }
-.singleSide{display: grid;grid-gap:.5rem;margin-bottom: auto;}
-
-.singleSideTitle{font-weight: 300;font-size: 1.8rem;}
-
-.singleSidePrice,.singleSideStock,.singleSideCond,.singleSideData{ font-weight: 200; color:#666;
+.singleSide{
+  display: grid;
+  grid-gap:.3rem;
+  margin-bottom: auto;
+  padding: 1rem 3rem;
 }
 
+.productCategoryTitle {
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
+.product-title {
+}
+
+.singleSideTitle {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.singleSidePrice,.singleSideStock,.singleSideCond,.singleSideData {
+  font-weight: 400;
+  color: #666;
+}
+
+.singleSidePrice {font-size: 1.8rem;}
+.singleSideStock {font-size: 1.4rem; margin: 1rem 0}
 .singleSideCond{font-size: .6rem;font-weight: 400;}
 
-.singleSideData{font-size: .6rem;font-weight: 400;}
-.singleSideVideo{
-  width: 100%;
-}
+.singleSideData{font-size: 1rem;font-weight: 400;}
+.singleSideVideo{width: 100%;margin: 2rem 0;}
 
 
 .singleSideContact{
@@ -2379,12 +2393,11 @@ main {
   margin-bottom: var(--consignmentSingleStepMarginB);
   text-align: var(--consignmentStepsTextAlign);
   padding: 1rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   font-size: .6rem!important;
 }
 
-.consignmentSingleStep:hover {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); }
+
 
 .bottomConsignmentTxt {margin-bottom: 2rem;order: var(--order5);}
 

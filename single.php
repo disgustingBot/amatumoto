@@ -12,23 +12,21 @@
       if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
         <span class="newArrival"><i>New arrival</i></span>
       <?php } ?>
-      <!-- <div class="newArrival">NEW ARRIVAL</div> -->
+      <div class="newArrival">NEW ARRIVAL</div>
       <?php
       $terms = get_the_terms( get_the_ID(), 'product_cat' );
 
       foreach ($terms as $term) {
 
-          echo '<h1 itemprop="name" class="product-title entry-title">'.$term->name.'</h1>';
+          echo '<h2 itemprop="name" class="productCategoryTitle entry-title">'.$term->name.'</h2>';
       }
       // AUCTION INFORRMATION HERE
       // var_dump(get_post_meta( $product->id));
       ?>
       <h4 class="singleSideAnoMarca"></h4>
-      <h2 class="singleSideTitle"><?php the_title(); ?></h2>
+      <h1 class="singleSideTitle"><?php the_title(); ?></h1>
       <p class="singleSidePrice"><?php echo $product->get_price_html(); ?></p>
-      <p class="singleSideStock">Stock # <?php echo $product->id; ?><br>
-        <span class="singleSideCond">Condition: <?php echo esc_html( $product->get_condition() ); ?></span>
-      </p>
+      <p class="singleSideStock">Stock # <?php echo $product->id; ?><br>Used condition</p>
       <p class="singleSideData"><?php echo excerpt(140); ?></p>
       <!-- TODO: aca va un video, pero puse una imagen como placeholder -->
       <iframe class="singleSideVideo" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
@@ -66,7 +64,7 @@
 
 
   <div class="singleFormContainer" id="singleRequestInfo">
-    <form action="index.php" class="singleContact SingleContactMoreInfo">
+    <form action="index.php" class="singleContact ">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleRequestInfo')">+</p>
       <label  class="formLabel">CONTACT DETAILS</label>
       <input type="text" placeholder="First Name"  class="formInput100 formInput">
@@ -94,7 +92,7 @@
   </div>
 
   <div class="singleFormContainer" id="singleMakeOffer">
-    <form action="index.php" class="singleContact SingleContactMoreInfo">
+    <form action="index.php" class="singleContact ">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleMakeOffer')">+</p>
       <label  class="formLabelBig">Make An Offer</label>
       <label  class="formLabel">product title HERE</label>
@@ -127,7 +125,7 @@
   </div>
 
   <div class="singleFormContainer" id="singleTrade">
-    <form action="index.php" class="singleContact SingleContactMoreInfo">
+    <form action="index.php" class="singleContact ">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleTrade')">+</p>
       <label  class="formLabelBig">Trade this ENTER PRODUCT TITLE HERE</label>
       <p class="singleFormTxt mainTxtType1">We are always looking for new inventory. If you are interested in trading your high quality bike for one of ours, simply fill out this form.<br>A member of our sales department will be in touch within 24 hours. No one makes the trade-in process easier than amatumoto.com.</p>
@@ -147,7 +145,7 @@
   </div>
 
   <div class="singleFormContainer" id="singleFinance">
-    <form action="index.php" class="singleContact SingleContactMoreInfo">
+    <form action="index.php" class="singleContact ">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleFinance')">+</p>
       <label  class="formLabelBig">finance this ENTER PRODUCT TITLE HERE</label>
       <p class="singleFormTxt mainTxtType1">Please enter the information below to begin the financing process.</p>
