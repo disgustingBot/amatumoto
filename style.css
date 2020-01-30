@@ -743,7 +743,7 @@ main {
 /* .socialMediaLink svg:hover {color: black;} */
 
 
-.socialMediaInst:hover{color:#262626!important}
+.socialMediaInst:hover{color:#E1306C!important}
 .socialMediaFace:hover{color:#3B5998!important}
 .socialMediaYouT:hover{color:#CD201F!important}
 .socialMediaSrch:hover{color:#262626!important}
@@ -2204,7 +2204,7 @@ main {
   /* grid-template-columns: min-content 1fr 1fr min-content; */
   grid-template-columns:var(--testimonialsGTC);
   margin: 3rem auto;
-  transition: 25s;
+  transition: .25s;
 }
 
 .testimonialTxt {
