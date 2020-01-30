@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Ropa+Sans|Signika&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body <?php body_class(); ?>>
 
@@ -44,7 +45,7 @@
 
       <a href="mailto:elcorreoquequieres@correo.com" target="_blank" class="mail upperNavInfo">
         <svg fill="currentColor"class="upperNavIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-        <p class="upperNavIconTxt">motorsport@amatumoto.com</p>
+        <p class="upperNavIconTxt">info@gpmotorbikes.com</p>
       </a>
       <a href="" class="langButton upperNavInfo">
         <svg fill="currentColor"class="upperNavIcon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
