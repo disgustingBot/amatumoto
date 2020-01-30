@@ -45,7 +45,7 @@
 
 
 <section class="hotAuctions">
-  <h3 class="hotAuctionsTitle">HOT AUCTIONS</h3>
+  <h3 class="hotAuctionsTitle">FEATURED INVENTORY</h3>
   <?php
   $args = array(
     'post_type'=>'product',

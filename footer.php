@@ -16,7 +16,7 @@
       </p>
     </div> -->
 
-    <?php echo do_shortcode("[mc4wp_form id='486']") ?>
+    <?php echo do_shortcode("[mc4wp_form id='366']") ?>
 
     <div class="characterContainer">
       <figure class="character">
@@ -52,17 +52,17 @@
           <h5 class="footerTitle">Amatumoto Grand Prix Motorbikes</h5>
           <p>Castellbisbal - Barcelona</p>
           <p>Spain</p>
-          <a href="tel:+34938364911">+34 938 364 911</a>
-          <a href="tel:+34620959449">+34 620 959 449</a>
+          <a href="tel:+34938364911">+34 938 364 911</a><br>
+          <a href="tel:+34620959449">+34 620 959 449</a><br>
           <a href="mailto:elcorreoquequieres@correo.com" target="_blank">info@gpmotorbikes.com</a>
         </div>
         <div class="data">
           <h5 class="footerTitle">Showroom</h5>
           <p>Monday to friday 08:00 - 18:00</p>
           <p>Saturday 10:00 - 17:00</p>
-          <a href="">Current stock</a>
-          <a href="">Make an appointment</a>
-          <a href="">Plan your visit</a>
+          <a href="">Current stock</a><br>
+          <a href="">Make an appointment</a><br>
+          <a href="">Plan your visit</a><br>
         </div>
         <div class="data">
           <h5 class="footerTitle">Workshop</h5>
@@ -73,9 +73,8 @@
           <a href="">Workshop appointment</a>
         </div>
       </div>
-
-
       <div class="socialMedia socialMediaFooter">
+
         <a href="https://www.instagram.com/gpmotorbikes/?hl=es" target="_blank" class="socialMediaLink socialMediaInst">
           <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
@@ -97,6 +96,14 @@
           </svg>
         </a>
       </div>
+      <div class="legalFooter">
+        <p>C 2019 | Amatumoto</p>
+        <a href="">Disclaimer</a>
+        <a href="">Terms & Conditions</a>
+        <a href="">Privacy</a>
+        <a href="">Cookie Policy</a>
+      </div>
+
     </div>
   </footer>
   <?php wp_footer(); ?>
