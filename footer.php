@@ -16,7 +16,7 @@
       </p>
     </div> -->
 
-    <?php echo do_shortcode("[mc4wp_form id='486']") ?>
+    <?php echo do_shortcode("[mc4wp_form id='366']") ?>
 
     <div class="characterContainer">
       <figure class="character">
@@ -52,17 +52,17 @@
           <h5 class="footerTitle">Amatumoto Grand Prix Motorbikes</h5>
           <p>Castellbisbal - Barcelona</p>
           <p>Spain</p>
-          <a href="tel:+34938364911">+34 938 364 911</a>
-          <a href="tel:+34620959449">+34 620 959 449</a>
+          <a href="tel:+34938364911">+34 938 364 911</a><br>
+          <a href="tel:+34620959449">+34 620 959 449</a><br>
           <a href="mailto:elcorreoquequieres@correo.com" target="_blank">info@gpmotorbikes.com</a>
         </div>
         <div class="data">
           <h5 class="footerTitle">Showroom</h5>
           <p>Monday to friday 08:00 - 18:00</p>
           <p>Saturday 10:00 - 17:00</p>
-          <a href="">Current stock</a>
-          <a href="">Make an appointment</a>
-          <a href="">Plan your visit</a>
+          <a href="">Current stock</a><br>
+          <a href="">Make an appointment</a><br>
+          <a href="">Plan your visit</a><br>
         </div>
         <div class="data">
           <h5 class="footerTitle">Workshop</h5>
@@ -73,8 +73,6 @@
           <a href="">Workshop appointment</a>
         </div>
       </div>
-
-
       <div class="socialMedia socialMediaFooter">
               <a href="https://www.instagram.com/gpmotorbikes/?hl=es" target="_blank" class="socialMediaLink socialMediaInst">
                 <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -96,7 +94,16 @@
                   <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" class=""></path>
                 </svg>
               </a>
-            </div>
+        </div>
+        <div class="legalFooter">
+          <p>C 2019 | Amatumoto</p>
+          <a href="">Disclaimer</a>
+          <a href="">Terms & Conditions</a>
+          <a href="">Privacy</a>
+          <a href="">Cookie Policy</a>
+        </div>
+
+
     </div>
   </footer>
   <?php wp_footer(); ?>
