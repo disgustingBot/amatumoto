@@ -179,6 +179,10 @@ FIN DE MAPA DE CONTENIDOS */
   --theGarageFigureDisplay: block;
   --theGarageSectionMargin: 0 1rem;
 
+  /* TESTIMONIALS */
+  --testimonialsGTC:1fr;
+  --testimonialHeight:auto;
+  --testimonialWidth:100%;
 
 
   /*---ROOT-----/* FOOTER */
@@ -384,6 +388,11 @@ FIN DE MAPA DE CONTENIDOS */
 
     --theGarageFigureDisplay: grid;
     --theGarageSectionMargin: 0 3rem;
+
+    /* TESTIMONIALS */
+    --testimonialsGTC:min-content 1fr min-content;
+    --testimonialWidth:500px;
+    --testimonialHeight:300px;
 
 
 
@@ -769,7 +778,8 @@ main {
 }
 .navBar ul li a {
   position: relative;
-  font-family: 'prox-b';
+  /* font-family: 'Signika', sans-serif; */
+  font-family: 'Ropa Sans', sans-serif;
   font-weight: 600;
 }
 
@@ -791,6 +801,30 @@ main {
   transform-origin: right;
   transform: scaleX(1);
 }
+.navBar a+.sub-menu{
+  display:grid;
+  /* flex-direction: column; */
+  position:absolute;
+  margin:0;
+  grid-gap:.5rem;
+  padding: .5rem 0;
+  opacity:0;
+  pointer-events: none;
+  margin-top:-1rem;
+  transition:.3rem;
+}
+.navBar a+.sub-menu li{
+  margin:0;
+  width:100%;
+  text-align: left;
+}
+.navBar a:hover+.sub-menu,
+.navBar a+.sub-menu:hover{
+  pointer-events:unset;
+  margin-top:0;
+  opacity:1;
+}
+
 
 
 .navBarMobile ul li{
@@ -2095,7 +2129,9 @@ main {
 --------------------------------------------------------------------------- */
 
 .testimonialsMain {
-  padding: 1rem;
+  /* padding: 1rem; */
+  padding:0;
+  margin:0;
 }
 
 .testimonialsTitle {
@@ -2107,21 +2143,26 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 2.5rem;
+  /* padding: 0 2.5rem; */
+  margin:auto;
 }
 
 .testimonialBtn {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 2px solid #d50000;
+  /* border: 2px solid #F78D15; */
+  background: none;
+  border:none;
   font-size: 2rem;
-  transition: .25s;
+  transition: .3s;
+  cursor:pointer;
 }
 
 .testimonialBtn:hover {
-  background: black;
-  color: white;
+  /* background: black; */
+  /* color: white; */
+  color: #F78D15;
 }
 
 .testimonial.inactive {
@@ -2129,17 +2170,24 @@ main {
 }
 
 .testimonial {
-  width: 500px;
-  height: 300px;
-  border-left: #d50000 solid 10px;
+  /* width: 500px; */
+  /* height: 300px; */
+  width:var(--testimonialWidth);
+  height:var(--testimonialHeight);
+  /* box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.14); */
+  /* border-radius: 4px; */
+  /* border-left: #F78D15 solid 10px; */
   display: grid;
-  grid-template-columns: min-content 1fr 1fr min-content;
+  border:1px solid #ddd;
+  /* grid-template-columns: min-content 1fr 1fr min-content; */
+  grid-template-columns:var(--testimonialsGTC);
   margin: 3rem auto;
   transition: 25s;
 }
 
 .testimonialTxt {
-  grid-column: 2/ span 2;
+  /* grid-column: 2/ span 2; */
+  /* grid-column: 2/ span 2; */
   margin: auto;
   padding: 1rem;
 }
@@ -2148,6 +2196,13 @@ main {
   width:50px;
   height: 50px;
   color: #d50000;
+  fill:#F78D15;
+}
+.testiQuote1>* {
+  /* width:50px; */
+  /* height: 50px; */
+  /* color: #d50000; */
+  fill:#F78D15;
 }
 .testiQuote1 {margin: .2rem auto auto .2rem;}
 .testiQuote2 {margin: auto .2rem .2rem auto;}
