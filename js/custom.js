@@ -127,3 +127,19 @@ const filterButton2=()=>{
   setTimeout(filterButton1, 1000); // Change image every N/1000 seconds
 }
 filterButton1();
+
+
+
+
+
+
+mateput=d.querySelector('#mateputInput');
+const updateRequired=()=>{
+  if(mateput.value==''){
+    mateput.classList.remove('alt') =true;
+  }else{
+    mateput.classList.add('alt') =false;
+  }
+}
+
+mateput.addEventListener('input', updateRequired);

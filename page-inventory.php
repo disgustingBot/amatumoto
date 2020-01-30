@@ -11,10 +11,11 @@
 
 
 
-<form method="get" class="filterBar" id="filterBar">
+<form method="get" class="filterBar alt" id="filterBar">
 
   <div class="filterBarTop">
     <div class="filterButton" onclick="altClassFromSelector('alt', '#filterBar')">
+      <!-- TODO: CUANDO CAMBIES EL SVG ELIMINA LA FUNCION JS QUE MUEVE EL SVG  -->
       <svg width="50" height="50" viewBox="0 0 100 85" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle class="filterButtonCircle" cx="13.6347" cy="13.6349" r="13.6349" transform="rotate(90 13.6347 13.6349)" fill="black"/>
         <circle class="filterButtonCircle" cx="17.0024" cy="46.0049" r="12.3623" transform="rotate(-90 17.0024 46.0049)" fill="black"/>
@@ -27,7 +28,7 @@
     <div class="filterSeparator"></div>
 
       <div class="mateput">
-        <input type="text" name="filter_search">
+        <input id="mateputInput" type="text" name="filter_search" autocomplete="off">
         <label for="name" class="mateputLabel">
           <span class="mateputName">Name</span>
         </label>
@@ -64,14 +65,14 @@
         </div>
         <div class="selectBoxList">
           <label for="nul<?php echo $id; ?>" class="selectBoxOption">
-            <input type="radio" name="filter_<?php echo $term->slug; ?>" id="nul<?php echo $id; ?>" class="selectBoxInput" onclick="selectBoxControler('','#selectBox<?php echo $id; ?>','#selectBoxCurrent<?php echo $id; ?>')" value="0">
-            <span class="checkmark"></span>
+            <input class="selectBoxInput" type="radio" name="filter_<?php echo $term->slug; ?>" id="nul<?php echo $id; ?>" onclick="selectBoxControler('','#selectBox<?php echo $id; ?>','#selectBoxCurrent<?php echo $id; ?>')" value="0">
+            <!-- <span class="checkmark"></span> -->
             <p class="colrOptP"></p>
           </label>
           <?php foreach ($subcats as $sc) { ?>
             <label for="<?php echo $sc->slug; ?>" class="selectBoxOption">
               <input type="radio" name="filter_<?php echo $term->slug; ?>" id="<?php echo $sc->slug; ?>" class="selectBoxInput" onclick="selectBoxControler('<?php echo $sc->name ?>', '#selectBox<?php echo $id; ?>', '#selectBoxCurrent<?php echo $id; ?>')" value="<?php echo $sc->slug; ?>">
-              <span class="checkmark"></span>
+              <!-- <span class="checkmark"></span> -->
               <p class="colrOptP"><?php echo $sc->name ?></p>
             </label>
           <?php } ?>
@@ -79,7 +80,8 @@
       </div>
     <?php } ?>
 
-    <?php woocommerce_subcats_from_parentcat_by_ID(30); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(27); ?>
+    <?php //woocommerce_subcats_from_parentcat_by_ID(30); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(32); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(29); ?>
     <?php woocommerce_subcats_from_parentcat_by_ID(31); ?>
