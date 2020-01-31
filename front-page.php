@@ -58,8 +58,20 @@
     <figure class="hotCard">
       <a class="hotCardImg rowcol1" href="<?php echo get_permalink(); ?>"><img class="productCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""></a>
       <figcaption class="hotCardCaption">
-        <h5 class="hotCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
-        <p class="hotCardPrice"><?php echo $product->get_price_html(); ?></p>
+        <?php
+        $terms = get_the_terms( get_the_ID(), 'product_cat' );
+
+        foreach ($terms as $term) {
+
+            echo '<h2 itemprop="name" class="hotCardSubtitle entry-title">'.$term->name.'</h2>';
+        }
+        // AUCTION INFORRMATION HERE
+        // var_dump(get_post_meta( $product->id));
+        ?>
+        <h1 class="hotCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h1>
+        <p class="hotCardBids">10 Bids <br><span class="hotCardBidPrice">$210.00</span></p>
+        <p class="hotCardEnd">Auction ends in:<br><span class="hotCardTime">12 Days 09:45:08</span></p>
+
       </figcaption>
     </figure>
   <?php } ?>
@@ -70,8 +82,8 @@
 <section class="dosMotos">
   <img class="dosMotosImg" src="<?php echo get_template_directory_uri(); ?>/img/dosMotos.png" alt="">
   <div class="dosMotosCaption">
-    <h4 class="titleType1">Unparalleled Quality</h4>
-    <h5 class="subtitleType1">A COLLECTION OF ONLY THE EXTRAORDINARY</h5>
+    <h1 class="titleType1">Unparalleled Quality</h1>
+    <h4 class="subtitleType1">A COLLECTION OF ONLY THE EXTRAORDINARY</h4>
     <p class="mainTxtType1">Amatumoto is a prestigious company specializing in the sale motorcycle of Grand Prix and exclusive models. We have been recognized for selling very exclusive motorcycles as well as working with great collectors, museums and world championship teams. <br> <br>
       We offer the ultimate motorbike services experience, providing personal attention to each client that generates our existing success in sales. We are proud that we are able to share our passion for special bikes with a select group of people, our customers. Enter the world of Amatumoto!</p>
     <button class="buttonType1">VIRTUAL TOUR</button>
