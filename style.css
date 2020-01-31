@@ -598,29 +598,23 @@ FIN DE MAPA DE CONTENIDOS */
         outline: none;
     }
 
-body{display: grid; color: #333333;}
+body{display: grid; color: #333333; font-family: 'Raleway', sans-serif;font-weight: 700;}
 body:after {content: ' ';}
 img{object-fit:cover}
 a{text-decoration: none;}
 
-h1, h2, h3, h4, h5, h6  {
-  font-family: 'Rubik', sans-serif;
-  color: #252525;
-  font-weight: 300;
-  }/*Rubik bold */
-h4, h5, h6, ul, li{
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  } /*Raleway bold*/
+/*Rubik bold */
+h1, h2, h3  {font-family: 'Rubik', sans-serif;color: #252525;font-weight: 300;}
 
-p {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  }/*Raleway regular*/
-a {font-weight: 400;}
-p, a, ul, li {
-  color: black
-}
+/*Raleway bold*/
+h4, h5, h6, ul, li{font-family: 'Raleway', sans-serif;font-weight: 700;}
+
+/*Raleway regular*/
+
+p {font-family: 'Raleway', sans-serif;font-weight: 400;}
+a {font-weight: 400;font-family: 'Raleway', sans-serif;}
+
+p, a, ul, li {color: black}
 button {font-weight: 400;}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
