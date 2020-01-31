@@ -27,7 +27,7 @@
       <p class="singleSidePrice"><?php echo $product->get_price_html(); ?></p>
       <p class="singleSideStock">
         Stock # <?php echo $product->id; ?><br>
-        Condition: <?php echo esc_html( $product->get_condition() ); ?>
+        Condition: <?php // echo esc_html( $product->get_condition() ); ?>
       </p>
       <p class="singleSideData"><?php echo excerpt(140); ?></p>
       <!-- TODO: aca hay que ver si poner un video de youtube o llamarlo de la galeria de medios con un meta data -->
