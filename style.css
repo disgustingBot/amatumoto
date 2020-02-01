@@ -223,12 +223,12 @@ FIN DE MAPA DE CONTENIDOS */
   --characterContainerJustifyContent: center;
   --characterMargin: .5rem 0;
   --characterFlexDirection: row;
-  --characterSvgWidth: 30%;
+  --characterSvgWidth: 4rem;
   --characterCaptionh5: .8rem;
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
   --newsLetterMarginLeft: auto;
-  --socialMediaFooterMargin: auto auto auto 1.4rem;
+  --socialMediaFooterMargin: auto;
   --socialMediaLinkSize: 25px;
   --legalFooterFontSize: .7rem;
   --socialMediaWidth: 100%;
@@ -432,7 +432,7 @@ FIN DE MAPA DE CONTENIDOS */
     --newsletterMargin: ;
     --characterMargin: ;
     --characterFlexDirection: column;
-    --characterSvgWidth: 50%;
+    --characterSvgWidth: 5rem;
     --characterCaptionh5: .5rem;
     --characterCaptionP: .5rem;
     --contactContainerFontSize: .6rem;
@@ -472,6 +472,7 @@ FIN DE MAPA DE CONTENIDOS */
         --dataFontSize: .6rem;
         --newsLetterMarginLeft: 3rem;
         --socialMediaFooterMargin: 0rem 0rem auto auto;
+
 
         /* ABOUT US */
 
@@ -525,7 +526,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* FOOTER */
     --footerPadding: 3rem;
-    --characterSvgWidth: 50%;
+    --characterSvgWidth: 6rem;
   }
 }
 
@@ -759,7 +760,7 @@ main {
   display: var(--upperNavDektop);
   justify-content: center;
   align-items: var(--upperNavAlignment);
-  margin: 0 1rem;
+  margin: 0 5%;
 }
 
 .upperNavInfo {
@@ -2647,6 +2648,7 @@ main {
   padding: var(--characterContainerPadding);
   flex-wrap: wrap;
   justify-content: var(--characterContainerJustifyContent);
+  margin: auto;
 }
 
 .character {
