@@ -136,7 +136,6 @@ FIN DE MAPA DE CONTENIDOS */
   --consignSectionGalleryGridTemplateRows: repeat(4, min-content);
   --searchLinesDisplay: none;
   --searchSeparatorDisplay: flex;
-  --searchBox: 100%;
   --hotAutcionsPadding: 1rem;
   --hotAuctionsPadding: 0;
   --dosMotosMargin: 1rem 0;
@@ -375,7 +374,6 @@ FIN DE MAPA DE CONTENIDOS */
     --dosMotosGridTemplateColumns: 1fr 1fr;
     --consignSectionGalleryGridTemplateColumns: repeat(4,1fr);
     --consignSectionGalleryGridTemplateRows: 1fr;
-    --searchBox: ;
     --hotAutcionsPadding: 2rem 4rem;
     --hotAuctionsPadding: 2rem 0;
     --dosMotosMargin: 2rem 0;
@@ -1031,14 +1029,14 @@ main {
 }
 .lines{
   width: 100%;
-  height: .2rem;
   border-top: solid #DBDBDB 2px;
   border-bottom: solid #DBDBDB 2px;
-  height: .4rem;
+  height: 10px;
 
   display: var(--searchLinesDisplay);
 }
 /* TODO: hacer bien el search */
+
 
 .searchBox {
   border: 2px solid #252525;
@@ -1047,17 +1045,37 @@ main {
   grid-template-columns: 50px 1fr;
   align-items: center;
   grid-gap:.5rem;
-  width: var(--searchBox);
-  /* padding: .5rem; */
+  width:calc(100% - 2rem);
+  max-width: 448px;
   padding: 20px .5rem 20px .5rem;
+  margin: 1rem auto;
+  position: relative;
 }
+
+.searchBox:before, .searchBox:after{
+  content: '';
+  border-top: solid #DBDBDB 2px;
+  border-bottom: solid #DBDBDB 2px;
+  height: 10px;
+  width: calc(100% + 10rem);
+  position: absolute;
+  left: 0;
+}
+.searchBox:before{
+  transform:  translateX(calc(-100% - .6rem));
+}
+.searchBox:after{
+  margin: calc(100% + .6rem);
+  transform-origin: left;
+}
+
+
 .searchBoxSvg {
   width: 40%;
 }
 
-.searchInput {height: 100%;font-size: 1rem; border: none;font-size: 1rem;}
+.searchInput {height: 100%;font-size: 17px; border: none;}
 
-.searchInput{font-size: .7rem;}
 
 .searchBox .searchBoxSvg{font-size: 1rem;}
 /* ---------------------------------------------------------------------------
