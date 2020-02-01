@@ -112,6 +112,8 @@ FIN DE MAPA DE CONTENIDOS */
   --navStripeHeight: 5px;
   --logoImgWidth: 80%;
   --upperNavMarginLeft: .5rem;
+  --navBarFontSize: .6rem;
+  --navBarPadding: 0;
 
   /* FILTER */
   --filterBarTopDisplay: flex;
@@ -145,6 +147,7 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAuctionsTitleMarginLeft: 0;
   --hotAuctionsTextAlign: center;
   --dosMotosPaddingRight: 1rem;
+  --dosMotosCaptionPadding: 1rem;
   --mainTxtType1FontSize: .9rem;
   --maintTxtType1LineHeight: 1.3rem;
   --mainTxtType1TextA: justify;
@@ -156,8 +159,6 @@ FIN DE MAPA DE CONTENIDOS */
   --consignSectionGalleryWidth: 80%;
   --hotCardWidth: 90%;
   --hotCardMargin: .5rem;
-
-
 
   /* SINGLE */
   --singlePageGTC:;
@@ -234,13 +235,12 @@ FIN DE MAPA DE CONTENIDOS */
   --characterContainerJustifyContent: center;
   --characterMargin: .5rem 0;
   --characterFlexDirection: row;
-  --characterSvgWidth: 4rem;
+  --characterSvgWidth: 30%;
   --characterCaptionh5: .8rem;
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
   --newsLetterMarginLeft: auto;
-  --socialMediaFooterMargin: auto;
-  --socialMediaLinkSize: 25px;
+  --socialMediaFooterMargin: auto auto auto 1.4rem;
   --legalFooterFontSize: .7rem;
   --socialMediaWidth: 100%;
 
@@ -444,14 +444,14 @@ FIN DE MAPA DE CONTENIDOS */
     --newsletterMargin: ;
     --characterMargin: ;
     --characterFlexDirection: column;
-    --characterSvgWidth: 5rem;
+    --characterSvgWidth: 50%;
     --characterCaptionh5: .5rem;
     --characterCaptionP: .5rem;
     --contactContainerFontSize: .6rem;
     --footerContainerDisplay: grid;
     --legalFooterFontSize: .7rem;
     --socialMediaJustifyContent: space-between;
-    --socialMediaWidth: 200px;
+    --socialMediaWidth: max-content;
 
 
     /* ESTRUCTURA */
@@ -476,6 +476,15 @@ FIN DE MAPA DE CONTENIDOS */
 --------------------------------------------------------------------------- */
 @media screen and (min-width: 992px) {
   :root {
+
+
+        /* FOOTER */
+        --characterContainerPadding: 0;
+        --footerDisplay: grid;
+        --lowerFooterDisplay: grid;
+        --dataFontSize: .6rem;
+        --newsLetterMarginLeft: 3rem;
+        --socialMediaFooterMargin: 0rem 0rem auto auto;
 
     /* SINGLE */
     --singlePageGTC:1fr 2.5fr;
@@ -519,8 +528,18 @@ FIN DE MAPA DE CONTENIDOS */
     /* ARCHIVE */
     --shopArchiveGridTemplateC: 1fr 1fr 1fr;
 
+
+        /* 404 NOT FOUND */
+        --notFoundPadding:5rem 10rem;
+
+        /* HEADER */
+        --navBarFontSize: .55rem;
+        --navBarPadding: 0 3rem;
+
+
     /* 404 NOT FOUND */
     --notFoundPadding:5rem 10rem;
+
   }
 }
 
@@ -541,7 +560,6 @@ FIN DE MAPA DE CONTENIDOS */
     --logoImgWidth: 65%;
     --logoWidth: 70%;
     --navBarMargin: auto 4rem;
-    --socialMediaLinkSize: 30px;
     --hotAuctionsDisplay: grid;
 
 
@@ -556,7 +574,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* FOOTER */
     --footerPadding: 3rem;
-    --characterSvgWidth: 6rem;
+    --characterSvgWidth: 50%;
   }
 }
 
@@ -768,6 +786,7 @@ main {
   height: 100%;
   width: auto;
   padding-right: var(--logoPaddingRight);
+  grid-row: span 2;
 }
 .logoImg {
   object-fit: contain;
@@ -783,7 +802,10 @@ main {
   display: var(--upperNavDektop);
   justify-content: center;
   align-items: var(--upperNavAlignment);
-  margin: 0 5%;
+  margin: auto;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 0 3rem;
 }
 
 .upperNavInfo {
@@ -806,8 +828,7 @@ main {
   justify-content: var(--socialMediaJustifyContent);
   width: var(--socialMediaWidth);
   height: min-content;
-  margin: auto;
-  margin-right: 2rem;
+  margin-right: .5rem;
 }
 
 
@@ -815,34 +836,31 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--socialMediaLinkSize);
-  height: var(--socialMediaLinkSize);
   color: #333;
-  /* background: white; */
   transition: .25s;
+  margin-right: .5rem;
 }
-/* .socialMediaLink:hover {background: #F78D15;} */
 
-.socialMediaLink svg {width:100%;height:100%;}
-/* .socialMediaLink svg:hover {color: black;} */
-
-
+.socialMediaLink svg {height: 25px; width: auto;}
 .socialMediaInst:hover{color:#E1306C!important}
 .socialMediaFace:hover{color:#3B5998!important}
 .socialMediaYouT:hover{color:#CD201F!important}
-.socialMediaSrch:hover{color:#262626!important}
+.socialMediaWhatsapp:hover{color:#4AC959!important}
 
 
 .menu-barra-de-navegacion-header-container{
   width: 100%;
   height: 100%;
 }
+
+.navBar {
+  margin: auto 0;
+}
 .navBar ul,
 .navBarMobile ul{
   justify-content: center;
   align-items: center;
-  font-size: .55rem;
-  margin: var(--navBarMargin);
+  font-size: var(--navBarFontSize);
 
 }
 .navBar ul li,
@@ -851,8 +869,13 @@ main {
   font-weight: 500;
   text-transform: uppercase;
   text-align: center;
-  margin: .7rem .7rem;
+  margin: auto 0;
 }
+
+.navBarMobile ul li {
+  margin: .4rem 0;
+}
+
 .navBar ul li a {
   position: relative;
   font-weight: 600;
@@ -909,6 +932,8 @@ main {
 }
 .navBar ul{
   display: var(--navBarDesktopDisplay);
+  justify-content: space-around;
+  padding: var(--navBarPadding);
 }
 .navBarMobile ul{
   display: var(--mobileNavButtonDisplay);
@@ -966,6 +991,7 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   padding: .5rem 0;
+  height: 100%;
 }
 
 .navBarMobile {
@@ -995,11 +1021,12 @@ main {
 
 .socialMediaMobile{
   width: 100%;
-  height: 150px;
   display: flex;
   justify-content: space-evenly;
   border-top: solid black 1px;
   align-items: center;
+  height: max-content;
+  padding: 1.2rem;
 }
 
 .upperNavIconMobile{
@@ -1211,10 +1238,11 @@ main {
   padding: 1rem;
   grid-gap: var(--dosMotosGridGap);
   margin: var(--dosMotosMargin);
+  margin-bottom: 0;
 }
 
 .dosMotosCaption{
-  padding: 4rem;
+  padding: var(--dosMotosCaptionPadding);
   padding-right: var(--dosMotosPaddingRight);
   display:grid;
 }
@@ -1241,6 +1269,7 @@ main {
   cursor: pointer;
   transition: .25s;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .buttonType1:hover {
@@ -1711,8 +1740,10 @@ main {
 .consignSection {
   text-align: center;
   margin: var(--consignSectionMargin);
+  margin-top: 0;
   padding: 1rem;
 }
+.consignButton {width: min-content;}
 .consignSectionTitle{font-size: 2.2rem;font-weight: 300;
 }
 .consignSectionSubTitle{font-size:.6rem;letter-spacing: .095rem;
@@ -2691,7 +2722,6 @@ ss  border-bottom:1px solid #ddd;
   padding: var(--characterContainerPadding);
   flex-wrap: wrap;
   justify-content: var(--characterContainerJustifyContent);
-  margin: auto;
 }
 
 .character {
