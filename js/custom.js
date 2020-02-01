@@ -9,7 +9,22 @@ w.onload=()=>{
         lIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){let l=e.target;l.classList.remove("lazy");lIO.unobserve(l);l.srcset=l.dataset.url}})},opt);
     lIs.forEach(lI=>{lIO.observe(lI)});lBs.forEach(lB=>{lBO.observe(lB)});
   }
+  resizeImgs();
 }
+
+
+const resizeImgs = () => {
+  hotCard = d.querySelectorAll('.hotCard');
+  hotCard.forEach( e => {
+    e.querySelector('img').style.height = e.querySelector('img').clientWidth + 'px';
+  });
+
+  productCard = d.querySelectorAll('.productCard');
+  productCard.forEach( e => {
+    e.querySelector('img').style.height = e.querySelector('img').clientWidth + 'px';
+  });
+}
+w.onresize=()=>{resizeImgs()}
 
 // SLIDER:
 var j=1,x=d.getElementsByClassName("carouselItem");
