@@ -49,14 +49,9 @@
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleFinance')">FINANCE</button>
       </div>
-    </div>
-    <div class="singleSide2">
+
       <p class="singleSideStock2">STOCK #</p>
       <p class="singleStock2ID"><?php echo $product->id; ?></p>
-      <p class="singleSideStockNumber"><?php echo $product_id; ?></p>
-      <!-- <div class="singleSideFicha"></div> -->
-      <!-- <div class="singleSideEmptySquare"></div> -->
-
       <figure class="singleSideSintBox">
         <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
         <figcaption class="singleSideSintBoxCaption">
@@ -84,6 +79,11 @@
               </svg>
               <!-- <svg class="singleSocialSvg" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg> -->
             </a>
+
+    </div>
+
+    <div class="singleSide2">
+
           </div>
 
         </figcaption>
@@ -149,13 +149,11 @@
           <p class="singleFeatureDesc">7 Speed Manual</p>
         </figure>
       </div>
-
-
-
+      <div class="singleDescription"><?php echo $product->description; ?></div>
 
 
     </div>
-    <div class="singleDescription"><?php echo $product->description; ?></div>
+
 
 
   </article>

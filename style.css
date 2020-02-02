@@ -157,24 +157,29 @@ FIN DE MAPA DE CONTENIDOS */
   --hotCardMargin: .5rem;
 
   /* SINGLE */
+  --singlePageGridTemplateC: 1fr;
+  --singelMainGridC: 1;
   --singlePagePadding:1.8rem 1.3rem;
   --singlePageGG:.8rem;
   --singleSidePadding:;
   --singleSideTitleFontSize:1.8rem;
-  --singleFeatureIconMargin:;
+  --singleFeatureIconMargin: 1rem;
   --singleSideContactBorder:2px solid black;
-  --singleSideContactFontSize:.7rem;
+  --singleSideContactFontSize:1rem;
   --singleSidePriceFontSize:.9rem;
   --singleSideStockFontSize:.8rem;
   --singleSideAnoMarcaFontSize:1.1rem;
   --singleSideDataFontSize:.7rem;
-  --singleFeatureDescFontSize:.7rem;
+  --singleFeatureDescFontSize:.5rem;
   --singleSideStock2FontSize:.6rem;
-  --singleStock2IDFontSize:1.2rem;
-  --singleStock2IDPadding:.6rem;
+  --singleStock2IDFontSize: 1.2rem;
+  --singleStock2IDPadding: .6rem;
 
-  --galleryMoreFontSize:.6rem;
+  --galleryMoreFontSize: 1rem;
   --newArrivalFontSize:.8rem;
+  --legalFooterJustification: flex-start;
+  --singleSocialSvgHeight: 2rem;
+
 
   /*---ROOT-----/* ABOUT US */
 
@@ -449,6 +454,18 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* 404 NOT FOUND */
     --notFoundPadding: 6rem;
+
+    /* SINGLE */
+
+    --singlePageGridTemplateC: 1fr 2.5fr;
+    --singelMainGridC: 2;
+    --galleryMoreFontSize:.6rem;
+    --legalFooterJustification: flex-end;
+    --singleSocialSvgHeight: 1rem;
+
+
+
+
   }
 }
 
@@ -489,6 +506,11 @@ FIN DE MAPA DE CONTENIDOS */
         /* HEADER */
         --navBarFontSize: .55rem;
         --navBarPadding: 0 3rem;
+
+        /* SINGLE */
+
+        --singleSideContactFontSize: .7rem;
+
 
   }
 }
@@ -537,7 +559,6 @@ FIN DE MAPA DE CONTENIDOS */
 
       /* SINGLE */
       --singlePagePadding:1rem 5.5rem;
-      --singlePageGG:4rem;
       --singleSidePadding:1rem 3rem;
       --singleSideTitleFontSize:2rem;
       --singleFeatureIconMargin:2rem;
@@ -547,11 +568,10 @@ FIN DE MAPA DE CONTENIDOS */
       --singleSideStockFontSize:1.4rem;
       --singleSideAnoMarcaFontSize:1.8rem;
       --singleSideDataFontSize:1rem;
-      --singleFeatureDescFontSize:1rem;
       --singleSideStock2FontSize:.9rem;
       --singleStock2IDFontSize:2rem;
       --singleStock2IDPadding:1rem;
-      --galleryMoreFontSize:.9rem;
+      --galleryMoreFontSize:.8rem;
       --newArrivalFontSize:1.5rem;
   }
 }
@@ -580,39 +600,30 @@ FIN DE MAPA DE CONTENIDOS */
                            4) =ETIQUETAS GLOBALES:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Raleway', sans-serif;
 }
 
-*:focus, *:focus, *:focus{
-        outline: none;
-    }
+*:focus, *:focus, *:focus {outline: none;}
 
 body{display: grid; color: #333333;}
 body:after {content: ' ';}
 img{object-fit:cover}
 a{text-decoration: none;}
 
-h1, h2, h3, h4, h5, h6  {
+h1, h2, h3 {
   font-family: 'Rubik', sans-serif;
   color: #252525;
   font-weight: 300;
-  }/*Rubik bold */
-h4, h5, h6, ul, li{
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  } /*Raleway bold*/
+  } /*Rubik bold */
+h4, h5, h6, ul, li {font-weight: 700;}
 
-p {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  }/*Raleway regular*/
-a {font-weight: 400;}
-p, a, ul, li {
-  color: black
-}
+p, a {font-weight: 400;}/*Raleway regular*/
+
+p, a, ul, li {color: black}
 button {font-weight: 400;}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -632,20 +643,14 @@ main {
   display: flex;
   flex-direction: column;
 }
-
+main p,h1,h2,h3,h4,h5,h6,p,a,ul,li {margin: .3rem 0;}
 /* ---------------------------------------------------------------------------
-------------------------------------------------------------------------------
                               6) =COMPONENTES:
-------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
 
-
-
 /* ---------------------------------------------------------------------------
-------------------------------------------------------------------------------
                             6.0) =gallery:
-------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
 .wp-block-image {
@@ -655,6 +660,8 @@ main {
   position: relative;
   margin-bottom: 2rem;
 }
+
+.gallery img {margin-bottom: 1.5rem; max-height: 500px;}
 .galleryMain{
   width: 100%;
   /* height: 350px; */
@@ -694,7 +701,7 @@ main {
 .galleryStock.alt .galleryFade{
   background:linear-gradient(rgba(0,0,0,0) 50%,rgba(255,255,255,0));
 }
-.galleryMore{
+.galleryMore {
   position:absolute;
   left:50%;
   transform: translate(-50%,100%);
@@ -706,7 +713,6 @@ main {
   transition:.3s;
   bottom:0;
   cursor: pointer;
-  /* font-size: .9rem; */
   font-size:var(--galleryMoreFontSize);
   font-weight: bold;
   transition: .25s;
@@ -1711,11 +1717,11 @@ main {
   padding: 1rem;
 }
 .consignButton {width: min-content;}
-.consignSectionTitle{font-size: 2.2rem;font-weight: 300;
+.consignSectionTitle {font-size: 2.2rem;font-weight: 300;
 }
-.consignSectionSubTitle{font-size:.6rem;letter-spacing: .095rem;
+.consignSectionSubTitle {font-size:.6rem;letter-spacing: .095rem;
 }
-.consignSectionButton{
+.consignSectionButton {
   background:transparent;
   border:solid 2px black;
   padding:.4rem 1.4rem;
@@ -1723,7 +1729,7 @@ main {
   margin:.8rem auto;
 }
 
-.consignSectionGallery{
+.consignSectionGallery {
   display:grid;
   grid-template-columns: var(--consignSectionGalleryGridTemplateColumns);
   grid-template-rows: var(--consignSectionGalleryGridTemplateRows);
@@ -1734,7 +1740,7 @@ main {
   margin: auto;
 }
 
-.consignSectionImg{
+.consignSectionImg {
   width:100%;
   height:auto;
   padding: var(--consignSectionImgWidth);
@@ -1744,10 +1750,10 @@ main {
   display: grid;
   align-items: center;
   color: white;
-  background: linear-gradient(135deg, rgba(0,0,0,1), rgba(0,0,0,0));
+  background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0));
   height: 5rem;
 }
-.inventory .inventoryImg{
+.inventory .inventoryImg {
   width: 100%;
   height: 5rem;
   z-index: -1;
@@ -1757,9 +1763,10 @@ main {
   font-size: .5rem;
   font-weight:600;
 }
-.inventoryCaption h2{
+.inventoryCaption h2 {
   font-size: 1.5rem;
   font-weight:100;
+  color: white;
 }
 
 .shopArchive{
@@ -1785,6 +1792,12 @@ main {
   border:none;
   width: 50px;
   cursor: pointer;
+  display: flex;
+}
+.filterButton svg {
+  height: 30px;
+  margin: auto;
+  margin-bottom: 0;
 }
 .filterButtonCircle{
   animation:filterButtonCircle .6s infinite alternate linear;
@@ -2282,10 +2295,15 @@ main {
 --------------------------------------------------------------------------- */
 .singlePage{
   display: grid;
-  grid-template-columns: 1fr 2.5fr;
+  grid-template-columns: var(--singlePageGridTemplateC);
   grid-auto-rows: min-content;
   grid-gap:var(--singlePageGG);
   padding: var(--singlePagePadding);
+}
+
+.singleMain {
+  grid-row: 1;
+  grid-column: var(--singelMainGridC);
 }
 
 /* SINGLE ASIDE */
@@ -2339,7 +2357,7 @@ main {
   border:var(--singleSideContactBorder);
   padding: .6rem 1rem;
   display: block;
-  width:100%;
+  width: 100%;
   text-align: center;
   cursor: pointer;
   transition: .3s;
@@ -2354,7 +2372,8 @@ main {
 
 .singleSideSocialCont {
   display: flex;
-  margin:.3rem 0;
+  margin: .5rem 0;
+
 }
 .singleSocialLink {
   margin-right:1rem;
@@ -2423,7 +2442,7 @@ main {
 }
 .singleSideSintBoxCaption .singleSocialLink{margin:0}
 .singleSideSintBoxCaption .singleSocialSvg{
-  height:1rem;
+  height: var(--singleSocialSvgHeight);
 }
 
 /* SINGLE MAIN */
@@ -2431,9 +2450,9 @@ main {
 .singleFeatures {
   display: flex;
   justify-content: space-evenly;
-  margin:1rem 0;
-  border-bottom:1px solid #ddd;
-  padding:1rem 0;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  flex-wrap: wrap;
 }
 .singleFeature {display: flex;flex-direction: column; align-items: center;
 }
@@ -2444,15 +2463,17 @@ main {
   font-size:var(--singleFeatureDescFontSize);
 }
 
-.singleFeatureIcon {height: 100px; margin:var(--singleFeatureIconMargin);
+.singleFeatureIcon {
+  height: 75px;
+  margin:var(--singleFeatureIconMargin);
 }
 
 .breaksRotation {transform: rotate(45deg);}
 
 .singleDescription ul {
   list-style: none;
-  margin: 2rem 0;
-  padding: 2rem;
+  margin: 1rem 0;
+  padding: 1rem;
   border-top: solid 2px #ddd;
   border-bottom: solid 2px #ddd;
 }
@@ -2468,9 +2489,15 @@ main {
   font-size: .75rem;
 }
 
-.singleDescription p {padding: 1rem 2rem;background: #eee;}
+.singleDescription p {
+  padding: .5rem 1rem;
+  background: #eee;
+  font-size: .8rem;
+}
 
-
+.singleDescription ul {
+  font-size: .8rem;
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.11) =pageMain:
@@ -2726,7 +2753,7 @@ main {
 
 .legalFooter{
   display: flex;
-  justify-content: flex-end;
+  justify-content: var(--legalFooterJustification);
   flex-wrap: wrap;
   font-size: var(--legalFooterFontSize);
   grid-column: span 2;
