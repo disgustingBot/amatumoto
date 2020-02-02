@@ -129,6 +129,8 @@ FIN DE MAPA DE CONTENIDOS */
 
   /*---ROOT-----/* FRONT PAGE */
 
+  --carusHeight: 50vh;
+
   --hotAuctionsDisplay: block;
   --dosMotosGridTemplateRows: min-content 1fr;
   --dosMotosGridTemplateColumns: 1fr;
@@ -139,9 +141,8 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAutcionsPadding: 1rem;
   --hotAuctionsPadding: 0;
   --dosMotosMargin: 1rem 0;
-  --hotAuctionsTitleFontSize: .8rem;
+  --hotAuctionsTitleFontSize: 1rem;
   --hotAuctionsTitleMarginLeft: 0;
-  --hotAuctionsTextAlign: center;
   --dosMotosPaddingRight: 1rem;
   --dosMotosCaptionPadding: 1rem;
   --mainTxtType1FontSize: .9rem;
@@ -375,6 +376,8 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* FRONT PAGE */
+    --carusHeight: 60vh;
+
     --dosMotosGridTemplateRows: 1fr;
     --dosMotosGridTemplateColumns: 1fr 1fr;
     --consignSectionGalleryGridTemplateColumns: repeat(4,1fr);
@@ -382,10 +385,8 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAutcionsPadding: 2rem 4rem;
     --hotAuctionsPadding: 2rem 0;
     --dosMotosMargin: 2rem 0;
-    --hotAuctionsMargin: 1rem;
-    --hotAuctionsTitleFontSize: .8rem;
+    --hotAuctionsTitleFontSize: 1.1rem;
     --hotAuctionsTitleMarginLeft: 1.2rem;
-    --hotAuctionsTextAlign: left;
     --dosMotosPaddingRight: 3rem;
     --mainTxtType1FontSize: .66rem;
     --maintTxtType1LineHeight: 1.1rem;
@@ -643,7 +644,17 @@ main {
   display: flex;
   flex-direction: column;
 }
-main p,h1,h2,h3,h4,h5,h6,p,a,ul,li {margin: .3rem 0;}
+main p {margin: .3rem 0;}
+main h1 {margin: .3rem 0;}
+main h2 {margin: .3rem 0;}
+main h3 {margin: .3rem 0;}
+main h4 {margin: .3rem 0;}
+main h5 {margin: .3rem 0;}
+main h6 {margin: .3rem 0;}
+main p {margin: .3rem 0;}
+main a {margin: .3rem 0;}
+main ul {margin: .3rem 0;}
+main li {margin: .3rem 0;}
 /* ---------------------------------------------------------------------------
                               6) =COMPONENTES:
 --------------------------------------------------------------------------- */
@@ -999,7 +1010,6 @@ main p,h1,h2,h3,h4,h5,h6,p,a,ul,li {margin: .3rem 0;}
 --------------------------------------------------------------------------- */
 .carusATF{
   display: grid;
-  --carusHeight:29.3vw;
   height:var(--carusHeight);
   overflow: hidden;
   width: 100%;
@@ -1014,7 +1024,7 @@ main p,h1,h2,h3,h4,h5,h6,p,a,ul,li {margin: .3rem 0;}
 .carus.inactive{opacity: 0;pointer-events: none;}
 
 .carusImg{
-  height:var(--carusHeight);
+  height:100%;
   width: 100%;
   object-position: center;
 }
@@ -1057,7 +1067,7 @@ main p,h1,h2,h3,h4,h5,h6,p,a,ul,li {margin: .3rem 0;}
   margin: 1rem auto;
   position: relative;
 }
-
+/* var(--hotAuctionsTextAlign)
 .searchBox:before, .searchBox:after{
   content: '';
   border-top: solid #DBDBDB 2px;
@@ -1067,13 +1077,13 @@ main p,h1,h2,h3,h4,h5,h6,p,a,ul,li {margin: .3rem 0;}
   position: absolute;
   left: 0;
 }
-.searchBox:before{
+ .searchBox:before{
   transform:  translateX(calc(-100% - .6rem));
 }
 .searchBox:after{
   margin: calc(100% + .6rem);
   transform-origin: left;
-}
+} */
 
 
 .searchBoxSvg {
@@ -1093,7 +1103,7 @@ main p,h1,h2,h3,h4,h5,h6,p,a,ul,li {margin: .3rem 0;}
 .hotAuctions{
   display: flex;
   flex-wrap: wrap;
-  margin: var(--hotAuctionsMargin);
+  margin: 1rem;
   justify-content: space-evenly;
 }
 
@@ -1101,9 +1111,9 @@ main p,h1,h2,h3,h4,h5,h6,p,a,ul,li {margin: .3rem 0;}
 .hotAuctionsTitle{
   width: 100%;
   font-size: var(--hotAuctionsTitleFontSize);
-  margin: .5rem auto .5rem var(--hotAuctionsTitleMarginLeft);
-  text-align: var(--hotAuctionsTextAlign);
-;
+  margin: auto;
+  font-weight: 600;
+  margin: .5rem;
 }
 
 
@@ -1135,7 +1145,7 @@ main p,h1,h2,h3,h4,h5,h6,p,a,ul,li {margin: .3rem 0;}
   font-weight: 500;
   color: white;
 }
-.productCardImg {width: 100%; height: 8rem; grid-column: 1; grid-row: 1;}
+.productCardImg {width: 100%; height: 10rem; grid-column: 1; grid-row: 1;}
 .productCardCaption{font-weight: 100; padding: .3rem .5rem;}
 .productCardCaption>* {margin-bottom: .4rem;}
 .productCardTitle{font-weight: 300; font-weight: bold;}
