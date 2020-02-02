@@ -239,7 +239,6 @@ FIN DE MAPA DE CONTENIDOS */
   /*---ROOT=ESTRUCTURA */
   --mainContentMargin: 0 2rem;
   --consignmentSingleStepMarginB: 2rem;
-  --consignmentStepsTextAlign: center;
 
 
   /*---ROOT-----/* ARCHIVE */
@@ -250,7 +249,7 @@ FIN DE MAPA DE CONTENIDOS */
     --formInputWidth: 100%;
 
   /*---ROOT-----/* CONSIGNMENT */
-
+  --consignmentSection1Display: block;
   --order1: 1;
   --order2: 2;
   --order3: 3;
@@ -444,9 +443,10 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* ESTRUCTURA */
-    --consignmentStepsTextAlign: left;
+
 
     /* CONSIGNMENT */
+    --consignmentSection1Display: grid;
     --order1: auto;
     --order2: auto;
     --order3: auto;
@@ -859,20 +859,29 @@ main li {margin: .3rem 0;}
 
 .navBar ul li a:hover {
   color: #F78D15;
+
+}
+.sub-menu{
+  border-top: 2px solid #F78D15;
+  width: 8rem;
 }
 
 .sub-menu a{
   padding: 0!important;
 }
+
+.sub-menu a:hover{
+}
+
+
+
 .navBar a+.sub-menu{
   background:white;
   display:grid;
-  /* flex-direction: column; */
   position:absolute;
   margin:0;
   grid-gap:.5rem;
   padding: .5rem;
-  /* margin-left:-.5rem; */
   opacity:0;
   pointer-events: none;
   margin-top:-1rem;
@@ -2536,7 +2545,7 @@ main li {margin: .3rem 0;}
 
 .consignmentATFTxt {margin-bottom: 1rem;}
 
-.consignmentSteps {margin-top: 2rem;}
+.consignmentSteps {margin: var(--characterMargin);}
 
 .consignmentSteps1{order: var(--order3);}
 .consignmentSteps2{order: var(--order4);}
@@ -2545,18 +2554,27 @@ main li {margin: .3rem 0;}
 
 .consignmentSteps figcaption {text-align: center;margin: .5rem 0;}
 
-.consignmentSteps img {height: 70px;}
+.consignmentSteps .consignmentIcon img{height: 70px;}
 
-.consignmentSection1 {margin-top: 2rem;order: var(--order1);}
+.consignmentSection1 {
+  display: var(--consignmentSection1Display);
+  margin: 2rem 0;
+  order: var(--order1);
+}
 
 .consignmentSingleStep {
   margin-bottom: var(--consignmentSingleStepMarginB);
-  text-align: var(--consignmentStepsTextAlign);
+  text-align: center;
   padding: 1rem;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  font-size: .6rem!important;
+  font-size: 1rem!important;
+  border: solid 1px #ddd;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  align-items: center;
 }
 
+.consignmentTxt{text-align: center; font-size: .8rem;}
 
 
 .bottomConsignmentTxt {margin-bottom: 2rem;order: var(--order5);}
