@@ -9,6 +9,8 @@ w.onload=()=>{
         lIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){let l=e.target;l.classList.remove("lazy");lIO.unobserve(l);l.srcset=l.dataset.url}})},opt);
     lIs.forEach(lI=>{lIO.observe(lI)});lBs.forEach(lB=>{lBO.observe(lB)});
   }
+  if(detectWidth() < 768){altClassFromSelector('alt','#filterBar')}
+
 }
 
 
@@ -135,14 +137,23 @@ filterButton1();
 
 
 
-
-mateput=d.querySelector('#mateputInput');
-const updateRequired=()=>{
-  if(mateput.value==''){
-    mateput.classList.remove('alt') =true;
-  }else{
-    mateput.classList.add('alt') =false;
+if(d.querySelector('#mateputInput')){
+  mateput=d.querySelector('#mateputInput');
+  const updateRequired=()=>{
+    if(mateput.value==''){
+      mateput.classList.remove('alt') =true;
+    }else{
+      mateput.classList.add('alt') =false;
+    }
   }
+  mateput.addEventListener('input', updateRequired);
 }
 
-mateput.addEventListener('input', updateRequired);
+
+
+function detectWidth() {
+  // return window.screen.width || window.innerWidth || window.document.documentElement.clientWidth || Math.min(window.innerWidth, window.document.documentElement.clientWidth) || window.innerWidth || window.document.documentElement.clientWidth || window.document.getElementsByTagName('body')[0].clientWidth;
+  return window.innerWidth || window.document.documentElement.clientWidth || Math.min(window.innerWidth, window.document.documentElement.clientWidth) || window.innerWidth || window.document.documentElement.clientWidth || window.document.getElementsByTagName('body')[0].clientWidth;
+  // return window.innerWidth;
+  // return window.document.documentElement.clientWidth;
+}

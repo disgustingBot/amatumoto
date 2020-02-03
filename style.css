@@ -474,7 +474,7 @@ FIN DE MAPA DE CONTENIDOS */
     --formInput50Width: 49%;
     --formInput33Width: 30%;
     --mainContactBtnWidth: 25%;
-  }
+
 
 
   }
@@ -509,7 +509,7 @@ FIN DE MAPA DE CONTENIDOS */
         --consignmentSingleStepMarginB: 0;
 
         /* ARCHIVE */
-        --shopArchiveGridTemplateC: 1fr 1fr 1fr;
+        --shopArchiveGridTemplateC:1fr 1fr 1fr;
 
         /* 404 NOT FOUND */
         --notFoundPadding:5rem 10rem;
@@ -521,7 +521,6 @@ FIN DE MAPA DE CONTENIDOS */
         /* SINGLE */
 
         --singleSideContactFontSize: .7rem;
-
 
   }
 }
@@ -1163,7 +1162,7 @@ main li {margin: .3rem 0;}
   font-weight: 500;
   color: white;
 }
-.productCardImg {width: 100%; height: 10rem; grid-column: 1; grid-row: 1;}
+.productCard img {width: 100%; height: 10rem; grid-column: 1; grid-row: 1;}
 .productCardCaption{font-weight: 100; padding: .3rem .5rem;}
 .productCardCaption>* {margin-bottom: .4rem;}
 .productCardTitle{font-weight: 300; font-weight: bold;}
@@ -1185,6 +1184,7 @@ main li {margin: .3rem 0;}
   border:1px solid #ddd;
   text-align: center;
 }
+.hotCardImg{width: 100%; height: 10rem; grid-column: 1; grid-row: 1;}
 
 .hotCardCaption{
   padding:.5rem;
@@ -1286,13 +1286,10 @@ main li {margin: .3rem 0;}
 .subcatCard{
   display:grid;
   border:1px solid #ddd;
-  /* align-items:center; */
 }
 .subcatImg{display:flex;}
 .subcatCaption{
   background:rgba(255,255,255,.6);
-  /* width: max-content; */
-  /* max-width: 60%; */
   width: 60%;
   margin:0 auto;
   margin-right:0;
@@ -1301,7 +1298,11 @@ main li {margin: .3rem 0;}
   display: grid;
   align-items: center;
 }
-.subcatCard:hover .subcatCaption{padding-right:1.4rem;width:calc(60% + .6rem);}
+.subcatCard:hover .subcatCaption{
+  padding-right:1.4rem;
+  width:calc(60% + .6rem);
+  background:rgba(255,255,255,.8);
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.4.4) =aboutSection:
@@ -1835,12 +1836,12 @@ main li {margin: .3rem 0;}
   z-index: -1;
 }
 .pageBannerCaption{
+  color: white;
   padding: 0 3rem;
   font-size: .5rem;
   font-weight:600;
-  color: white;
 }
-.pageBannerCaption p {color: inherit;}
+.pageBannerCaption p{color:inherit}
 .pageBannerCaption h2 {
   font-size: 1.5rem;
   font-weight:100;
@@ -1849,7 +1850,8 @@ main li {margin: .3rem 0;}
 
 .shopArchive{
   display: grid;
-  grid-template-columns: var(--shopArchiveGridTemplateC);
+  grid-template-columns:var(--shopArchiveGridTemplateC);
+  /* grid-template-columns:1fr 1fr 1fr; */
   padding: 2rem;
   grid-gap: 1rem;
 }
@@ -2719,6 +2721,7 @@ main li {margin: .3rem 0;}
   padding: var(--footerPadding);
   grid-gap: 3rem;
   flex-wrap: wrap;
+  padding-bottom:0;
 }
 
 .footerTitle {font-size: .7rem;}
@@ -2833,9 +2836,7 @@ main li {margin: .3rem 0;}
   font-size: var(--dataFontSize);
 }
 
-.socialMediaFooter {
-  margin: var(--socialMediaFooterMargin);
-}
+.socialMediaFooter{margin-left:auto}
 
 .legalFooter{
   display: flex;
@@ -2847,8 +2848,4 @@ main li {margin: .3rem 0;}
   margin: .5rem 0;
 }
 
-.legalFooter *{padding: 0 1rem; margin: .5rem 0;}
-
-.legalFooter p{  display: inline-block;}
-
-.legalFooter a{text-decoration: underline;}
+.legalFooterA{padding:.5rem 1rem}
