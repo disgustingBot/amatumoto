@@ -60,7 +60,9 @@
     <?php global $product; ?>
 
     <figure class="hotCard">
-      <a class="hotCardImg rowcol1" href="<?php echo get_permalink(); ?>"><img class="productCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""></a>
+      <a class="hotCardImg rowcol1" href="<?php echo get_permalink(); ?>">
+        <img class="hotCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+      </a>
       <figcaption class="hotCardCaption">
         <?php
         $terms = get_the_terms( get_the_ID(), 'product_cat' );

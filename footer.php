@@ -97,11 +97,11 @@
         </a>
       </div>
       <div class="legalFooter">
-        <p>C 2019 | Amatumoto</p>
-        <a href="">Disclaimer</a>
-        <a href="">Terms & Conditions</a>
-        <a href="">Privacy</a>
-        <a href="">Cookie Policy</a>
+        <p class="legalFooterA">C 2019 | Amatumoto</p>
+        <a class="legalFooterA" href="">Disclaimer</a>
+        <a class="legalFooterA" href="">Terms & Conditions</a>
+        <a class="legalFooterA" href="">Privacy</a>
+        <a class="legalFooterA" href="">Cookie Policy</a>
       </div>
 
     </div>

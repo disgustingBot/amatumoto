@@ -1,6 +1,4 @@
 <?php get_header(); ?>
-
-
 <figure class="pageBanner">
   <img class="pageBannerImg rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
   <figcaption class="pageBannerCaption rowcol1">
@@ -8,15 +6,10 @@
   </figcaption>
 </figure>
 
+<?php while(have_posts()){the_post();?>
 
+  <main class="contact"><?php the_content();?></main>
 
-<main class="theAboutUsSection">
-
-
-
-  <?php while(have_posts()){the_post();the_content();} ?>
-
-
-  </main>
+<?php } ?>
 
 <?php get_footer(); ?>
