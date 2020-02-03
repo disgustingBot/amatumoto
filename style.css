@@ -226,7 +226,6 @@ FIN DE MAPA DE CONTENIDOS */
   --characterContainerJustifyContent: center;
   --characterMargin: .5rem 0;
   --characterFlexDirection: row;
-  --characterSvgWidth: 30%;
   --characterCaptionh5: .8rem;
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
@@ -249,6 +248,7 @@ FIN DE MAPA DE CONTENIDOS */
     --formInputWidth: 100%;
 
   /*---ROOT-----/* CONSIGNMENT */
+  --consignmentStepsMargin: .5rem 3rem;
   --consignmentSection1Display: block;
   --order1: 1;
   --order2: 2;
@@ -432,7 +432,6 @@ FIN DE MAPA DE CONTENIDOS */
     --newsletterMargin: ;
     --characterMargin: ;
     --characterFlexDirection: column;
-    --characterSvgWidth: 50%;
     --characterCaptionh5: .5rem;
     --characterCaptionP: .5rem;
     --contactContainerFontSize: .6rem;
@@ -446,6 +445,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* CONSIGNMENT */
+    --consignmentStepsMargin: .5rem;
     --consignmentSection1Display: grid;
     --order1: auto;
     --order2: auto;
@@ -479,11 +479,10 @@ FIN DE MAPA DE CONTENIDOS */
   :root {
 
         /* FOOTER */
-        --characterContainerPadding: 0;
-        --footerDisplay: grid;
+        /* --characterContainerPadding: 0; */
+
         --lowerFooterDisplay: grid;
         --dataFontSize: .6rem;
-        --newsLetterMarginLeft: 3rem;
         --socialMediaFooterMargin: 0rem 0rem auto auto;
 
         /* ABOUT US */
@@ -546,8 +545,9 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* FOOTER */
+    --footerDisplay: grid;
     --footerPadding: 3rem;
-    --characterSvgWidth: 50%;
+    --newsLetterMarginLeft: 3rem;
   }
 }
 
@@ -2545,7 +2545,7 @@ main li {margin: .3rem 0;}
 
 .consignmentATFTxt {margin-bottom: 1rem;}
 
-.consignmentSteps {margin: var(--characterMargin);}
+.consignmentSteps {margin: var(--consignmentStepsMargin);}
 
 .consignmentSteps1{order: var(--order3);}
 .consignmentSteps2{order: var(--order4);}
@@ -2661,6 +2661,7 @@ main li {margin: .3rem 0;}
   padding: var(--footerPadding);
   grid-gap: 3rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footerTitle {font-size: .7rem;}
@@ -2736,7 +2737,7 @@ main li {margin: .3rem 0;}
   margin: var(--characterMargin);
 }
 .characterSvg {
-  width: var(--characterSvgWidth);
+  width: 5rem;
   height: auto;
   padding: 1rem .5rem;
 }
