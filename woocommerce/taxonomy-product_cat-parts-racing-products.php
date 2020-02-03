@@ -6,9 +6,9 @@
 
 
 
-<figure class="inventory">
-  <img class="inventoryImg rowcol1" src="<?php echo wp_get_attachment_url(get_woocommerce_term_meta(get_queried_object()->term_id, 'thumbnail_id', true )); ?>" alt="">
-  <figcaption class="inventoryCaption rowcol1">
+<figure class="pageBanner">
+  <img class="pageBannerImg rowcol1" src="<?php echo wp_get_attachment_url(get_woocommerce_term_meta(get_queried_object()->term_id, 'thumbnail_id', true )); ?>" alt="">
+  <figcaption class="pageBannerCaption rowcol1">
     <h2><?php echo get_queried_object()->name; ?></h2>
   </figcaption>
 </figure>

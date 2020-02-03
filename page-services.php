@@ -1,14 +1,12 @@
 <?php get_header(); ?>
 
-
-<figure class="inventory">
-  <img class="inventoryImg rowcol1" src="<?php echo get_template_directory_uri(); ?>/img/inventoryBanner.jpg" alt="">
-  <figcaption class="inventoryCaption rowcol1">
+<figure class="pageBanner">
+  <img class="pageBannerImg rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+  <figcaption class="pageBannerCaption rowcol1">
     <p>Our</p>
-    <h2><?php the_title(); ?></h2>
+    <h2><?php the_title();?></h2>
   </figcaption>
 </figure>
-
 
 
 
