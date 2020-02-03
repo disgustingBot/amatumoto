@@ -14,6 +14,7 @@
       <div class="newArrival">NEW ARRIVAL</div>
       <h4 class="singleSideAnoMarca">
       <?php
+        // TODO: Que solo sea año y marca
         $terms = get_the_terms( get_the_ID(), 'product_cat' );
         foreach ($terms as $term) { ?>
             <?php echo $term->name; ?>

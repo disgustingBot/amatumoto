@@ -618,10 +618,11 @@ FIN DE MAPA DE CONTENIDOS */
   font-family: 'Raleway', sans-serif;
 }
 
-*:focus, *:focus, *:focus {outline: none;}
+/* *:focus{outline:none} */
 
+html{overflow-x:hidden}
 body{display: grid; color: #333333;}
-body:after {content: ' ';}
+/* body:after {content: ' ';} */
 img{object-fit:cover}
 a{text-decoration: none;}
 
@@ -629,13 +630,12 @@ h1, h2, h3 {
   font-family: 'Rubik', sans-serif;
   color: #252525;
   font-weight: 300;
-  } /*Rubik bold */
+}
 h4, h5, h6, ul, li {font-weight: 700;}
 
-p, a {font-weight: 400;}/*Raleway regular*/
+p, a, button {font-weight: 400;}
 
 p, a, ul, li {color: black}
-button {font-weight: 400;}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               5) =ESTRUCTURA:
@@ -654,16 +654,15 @@ main {
   display: flex;
   flex-direction: column;
 }
-main p {margin: .3rem 0;}
-main h1 {margin: .3rem 0;}
-main h2 {margin: .3rem 0;}
-main h3 {margin: .3rem 0;}
-main h4 {margin: .3rem 0;}
-main h5 {margin: .3rem 0;}
-main h6 {margin: .3rem 0;}
-main p {margin: .3rem 0;}
-main a {margin: .3rem 0;}
-main ul {margin: .3rem 0;}
+main p,
+main a,
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6,
+main ul,
 main li {margin: .3rem 0;}
 /* ---------------------------------------------------------------------------
                               6) =COMPONENTES:
@@ -1279,6 +1278,30 @@ main li {margin: .3rem 0;}
   background-color: black;
 }
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.4.4) =subcatCard:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.subcatCard{
+  display:grid;
+  border:1px solid #ddd;
+  /* align-items:center; */
+}
+.subcatImg{display:flex;}
+.subcatCaption{
+  background:rgba(255,255,255,.6);
+  /* width: max-content; */
+  /* max-width: 60%; */
+  width: 60%;
+  margin:0 auto;
+  margin-right:0;
+  padding:0 .8rem;
+  transition:.3s;
+  display: grid;
+  align-items: center;
+}
+.subcatCard:hover .subcatCaption{padding-right:1.4rem;width:calc(60% + .6rem);}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.4.4) =aboutSection:
