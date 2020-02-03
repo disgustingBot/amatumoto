@@ -96,15 +96,7 @@
         <p class="upperNavIconTxt">USA</p>
       </a>
     </nav>
-    <nav class="navBar">
-      <?php wp_nav_menu( array( 'theme_location' => 'navBar', 'navBar' => 'new_menu_class' ) ); ?>
-
-      <a class="navBarLink" href="<?php echo get_permalink( get_page_by_path( 'test' ) ); ?>">INVENTORY</a>
-      <a class="navBarLink" href="">PARTS & RACING PRODUCTS</a>
-      <a class="navBarLink" href="<?php echo get_permalink( get_page_by_path( 'the-garage' ) ); ?>">THE GARAGE</a>
-      <a class="navBarLink" href="<?php echo get_permalink( get_page_by_path( 'services' ) ); ?>">SERVICES</a>
-      <a class="navBarLink" href="<?php echo get_permalink( get_page_by_path( 'contact' ) ); ?>">CONTACT</a>
-    </nav>
+    <nav class="navBar"><?php wp_nav_menu( array( 'theme_location' => 'navBar', 'navBar' => 'new_menu_class' ) ); ?></nav>
 
     <nav class="mobileNav" id="mobileNav">
       <div class="navBarMobile">

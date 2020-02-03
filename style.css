@@ -258,6 +258,12 @@ FIN DE MAPA DE CONTENIDOS */
 
   /* 404 NOT FOUND */
   --notFoundPadding: 2rem;
+
+
+  /* FORMS */
+  --formInput50Width: 90%;
+  --formInput33Width: 90%;
+  --mainContactBtnWidth: 50%;
 }
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -464,7 +470,11 @@ FIN DE MAPA DE CONTENIDOS */
     --legalFooterJustification: flex-end;
     --singleSocialSvgHeight: 1rem;
 
-
+    /* FORMS */
+    --formInput50Width: 49%;
+    --formInput33Width: 30%;
+    --mainContactBtnWidth: 25%;
+  }
 
 
   }
@@ -1527,6 +1537,39 @@ main li {margin: .3rem 0;}
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
+.MainContactForm {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.contactTitle {
+  margin: 1rem 0!important;
+}
+
+.formInput100  {
+  width: 90%!important;
+}
+
+.formInput50 {
+  width: var(--formInput50Width)!important;
+}
+
+.formInput33 {
+  width: var(--formInput33Width);
+}
+
+.MainContactForm .contactButton {
+  width: var(--mainContactBtnWidth);
+  margin: auto;
+}
+
+.singleFormTxtArea {
+  height: 300px;
+  width: 80%;
+  margin: .5rem auto;
+  border: solid 1px #ddd;
+}
+
 .SingleContactCloseButton {
   position: absolute;
   top: .5rem;
@@ -1600,22 +1643,13 @@ main li {margin: .3rem 0;}
     border: 1px solid #ccc;
     margin:.5rem auto;
 }
-.formInput100  {
-  width: 90%!important;
-}
 
-.formInput50 {
-  width: 49%!important;
-}
 
 .formRadioFor {
   font-size: .6rem;
 }
 
-.singleFormTxtArea {
-  height: 300px;
-  width: 100%;
-}
+
 
 .singleRequestInfoButton {
   width: max-content!important;
@@ -1765,27 +1799,29 @@ main li {margin: .3rem 0;}
   padding: var(--consignSectionImgWidth);
 }
 
-.inventory {
+.pageBanner {
   display: grid;
   align-items: center;
   color: white;
   background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0));
   height: 5rem;
 }
-.inventory .inventoryImg {
+.pageBanner .pageBannerImg {
   width: 100%;
   height: 5rem;
   z-index: -1;
 }
-.inventoryCaption{
+.pageBannerCaption{
   padding: 0 3rem;
   font-size: .5rem;
   font-weight:600;
+  color: white;
 }
-.inventoryCaption h2 {
+.pageBannerCaption p {color: inherit;}
+.pageBannerCaption h2 {
   font-size: 1.5rem;
   font-weight:100;
-  color: white;
+  color: inherit;
 }
 
 .shopArchive{
@@ -2622,31 +2658,30 @@ main li {margin: .3rem 0;}
 
 .contactMap {width: 100%;max-height: 300px;}
 
-.contactInfoContainer {display: flex; justify-content: space-around;}
+.contactInfoContainer {
+  padding: 2rem 5rem;
+  border-bottom: 1px solid #ddd;
+}
 
 .contactInfoCol {
+  margin-bottom: 1.5rem;
+}
+
+.contactInfoItem {
   display: flex;
-  align-items: center;
-  font-size: .8rem;
-  margin-top: 2rem;
+  flex-direction: column;
 }
 
-.contactIcon {
-  margin: auto;
-  margin-right: 0;
+.contactMoreInfoCol {
+  margin-bottom: 1.5rem;
 }
 
-.contactIcon img {
-  height: 50px;
-  margin-right: 1rem;
-}
 
-.contactInfoTxt {margin: auto;  margin-left: 0;}
-
-#wpcf7-f201-p93-o1 .wpcf7-form p:nth-child(2){
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+.contactInfoItem img {
+  height: 3rem;
+  width: unset!important;
+  object-fit: contain;
+  margin-bottom: 1rem;
 }
 
 /* ---------------------------------------------------------------------------
