@@ -1,12 +1,18 @@
 <?php get_header(); ?>
-<figure class="pageBanner">
+<!-- <figure class="pageBanner">
   <img class="pageBannerImg rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
   <figcaption class="pageBannerCaption rowcol1">
     <h2><?php the_title();?></h2>
   </figcaption>
+</figure> -->
+
+
+<figure class="pageBanner">
+  <img class="pageBannerImg rowcol1" src="<?php echo wp_get_attachment_url(get_woocommerce_term_meta(get_queried_object()->term_id, 'thumbnail_id', true )); ?>" alt="">
+  <figcaption class="pageBannerCaption rowcol1">
+    <h2><?php echo get_queried_object()->name; ?></h2>
+  </figcaption>
 </figure>
-
-
 
 <div class="shopArchive">
 

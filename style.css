@@ -241,6 +241,7 @@ FIN DE MAPA DE CONTENIDOS */
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
   --newsLetterMarginLeft: auto;
+  --socialMediaFooterMargin: auto auto auto 1.4rem;
   --legalFooterFontSize: .7rem;
   --socialMediaWidth: 100%;
 
@@ -427,7 +428,7 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAuctionsMargin: 1rem;
     --hotCardWidth: 30;
 
-    --viewInventoryMarginTop: -3rem;
+    --viewInventoryMarginTop: -4rem;
     --viewInventoryBtnBorder: none;
     --viewInventoryBackground: white;
 
@@ -518,12 +519,11 @@ FIN DE MAPA DE CONTENIDOS */
   }
 }
 
-@media (min-width: 782px){
+/* @media (min-width: 782px){
   .consignmentSection .wp-block-column:(:first-child) {
       margin-bottom: 32px;
-    }
-
-}
+  }
+} */
 
 @media (min-width: 782px) {
   .consignmentSection .wp-block-column:not(:first-child) {
@@ -550,6 +550,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     --lowerFooterDisplay: grid;
     --dataFontSize: .6rem;
+    --socialMediaFooterMargin: 0rem 0rem auto auto;
 
     /* ABOUT US */
 
@@ -1177,9 +1178,7 @@ main li {margin: .3rem 0;}
   grid-gap:.5rem;
   width:calc(100% - 2rem);
   max-width: 448px;
-  /* padding: 20px .5rem; */
-  padding:0;
-  padding:0 .5rem;
+  padding: 20px .5rem 20px .5rem;
   margin: 1rem auto;
   position: relative;
   transition: .25s ease-in-out;
@@ -1208,14 +1207,10 @@ background: #ddd;
 }
 
 .searchInput {
-  background: none;
-  border: none;
-  font-size: 17px;
   height: 100%;
-  padding: 20px 0;
-}
-.searchInput:focus {
-  outline:none;
+  font-size: 17px;
+  border: none;
+  background: none
 }
 
 
@@ -1252,7 +1247,7 @@ background: #ddd;
 
 .productCard {
   display: grid;
-  /* margin:.5rem; */
+  margin:.5rem;
   grid-template-rows: min-content min-content;
   border: 1px solid #ddd;
 }
@@ -1281,14 +1276,10 @@ background: #ddd;
 }
 
 .productCardCaption{font-weight: 100; padding: .3rem .5rem;}
-.productCardCaption>*{margin-bottom:.4rem}
-.productCardCaption>:last-child{margin-bottom:0}
+.productCardCaption>* {margin-bottom: .4rem;}
 .productCardTitle{font-weight: 300; font-weight: bold;}
 .productCardTxt{font-size: .8rem; font-weight: 400;}
-.productCardPrice{
-  font-size: .8rem;
-  font-weight: 500;
-}
+.productCardPrice {font-size: .8rem; font-weight: 500;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1566,7 +1557,6 @@ background: #ddd;
   height: 0;
   overflow: hidden;
   grid-column: span 2;
-  margin: .3rem 1rem;
   font-size: .7rem;
 }
 
@@ -1614,19 +1604,22 @@ background: #ddd;
 
 .serviceCard.alt .serviceCardContent{
   height: min-content;
-  transition: 5s;
+  margin: .3rem 1rem;
+  /* transition: 5s; */
 }
 
-.serviceCard.alt .serviceCardExpandArrow{
-  transform: rotate(180deg);
-
-}
+.serviceCard.alt .serviceCardExpandArrow{transform:rotate(180deg)}
 
 .serviceCardExpandArrow{
   height: 1rem;
   margin: auto;
   margin-right: 1rem;
   transition: .4s;
+  color:#333;
+  cursor:pointer;
+}
+.serviceCardExpandArrow:hover{
+  color:black;
 }
 
 .serviceCardTitle{
@@ -2078,22 +2071,18 @@ background: #ddd;
 --------------------------------------------------------------------------- */
 
 .viewInventoryBtn {
-  background: var(--viewInventoryBackground);
-  border: var(--viewInventoryBtnBorder);
+  padding: 10px 20px;
   color: #000;
-  display: block;
-  font-weight:700;
-  font-size:.8rem;
+  border: var(--viewInventoryBtnBorder);
+  background: var(--viewInventoryBackground);
+  text-transform: uppercase;
   letter-spacing: 0.05em;
+  text-align: center;
+  display: block;
   margin: auto;
   margin-top: var(--viewInventoryMarginTop);
-  padding: 10px 20px;
-  position:relative;
-  text-align: center;
-  text-transform: uppercase;
   transition: all 0.2s ease-in-out;
   user-select: none;
-  z-index:12;
 }
 .viewInventoryBtn:hover {
   color: white;
@@ -2828,6 +2817,7 @@ background: #ddd;
   margin: auto;
   width: auto;
   padding: .6rem 3rem!important;
+}
 
 .bottomConsignmentTxt {margin-bottom: 2rem;order: var(--order5);}
 
@@ -2957,7 +2947,12 @@ background: #ddd;
   transform: skew(-20deg, 0deg);
   border: solid 4px #bdbdbd;
 }
-.enterEmail{width: 100%; border: none; font-size: .6rem; padding: .2rem;}
+.enterEmail{
+  border: none;
+  font-size: .6rem;
+  padding: .2rem;
+  width: 100%;
+}
 
 .newsLetterSubmit {
   width: 100%;
@@ -3037,8 +3032,7 @@ background: #ddd;
   font-size: var(--dataFontSize);
 }
 
-/* .socialMediaFooter{margin-left:auto} */
-.footer .socialMedia{margin-left:auto}
+.socialMediaFooter{margin-left:auto}
 
 .legalFooter{
   display: flex;
