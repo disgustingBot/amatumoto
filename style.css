@@ -156,6 +156,9 @@ FIN DE MAPA DE CONTENIDOS */
   --hotCardWidth: 90;
   --hotCardMargin: .5rem;
   --hotAuctionsMargin: 0;
+  --viewInventoryMarginTop: 1rem;
+  --viewInventoryBtnBorder: 2px solid #000;
+  --viewInventoryBackground: transparent;
 
   /* SINGLE */
   --singlePageGridTemplateC: 1fr;
@@ -189,6 +192,7 @@ FIN DE MAPA DE CONTENIDOS */
   --aboutSectionImgMargin: .5rem 0;
   --aboutSectionMargin: .5rem 0rem;
   --aboutSection1ImgMargin: .5rem 0;
+  --theAboutUsSection: 0 1rem;
 
 
 
@@ -416,7 +420,13 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAuctionsMargin: 1rem;
     --hotCardWidth: 30;
 
+    --viewInventoryMarginTop: -4rem;
+    --viewInventoryBtnBorder: none;
+    --viewInventoryBackground: white;
+
     /* ABOUT US */
+
+    --theAboutUsSection: 0 3rem;
 
     /* SERVICES */
 
@@ -1113,7 +1123,7 @@ main li {margin: .3rem 0;}
   border: 2px solid #252525;
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: min-content 1fr;
   align-items: center;
   grid-gap:.5rem;
   width:calc(100% - 2rem);
@@ -1121,14 +1131,36 @@ main li {margin: .3rem 0;}
   padding: 20px .5rem 20px .5rem;
   margin: 1rem auto;
   position: relative;
+  transition: .25s ease-in-out;
 }
 
+.searchBox:hover {
+background: #ddd;
+}
+
+.searchBox::after, .searchBox::before {
+  content: ' ';
+  position: absolute;
+  height: .25rem;
+  width: 100vw;
+  border-top: 3px solid #ddd;
+  border-bottom: 3px solid #ddd;
+  top: calc(50% - .25rem - 1px);
+}
+
+.searchBox::after {left: calc(100% + .5rem);}
+.searchBox::before {right: calc(100% + .5rem);}
 
 .searchBoxSvg {
-  width: 40%;
+  width: 20px;
 }
 
-.searchInput {height: 100%;font-size: 17px; border: none;}
+.searchInput {
+  height: 100%;
+  font-size: 17px;
+  border: none;
+  background: none
+}
 
 
 .searchBox .searchBoxSvg{font-size: 1rem;}
@@ -1341,13 +1373,13 @@ main li {margin: .3rem 0;}
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
-.theAboutUsSection{
-  margin: 0 3rem;
+.theAboutUsSection {
+  margin: var(--theAboutUsSection);
 }
 
 .aboutSection{
   display: flex;
-  margin: .5rem; /*var(--aboutSectionMargin);*/
+  margin: .5rem;
   flex-direction: var(--aboutSectionFlexDirection);
   align-items: center;
 }
@@ -1977,7 +2009,30 @@ main li {margin: .3rem 0;}
 
 .contactButton:hover{background:black; color: white;}
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.5.3) =View Inventory button:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 
+.viewInventoryBtn {
+  padding: 10px 20px;
+  color: #000;
+  border: var(--viewInventoryBtnBorder);
+  background: var(--viewInventoryBackground);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  display: block;
+  margin: auto;
+  margin-top: var(--viewInventoryMarginTop);
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+}
+.viewInventoryBtn:hover {
+  color: white;
+  background: black;
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.6) =FORMS:
