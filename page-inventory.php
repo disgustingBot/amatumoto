@@ -148,9 +148,10 @@
 
 } ?>
 </div>
-      <?php if (function_exists("pagination")) {
-          pagination($custom_query->max_num_pages);
-      } ?>
+
+<?php if (function_exists("pagination")) {
+    pagination($custom_query->max_num_pages);
+} ?>
 
 
 <?php get_footer(); ?>

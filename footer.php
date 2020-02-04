@@ -2,7 +2,7 @@
 
   <footer class="footer" id="footer">
 
-    <?php echo do_shortcode("[mc4wp_form id='486']") ?>
+    <?php echo do_shortcode("[mc4wp_form id='486']"); ?>
 
     <div class="characterContainer">
       <figure class="character">
@@ -60,8 +60,8 @@
         </div>
       </div>
 
-      
-      <?php include('socialSharing.php') ?>
+
+      <?php include 'socialSharing.php'; ?>
 
       <div class="legalFooter">
         <p class="legalFooterA">C 2019 | Amatumoto</p>
