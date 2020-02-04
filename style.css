@@ -570,12 +570,19 @@ FIN DE MAPA DE CONTENIDOS */
   }
 }
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          2.1) min-width:  =1200px
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
 @media  screen and (min-width: 1300px) {
   :root {
     /* FOOTER */
     --footerPadding: 3rem;
     --newsLetterMarginLeft: 3rem;
     --footerDisplay: grid;
+    --characterContainerPadding: 1rem 2rem;
   }
 }
 
@@ -2655,7 +2662,12 @@ main li {margin: .3rem 0;}
 
 .consignmentTxt{text-align: center; font-size: .8rem;}
 
-.consignmentContact{ order: 6; width: 50%; margin: auto;  }
+.consignmentContact{
+  width: auto;
+  order: 6;
+  margin: auto;
+  padding: .5rem 3rem;
+}
 
 .bottomConsignmentTxt {margin-bottom: 2rem;order: var(--order5);}
 
