@@ -338,8 +338,10 @@ FIN DE MAPA DE CONTENIDOS */
     --notFoundPadding: 4rem;
 
 
-  }
+    /* SINGLE */
+    --singleSideContactFontSize:.7rem;
 
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -499,39 +501,37 @@ FIN DE MAPA DE CONTENIDOS */
 @media screen and (min-width: 992px) {
   :root {
 
-        /* FOOTER */
-        /* --characterContainerPadding: 0; */
+    /* FOOTER */
+    /* --characterContainerPadding: 0; */
 
-        --lowerFooterDisplay: grid;
-        --dataFontSize: .6rem;
-        --socialMediaFooterMargin: 0rem 0rem auto auto;
+    --lowerFooterDisplay: grid;
+    --dataFontSize: .6rem;
+    --socialMediaFooterMargin: 0rem 0rem auto auto;
 
-        /* ABOUT US */
+    /* ABOUT US */
 
-          --aboutSectionFlexDirection: ;
-          --aboutSectionMargin: 0 .5rem;
-          --aboutSectionImgMargin: 0 .5rem;
+      --aboutSectionFlexDirection: ;
+      --aboutSectionMargin: 0 .5rem;
+      --aboutSectionImgMargin: 0 .5rem;
 
-        /* SERVICES */
+    /* SERVICES */
 
-        /* ESTRUCTURA */
-        --mainContentMargin: 0 5rem;
-        --consignmentSingleStepMarginB: 0;
+    /* ESTRUCTURA */
+    --mainContentMargin: 0 5rem;
+    --consignmentSingleStepMarginB: 0;
 
-        /* ARCHIVE */
-        --shopArchiveGridTemplateC:1fr 1fr 1fr;
+    /* ARCHIVE */
+    --shopArchiveGridTemplateC:1fr 1fr 1fr;
 
-        /* 404 NOT FOUND */
-        --notFoundPadding:5rem 10rem;
+    /* 404 NOT FOUND */
+    --notFoundPadding:5rem 10rem;
 
-        /* HEADER */
-        --navBarFontSize: .55rem;
-        --navBarPadding:6rem;
+    /* HEADER */
+    --navBarFontSize: .55rem;
+    --navBarPadding:6rem;
 
-        /* SINGLE */
-
-        --singleSideContactFontSize: .7rem;
-
+    /* SINGLE */
+    --singleSideContactFontSize: .7rem;
   }
 }
 
