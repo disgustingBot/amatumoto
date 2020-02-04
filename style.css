@@ -247,7 +247,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     --formInputWidth: 100%;
 
-  
+
   /* =CONSIGNMENT */
   --consignmentStepsMargin: .5rem 3rem;
   --consignmentSection1Display: block;
@@ -2643,6 +2643,7 @@ main li {margin: .3rem 0;}
 
 .consignmentTxt{text-align: center; font-size: .8rem;}
 
+.consignmentContact{ order: 6; width: 50%; margin: auto;  }
 
 .bottomConsignmentTxt {margin-bottom: 2rem;order: var(--order5);}
 
