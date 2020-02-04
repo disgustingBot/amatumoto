@@ -1,10 +1,11 @@
 <?php get_header(); ?>
 <?php while(have_posts()){the_post(); ?>
   <?php global $product; ?>
+  <!-- <h1>single-product.php</h1> -->
 
   <article class="singlePage">
 
-    <div class="singleSide1">
+    <div class="singleSide singleSide1">
       <?php
       $newness_days = 1;
       $created = strtotime( $product->get_date_created() );
@@ -16,9 +17,7 @@
       <?php
         // TODO: Que solo sea año y marca
         $terms = get_the_terms( get_the_ID(), 'product_cat' );
-        foreach ($terms as $term) { ?>
-            <?php echo $term->name; ?>
-        <?php }
+        foreach ($terms as $term) { echo $term->name; }
       // AUCTION INFORRMATION HERE
       // var_dump(get_post_meta( $product->id));
       ?>
@@ -26,8 +25,10 @@
       <h1 class="singleSideTitle"><?php the_title(); ?></h1>
       <p class="singleSidePrice"><?php echo $product->get_price_html(); ?></p>
       <p class="singleSideStock">
-        Stock # <?php echo $product->id; ?><br>
-        Condition: <?php // echo esc_html( $product->get_condition() ); ?>
+        Stock # <?php echo $product->id; ?>
+        <?php if (method_exists($product,'get_condition')) { ?>
+          <br>Condition: <?php echo esc_html( $product->get_condition() ); ?>
+        <?php } ?>
       </p>
       <p class="singleSideData"><?php echo excerpt(140); ?></p>
       <!-- TODO: aca hay que ver si poner un video de youtube o llamarlo de la galeria de medios con un meta data -->
@@ -51,8 +52,13 @@
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleFinance')">FINANCE</button>
       </div>
 
-      <p class="singleSideStock2">STOCK #</p>
-      <p class="singleStock2ID"><?php echo $product->id; ?></p>
+
+    </div>
+
+    <div class="singleSide singleSide2">
+
+      <p class="singleSideStock2">STOCK # <span class="singleStock2ID"><?php echo $product->id; ?></span></p>
+
       <figure class="singleSideSintBox">
         <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
         <figcaption class="singleSideSintBoxCaption">
@@ -63,7 +69,7 @@
           </h4>
           <h4 class="singleSideTitle"><?php the_title(); ?></h4>
           <p class="singleSidePrice"><?php echo $product->get_price_html(); ?></p>
-          <p class="singleSideData"><?php echo excerpt(140); ?></p>
+          <!-- <p class="singleSideData"><?php echo excerpt(140); ?></p> -->
 
           <a class="singleSideContact" href="tel:+34-938-364-911">Call: (704) 445-9105</a>
 
@@ -80,15 +86,10 @@
               </svg>
               <!-- <svg class="singleSocialSvg" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg> -->
             </a>
-
-    </div>
-
-    <div class="singleSide2">
-
           </div>
-
         </figcaption>
       </figure>
+
     </div>
 
     <div class="singleMain">
@@ -150,11 +151,12 @@
           <p class="singleFeatureDesc">7 Speed Manual</p>
         </figure>
       </div>
-      <div class="singleDescription"><?php echo $product->description; ?></div>
+
 
 
     </div>
 
+    <div class="singleDescription"><?php echo $product->description; ?></div>
 
 
   </article>
@@ -282,7 +284,6 @@
 
 
 
-<!-- <h1>single.php</h1> -->
 
 
 
