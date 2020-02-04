@@ -249,6 +249,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
   /* =CONSIGNMENT */
+  --consignmentStepsFlexWrap: wrap;
   --consignmentStepsMargin: .5rem 3rem;
   --consignmentSection1Display: block;
   --order1: 1;
@@ -460,6 +461,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* CONSIGNMENT */
     --consignmentStepsMargin: .5rem;
+    --consignmentSingleStepMarginB: 32px;
     --consignmentSection1Display: grid;
     --order1: auto;
     --order2: auto;
@@ -491,6 +493,25 @@ FIN DE MAPA DE CONTENIDOS */
   }
 }
 
+@media (min-width: 782px){
+  .consignmentSection .wp-block-column:(:first-child) {
+      margin-bottom: 32px;
+    }
+
+}
+
+@media (min-width: 782px) {
+  .consignmentSection .wp-block-column:not(:first-child) {
+    margin-left: 0;
+  }
+  .consignmentSection .wp-block-column:nth-child(2n) {
+      margin-left: 32px!important;
+    }
+  .consignmentSection .wp-block-column{
+    margin-bottom: 32px;
+  }
+}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           2.1) min-width:  =992px
@@ -516,7 +537,7 @@ FIN DE MAPA DE CONTENIDOS */
 
         /* ESTRUCTURA */
         --mainContentMargin: 0 5rem;
-        --consignmentSingleStepMarginB: 0;
+        --consignmentSingleStepMarginB: 32px;
 
         /* ARCHIVE */
         --shopArchiveGridTemplateC:1fr 1fr 1fr;
@@ -531,9 +552,13 @@ FIN DE MAPA DE CONTENIDOS */
         /* SINGLE */
 
         --singleSideContactFontSize: .7rem;
-
+  }
+  .consignmentSection .wp-block-column:nth-child(2n) {
+      margin-left: 32px!important;
   }
 }
+
+
 
 
 /* ---------------------------------------------------------------------------
@@ -565,8 +590,14 @@ FIN DE MAPA DE CONTENIDOS */
     --singlePageGG:2rem;
     --singlePagePadding:1.2rem 4rem;
 
+    /* CONSIGNMENT */
+    --consignmentStepsFlexWrap: no-wrap;
 
 
+
+  }
+  .consignmentSection .wp-block-column:not(:first-child) {
+    margin-left: 32px;
   }
 }
 
@@ -2624,7 +2655,10 @@ main li {margin: .3rem 0;}
 
 .consignmentATFTxt {margin-bottom: 1rem;}
 
-.consignmentSteps {margin: var(--consignmentStepsMargin);}
+.consignmentSteps {
+  margin: var(--consignmentStepsMargin);
+  flex-wrap: var(--consignmentStepsFlexWrap);
+}
 
 .consignmentSteps1{order: var(--order3);}
 .consignmentSteps2{order: var(--order4);}
@@ -2633,7 +2667,7 @@ main li {margin: .3rem 0;}
 
 .consignmentSteps figcaption {text-align: center;margin: .5rem 0;}
 
-.consignmentSteps .consignmentIcon img{height: 70px;}
+.consignmentSteps .consignmentIcon img{height: 70px; object-fit: contain;}
 
 .consignmentSection1 {
   display: var(--consignmentSection1Display);
@@ -2655,7 +2689,12 @@ main li {margin: .3rem 0;}
 
 .consignmentTxt{text-align: center; font-size: .8rem;}
 
-.consignmentContact{ order: 6; width: 50%; margin: auto;  }
+.singleSideContact.consignmentContact{
+  order: 6;
+  margin: auto;
+  width: auto;
+  padding: .6rem 3rem!important;
+}
 
 .bottomConsignmentTxt {margin-bottom: 2rem;order: var(--order5);}
 
