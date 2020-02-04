@@ -26,7 +26,7 @@
 
 </section>
 
-<a href="<?php echo site_url('inventory');  ?>" class="viewInventoryBtn"><nobr>VIEW INVENTORY</nobr></a>
+<a href="<?php echo site_url('inventory'); ?>" class="viewInventoryBtn"><nobr>VIEW INVENTORY</nobr></a>
 
 <form class="searchBox">
   <svg class="searchBoxSvg" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
