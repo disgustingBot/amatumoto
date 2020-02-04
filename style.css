@@ -566,12 +566,22 @@ FIN DE MAPA DE CONTENIDOS */
     --singlePagePadding:1.2rem 4rem;
 
 
-    /* FOOTER */
-    --footerDisplay: grid;
-    --footerPadding: 3rem;
-    --newsLetterMarginLeft: 3rem;
+
   }
 }
+
+@media  screen and (min-width: 1300px) {
+  :root {
+    /* FOOTER */
+    --footerPadding: 3rem;
+    --newsLetterMarginLeft: 3rem;
+    --footerDisplay: grid;
+  }
+}
+
+
+
+
 
 @media  screen and (min-width: 1500px) {
   :root {
