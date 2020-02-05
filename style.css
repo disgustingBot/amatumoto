@@ -2952,7 +2952,7 @@ background: #ddd;
   grid-column: span 2;
   font-weight: 700;
   margin: .2rem 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .newsLetterEnterMail {
@@ -2978,10 +2978,11 @@ background: #ddd;
   border: solid 1px #F78D15;
   box-sizing: content-box;
   margin-top: -1px;
-  font-size: .7rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 2px;
   cursor: pointer;
+  padding: .5rem;
 }
 
 
