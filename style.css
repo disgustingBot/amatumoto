@@ -97,7 +97,7 @@ FIN DE MAPA DE CONTENIDOS */
   ------------------------------------------------------------------------------
   --------------------------------------------------------------------------- */
 
-  /*---ROOT-----/* HEADER */
+  /* ?HEADER */
   --headerHeight: 80px;
   --navBarDesktopDisplay: none;
   --upperNavDektop: none;
@@ -114,6 +114,7 @@ FIN DE MAPA DE CONTENIDOS */
   --upperNavMarginLeft: 1rem;
   --navBarFontSize: .6rem;
   --navBarPadding: 0;
+  --subMenuDisplay:none;
 
   /* FILTER */
   --filterBarTopDisplay: flex;
@@ -140,7 +141,7 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAutcionsPadding: 1rem;
   --hotAuctionsPadding: 0;
   --dosMotosMargin: 1rem 0;
-  --hotAuctionsTitleFontSize: 1rem;
+  /* --hotAuctionsTitleFontSize: 1rem; */
   --hotAuctionsTitleMarginLeft: 0;
   --dosMotosPaddingRight: 0;
   --dosMotosCaptionPadding: 0;
@@ -151,7 +152,7 @@ FIN DE MAPA DE CONTENIDOS */
   --buttonType1Margin: 1rem auto;
   --buttonType1FontSize: 1.1rem;
   --dosMotosGridGap: 2rem;
-  --consignSectionMargin: 1rem 0;
+  /* --consignSectionMargin: 1rem 0; */
   --consignSectionGalleryWidth: 80%;
   --hotCardWidth: 90;
   --hotCardMargin: .5rem;
@@ -373,6 +374,7 @@ FIN DE MAPA DE CONTENIDOS */
     --logoPaddingRight: 0;
     --upperNavAlignment: center;
     --navBarMargin: auto 1rem;
+    --subMenuDisplay:flex;
 
     --navBarDesktopDisplay: flex;
     --upperNavDektop: flex;
@@ -411,7 +413,7 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAutcionsPadding: 2rem 4rem;
     --hotAuctionsPadding: 2rem 0;
     --dosMotosMargin: 2rem 0;
-    --hotAuctionsTitleFontSize: 1.1rem;
+    /* --hotAuctionsTitleFontSize: 1.1rem; */
     --hotAuctionsTitleMarginLeft: 1.2rem;
     --dosMotosPaddingRight: 3rem;
     --mainTxtType1FontSize: .66rem;
@@ -421,7 +423,7 @@ FIN DE MAPA DE CONTENIDOS */
     --buttonType1Margin: 2rem auto;
     --buttonType1FontSize: .8rem;
     --dosMotosGridGap: 1rem;
-    --consignSectionMargin: 2rem 0;
+    /* --consignSectionMargin: 2rem 0; */
     --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
     --hotCardMargin: 0;
@@ -705,7 +707,8 @@ FIN DE MAPA DE CONTENIDOS */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
+  font-family: 'Lato', sans-serif;
 }
 
 /* *:focus{outline:none} */
@@ -914,10 +917,14 @@ main li {margin: .3rem 0;}
   transition: .25s;
   margin-right: .5rem;
 }
+.socialMediaLink:last-child{margin-right:0}
 
 .socialMediaLink svg {height: 20px; width: 20px;}
-.socialMediaInst:hover{color:#3B5998}
-.socialMediaFace:hover{color:#E1306C}
+.footer .socialMediaLink svg {height: 30px; width: 30px;}
+
+
+.socialMediaInst:hover{color:#E1306C}
+.socialMediaFace:hover{color:#3B5998}
 .socialMediaYouT:hover{color:#CD201F}
 .socialMediaWhatsapp:hover{color:#4AC959}
 
@@ -963,6 +970,7 @@ main li {margin: .3rem 0;}
 
 }
 .sub-menu{
+  display:var(--subMenuDisplay)!important;
   border-top: 2px solid #F78D15;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
@@ -1007,9 +1015,6 @@ main li {margin: .3rem 0;}
 
 
 
-.navBarMobile ul li{
-  font-size: 1rem;
-}
 .navBar ul{
   display: var(--navBarDesktopDisplay);
   justify-content: flex-end;
@@ -1018,6 +1023,12 @@ main li {margin: .3rem 0;}
 .navBarMobile ul{
   display: var(--mobileNavButtonDisplay);
   flex-direction: column;
+  height:100%;
+  /* align-items: stretch; */
+}
+.navBarMobile ul li{
+  font-size: 1rem;
+  margin:auto;
 }
 .navBarMobile ul li:hover{border-bottom: solid black 2px;}
 
@@ -1071,7 +1082,7 @@ main li {margin: .3rem 0;}
   flex-direction: row;
   flex-wrap: wrap;
   padding: .5rem 0;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .navBarMobile {
@@ -1080,20 +1091,26 @@ main li {margin: .3rem 0;}
   flex-direction: column;
   align-items: center;
   border-bottom: solid black 1px;
+  height:100%;
+  align-items:center;
 }
 
-.upperNavInfoMobile svg {width: 35px; height: 35px;}
 
 .upperNavInfoMobile {
   width: 100%;
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom:1rem;
 }
-
 .upperNavInfoMobile:hover{background: rgba(0,0,0,.1);}
 
+.upperNavIconMobile{
+  margin:auto 0;
+  width: 35px;
+  height: 35px;
+}
+
 .upperNavIconTxtMobile {
-  font-size: 1.5rem;
+  font-size: 1rem;
   height: min-content;
   margin: auto .3rem;
   padding: 0 1rem;
@@ -1109,10 +1126,6 @@ main li {margin: .3rem 0;}
   padding: 1.2rem;
 }
 
-.upperNavIconMobile{
-  width: 75px;
-  height: 75px;
-}
 
 
 .socialMediaLinkMobile svg {width: 35px; height: 35px;}
@@ -1231,9 +1244,10 @@ background: #ddd;
 
 .hotAuctionsTitle{
   width: 100%;
-  font-size: var(--hotAuctionsTitleFontSize);
+  /* font-size: var(--hotAuctionsTitleFontSize); */
+  font-size:1rem;
   margin: auto;
-  font-weight: 600;
+  font-weight: 400;
   margin: .5rem;
 }
 
@@ -1909,8 +1923,8 @@ background: #ddd;
 --------------------------------------------------------------------------- */
 .consignSection {
   text-align: center;
-  margin: var(--consignSectionMargin);
-  margin-top: 0;
+  /* margin: var(--consignSectionMargin); */
+  /* margin-top: 0; */
   padding: 1rem;
 }
 .consignButton {width: min-content;}
