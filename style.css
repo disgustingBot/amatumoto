@@ -586,7 +586,7 @@ FIN DE MAPA DE CONTENIDOS */
       --aboutSectionFlexDirection: ;
       --aboutSectionMargin: 0 .5rem;
       --aboutSectionImgMargin: 0 .5rem;
-    
+
         /* SINGLE */
     --singleSideContactFontSize: .7rem;
 
@@ -1194,7 +1194,7 @@ main li {margin: .3rem 0;}
 --------------------------------------------------------------------------- */
 .carusATF{
   display: grid;
-  height: 29.3vw;
+  height: 30vw;
   overflow: hidden;
   width: 100%;
 }
@@ -1208,7 +1208,7 @@ main li {margin: .3rem 0;}
 .carus.inactive{opacity: 0;pointer-events: none;}
 
 .carusImg{
-  height: 29.3vw;
+  height: 30vw;
   width: 100%;
   object-position: center;
 }

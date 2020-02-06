@@ -8,9 +8,6 @@
   </figcaption>
 </figure>
 
-
-
-
 <form method="get" class="filterBar alt" id="filterBar">
 
   <div class="filterBarTop">
