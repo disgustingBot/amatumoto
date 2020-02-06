@@ -129,7 +129,7 @@ FIN DE MAPA DE CONTENIDOS */
   --varSearchBtnPosition: absolute;
   --varSearchBtnTop: 1rem;
   --varSearchBtnRight: 2rem;
-  --filterBarBottomPadding: 0 2rem;
+  --filterBarBottomPadding: .5rem 2rem;
 
   /* FRONT PAGE */
 
@@ -566,7 +566,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* HEADER */
 
-    --filterBarBottomPadding: 0 3rem;
+    --filterBarBottomPadding: .5rem 3rem;
     --filterBarLinkPadding: .5rem 1.5rem;
     --navBarFontSize: .55rem;
     --navBarPadding:6rem;
@@ -642,7 +642,7 @@ FIN DE MAPA DE CONTENIDOS */
     --navBarMargin: auto 4rem;
     --hotAuctionsDisplay: grid;
     --navBarPadding:2rem;
-    --filterBarBottomPadding: 0 5rem;
+    --filterBarBottomPadding: .5rem 5rem;
     --filterBarLinkPadding: .5rem 1.8rem;
 
 
@@ -2208,18 +2208,19 @@ background: #ddd;
 .filterBar {
   align-items: center;
   grid-template-rows:50px;
-  padding: .3rem 0;
+  /* padding: .3rem 0; */
 }
 
 .filterBarTop {
-  padding: var(--filterBarBottomPadding);
-  width:100%;
+  align-items: center;
   display: var(--filterBarTopDisplay);
+  flex-wrap: wrap;
   grid-gap: .5rem;
   grid-template-columns: min-content min-content 1fr max-content max-content max-content;
-  flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: var(--filterBarBottomPadding);
   position: relative;
+  width:100%;
 }
 .filterSeparator{
   display: var(--filterSeparatorDisplay)
@@ -2460,7 +2461,9 @@ background: #ddd;
 .mateput{
   width: 50%;
   position: relative;
-  height: 50px;
+  --mateputHeight:40px;
+  /* height: 50px; */
+  height:var(--mateputHeight);
   overflow: hidden;
   width: var(--filterBarSearchWidth);
   grid-column: 3;
@@ -2472,8 +2475,10 @@ background: #ddd;
   height: 100%;
   color:#000;
   border:none;
-  padding-top:20px;
+  /* padding-top:20px; */
+  padding-top:calc(var(--mateputHeight) * 2 / 5);
   outline: none;
+  font-size:.8rem;
 }
 
 .mateputLabel{
@@ -2509,7 +2514,7 @@ background: #ddd;
 
 .mateput input:focus + .mateputLabel .mateputName,
 .mateput input.alt + .mateputLabel .mateputName{
-  transform:translateY(-150%);
+  transform:translateY(-110%);
   font-size: 14px;
   color:#F78D15;
 }
@@ -3065,14 +3070,16 @@ background: #ddd;
   flex-direction: var(--characterFlexDirection);
   text-align: center;
   font-size: .6rem;
-  padding: .3rem 1rem;
+  padding: .5rem 1rem;
   width: 100%;
   margin: var(--characterMargin);
 }
 .characterSvg {
-  width: 5rem;
+  /* width: 5rem; */
+  width: 2rem;
   height: auto;
-  padding: 1rem .5rem;
+  /* padding: 1rem .5rem; */
+  padding-bottom:.5rem;
 }
 .characterCaption h5 {
   font-size: var(--characterCaptionh5);
@@ -3086,12 +3093,16 @@ background: #ddd;
 .lowerFooter {
   grid-column: span 2;
   display:var(--lowerFooterDisplay);
+  flex-direction: column;
   grid-template-columns: 3fr 1fr;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.lowerFooter .socialMedia {margin-bottom: 1rem;}
+.lowerFooter .socialMedia {
+  margin-bottom: 1rem;
+  margin:auto;
+}
 
 .contactContainer {
   display: var(--contactContainerDisplay);
