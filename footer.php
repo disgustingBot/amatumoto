@@ -64,7 +64,7 @@
       <?php include 'socialSharing.php'; ?>
 
       <div class="legalFooter">
-        <p class="legalFooterA">C 2019 | Amatumoto</p>
+        <p class="legalFooterA">C 2020 | Amatumoto</p>
         <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Disclaimer</a>
         <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Terms & Conditions</a>
         <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Privacy</a>
