@@ -97,7 +97,7 @@ FIN DE MAPA DE CONTENIDOS */
   ------------------------------------------------------------------------------
   --------------------------------------------------------------------------- */
 
-  /*---ROOT-----/* HEADER */
+  /* HEADER */
   --headerHeight: 80px;
   --navBarDesktopDisplay: none;
   --upperNavDektop: none;
@@ -230,7 +230,7 @@ FIN DE MAPA DE CONTENIDOS */
   --lowerFooterDisplay: flex;
   --contactContainerDisplay: flex;
   --dataTextAlign: left;
-  --dataPadding:1rem;
+  --dataPadding:1rem 0;
   --dataWidth: 100%;
   --newsletterMargin: auto;
   --footerContainerDisplay: flex;
@@ -240,6 +240,7 @@ FIN DE MAPA DE CONTENIDOS */
   --characterCaptionh5: .8rem;
   --characterCaptionP: .7rem;
   --contactContainerFontSize: 1rem;
+  --contactContainerPadding: 0rem;
   --newsLetterMarginLeft: auto;
   --socialMediaFooterMargin: auto auto auto 1.4rem;
   --legalFooterFontSize: .7rem;
@@ -283,6 +284,10 @@ FIN DE MAPA DE CONTENIDOS */
   --contactInfoContainerOrder: 4;
   --moreInfoContainerOrder: 2;
   --mainContactFormOrder: 1;
+
+  /* PARTS AND RACING PRODUCTS */
+  --shopArchiveMargin: 1rem;
+  --shopArchiveGridGap: 1.5rem;
 }
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -352,6 +357,10 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* SINGLE */
     --singleSideContactFontSize:.7rem;
+
+    /* PARTS AND RACING PRODUCTS */
+    --shopArchiveMargin: 2rem;
+    --shopArchiveGridGap: 3rem;
 
   }
 }
@@ -468,6 +477,7 @@ FIN DE MAPA DE CONTENIDOS */
     --characterCaptionh5: .5rem;
     --characterCaptionP: .5rem;
     --contactContainerFontSize: .6rem;
+    --contactContainerPadding: .4rem;
     --footerContainerDisplay: grid;
     --legalFooterFontSize: .7rem;
     --socialMediaJustifyContent: space-between;
@@ -568,21 +578,27 @@ FIN DE MAPA DE CONTENIDOS */
     --consignmentSingleStepMarginB: 0;
 
     /* ARCHIVE */
-    --shopArchiveGridTemplateC:1fr 1fr 1fr;
+    --shopArchiveGridTemplateC: 1fr 1fr 1fr;
 
     /* 404 NOT FOUND */
     --notFoundPadding:5rem 10rem;
 
     --singleSideContactFontSize: .7rem;
-  }
-  .consignmentSection .wp-block-column:nth-child(2n) {
-      margin-left: 32px!important;
+
     /* HEADER */
     --navBarFontSize: .55rem;
     --navBarPadding:6rem;
 
     /* SINGLE */
     --singleSideContactFontSize: .7rem;
+
+    /* PARTS AND RACING PRODUCTS */
+    --shopArchiveMargin: 3rem;
+    --shopArchiveGridGap: 4.5rem;
+  }
+  .consignmentSection .wp-block-column:nth-child(2n) {
+      margin-left: 32px!important;
+
   }
 }
 
@@ -620,7 +636,8 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* CONSIGNMENT */
     --consignmentStepsFlexWrap: no-wrap;
-
+    /* ARCHIVE */
+    --shopArchiveGridTemplateC: 1fr 1fr 1fr 1fr;
 
 
   }
@@ -1974,9 +1991,8 @@ background: #ddd;
 .shopArchive{
   display: grid;
   grid-template-columns:var(--shopArchiveGridTemplateC);
-  /* grid-template-columns:1fr 1fr 1fr; */
-  padding: 2rem;
-  grid-gap: 1rem;
+  padding: var(--shopArchiveMargin);
+  grid-gap: var(--shopArchiveGridGap);
 }
 
 /* ---------------------------------------------------------------------------
@@ -3006,7 +3022,7 @@ background: #ddd;
   color:#B3905A;
 }
 
-.lowerFooter{
+.lowerFooter {
   grid-column: span 2;
   display:var(--lowerFooterDisplay);
   grid-template-columns: 3fr 1fr;
@@ -3014,7 +3030,7 @@ background: #ddd;
   justify-content: center;
 }
 
-
+.lowerFooter .socialMedia {margin-bottom: 1rem;}
 
 .contactContainer {
   display: var(--contactContainerDisplay);
@@ -3022,7 +3038,7 @@ background: #ddd;
   font-size: var(--contactContainerFontSize);
   flex-wrap: wrap;
   justify-content: center;
-  padding: .4rem;
+  padding: var(--contactContainerPadding);
 }
 
 .data {
