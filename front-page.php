@@ -37,10 +37,6 @@
 
 
 
-
-
-
-
 <section class="hotAuctions">
   <h3 class="hotAuctionsTitle">HOT AUCTIONS</h3>
   <?php
