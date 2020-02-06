@@ -225,30 +225,6 @@ FIN DE MAPA DE CONTENIDOS */
   --testimonialWidth:100%;
 
 
-  /* FOOTER */
-
-  --footerDisplay: flex;
-  --footerPadding: 1rem;
-  --socialMediaJustifyContent: space-evenly;
-  --characterContainerPadding: 1rem 0;
-  --lowerFooterDisplay: flex;
-  --contactContainerDisplay: flex;
-  --dataTextAlign: left;
-  --dataPadding:1rem 0;
-  --dataWidth: 100%;
-  --newsletterMargin: auto;
-  --footerContainerDisplay: flex;
-  --characterContainerJustifyContent: center;
-  --characterMargin: .5rem 0;
-  --characterFlexDirection: row;
-  --characterCaptionh5: .8rem;
-  --characterCaptionP: .7rem;
-  --contactContainerFontSize: 1rem;
-  --contactContainerPadding: 0rem;
-  --newsLetterMarginLeft: auto;
-  --socialMediaFooterMargin: auto auto auto 1.4rem;
-  --legalFooterFontSize: .7rem;
-  --socialMediaWidth: 100%;
 
 
   /* =ESTRUCTURA */
@@ -293,6 +269,36 @@ FIN DE MAPA DE CONTENIDOS */
   /* PARTS AND RACING PRODUCTS */
   --shopArchiveMargin: 1rem;
   --shopArchiveGridGap: 1.5rem;
+
+
+  /* ?FOOTER */
+
+  --footerDisplay: flex;
+  --footerPadding: 1rem;
+  --socialMediaJustifyContent: space-evenly;
+  --characterContainerPadding: 1rem 0;
+  --lowerFooterDisplay: flex;
+  --contactContainerDisplay: flex;
+  --dataTextAlign: left;
+  --dataPadding:1rem 0;
+  --dataWidth: 100%;
+  --newsletterMargin: auto;
+  --footerContainerDisplay: flex;
+  --characterContainerJustifyContent: center;
+  --characterMargin: .5rem 0;
+  --characterFlexDirection: row;
+  --characterCaptionh5: .8rem;
+  --characterCaptionP: .7rem;
+  --contactContainerFontSize: 1rem;
+  --contactContainerPadding: 0rem;
+  --newsLetterMarginLeft: auto;
+  --socialMediaFooterMargin: auto auto auto 1.4rem;
+  --legalFooterFontSize: .7rem;
+  --socialMediaWidth: 100%;
+  --characterContainerWidth:min-content;
+  --characterSvgPaddingBottom:0;
+  --characterSvgMarginRight:.5rem;
+  --characterSvgWidth:3rem;
 }
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -469,25 +475,6 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 
-    /* FOOTER */
-
-    --footerPadding: 2rem;
-    --characterContainerPadding: 1rem 4rem;
-    --contactContainerDisplay: grid;
-    --dataTextAlign: left;
-    --dataPadding: .4rem;
-    --dataWidth: 100%;
-    --newsletterMargin: ;
-    --characterMargin: ;
-    --characterFlexDirection: column;
-    --characterCaptionh5: .5rem;
-    --characterCaptionP: .5rem;
-    --contactContainerFontSize: .6rem;
-    --contactContainerPadding: .4rem;
-    --footerContainerDisplay: grid;
-    --legalFooterFontSize: .7rem;
-    --socialMediaJustifyContent: space-between;
-    --socialMediaWidth: max-content;
 
 
     /* ESTRUCTURA */
@@ -535,6 +522,32 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* ARCHIVE */
     --shopArchiveGridTemplateC:1fr 1fr 1fr;
+
+
+
+    /* ?FOOTER */
+
+    --footerPadding: 2rem;
+    --characterContainerPadding: 1rem 4rem;
+    --contactContainerDisplay: grid;
+    --dataTextAlign: left;
+    --dataPadding: .4rem;
+    --dataWidth: 100%;
+    --newsletterMargin: ;
+    --characterMargin: ;
+    --characterFlexDirection: column;
+    --characterCaptionh5: .5rem;
+    --characterCaptionP: .5rem;
+    --contactContainerFontSize: .6rem;
+    --contactContainerPadding: .4rem;
+    --footerContainerDisplay: grid;
+    --legalFooterFontSize: .7rem;
+    --socialMediaJustifyContent: space-between;
+    --socialMediaWidth: max-content;
+    --characterContainerWidth:100%;
+    --characterSvgPaddingBottom:.5rem;
+    --characterSvgMarginRight:0;
+    --characterSvgWidth:2rem;
   }
 }
 
@@ -3053,6 +3066,12 @@ background: #ddd;
 }
 
 
+
+
+
+
+
+
 .characterContainer {
   display: var(--footerContainerDisplay);
   grid-template-columns: 1fr 1fr 1fr;
@@ -3060,6 +3079,8 @@ background: #ddd;
   padding: var(--characterContainerPadding);
   flex-wrap: wrap;
   justify-content: var(--characterContainerJustifyContent);
+  /* width: 100%; */
+  width:var(--characterContainerWidth);
 }
 
 .character {
@@ -3070,16 +3091,16 @@ background: #ddd;
   flex-direction: var(--characterFlexDirection);
   text-align: center;
   font-size: .6rem;
-  padding: .5rem 1rem;
+  padding: .5rem;
   width: 100%;
   margin: var(--characterMargin);
 }
 .characterSvg {
-  /* width: 5rem; */
-  width: 2rem;
+  width:var(--characterSvgWidth);
   height: auto;
-  /* padding: 1rem .5rem; */
-  padding-bottom:.5rem;
+  fill:#333;
+  padding-bottom:var(--characterSvgPaddingBottom);
+  margin-right:var(--characterSvgMarginRight);
 }
 .characterCaption h5 {
   font-size: var(--characterCaptionh5);
@@ -3090,6 +3111,13 @@ background: #ddd;
   color:#B3905A;
 }
 
+
+
+
+
+
+
+
 .lowerFooter {
   grid-column: span 2;
   display:var(--lowerFooterDisplay);
@@ -3098,11 +3126,7 @@ background: #ddd;
   flex-wrap: wrap;
   justify-content: center;
 }
-
-.lowerFooter .socialMedia {
-  margin-bottom: 1rem;
-  margin:auto;
-}
+.lowerFooter .socialMedia{margin:auto}
 
 .contactContainer {
   display: var(--contactContainerDisplay);
