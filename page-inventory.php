@@ -115,9 +115,8 @@
           ),
       );
     }
-    if (isset($_GET['filter_search']) AND $_GET['filter_search']!='') {
-      $args['s'] = $_GET['filter_search'];
-    }
+    // chequea si hay una busqueda de texto solicitada por el usuario, de haberla la pasa al query
+    if (isset($_GET['filter_search']) AND $_GET['filter_search']!=''){$args['s']=$_GET['filter_search'];}
 
   $blogPosts=new WP_Query($args);
   while($blogPosts->have_posts()){$blogPosts->the_post();$product_id = get_the_ID(); ?>
