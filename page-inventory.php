@@ -30,7 +30,7 @@
       <div class="mateput">
         <input id="mateputInput" type="text" name="filter_search" autocomplete="off">
         <label for="name" class="mateputLabel">
-          <span class="mateputName">Name</span>
+          <span class="mateputName">Search</span>
         </label>
       </div>
     <!-- <input class="filterBarSearch" placeholder="Search" type="text" name="filter_search" value=""> -->

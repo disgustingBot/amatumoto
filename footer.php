@@ -48,7 +48,7 @@
           <p>Saturday 10:00 - 17:00</p>
           <a href="">Current stock</a><br>
           <!-- <a href="">Make an appointment</a><br> -->
-          <a href="">Plan your visit</a><br>
+          <a href="mailto:info@gpmotorbikes.com?Subject=Hello,%20I%20want%20to%20plan%20my%20visit">Plan your visit</a><br>
         </div>
         <div class="data">
           <h5 class="footerTitle">Workshop</h5>
@@ -65,10 +65,10 @@
 
       <div class="legalFooter">
         <p class="legalFooterA">C 2019 | Amatumoto</p>
-        <a class="legalFooterA" href="">Disclaimer</a>
-        <a class="legalFooterA" href="">Terms & Conditions</a>
-        <a class="legalFooterA" href="">Privacy</a>
-        <a class="legalFooterA" href="">Cookie Policy</a>
+        <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Disclaimer</a>
+        <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Terms & Conditions</a>
+        <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Privacy</a>
+        <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Cookie Policy</a>
       </div>
 
     </div>
