@@ -116,17 +116,19 @@ FIN DE MAPA DE CONTENIDOS */
   --navBarPadding: 0;
   --subMenuDisplay:none;
 
+
   /* FILTER */
   --filterBarTopDisplay: flex;
   --filterSeparatorDisplay: none;
   --filterBarSearchWidth: calc(100% - 50px - 1rem);
   --filterBarBottomCol: 1fr;
   --filterLinkBarWidth: 30%;
-  --filterBarLinkPadding: .5rem;
+  --filterBarLinkPadding: .5rem 1rem;
   --filterBarContraction: 400px;
   --varSearchBtnPosition: absolute;
   --varSearchBtnTop: 1rem;
   --varSearchBtnRight: 2rem;
+  --filterBarBottomPadding: 0 2rem;
 
   /* FRONT PAGE */
 
@@ -254,6 +256,7 @@ FIN DE MAPA DE CONTENIDOS */
 
   /* =ARCHIVE */
   --shopArchiveGridTemplateC: 1fr;
+  --shopArchivePadding: 2rem;
 
   /* =FORMULARIO */
 
@@ -396,7 +399,7 @@ FIN DE MAPA DE CONTENIDOS */
     --filterBarSearchWidth: 100%;
     --filterBarBottomCol: repeat(5,1fr);
     --filterLinkBarWidth: ;
-    --filterBarLinkPadding: .4rem .6rem;
+    --filterBarLinkPadding: .5rem 1.2rem;
     /* --filterBarContraction: calc(4.5rem + 2px); */
     --filterBarContraction: calc(2rem + 40px + 2px);
     --varSearchBtnPosition: relative;
@@ -518,6 +521,9 @@ FIN DE MAPA DE CONTENIDOS */
     --contactInfoContainerOrder: 2;
     --moreInfoContainerOrder: 3;
     --mainContactFormOrder: 4;
+
+    /* ARCHIVE */
+    --shopArchiveGridTemplateC:1fr 1fr 1fr;
   }
 }
 
@@ -547,6 +553,11 @@ FIN DE MAPA DE CONTENIDOS */
 @media screen and (min-width: 992px) {
   :root {
 
+    /* HEADER */
+
+    --filterBarBottomPadding: 0 3rem;
+    --filterBarLinkPadding: .5rem 1.5rem;
+
     /* FOOTER */
     /* --characterContainerPadding: 0; */
 
@@ -569,13 +580,15 @@ FIN DE MAPA DE CONTENIDOS */
     --mainContentMargin: 0 5rem;
     --consignmentSingleStepMarginB: 0;
 
-    /* ARCHIVE */
-    --shopArchiveGridTemplateC:1fr 1fr 1fr;
+
 
     /* 404 NOT FOUND */
     --notFoundPadding:5rem 10rem;
 
     --singleSideContactFontSize: .7rem;
+
+    /* ARCHIVE */
+    --shopArchiveGridTemplateC:1fr 1fr 1fr 1fr;
   }
   .consignmentSection .wp-block-column:nth-child(2n) {
       margin-left: 32px!important;
@@ -609,6 +622,8 @@ FIN DE MAPA DE CONTENIDOS */
     --navBarMargin: auto 4rem;
     --hotAuctionsDisplay: grid;
     --navBarPadding:2rem;
+    --filterBarBottomPadding: 0 5rem;
+    --filterBarLinkPadding: .5rem 1.8rem;
 
 
 
@@ -622,6 +637,11 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* CONSIGNMENT */
     --consignmentStepsFlexWrap: no-wrap;
+
+    /* ARCHIVE */
+
+    --shopArchivePadding: 4rem;
+
 
 
 
@@ -639,6 +659,10 @@ FIN DE MAPA DE CONTENIDOS */
 
 @media  screen and (min-width: 1300px) {
   :root {
+
+    /* HEADER */
+
+    --filterBarLinkPadding: .5rem 2rem;
     /* FOOTER */
     --footerPadding: 3rem;
     --newsLetterMarginLeft: 3rem;
@@ -658,6 +682,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* HEADER */
     --logoImgWidth: 70%;
     --navBarPadding:8rem;
+    --filterBarLinkPadding: .5rem 2.8rem;
 
 
       /* SINGLE */
@@ -685,6 +710,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* HEADER */
     --logoImgWidth: 60%;
+    --filterBarLinkPadding: .5rem 3.6rem;
   }
 }
 
@@ -1989,7 +2015,7 @@ background: #ddd;
   display: grid;
   grid-template-columns:var(--shopArchiveGridTemplateC);
   /* grid-template-columns:1fr 1fr 1fr; */
-  padding: 2rem;
+  padding: var(--shopArchivePadding);
   grid-gap: 1rem;
 }
 
@@ -2151,7 +2177,7 @@ background: #ddd;
 }
 
 .filterBarTop {
-  padding: .3rem 2.5rem;
+  padding: var(--filterBarBottomPadding);
   width:100%;
   display: var(--filterBarTopDisplay);
   grid-gap: .5rem;
@@ -2177,7 +2203,7 @@ background: #ddd;
 
 .filterBarLink {
   text-transform: uppercase;
-  font-size: .6rem;
+  font-size: .7rem;
   font-weight: 600;
   letter-spacing:.08rem;
   color:#464646;
@@ -2226,7 +2252,7 @@ background: #ddd;
   border-top:2px solid #DDDDDD;
   height: 0;
   overflow: hidden;
-  padding:0 2.5rem;
+  padding: var(--filterBarBottomPadding);
   transition:.6s;
   width: 100%;
   animation: filterBarContract 1s forwards;
@@ -2238,7 +2264,7 @@ background: #ddd;
   99.99%{overflow:hidden}
   100%{
     height: var(--filterBarContraction);
-    padding:1rem 2.5rem;
+    padding:var(--filterBarBottomPadding);
     overflow:visible;
   }
 }
@@ -2251,7 +2277,7 @@ background: #ddd;
   .01%{overflow:hidden}
   100%{
     height:0;
-    padding:0 2.5rem;
+    padding:var(--filterBarBottomPadding);
     overflow:hidden;
   }
 }
@@ -2964,7 +2990,7 @@ background: #ddd;
 .enterEmail{
   border: none;
   font-size: .6rem;
-  padding: .2rem;
+  padding: .5rem;
   width: 100%;
 }
 
