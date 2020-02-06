@@ -56,7 +56,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
-                               1) =ROOT:
+                              1) =ROOT:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
@@ -97,7 +97,8 @@ FIN DE MAPA DE CONTENIDOS */
   ------------------------------------------------------------------------------
   --------------------------------------------------------------------------- */
 
-  /* HEADER */
+
+  /* ?HEADER */
   --headerHeight: 80px;
   --navBarDesktopDisplay: none;
   --upperNavDektop: none;
@@ -114,6 +115,8 @@ FIN DE MAPA DE CONTENIDOS */
   --upperNavMarginLeft: 1rem;
   --navBarFontSize: .6rem;
   --navBarPadding: 0;
+  --subMenuDisplay:none;
+
 
   /* FILTER */
   --filterBarTopDisplay: flex;
@@ -121,11 +124,12 @@ FIN DE MAPA DE CONTENIDOS */
   --filterBarSearchWidth: calc(100% - 50px - 1rem);
   --filterBarBottomCol: 1fr;
   --filterLinkBarWidth: 30%;
-  --filterBarLinkPadding: .5rem;
+  --filterBarLinkPadding: .5rem 1rem;
   --filterBarContraction: 400px;
   --varSearchBtnPosition: absolute;
   --varSearchBtnTop: 1rem;
   --varSearchBtnRight: 2rem;
+  --filterBarBottomPadding: 0 2rem;
 
   /* FRONT PAGE */
 
@@ -140,7 +144,7 @@ FIN DE MAPA DE CONTENIDOS */
   --hotAutcionsPadding: 1rem;
   --hotAuctionsPadding: 0;
   --dosMotosMargin: 1rem 0;
-  --hotAuctionsTitleFontSize: 1rem;
+  /* --hotAuctionsTitleFontSize: 1rem; */
   --hotAuctionsTitleMarginLeft: 0;
   --dosMotosPaddingRight: 0;
   --dosMotosCaptionPadding: 0;
@@ -151,7 +155,7 @@ FIN DE MAPA DE CONTENIDOS */
   --buttonType1Margin: 1rem auto;
   --buttonType1FontSize: 1.1rem;
   --dosMotosGridGap: 2rem;
-  --consignSectionMargin: 1rem 0;
+  /* --consignSectionMargin: 1rem 0; */
   --consignSectionGalleryWidth: 80%;
   --hotCardWidth: 90;
   --hotCardMargin: .5rem;
@@ -254,6 +258,7 @@ FIN DE MAPA DE CONTENIDOS */
 
   /* =ARCHIVE */
   --shopArchiveGridTemplateC: 1fr;
+  --shopArchivePadding: 2rem;
 
   /* =FORMULARIO */
 
@@ -382,6 +387,7 @@ FIN DE MAPA DE CONTENIDOS */
     --logoPaddingRight: 0;
     --upperNavAlignment: center;
     --navBarMargin: auto 1rem;
+    --subMenuDisplay:grid;
 
     --navBarDesktopDisplay: flex;
     --upperNavDektop: flex;
@@ -403,7 +409,7 @@ FIN DE MAPA DE CONTENIDOS */
     --filterBarSearchWidth: 100%;
     --filterBarBottomCol: repeat(5,1fr);
     --filterLinkBarWidth: ;
-    --filterBarLinkPadding: .4rem .6rem;
+    --filterBarLinkPadding: .5rem 1.2rem;
     /* --filterBarContraction: calc(4.5rem + 2px); */
     --filterBarContraction: calc(2rem + 40px + 2px);
     --varSearchBtnPosition: relative;
@@ -420,7 +426,7 @@ FIN DE MAPA DE CONTENIDOS */
     --hotAutcionsPadding: 2rem 4rem;
     --hotAuctionsPadding: 2rem 0;
     --dosMotosMargin: 2rem 0;
-    --hotAuctionsTitleFontSize: 1.1rem;
+    /* --hotAuctionsTitleFontSize: 1.1rem; */
     --hotAuctionsTitleMarginLeft: 1.2rem;
     --dosMotosPaddingRight: 3rem;
     --mainTxtType1FontSize: .66rem;
@@ -430,7 +436,7 @@ FIN DE MAPA DE CONTENIDOS */
     --buttonType1Margin: 2rem auto;
     --buttonType1FontSize: .8rem;
     --dosMotosGridGap: 1rem;
-    --consignSectionMargin: 2rem 0;
+    /* --consignSectionMargin: 2rem 0; */
     --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
     --hotCardMargin: 0;
@@ -526,6 +532,9 @@ FIN DE MAPA DE CONTENIDOS */
     --contactInfoContainerOrder: 2;
     --moreInfoContainerOrder: 3;
     --mainContactFormOrder: 4;
+
+    /* ARCHIVE */
+    --shopArchiveGridTemplateC:1fr 1fr 1fr;
   }
 }
 
@@ -555,6 +564,13 @@ FIN DE MAPA DE CONTENIDOS */
 @media screen and (min-width: 992px) {
   :root {
 
+    /* HEADER */
+
+    --filterBarBottomPadding: 0 3rem;
+    --filterBarLinkPadding: .5rem 1.5rem;
+    --navBarFontSize: .55rem;
+    --navBarPadding:6rem;
+
     /* FOOTER */
     /* --characterContainerPadding: 0; */
 
@@ -564,12 +580,15 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* ABOUT US */
 
-        /* ESTRUCTURA */
-        --mainContentMargin: 0 5rem;
-        --consignmentSingleStepMarginB: 32px;
+    /* ESTRUCTURA */
+      --mainContentMargin: 0 5rem;
+      --consignmentSingleStepMarginB: 32px;
       --aboutSectionFlexDirection: ;
       --aboutSectionMargin: 0 .5rem;
       --aboutSectionImgMargin: 0 .5rem;
+    
+        /* SINGLE */
+    --singleSideContactFontSize: .7rem;
 
     /* SERVICES */
 
@@ -577,28 +596,28 @@ FIN DE MAPA DE CONTENIDOS */
     --mainContentMargin: 0 5rem;
     --consignmentSingleStepMarginB: 0;
 
+
     /* ARCHIVE */
     --shopArchiveGridTemplateC: 1fr 1fr 1fr;
+
 
     /* 404 NOT FOUND */
     --notFoundPadding:5rem 10rem;
 
     --singleSideContactFontSize: .7rem;
 
-    /* HEADER */
-    --navBarFontSize: .55rem;
-    --navBarPadding:6rem;
 
-    /* SINGLE */
-    --singleSideContactFontSize: .7rem;
-
+    /* ARCHIVE */
+    --shopArchiveGridTemplateC:1fr 1fr 1fr 1fr;
     /* PARTS AND RACING PRODUCTS */
     --shopArchiveMargin: 3rem;
     --shopArchiveGridGap: 4.5rem;
   }
   .consignmentSection .wp-block-column:nth-child(2n) {
       margin-left: 32px!important;
-
+  }
+  .consignmentSection .wp-block-column:nth-child(2n) {
+      margin-left: 32px!important;
   }
 }
 
@@ -623,6 +642,8 @@ FIN DE MAPA DE CONTENIDOS */
     --navBarMargin: auto 4rem;
     --hotAuctionsDisplay: grid;
     --navBarPadding:2rem;
+    --filterBarBottomPadding: 0 5rem;
+    --filterBarLinkPadding: .5rem 1.8rem;
 
 
 
@@ -636,10 +657,10 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* CONSIGNMENT */
     --consignmentStepsFlexWrap: no-wrap;
+
     /* ARCHIVE */
     --shopArchiveGridTemplateC: 1fr 1fr 1fr 1fr;
-
-
+    --shopArchivePadding: 4rem;
   }
   .consignmentSection .wp-block-column:not(:first-child) {
     margin-left: 32px;
@@ -654,6 +675,10 @@ FIN DE MAPA DE CONTENIDOS */
 
 @media  screen and (min-width: 1300px) {
   :root {
+
+    /* HEADER */
+
+    --filterBarLinkPadding: .5rem 2rem;
     /* FOOTER */
     --footerPadding: 3rem;
     --newsLetterMarginLeft: 3rem;
@@ -673,6 +698,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* HEADER */
     --logoImgWidth: 70%;
     --navBarPadding:8rem;
+    --filterBarLinkPadding: .5rem 2.8rem;
 
 
       /* SINGLE */
@@ -700,6 +726,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* HEADER */
     --logoImgWidth: 60%;
+    --filterBarLinkPadding: .5rem 3.6rem;
   }
 }
 
@@ -722,7 +749,8 @@ FIN DE MAPA DE CONTENIDOS */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
+  font-family: 'Lato', sans-serif;
 }
 
 /* *:focus{outline:none} */
@@ -817,8 +845,7 @@ main li {margin: .3rem 0;}
   cursor:pointer;
 }
 
-.galleryImgs:hover{
-}
+/* .galleryImgs:hover{} */
 
 .galleryFade{
   position: absolute;
@@ -889,6 +916,9 @@ main li {margin: .3rem 0;}
 }
 
 
+
+
+
 .upperNav {
   font-size: .6rem;
   display: var(--upperNavDektop);
@@ -903,16 +933,21 @@ main li {margin: .3rem 0;}
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 .3rem;
+  margin-right:.5rem;
 }
-
+.upperNavInfo:last-child{margin-right:0}
 .upperNavIconTxt {font-size: .5rem;}
 
 .upperNavIcon {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height:20px;
   margin-right: .2rem;
 }
+
+
+
+
+
 
 .socialMedia {
   display: flex;
@@ -931,19 +966,31 @@ main li {margin: .3rem 0;}
   transition: .25s;
   margin-right: .5rem;
 }
+.socialMediaLink:last-child{margin-right:0}
 
 .socialMediaLink svg {height: 20px; width: 20px;}
-.socialMediaInst:hover{color:#3B5998}
-.socialMediaFace:hover{color:#E1306C}
+.footer .socialMediaLink svg {height: 30px; width: 30px;}
+
+
+.socialMediaInst:hover{color:#E1306C}
+.socialMediaFace:hover{color:#3B5998}
 .socialMediaYouT:hover{color:#CD201F}
 .socialMediaWhatsapp:hover{color:#4AC959}
+.mail.upperNavInfo:hover svg{color:#F78D15}
+
+
+
+
+
+
+
 
 
 .menu-barra-de-navegacion-header-container{
   width: 100%;
   height: 100%;
 }
-
+.current-menu-item a{color:#F78D15}
 .navBar {
   margin: auto 0;
   padding-left: var(--navBarPadding);
@@ -980,6 +1027,7 @@ main li {margin: .3rem 0;}
 
 }
 .sub-menu{
+  display:var(--subMenuDisplay)!important;
   border-top: 2px solid #F78D15;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
@@ -992,8 +1040,7 @@ main li {margin: .3rem 0;}
   padding: 0!important;
 }
 
-.sub-menu a:hover{
-}
+/* .sub-menu a:hover{} */
 
 
 
@@ -1024,9 +1071,6 @@ main li {margin: .3rem 0;}
 
 
 
-.navBarMobile ul li{
-  font-size: 1rem;
-}
 .navBar ul{
   display: var(--navBarDesktopDisplay);
   justify-content: flex-end;
@@ -1035,6 +1079,12 @@ main li {margin: .3rem 0;}
 .navBarMobile ul{
   display: var(--mobileNavButtonDisplay);
   flex-direction: column;
+  height:100%;
+  /* align-items: stretch; */
+}
+.navBarMobile ul li{
+  font-size: 1rem;
+  margin:auto;
 }
 .navBarMobile ul li:hover{border-bottom: solid black 2px;}
 
@@ -1088,7 +1138,7 @@ main li {margin: .3rem 0;}
   flex-direction: row;
   flex-wrap: wrap;
   padding: .5rem 0;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .navBarMobile {
@@ -1097,20 +1147,26 @@ main li {margin: .3rem 0;}
   flex-direction: column;
   align-items: center;
   border-bottom: solid black 1px;
+  height:100%;
+  align-items:center;
 }
 
-.upperNavInfoMobile svg {width: 35px; height: 35px;}
 
 .upperNavInfoMobile {
   width: 100%;
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom:1rem;
 }
-
 .upperNavInfoMobile:hover{background: rgba(0,0,0,.1);}
 
+.upperNavIconMobile{
+  margin:auto 0;
+  width: 35px;
+  height: 35px;
+}
+
 .upperNavIconTxtMobile {
-  font-size: 1.5rem;
+  font-size: 1rem;
   height: min-content;
   margin: auto .3rem;
   padding: 0 1rem;
@@ -1126,10 +1182,6 @@ main li {margin: .3rem 0;}
   padding: 1.2rem;
 }
 
-.upperNavIconMobile{
-  width: 75px;
-  height: 75px;
-}
 
 
 .socialMediaLinkMobile svg {width: 35px; height: 35px;}
@@ -1248,9 +1300,10 @@ background: #ddd;
 
 .hotAuctionsTitle{
   width: 100%;
-  font-size: var(--hotAuctionsTitleFontSize);
+  /* font-size: var(--hotAuctionsTitleFontSize); */
+  font-size:1rem;
   margin: auto;
-  font-weight: 600;
+  font-weight: 400;
   margin: .5rem;
 }
 
@@ -1926,8 +1979,8 @@ background: #ddd;
 --------------------------------------------------------------------------- */
 .consignSection {
   text-align: center;
-  margin: var(--consignSectionMargin);
-  margin-top: 0;
+  /* margin: var(--consignSectionMargin); */
+  /* margin-top: 0; */
   padding: 1rem;
 }
 .consignButton {width: min-content;}
@@ -1991,8 +2044,14 @@ background: #ddd;
 .shopArchive{
   display: grid;
   grid-template-columns:var(--shopArchiveGridTemplateC);
+
   padding: var(--shopArchiveMargin);
   grid-gap: var(--shopArchiveGridGap);
+
+  /* grid-template-columns:1fr 1fr 1fr; */
+  padding: var(--shopArchivePadding);
+  grid-gap: 1rem;
+
 }
 
 /* ---------------------------------------------------------------------------
@@ -2153,7 +2212,7 @@ background: #ddd;
 }
 
 .filterBarTop {
-  padding: .3rem 2.5rem;
+  padding: var(--filterBarBottomPadding);
   width:100%;
   display: var(--filterBarTopDisplay);
   grid-gap: .5rem;
@@ -2179,7 +2238,7 @@ background: #ddd;
 
 .filterBarLink {
   text-transform: uppercase;
-  font-size: .6rem;
+  font-size: .7rem;
   font-weight: 600;
   letter-spacing:.08rem;
   color:#464646;
@@ -2228,7 +2287,7 @@ background: #ddd;
   border-top:2px solid #DDDDDD;
   height: 0;
   overflow: hidden;
-  padding:0 2.5rem;
+  padding: var(--filterBarBottomPadding);
   transition:.6s;
   width: 100%;
   animation: filterBarContract 1s forwards;
@@ -2240,7 +2299,7 @@ background: #ddd;
   99.99%{overflow:hidden}
   100%{
     height: var(--filterBarContraction);
-    padding:1rem 2.5rem;
+    padding:var(--filterBarBottomPadding);
     overflow:visible;
   }
 }
@@ -2253,7 +2312,7 @@ background: #ddd;
   .01%{overflow:hidden}
   100%{
     height:0;
-    padding:0 2.5rem;
+    padding:var(--filterBarBottomPadding);
     overflow:hidden;
   }
 }
@@ -2954,7 +3013,7 @@ background: #ddd;
   grid-column: span 2;
   font-weight: 700;
   margin: .2rem 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .newsLetterEnterMail {
@@ -2966,7 +3025,7 @@ background: #ddd;
 .enterEmail{
   border: none;
   font-size: .6rem;
-  padding: .2rem;
+  padding: .5rem;
   width: 100%;
 }
 
@@ -2980,10 +3039,11 @@ background: #ddd;
   border: solid 1px #F78D15;
   box-sizing: content-box;
   margin-top: -1px;
-  font-size: .7rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 2px;
   cursor: pointer;
+  padding: .5rem;
 }
 
 

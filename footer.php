@@ -47,7 +47,7 @@
           <p>Monday to friday 08:00 - 18:00</p>
           <p>Saturday 10:00 - 17:00</p>
           <a href="">Current stock</a><br>
-          <a href="">Make an appointment</a><br>
+          <!-- <a href="">Make an appointment</a><br> -->
           <a href="">Plan your visit</a><br>
         </div>
         <div class="data">
