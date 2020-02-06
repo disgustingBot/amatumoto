@@ -2438,6 +2438,7 @@ background: #ddd;
   height: 1.5rem;
   line-height: 1.8rem;
   transition:.3s;
+  padding:0 16px;
 }
 .selectBoxOption:hover{
   background:#BBB;
