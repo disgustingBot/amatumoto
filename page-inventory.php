@@ -12,7 +12,8 @@
 <?php include 'filterBar.php'; ?>
 
 
-<div class="shopArchive">
+<div class="shopArchive shopInventory">
+
   <?php
 
     $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
