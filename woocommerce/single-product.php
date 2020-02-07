@@ -35,6 +35,10 @@
       <!-- <iframe class="singleSideVideo" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
       <video class="singleSideVideo" controls src="http://localhost/grandPrix/wp-content/uploads/2020/02/588741047.mp4"></video>
       <!-- <img style="width:100%;" class="singleSideVideo" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""> -->
+
+      <?php // include get_template_directory() . '/woocommerce/socialSharing.php'; ?>
+      <?php // include 'socialSharing.php'; ?>
+
       <div class="singleSideSocialCont">
         <a class="singleSocialLink" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/GPMotorbikes/producto/motomel-eameo-recatate-gp-1100cc/" target="_blank">
           <svg class="singleSocialSvg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>

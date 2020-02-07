@@ -16,7 +16,9 @@
 
 
 
-<div class="shopArchive shopParts">
+
+<div class="subCatArchive">
+
   <?php
   $args = array(
    'hierarchical' => 1,
