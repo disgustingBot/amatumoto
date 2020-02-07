@@ -16,7 +16,7 @@
 
 
 
-<div class="shopArchive">
+<div class="shopArchive shopParts">
   <?php
   $args = array(
    'hierarchical' => 1,

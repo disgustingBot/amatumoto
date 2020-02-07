@@ -257,7 +257,8 @@ FIN DE MAPA DE CONTENIDOS */
 
 
   /* =ARCHIVE */
-  --shopArchiveGridTemplateC: 1fr;
+  --PartsGridTemplateC: 1fr;
+  --InventoryGridTemplateC: 1fr;
   --shopArchivePadding: 2rem;
 
   /* =FORMULARIO */
@@ -330,7 +331,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* HEADER */
-    --logoImgWidth: 70%;
+    --logoImgWidth: 60%;
 
 
    /* FRONT PAGE */
@@ -354,7 +355,8 @@ FIN DE MAPA DE CONTENIDOS */
     --formInputWidth: calc(50% - 2rem);
 
     /* ARCHIVE */
-    --shopArchiveGridTemplateC: 1fr 1fr;
+    --PartsGridTemplateC: 1fr 1fr;
+    --InventoryGridTemplateC: 1fr 1fr;
 
     /* 404 NOT FOUND */
     --notFoundPadding: 4rem;
@@ -534,7 +536,8 @@ FIN DE MAPA DE CONTENIDOS */
     --mainContactFormOrder: 4;
 
     /* ARCHIVE */
-    --shopArchiveGridTemplateC:1fr 1fr 1fr;
+    --PartsGridTemplateC:1fr 1fr 1fr;
+    --InventoryGridTemplateC:1fr 1fr 1fr;
   }
 }
 
@@ -568,7 +571,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     --filterBarBottomPadding: .5rem 3rem;
     --filterBarLinkPadding: .5rem 1.5rem;
-    --navBarFontSize: .55rem;
+    --navBarFontSize: .6rem;
     --navBarPadding:6rem;
 
     /* FOOTER */
@@ -597,9 +600,6 @@ FIN DE MAPA DE CONTENIDOS */
     --consignmentSingleStepMarginB: 0;
 
 
-    /* ARCHIVE */
-    --shopArchiveGridTemplateC: 1fr 1fr 1fr;
-
 
     /* 404 NOT FOUND */
     --notFoundPadding:5rem 10rem;
@@ -608,7 +608,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* ARCHIVE */
-    --shopArchiveGridTemplateC:1fr 1fr 1fr 1fr;
+    --PartsGridTemplateC:1fr 1fr 1fr 1fr;
     /* PARTS AND RACING PRODUCTS */
     --shopArchiveMargin: 3rem;
     --shopArchiveGridGap: 4.5rem;
@@ -637,7 +637,7 @@ FIN DE MAPA DE CONTENIDOS */
     --headerGridTemplateColums: 30% 1fr;
     --upperNavAlignment: flex-start;
     --upperNavMarginLeft: 4rem;
-    --logoImgWidth: 65%;
+    --logoImgWidth: 100%;
     --logoWidth: 70%;
     --navBarMargin: auto 4rem;
     --hotAuctionsDisplay: grid;
@@ -659,7 +659,6 @@ FIN DE MAPA DE CONTENIDOS */
     --consignmentStepsFlexWrap: no-wrap;
 
     /* ARCHIVE */
-    --shopArchiveGridTemplateC: 1fr 1fr 1fr 1fr;
     --shopArchivePadding: 4rem;
   }
   .consignmentSection .wp-block-column:not(:first-child) {
@@ -696,7 +695,7 @@ FIN DE MAPA DE CONTENIDOS */
     --sizeR: calc(var(--sizeRd) * 1px);
 
     /* HEADER */
-    --logoImgWidth: 70%;
+    --logoImgWidth: 80%;
     --navBarPadding:8rem;
     --filterBarLinkPadding: .5rem 2.8rem;
 
@@ -725,7 +724,7 @@ FIN DE MAPA DE CONTENIDOS */
     --sizeR: calc(var(--sizeRd) * 1px);
 
     /* HEADER */
-    --logoImgWidth: 60%;
+    --logoImgWidth: 80%;
     --filterBarLinkPadding: .5rem 3.6rem;
   }
 }
@@ -1151,6 +1150,9 @@ main li {margin: .3rem 0;}
   align-items:center;
 }
 
+.navBarMobile div {
+  height: 100%;
+}
 
 .upperNavInfoMobile {
   width: 100%;
@@ -1341,7 +1343,8 @@ background: #ddd;
   display:flex;
   grid-row: 1;
   grid-column: 1;
-  height: calc(var(--hotCardWidth) / 1.48 * 1vw);
+  height: auto;
+  max-height: calc(var(--hotCardWidth) / 1.48 * 1vw);
   width: 100%;
 }
 
@@ -2043,17 +2046,15 @@ background: #ddd;
 
 .shopArchive{
   display: grid;
-  grid-template-columns:var(--shopArchiveGridTemplateC);
-
   padding: var(--shopArchiveMargin);
   grid-gap: var(--shopArchiveGridGap);
-
-  /* grid-template-columns:1fr 1fr 1fr; */
   padding: var(--shopArchivePadding);
   grid-gap: 1rem;
 
 }
 
+.shopParts {grid-template-columns:var(--PartsGridTemplateC);}
+.shopInventory {grid-template-columns:var(--InventoryGridTemplateC);}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.5) =BUTTONS:
@@ -2849,7 +2850,7 @@ background: #ddd;
 .pageMain ul,
 .pageMain ol,
 .pageMain li{
-  margin:.2rem 0;
+  margin:.5rem 0;
 }
 
 .pageMain ul,

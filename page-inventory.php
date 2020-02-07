@@ -91,7 +91,7 @@
 
 
 
-<div class="shopArchive">
+<div class="shopArchive shopInventory">
 
 
 
