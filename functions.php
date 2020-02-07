@@ -114,3 +114,20 @@ add_filter('wpcf7_form_elements', function($content) {
 //    exit;
 //  }
 // }
+
+
+
+
+function latte_pagination($max){
+  // This part gets the current pagination
+  if(get_query_var('paged')){$paged=get_query_var('paged');}elseif(get_query_var('page')){$paged=get_query_var('page');}else{$paged=1;}
+
+  $result.= 'Page '.$paged.' of '.$max;
+  $next=$paged + 1;
+  $prev=$paged - 1;
+
+  if($prev>=1   ){$result.='<a href="'.site_url('inventory/').$prev.'">Prev</a>';}
+  if($next<=$max){$result.='<a href="'.site_url('inventory/').$next.'">Next</a>';}
+
+  return $result;
+}

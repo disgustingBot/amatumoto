@@ -278,7 +278,7 @@ FIN DE MAPA DE CONTENIDOS */
   /* ?FOOTER */
 
   --footerDisplay: flex;
-  --footerPadding: 1rem;
+  /* --footerPadding: 1rem; */
   --socialMediaJustifyContent: space-evenly;
   --characterContainerPadding: 1rem 0;
   --lowerFooterDisplay: flex;
@@ -539,7 +539,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* ?FOOTER */
 
-    --footerPadding: 2rem;
+    /* --footerPadding: 2rem; */
     --characterContainerPadding: 1rem 4rem;
     --contactContainerDisplay: grid;
     --dataTextAlign: left;
@@ -713,7 +713,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     --filterBarLinkPadding: .5rem 2rem;
     /* FOOTER */
-    --footerPadding: 3rem;
+    /* --footerPadding: 3rem; */
     --newsLetterMarginLeft: 3rem;
     --footerDisplay: grid;
     --characterContainerPadding: 1rem 2rem;
@@ -3063,6 +3063,7 @@ main.contact>p:first-child{display:none}
   display: var(--footerDisplay);
   grid-template-columns: 1fr 1fr;
   padding: var(--footerPadding);
+  padding:1rem var(--lateral);
   grid-gap: 3rem;
   flex-wrap: wrap;
   justify-content: center;
