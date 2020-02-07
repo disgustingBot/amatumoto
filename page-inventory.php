@@ -15,7 +15,8 @@
 <div class="shopArchive">
   <?php
 
-    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+    if(get_query_var('paged')){$paged=get_query_var('paged');}elseif(get_query_var('page')){$paged=get_query_var('page');}else{$paged=1;}
     $args = array(
       'post_type'=>'product',
       'posts_per_page'=>9,
@@ -59,9 +60,10 @@
 } ?>
 </div>
 
-<?php if (function_exists("pagination")) {
-    pagination($custom_query->max_num_pages);
-} ?>
+
+
+<?php echo latte_pagination($blogPosts->max_num_pages); ?>
+
 
 
 <?php get_footer(); ?>

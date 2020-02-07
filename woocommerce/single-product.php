@@ -33,8 +33,15 @@
       <p class="singleSideData"><?php echo excerpt(140); ?></p>
       <!-- TODO: aca hay que ver si poner un video de youtube o llamarlo de la galeria de medios con un meta data -->
       <!-- <iframe class="singleSideVideo" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> -->
-      <video class="singleSideVideo" controls src="http://localhost/grandPrix/wp-content/uploads/2020/02/588741047.mp4"></video>
-      <!-- <img style="width:100%;" class="singleSideVideo" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""> -->
+
+      <?php
+      // var_dump($product);
+      ?>
+      <!-- <button><?php $my_meta = get_post_meta( $post->ID, 'test', true ); echo $my_meta["test"]; ?></button> -->
+      <?php $meta = get_post_meta( $product->id, 'video' ); ?>
+      <!-- <video class="singleSideVideo" controls src="<?php echo $product->video; ?>"></video> -->
+
+      <!-- <video class="singleSideVideo" controls src="http://localhost/grandPrix/wp-content/uploads/2020/02/588741047.mp4"></video> -->
 
       <?php // include get_template_directory() . '/woocommerce/socialSharing.php'; ?>
       <?php // include 'socialSharing.php'; ?>
