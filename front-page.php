@@ -60,18 +60,37 @@
       </a>
       <figcaption class="hotCardCaption">
         <?php
-        $terms = get_the_terms( get_the_ID(), 'product_cat' );
-
-        foreach ($terms as $term) {
-
-            echo '<h2 itemprop="name" class="hotCardSubtitle entry-title">'.$term->name.'</h2>';
-        }
-        // AUCTION INFORRMATION HERE
-        // var_dump(get_post_meta( $product->id));
-        ?>
+          // get all the categories on the product
+          $terms = get_the_terms( get_the_ID(), 'product_cat' );
+          // for each category
+          if($terms){ ?>
+            <p class="hotCardAnoMarca"><a href="<?php echo get_permalink(); ?>">
+            <?php foreach ($terms as $term) {
+              // get the parent category
+              $parent=get_term_by('id', $term->parent, 'product_cat', 'ARRAY_A')['slug'];
+              // check if parent is either year or brand
+              if ($parent=="year" OR $parent=="brand") { ?>
+                <span><?php echo $term->name; ?></span>
+              <?php }
+            } ?>
+          </a></p>
+        <?php } ?>
         <h1 class="hotCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h1>
-        <p class="hotCardBids">10 Bids <br><span class="hotCardBidPrice">$210.00</span></p>
-        <p class="hotCardEnd">Auction ends in:<br><span class="hotCardTime">12 Days 09:45:08</span></p>
+
+        <?php if(method_exists($product,'get_seconds_remaining')){ ?>
+          <p class="hotCardBids">
+            <?php echo $product->auction_bid_count; ?> Bids<br>
+            <span class="hotCardBidPrice">€ <?php echo $product->auction_current_bid; ?></span>
+          </p>
+
+        <?php } ?>
+
+        <?php if(method_exists($product,'get_seconds_remaining')){ ?>
+          <div class="auction-time" id="countdown"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Time left:', 'auctions-for-woocommerce' ), $product_id ) ); ?>
+            <div class="hotCardEnd main-auction auction-time-countdown" data-time="<?php echo esc_attr( $product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></div>
+          </div>
+        <?php } ?>
+        <!-- <p class="hotCardEnd">Auction ends in:<br><span class="hotCardTime">12 Days 09:45:08</span></p> -->
 
       </figcaption>
     </figure>

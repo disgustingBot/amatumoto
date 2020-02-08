@@ -146,6 +146,7 @@ if(d.querySelector('#mateputInput')){
       mateput.classList.add('alt') =false;
     }
   }
+  updateRequired();
   mateput.addEventListener('input', updateRequired);
 }
 
