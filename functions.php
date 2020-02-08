@@ -104,16 +104,6 @@ add_filter('wpcf7_form_elements', function($content) {
 });
 
 
-// add_action( 'admin_post_nopriv_nds_form_response', 'the_form_response');
-// function the_form_response() {
-//  if( isset( $_POST['filter_nonce'] ) && wp_verify_nonce( $_POST['filter_nonce'], 'nds_add_user_meta_form_nonce') ) {
-//    var_dump($_POST['year']);
-//    echo 'hello World';
-//    $url = 'http://localhost/grandPrix/test/';
-//    wp_redirect( $url );
-//    exit;
-//  }
-// }
 
 
 
@@ -130,4 +120,66 @@ function latte_pagination($max){
   if($next<=$max){$result.='<a href="'.site_url('inventory/').$next.'">Next</a>';}
 
   return $result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// add_action( 'admin_post_nopriv_nds_form_response', 'the_form_response');
+// function the_form_response() {
+//  if( isset( $_POST['filter_nonce'] ) && wp_verify_nonce( $_POST['filter_nonce'], 'nds_add_user_meta_form_nonce') ) {
+//    var_dump($_POST['year']);
+//    echo 'hello World';
+//    $url = 'http://localhost/grandPrix/test/';
+//    wp_redirect( $url );
+//    exit;
+//  }
+// }
+
+add_action( 'admin_post_nopriv_new_user', 'userGeneration');
+add_action( 'admin_post_new_user', 'userGeneration');
+
+
+// FUCTION FOR USER GENERATION
+function userGeneration(){
+  $email_address=$_POST['mail'];
+  $pass=$_POST['pass'];
+  if( null == username_exists( $email_address ) ) {
+
+    // Generate the password and create the user for security
+    // $password = wp_generate_password( 12, false );
+    // $user_id = wp_create_user( $email_address, $password, $email_address );
+
+    // user generated pass for local testing
+    $user_id = wp_create_user( $email_address, $pass, $email_address );
+    // Set the nickname
+    wp_update_user(
+      array(
+        'ID'          =>    $user_id,
+        'nickname'    =>    $email_address
+      )
+    );
+
+    // Set the role
+    $user = new WP_User( $user_id );
+    $user->set_role( 'subscriber' );
+
+    // Email the user
+    wp_mail( $email_address, 'Welcome!', 'Your Password: ' . $password );
+
+  } // end if
+  wp_redirect(site_url('inventory'));
 }

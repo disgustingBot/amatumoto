@@ -120,7 +120,7 @@ FIN DE MAPA DE CONTENIDOS */
   --subMenuDisplay:none;
 
 
-  /* FILTER */
+  /* ?FILTER */
   --filterBarTopDisplay: flex;
   --filterSeparatorDisplay: none;
   --filterBarSearchWidth: calc(100% - 50px - 1rem);
@@ -132,6 +132,8 @@ FIN DE MAPA DE CONTENIDOS */
   --varSearchBtnTop: 1rem;
   --varSearchBtnRight: 2rem;
   --filterBarBottomPaddingX:2rem;
+  --filterLinkBarHeight:40px;
+  --filterLinkBarMarginTop:.5rem;
 
   /* FRONT PAGE */
 
@@ -428,6 +430,8 @@ FIN DE MAPA DE CONTENIDOS */
     --varSearchBtnPosition: relative;
     --varSearchBtnTop: ;
     --varSearchBtnRight: ;
+    --filterLinkBarHeight:unset;
+    --filterLinkBarMarginTop:unset;
 
 
     /* FRONT PAGE */
@@ -1387,12 +1391,23 @@ background: #ddd;
   max-height: calc(var(--hotCardWidth) / 1.48 * 1vw);
   width: 100%;
 }
-
-.productCardCaption{font-weight: 100; padding: .3rem .5rem;}
+.productCardCaption{ padding: .3rem .5rem;}
 .productCardCaption>* {margin-bottom: .4rem;}
-.productCardTitle{font-weight: 300; font-weight: bold;}
+.productCardAnoMarca{
+  font-weight: 300;
+  font-size:.7rem;
+  margin-bottom:.1rem;
+}
+.productCardTitle{
+  font-weight: 400;
+  font-size: 1rem;
+}
 .productCardTxt{font-size: .8rem; font-weight: 400;}
-.productCardPrice {font-size: .8rem; font-weight: 500;}
+.productCardPrice{
+  font-size: .8rem;
+  font-weight: 500;
+  margin-bottom:0;
+}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1418,18 +1433,25 @@ background: #ddd;
 
 .hotCardCaption{
   padding:.5rem;
-  padding-top: 0;
+  /* padding-top: 0; */
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
+.hotCardAnoMarca{
+  font-weight: 300;
+  font-size:.7rem;
+  margin-bottom:.1rem;
+}
+
 .hotCardTitle{
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
   margin-bottom: .5rem;
   margin-top:0;
-  font-size: 1rem;
+  text-align: left;
   width: 100%;
-  border-bottom: 1px solid #ddd;
 }
 
 .hotCardSubtitle {font-size: .9rem; width: 100%;}
@@ -2293,17 +2315,19 @@ background: #ddd;
 }
 
 .filterBarLink {
-  text-transform: uppercase;
+  align-items:center;
+  color:#464646;
+  display:grid;
   font-size: .7rem;
   font-weight: 600;
   letter-spacing:.08rem;
-  color:#464646;
-  transition:.3s;
-  width: var(--filterLinkBarWidth);
   /* padding: var(--filterBarLinkPadding); */
   text-align: center;
-  display:grid;
-  align-items:center;
+  text-transform: uppercase;
+  transition:.3s;
+  width: var(--filterLinkBarWidth);
+  height:var(--filterLinkBarHeight);
+  margin-top:var(--filterLinkBarMarginTop);
 }
 .filterBarLink:hover{
   color:#F78D15;

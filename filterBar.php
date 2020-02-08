@@ -14,7 +14,7 @@
     </div>
 
     <div class="mateput">
-      <input id="mateputInput" type="text" name="filter_search" autocomplete="off">
+      <input id="mateputInput" type="text" name="filter_search" autocomplete="off" value="<?php if(isset($_GET['filter_search']) AND $_GET['filter_search']!=''){echo $_GET['filter_search'];}?>">
       <label for="name" class="mateputLabel">
         <span class="mateputName">Search</span>
       </label>
@@ -57,7 +57,15 @@
           </label>
           <?php foreach ($subcats as $sc) { ?>
             <label for="<?php echo $sc->slug; ?>" class="selectBoxOption">
-              <input type="radio" name="filter_<?php echo $term->slug; ?>" id="<?php echo $sc->slug; ?>" class="selectBoxInput" onclick="selectBoxControler('<?php echo $sc->name ?>', '#selectBox<?php echo $id; ?>', '#selectBoxCurrent<?php echo $id; ?>')" value="<?php echo $sc->slug; ?>">
+              <input
+                class="selectBoxInput"
+                id="<?php echo $sc->slug; ?>"
+                type="radio"
+                name="filter_<?php echo $term->slug; ?>"
+                onclick="selectBoxControler('<?php echo $sc->name ?>', '#selectBox<?php echo $id; ?>', '#selectBoxCurrent<?php echo $id; ?>')"
+                value="<?php echo $sc->slug; ?>"
+                <?php // if($_GET['filter_'.$term->slug]==$sc->slug){echo "selected";} ?>
+              >
               <!-- <span class="checkmark"></span> -->
               <p class="colrOptP"><?php echo $sc->name ?></p>
             </label>
