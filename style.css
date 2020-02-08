@@ -2667,6 +2667,7 @@ background: #ddd;
   grid-template-columns:var(--testimonialsGTC);
   margin: 3rem auto;
   transition: .25s;
+  overflow-y: auto;
 }
 
 .testimonialTxt {
