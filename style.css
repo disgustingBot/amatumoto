@@ -270,6 +270,7 @@ FIN DE MAPA DE CONTENIDOS */
   --contactInfoContainerOrder: 4;
   --moreInfoContainerOrder: 2;
   --mainContactFormOrder: 1;
+  --contactFormAndInformationDisplay: block;
 
   /* PARTS AND RACING PRODUCTS */
   --shopArchiveMargin: 1rem;
@@ -530,6 +531,7 @@ FIN DE MAPA DE CONTENIDOS */
     --contactInfoContainerOrder: 2;
     --moreInfoContainerOrder: 3;
     --mainContactFormOrder: 4;
+    --contactFormAndInformationDisplay: flex;
 
     /* ARCHIVE */
 
@@ -1844,10 +1846,9 @@ background: #ddd;
 }
 
 .singleFormTxtArea {
-  height: 300px;
-  /* width: 80%; */
-  width: 100%;
-  margin: .5rem auto;
+  height: 7rem;
+  width: 90%;
+  margin: .5rem auto .5rem 0;
   border: solid 1px #ddd;
 }
 
@@ -3040,13 +3041,27 @@ background: #ddd;
 
 
 /* CONTACT */
-main.contact>p:first-child{display:none}
+main.contact>p:first-child{display:none}ç
+
 .contactMap {
   width: 100%;
-  max-height: 300px;
+  max-height: 8rem;
   /* margin: 1rem auto; */
-  order: var(--contactMapOrder);
+  /* order: var(--contactMapOrder); */
 }
+
+.contactInformation{
+  margin: auto;
+}
+
+.contactFormAndInformation{
+  display: var(--contactFormAndInformationDisplay);
+}
+
+.contactSocialMedia{margin: 1rem auto;}
+
+
+/*Esto es de antes*/
 
 .contactInfoContainer {
   padding: 2rem 5rem;
