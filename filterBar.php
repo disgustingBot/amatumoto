@@ -14,7 +14,7 @@
     </div>
 
     <div class="mateput">
-      <input id="mateputInput" type="text" name="filter_search" autocomplete="off" value="<?php if(isset($_GET['filter_search']) AND $_GET['filter_search']!=''){echo $_GET['filter_search'];}?>">
+      <input class="mateputInput" type="text" name="filter_search" autocomplete="off" value="<?php if(isset($_GET['filter_search']) AND $_GET['filter_search']!=''){echo $_GET['filter_search'];}?>">
       <label for="name" class="mateputLabel">
         <span class="mateputName">Search</span>
       </label>

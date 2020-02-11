@@ -78,8 +78,7 @@ const gallerySingle=(a)=>{
 
 
 
-
-// alternates a class from a selector of choice zB.:
+// alternates a class from a selector of choice, example:
 // <div class="someButton" onclick="altClassFromSelector('activ', '#navBar')"></div>
 const altClassFromSelector=(clase,selector)=> {
   const x=d.querySelector(selector);
@@ -136,25 +135,18 @@ filterButton1();
 
 
 
-
-if(d.querySelector('#mateputInput')){
-  mateput=d.querySelector('#mateputInput');
-  const updateRequired=()=>{
-    if(mateput.value==''){
-      mateput.classList.remove('alt') =true;
-    }else{
-      mateput.classList.add('alt') =false;
-    }
-  }
-  updateRequired();
-  mateput.addEventListener('input', updateRequired);
+// mateput controller
+const updateRequired=e=>{if(e.value==''){e.classList.remove('alt')}else{e.classList.add('alt')}}
+if(d.querySelectorAll('.mateputInput')){
+  mateput=d.querySelectorAll('.mateputInput');
+  mateput.forEach(e=>{
+    updateRequired(e);
+    e.addEventListener('input',()=>{updateRequired(e)});
+  });
 }
 
 
 
 function detectWidth() {
-  // return window.screen.width || window.innerWidth || window.document.documentElement.clientWidth || Math.min(window.innerWidth, window.document.documentElement.clientWidth) || window.innerWidth || window.document.documentElement.clientWidth || window.document.getElementsByTagName('body')[0].clientWidth;
   return window.innerWidth || window.document.documentElement.clientWidth || Math.min(window.innerWidth, window.document.documentElement.clientWidth) || window.innerWidth || window.document.documentElement.clientWidth || window.document.getElementsByTagName('body')[0].clientWidth;
-  // return window.innerWidth;
-  // return window.document.documentElement.clientWidth;
 }
