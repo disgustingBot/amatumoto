@@ -86,6 +86,7 @@ function excerpt($charNumber){
  function register_menus() {
    register_nav_menu('navBar',__( 'Header' ));
    register_nav_menu('navBarMobile',__( 'Header Mobile' ));
+   register_nav_menu('contactMenu',__( 'Contact Menu' ));
    // register_nav_menu('homeMobile-menu',__( 'Home Mobile Menu' ));
    // register_nav_menu('magazine-menu',__( 'Magazine Menu' ));
    // register_nav_menu('magazineMobile-menu',__( 'Magazine Mobile Menu' ));
