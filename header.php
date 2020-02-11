@@ -75,6 +75,29 @@
         </svg>
         <p class="upperNavIconTxt">USA</p>
       </a>
+
+
+
+
+      <?php
+      global $wp, $current_user;
+      wp_get_current_user();
+      // var_dump($current_user);
+      ?>
+
+      <?php if (is_user_logged_in()) { ?>
+        <a class="logButton" href="<?php echo site_url('account'); ?>"><?php echo $current_user->display_name; ?></a>
+        <a class="logButton" href="<?php echo wp_logout_url(home_url( $wp->request )); ?>">Logout</a>
+      <?php } else { ?>
+        <button class="logButton alt" onclick="altClassFromSelector('alt','#logForm')" type="button" name="button">Login</button>
+      <?php } ?>
+
+
+
+
+
+
+
     </nav>
     <nav class="navBar"><?php wp_nav_menu( array( 'theme_location' => 'navBar', 'navBar' => 'new_menu_class' ) ); ?></nav>
 
@@ -151,3 +174,53 @@
       <div class="navStripe"></div>
     </div>
   </header>
+
+
+
+
+
+
+      <form class="logForm" id="logForm" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+        <input type="hidden" name="action" value="lt_login">
+        <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+
+        <div class="logFormTitle">
+          <h3>Enter</h3>
+          <button class="logFormTitleRegister" onclick="altClassFromSelector('alt','#logFormFields')" type="button" name="button">you don't have an account?</button>
+        </div>
+
+
+        <div class="logFormFields" id="logFormFields">
+
+          <div class="mateput logFormName">
+            <input class="mateputInput" type="text" name="name" autocomplete="off" value="">
+            <label for="name" class="mateputLabel">
+              <span class="mateputName">Name</span>
+            </label>
+          </div>
+
+          <div class="mateput logFormPhono">
+            <input class="mateputInput" type="number" name="fono" autocomplete="off" value="">
+            <label for="fono" class="mateputLabel">
+              <span class="mateputName">Phone</span>
+            </label>
+          </div>
+
+          <div class="mateput logFormMail">
+            <input class="mateputInput" type="email" name="mail" autocomplete="off" value="" required>
+            <label for="mail" class="mateputLabel">
+              <span class="mateputName">E-Mail</span>
+            </label>
+          </div>
+
+          <div class="mateput logFormPass">
+            <input class="mateputInput" type="password" name="pass" autocomplete="off" value="" required>
+            <label for="pass" class="mateputLabel">
+              <span class="mateputName">Password</span>
+            </label>
+          </div>
+
+          <button class="filterSearch" type="submit" name="button">Confirm</button>
+        </div>
+
+      </form>

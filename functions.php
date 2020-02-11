@@ -149,13 +149,30 @@ function latte_pagination($max){
 //  }
 // }
 
-add_action( 'admin_post_nopriv_new_user', 'userGeneration');
-add_action( 'admin_post_new_user', 'userGeneration');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // FUCTION FOR USER GENERATION
-function userGeneration(){
+// https://tommcfarlin.com/create-a-user-in-wordpress/
+add_action( 'admin_post_nopriv_lt_new_user', 'lt_new_user');
+add_action(        'admin_post_lt_new_user', 'lt_new_user');
+function lt_new_user(){
   $email_address=$_POST['mail'];
+  $url=$_POST['url'];
   $pass=$_POST['pass'];
   if( null == username_exists( $email_address ) ) {
 
@@ -181,5 +198,201 @@ function userGeneration(){
     wp_mail( $email_address, 'Welcome!', 'Your Password: ' . $password );
 
   } // end if
-  wp_redirect(site_url('inventory'));
+  wp_redirect($url);
 }
+
+
+
+
+
+
+
+// FUCTION FOR USER GENERATION
+// https://tommcfarlin.com/create-a-user-in-wordpress/
+add_action( 'admin_post_nopriv_lt_login', 'lt_login');
+add_action(        'admin_post_lt_login', 'lt_login');
+function lt_login(){
+  $link=$_POST['link'];
+  $name=$_POST['name'];
+  $fono=$_POST['fono'];
+  $mail=$_POST['mail'];
+  $pass=$_POST['pass'];
+
+
+  if( null == username_exists( $mail ) ) {
+
+    // Generate the password and create the user for security
+    // $password = wp_generate_password( 12, false );
+    // $user_id = wp_create_user( $mail, $password, $mail );
+
+    // user generated pass for local testing
+    $user_id = wp_create_user( $mail, $pass, $mail );
+    // Set the nickname and display_name
+    wp_update_user(
+      array(
+        'ID'              =>    $user_id,
+        'display_name'    =>    $name,
+        'nickname'        =>    $name,
+      )
+    );
+    update_user_meta( $user_id, 'phone', $fono );
+
+
+    // Set the role
+    $user = new WP_User( $user_id );
+    $user->set_role( 'subscriber' );
+
+    // Email the user
+    wp_mail( $mail, 'Welcome '.$name.'!', 'Your Password: ' . $pass );
+  // end if
+  $action='register';
+  $creds = array(
+      'user_login'    => $mail,
+      'user_password' => $pass,
+      'remember'      => true
+  );
+
+  $status = wp_signon( $creds, false );
+} else {
+
+  $creds = array(
+      'user_login'    => $mail,
+      'user_password' => $pass,
+      'remember'      => true
+  );
+
+  $status = wp_signon( $creds, false );
+
+  // $status=wp_login($mail, $pass);
+
+  $action='login';
+}
+
+  $link = add_query_arg( array(
+    'action' => $action,
+    // 'status' => $status,
+    // 'resultado' => username_exists( $mail ),
+  ), $link );
+  wp_redirect($link);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add_action( 'admin_post_nopriv_lt_new_pass', 'lt_new_pass');
+add_action(        'admin_post_lt_new_pass', 'lt_new_pass');
+function lt_new_pass(){
+  $link=$_POST['link'];
+  $oldp=$_POST['oldp'];
+  $newp=$_POST['newp'];
+  $cnfp=$_POST['cnfp'];
+
+
+
+  // if(isset($_POST['current_password'])){
+  if(isset($_POST['oldp'])){
+    $_POST = array_map('stripslashes_deep', $_POST);
+    $current_password = sanitize_text_field($_POST['oldp']);
+    $new_password = sanitize_text_field($_POST['newp']);
+    $confirm_new_password = sanitize_text_field($_POST['cnfp']);
+    $user_id = get_current_user_id();
+    $errors = array();
+    $current_user = get_user_by('id', $user_id);
+  }
+
+  $link = add_query_arg( array(
+    'action' => $action,
+  ), $link );
+  // Check for errors
+  if($current_user && wp_check_password($current_password, $current_user->data->user_pass, $current_user->ID)){
+  //match
+  } else {
+    $errors[] = 'Password is incorrect';
+
+    $link = add_query_arg( array(
+      'pass'  => 'incorrect',
+    ), $link );
+  }
+  if($new_password != $confirm_new_password){
+    $errors[] = 'Password does not match';
+
+    $link = add_query_arg( array(
+      'match'  => 'no',
+    ), $link );
+  }
+  if(empty($errors)){
+      wp_set_password( $new_password, $current_user->ID );
+      // echo '<h4>Password successfully changed!</h4>';
+
+      $link = add_query_arg( array(
+        'success'  => true,
+      ), $link );
+  } else {
+    // Echo Errors
+    // echo '<h3>Errors:</h3>';
+    // foreach($errors as $error){
+    //     echo '<p>';
+    //     echo "<strong>$error</strong>";
+    //     echo '</p>';
+    // }
+  }
+
+
+  // $link = add_query_arg( array(
+  //   'action' => $action,
+  //   'error'  => $error,
+  //   // 'status' => $status,
+  //   // 'resultado' => username_exists( $mail ),
+  // ), $link );
+  wp_redirect($link);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ADD PHONE FIELD TO USER INTERFACE IN BACKOFFICE
+add_action( 'show_user_profile', 'extra_user_profile_fields' );
+add_action( 'edit_user_profile', 'extra_user_profile_fields' );
+function extra_user_profile_fields( $user ) { ?>
+  <h3><?php _e("Extra profile information", "blank"); ?></h3>
+  <table class="form-table">
+    <tr>
+      <th><label for="phone"><?php _e("Phone"); ?></label></th>
+      <td>
+          <input type="text" name="phone" id="phone" value="<?php echo esc_attr( get_the_author_meta( 'phone', $user->ID ) ); ?>" class="regular-text" /><br />
+          <span class="description"><?php _e("Please enter your phone."); ?></span>
+      </td>
+    </tr>
+  </table>
+<?php }

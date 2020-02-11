@@ -39,7 +39,11 @@ Version: 1.0
 6.5) =BUTTONS:
 6.5.1) =filterButton:
 6.5.2) =slideButton:
+6.5.3) =View Inventory button:
+6.5.4) =logButton:
+
 6.6) =FORMS:
+6.6.1) =logForm:
 
 6.7) =filterBar:
 6.8) =selectBox:
@@ -47,6 +51,8 @@ Version: 1.0
 6.9) =Section Testimonials:
 6.10) =singlePage:
 6.11) =pageMain:
+
+6.12) =accountSection
 
 
 6.99) =footer
@@ -198,6 +204,8 @@ FIN DE MAPA DE CONTENIDOS */
   --newArrivalFontSize:.8rem;
   --legalFooterJustification: flex-start;
   --singleSocialSvgHeight: 2rem;
+
+  --auctionDataGTC:1fr 1fr;
 
 
   /* ABOUT US */
@@ -375,6 +383,8 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* SINGLE */
     --singleSideContactFontSize:.7rem;
+    --auctionDataGTC:1fr 1fr 1fr 1fr;
+
 
     /* PARTS AND RACING PRODUCTS */
     --shopArchiveMargin: 2rem;
@@ -518,6 +528,7 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideContactContainerMargin:0;
     --singleSideSocialContMargin:.5rem 0;
     --sS_newArrivalMargin:0;
+    /* --auctionDataGTC:1fr 1fr; */
 
 
     /* FORMS */
@@ -619,6 +630,8 @@ FIN DE MAPA DE CONTENIDOS */
 
         /* SINGLE */
     --singleSideContactFontSize: .7rem;
+    /* --auctionDataGTC:1fr 1fr 1fr; */
+
 
     /* SERVICES */
 
@@ -688,6 +701,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* SINGLE */
     --singlePageGG:2rem;
     --singlePagePadding:1.2rem 4rem;
+    --auctionDataGTC:1fr 1fr 1fr 1fr;
 
     /* CONSIGNMENT */
     --consignmentStepsFlexWrap: no-wrap;
@@ -720,7 +734,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* --footerPadding: 3rem; */
     --newsLetterMarginLeft: 3rem;
     --footerDisplay: grid;
-    --characterContainerPadding: 1rem 2rem;
+    --characterContainerPadding: 1rem 0;
   }
 }
 
@@ -898,7 +912,7 @@ main li {margin: .3rem 0;}
 .galleryMore {
   position:absolute;
   left:50%;
-  transform: translate(-50%,100%);
+  transform: translate(-50%,120%);
   background:#252525;
   color:#fff;
   padding:.3rem 1rem;
@@ -1345,12 +1359,12 @@ background: #ddd;
 
 
 .hotAuctionsTitle{
-  width: 100%;
   /* font-size: var(--hotAuctionsTitleFontSize); */
-  font-size:1rem;
-  margin: auto;
-  font-weight: 400;
-  margin:.5rem 0;
+  font-size: 1rem;
+  font-weight:400;
+  margin: .5rem 0;
+  text-transform:uppercase;
+  width: 100%;
 }
 
 
@@ -1811,7 +1825,7 @@ background: #ddd;
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
-                          6.5) =Forms:
+                          6.6) =Forms:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
@@ -2004,6 +2018,70 @@ background: #ddd;
 }
 
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.6.1) =logForm:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.logForm{
+  background:white;
+  border-bottom:1px solid #ddd;
+  display:grid;
+  grid-template-rows:40px;
+  /* grid-template-columns:1fr 1fr min-content; */
+  grid-gap:.5rem;
+  padding:1rem var(--lateral);
+  /* padding-top:.5rem; */
+  position: fixed;
+  right:0;
+  /* top: 0; */
+  top:112px;
+  transition:.4s;
+  transform:translateY(-100%);
+  width:100%;
+  z-index:5;
+}
+.logForm.alt{transform:translateY(0)}
+
+.logFormTitle{
+  align-items:center;
+  background:white;
+  display:grid;
+  grid-template-columns:min-content 1fr;
+  grid-gap:1rem;
+  position:relative;
+  z-index:10;
+  /* grid-column:1/4; */
+}
+.logFormTitleRegister{
+  align-items:baseline;
+  background:none;
+  border:none;
+  color:var(--color1);
+  cursor:pointer;
+  margin:auto;
+  margin-left:0;
+  text-align:left;
+}
+.logFormTitleRegister:hover{color:black}
+
+.logFormFields{
+  display:grid;
+  grid-column-gap:1rem;
+  grid-row-gap:.5rem;
+  grid-template-columns:1fr 1fr min-content;
+  margin-top:calc(-.5rem - 40px);
+  width:100%;
+  z-index:5;
+  transition:.3s;
+}
+.logFormFields.alt{margin-top:0}
+.logFormFields .filterSearch{
+  grid-column:3;
+  grid-row:1/3;
+  margin:auto;
+  margin-bottom:0;
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.n) =theGarageSection:
@@ -2241,6 +2319,29 @@ background: #ddd;
   color: white;
   background: black;
 }
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.5.4) =logButton:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.logButton{
+  background:none;
+  border:none;
+  color:#333;
+  cursor:pointer;
+  margin: auto 0;
+  margin-right: .5rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+  transition: .25s;
+}
+.logButton:last-child{margin-right:0}
+/* .logButton.alt{color:var(--color1)} */
+.logButton:hover,.logButton:focus{color:var(--color1);outline:none}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.6) =FORMS:
@@ -2339,6 +2440,9 @@ background: #ddd;
   /* border: 2px solid #000; */
   border-bottom:2px solid var(--color1);
   /* background:#000; */
+}
+.filterSearch:focus {
+  outline:1px solid var(--color1);
 }
 
 .filterSearch {
@@ -2563,19 +2667,22 @@ background: #ddd;
   height:var(--mateputHeight);
   overflow: hidden;
   width: var(--filterBarSearchWidth);
+}
+.filterBar .mateput{
   grid-column: 2;
   grid-row: 1;
 }
 
 .mateput input{
-  width: 100%;
-  height: 100%;
-  color:#000;
+  background:none;
   border:none;
+  color:#000;
+  font-size:.8rem;
+  height: 100%;
   /* padding-top:20px; */
   padding-top:calc(var(--mateputHeight) * 2 / 5);
   outline: none;
-  font-size:.8rem;
+  width: 100%;
 }
 
 .mateputLabel{
@@ -2704,14 +2811,164 @@ background: #ddd;
   grid-auto-rows: min-content;
   grid-gap:var(--singlePageGG);
   padding: var(--singlePagePadding);
+  padding:1rem var(--lateral);
 }
 
+
+/* SINGLE MAIN */
 .singleMain {
   /* grid-row: 1; */
 }
 
-/* SINGLE ASIDE */
 
+
+
+
+
+
+
+
+.auctionData{
+  display: grid;
+  grid-gap:.5rem;
+  margin:.6rem 0;
+  padding:.6rem 0;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+
+  /* VERSION MAIN */
+  grid-template-columns:var(--auctionDataGTC);
+
+  /* VERSION SIDEBAR */
+  /* grid-template-columns:1fr 1fr; */
+}
+
+.auctionData .wsawl-link{
+  /* VERSION SIDEBAR */
+  font-size: .8rem;
+}
+
+.auctionTitle{
+  grid-column:1/-1;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+/* AUCTION TIME */
+.auctionDetails{
+  display:flex;
+  flex-direction:column;
+
+  /* VERSION MAIN */
+  align-items:center;
+  margin:auto;
+  width:max-content;
+
+  /* VERSION SIDEBAR */
+}
+.auctionDetailsTitle{font-size:.7rem}
+.auctionDetailsValue{
+  font-size:.6rem;
+  width: max-content;
+  /* font-size: 1rem; */
+  font-size:.8rem;
+  /* margin-right: 0; */
+  text-align: left;
+  color:var(--color1);
+
+  /* VERSION MAIN */
+  margin: auto;
+}
+.singlePage .wc_auctions_countdown-row.wc_auctions_countdown-amount{font-size:inherit!important}
+/* .is-wc_auctions_countdown:after{font-size:inherit!important} */
+
+/* AUCTION FORM */
+.auction_form{
+  display: grid;
+  grid-gap:.3rem;
+  /* grid-column:span 2; */
+  grid-column:1/-1;
+
+  /* VERSION MAIN */
+  width:min-content;
+  margin:auto;
+}
+.auction_form .quantity{
+  display:grid;
+  grid-gap:inherit;
+  grid-template-columns:min-content 1fr min-content;
+
+  /* VERSION MAIN */
+  margin:auto;
+  width:min-content;
+}
+.auction_form .quantity input:not(.qty){
+  cursor:pointer;
+  background:white;
+  border:2px solid #333;
+  color:#333;
+  font-weight:400;
+  font-size:1rem;
+  transition:.3s;
+
+  /* VERSION MAIN */
+  padding:.2rem .8rem;
+
+  /* VERSION SIDEBAR */
+  /* padding:0 .5rem; */
+  /* height:40px; */
+}
+.auction_form .quantity input:not(.qty):hover{color:white;background:#333}
+.auction_form .quantity input.qty{
+  background:white;
+  border:2px solid #333;
+  color:#333;
+  font-weight:400;
+
+  /* VERSION MAIN */
+  padding:.2rem 1rem;
+  font-size:1rem;
+
+  /* VERSION SIDEBAR */
+  /* padding:0 .5rem; */
+  /* font-size:.8rem; */
+}
+
+
+.auction_form button.button.alt.bid_button{
+  background:none;
+  border-radius:0;
+  border:2px solid var(--color1);
+  color:var(--color1);
+  text-transform:uppercase;
+  font-size:.7rem;
+  transition:.3s;
+  font-family: 'Lato', sans-serif;
+  /* margin:.5rem auto; */
+  width:100%;
+
+  /* VERSION MAIN */
+  padding:.6rem 2rem;
+
+  /* VERSION SIDEBAR */
+  /* padding:0; */
+  /* height:40px; */
+}
+.auction_form button.button.alt.bid_button:hover{background:var(--color1);color:white}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SINGLE ASIDE */
 .singleSide{
   display: grid;
   grid-gap:.3rem;
@@ -2796,6 +3053,8 @@ background: #ddd;
   display: flex;
   /* margin: .5rem 0; */
   margin:var(--singleSideSocialContMargin);
+  /* margin:.5rem auto; */
+  width: min-content;
 }
 
 .singleSocialLink{margin-right:1rem}
@@ -2869,7 +3128,10 @@ background: #ddd;
 }
 .singleSideSintBoxCaption .singleSideSocialCont{
   justify-content: space-around;
-  padding:0 20%;
+  /* padding:0 20%; */
+  margin:.5rem auto;
+  width: min-content;
+
 }
 /* .singleSideSintBoxCaption .singleSocialLink{margin:0} */
 .singleSideSintBoxCaption .singleSocialSvg{
@@ -3244,3 +3506,178 @@ main.contact>p:first-child{display:none}
 
 .legalFooterA{padding:.5rem 1rem}
 #cookie-law-info-again{display:none!important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.12) =accountSection
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.accountSection ul.products{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  margin:0;
+  margin-bottom:1rem;
+}
+.accountSection .active-auctions:nth-child(2){margin-bottom:2rem}
+.accountSection ul.products::after,
+.accountSection ul.products::before{
+  /* display:none */
+  content:'';
+  order:3;
+  width:calc(var(--hotCardWidth) * 1vw);
+  max-width:calc(var(--hotCardWidth) * 1vw);
+
+}
+.accountSection ul.products li.product{
+  border:1px solid #ddd;
+  display:flex;
+  /* flex:4 1 calc(25% - 1rem); */
+  flex-direction:column;
+  grid-template-rows:min-content;
+  width:    calc(var(--hotCardWidth) * 1vw);
+  max-width:calc(var(--hotCardWidth) * 1vw);
+  margin:0;
+  margin-bottom:1rem;
+  padding-bottom:.5rem;
+  position:relative;
+}
+.accountSection ul.products li.product a.woocommerce-loop-product__link>:not(img){margin:0 .5rem}
+.accountSection ul.products li.product h2.woocommerce-loop-product__title{
+  font-size:1rem;
+  padding:0;
+  margin:.5rem!important;
+}
+/* .accountSection ul.products li.product:last-child{margin-right:0} */
+.accountSection ul.products li.product a{
+  width:100%;
+  margin:0;
+}
+.accountSection ul.products li.product a:last-child{
+  margin:0 .5rem;
+  color:var(--color1);
+}
+.accountSection ul.products li.product a img{
+  /* height:auto; */
+  /* max-height: calc(var(--hotCardWidth) / 1.48 * 1vw); */
+  height: calc(var(--hotCardWidth) / 1.48 * 1vw);
+  margin:0;
+  width:100%;
+}
+/* .accountSection ul.products li.product a.woocommerce-loop-product__link>:not(img):last-child{margin-bottom:.5rem} */
+
+.accountSection span.winning{
+  font-size:1rem;
+  /* background:var(--color1); */
+  background:var(--color1);
+  color:#fff;
+  font-weight: 400;
+  /* top: -.3rem; */
+  /* left:-.3rem; */
+  top: 0;
+  left:0;
+  margin:0!important;
+  border-radius:0;
+  border:none;
+  padding:.4rem .8rem;
+}
+
+
+.accountSection ul.products li.product .price{
+  color:#333;
+  font-size:.8rem;
+}
+.accountSection ul.products li.product .price .amount{color:var(--color1)}
+
+.accountSection ul.products li.product .button.product_type_auction{display:none}
+.wsawl-link{
+  color:#333;
+  margin:auto;
+  transition:.3s;
+  /* display:none; */
+  /* grid-column:1/-1; */
+  margin-right:0;
+
+
+  font-size: 1rem;
+}
+/* .wsawl-link:hover{color:var(--color1)} */
+.wsawl-link a:hover{color:var(--color1)}
+.wsawl-link a{transition:.4s;color:inherit}
+.active-auctions>h2{
+  font-size: 1rem;
+    font-weight: 400;
+    margin: .5rem 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+h3.newPassFormTitle{
+  font-size:1.3rem;
+  font-weight:500;
+}
+.newPassFormTitle{
+  font-size:1rem;
+  transition: .3s;
+  font-weight:300;
+}
+.newPassForm .newPassFormTitle{cursor:pointer;}
+.newPassForm .newPassFormTitle:hover{color:var(--color1)}
+.accountSection .filterBarBotttom{
+  grid-template-columns:repeat(4,1fr);
+}
+.newPassForm .newPassFormError{
+  font-size:.8rem;
+  color:red;
+}
+.newPassForm .newPassFormSuccess{
+  color:green;
+}
