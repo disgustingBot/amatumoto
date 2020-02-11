@@ -272,8 +272,12 @@ FIN DE MAPA DE CONTENIDOS */
   --mainContactFormOrder: 1;
   --contactFormAndInformationDisplay: block;
   --contactPageTextArea: .5rem auto;
+  --contactPageTextWidth: 90%;
   --contactPageFormJustifyContent: center;
   --contactLogoMargin: 1rem 3rem;
+  --contactFormAndInformationMargin: 0;
+  --contactInformationTextFontSize: .8rem;
+  --contactTitleSection1FontSize: 1rem;
 
   /* PARTS AND RACING PRODUCTS */
   --shopArchiveMargin: 1rem;
@@ -539,10 +543,14 @@ FIN DE MAPA DE CONTENIDOS */
     --contactInfoContainerOrder: 2;
     --moreInfoContainerOrder: 3;
     --mainContactFormOrder: 4;
-    --contactFormAndInformationDisplay: flex;
+    --contactFormAndInformationDisplay: grid;
     --contactPageTextArea: .5rem auto;
+    --contactPageTextWidth: 100%;
     --contactPageFormJustifyContent: space-between;
     --contactLogoMargin: 1rem 2rem;
+    --contactFormAndInformationMargin: 0 3rem;
+    --contactInformationTextFontSize: .6rem;
+    --contactTitleSection1FontSize: .7rem;
 
     /* ARCHIVE */
 
@@ -3060,6 +3068,32 @@ background: #ddd;
 
 
 /* CONTACT */
+
+.contactMenu ul{
+  display: var(--navBarDesktopDisplay);
+  grid-auto-flow:column;
+  justify-content: flex-start;
+  grid-gap:1rem;
+  list-style: none;
+  padding: 0 var(--lateral);
+}
+
+.contactMenu ul li{
+  text-transform: uppercase;
+  font-size: .7rem;
+  margin: .9rem 0;
+}
+
+.contactMenu ul li a{
+  font-weight: bold;
+  padding: .8rem 1rem;
+}
+.contactMenu ul li.current-menu-item a{
+  background: #E6E6E6;
+  border-bottom: solid 2px #E7A61A;
+}
+
+
 main.contact>p:first-child{display:none;}
 
 main.contact{
@@ -3080,17 +3114,18 @@ main.contact{
   width: 100%;
 }
 
-
-.contactTitleSection1{
-  font-size: .7rem;
-  font-weight: bold;
-}
-
 .contactInformationText{
-  font-size: .7rem;
+  font-size: var(--contactInformationTextFontSize);
   font-family: 'Lato', sans-serif;
   text-transform: uppercase;
 }
+
+.contactTitleSection1.contactInformationText{
+  font-size: var(--contactTitleSection1FontSize);
+  font-weight: bold;
+}
+
+
 
 a.contactInformationText:hover{
   color: #F78D15;
@@ -3099,17 +3134,22 @@ a.contactInformationText:hover{
 
 .contactFormAndInformation{
   display: var(--contactFormAndInformationDisplay);
-
+  grid-template-columns: 1.5fr 1fr;
+  margin: var(--contactFormAndInformationMargin);
 }
 
 .contactSocialMedia{display: flex; margin: 1rem auto; }
 
 .socialMediaContact{display: flex;}
 
+.socialMediaContact svg{
+  height: 30px;
+  width: 30px;
+}
 
 .contactFormColumn .singleFormTxtArea {
   height: 7rem;
-  width: 90%;
+  width: var(--contactPageTextWidth);
   margin: var(--contactPageTextArea);
   border: solid 1px #ddd;
 }

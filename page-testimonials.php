@@ -7,6 +7,10 @@
   </figcaption>
 </figure>
 
+<div class="contactMenu">
+  <?php wp_nav_menu( array( 'theme_location' => 'contactMenu', 'contactMenu' => 'new_menu_class' ) ); ?>
+</div>
+
 <main class="testimonialsMain">
 
   <?php while(have_posts()){the_post();?>
