@@ -165,14 +165,45 @@
 
         <?php include 'socialSharing.php'; ?>
 
+
+        <?php if (is_user_logged_in()) { ?>
+          <a class="logButton" href="<?php echo site_url('account'); ?>"><?php echo $current_user->display_name; ?></a>
+          <a class="logButton" href="<?php echo wp_logout_url(home_url( $wp->request )); ?>">Logout</a>
+        <?php } ?>
+
       </div>
     </nav>
 
-    <div class="mobileNavButton" onclick="alternateMobileMenu()">
+
+
+
+
+
+
+
+
+
+
+
+  <?php if ( !is_user_logged_in() ) { ?>
+    <svg class="mobileNavButton alt" onclick="altClassFromSelector('alt','#logForm')" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path fill="currentColor" d="M184 83.5l164.5 164c4.7 4.7 4.7 12.3 0 17L184 428.5c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17l132-131.4H12c-6.6 0-12-5.4-12-12v-10c0-6.6 5.4-12 12-12h279.9L160 107.6c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.6-4.7 12.2-4.7 16.9 0zM512 400V112c0-26.5-21.5-48-48-48H332c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h132c8.8 0 16 7.2 16 16v288c0 8.8-7.2 16-16 16H332c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12h132c26.5 0 48-21.5 48-48z"></path>
+    </svg>
+  <?php } ?>
+
+
+
+
+    <svg class="mobileNavButton" onclick="altClassFromSelector('menuActive','#mobileNav')" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path fill="currentColor" d="M442 114H6a6 6 0 0 1-6-6V84a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6zm0 160H6a6 6 0 0 1-6-6v-24a6 6 0 0 1 6-6h436a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6z"></path>
+    </svg>
+
+
+    <!-- <div class="mobileNavButton" onclick="alternateMobileMenu()">
       <div class="navStripe"></div>
       <div class="navStripe"></div>
       <div class="navStripe"></div>
-    </div>
+    </div> -->
   </header>
 
 
