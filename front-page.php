@@ -75,7 +75,7 @@
             } ?>
           </a></p>
         <?php } ?>
-        <h1 class="hotCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h1>
+        <h4 class="hotCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
 
         <?php if(method_exists($product,'get_seconds_remaining')){ ?>
           <p class="hotCardBids">

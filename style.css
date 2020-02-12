@@ -53,6 +53,7 @@ Version: 1.0
 6.11) =pageMain:
 
 6.12) =accountSection
+6.13) =pagination
 
 
 6.99) =footer
@@ -114,12 +115,12 @@ FIN DE MAPA DE CONTENIDOS */
   --headerDisplay: flex;
   --mobileNavButtonDisplay: flex;
   --logoPaddingRight: 5rem;
-  --mobileNavBtnWidth: 45px;
-  --mobileNavBtnHeight: 30px;
-  --mobileNavBtnTop: 1.5rem;
+  /* --mobileNavBtnWidth: 45px; */
+  /* --mobileNavBtnHeight: 30px; */
+  /* --mobileNavBtnTop: 1.5rem; */
   --mobileNavBtnRight: 1rem;
   --navStripeHeight: 5px;
-  --logoImgWidth: 80%;
+  --logoImgWidth: 70%;
   --upperNavMarginLeft: 1rem;
   --navBarFontSize: .6rem;
   --navBarPadding: 0;
@@ -168,7 +169,7 @@ FIN DE MAPA DE CONTENIDOS */
   /* --consignSectionMargin: 1rem 0; */
   --consignSectionGalleryWidth: 80%;
   --hotCardWidth: 90;
-  --hotCardMargin: .5rem;
+  --hotCardMargin: .5rem 0;
   --hotAuctionsMargin: 0;
   --viewInventoryMarginTop: 1rem;
   --viewInventoryBtnBorder: 2px solid #000;
@@ -179,7 +180,7 @@ FIN DE MAPA DE CONTENIDOS */
   --singlePagePadding:1.8rem 1.3rem;
   --singlePageGG:.8rem;
   --singleSidePadding:;
-  --singleSideTitleFontSize:1.8rem;
+  --singleSideTitleFontSize:2rem;
   --singleFeatureIconMargin: 1rem;
   --singleSideTextAlign:center;
   --singleSideMaxWidth:;
@@ -187,12 +188,12 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSide2Position:static;
   --singleSideContactBorder:2px solid black;
   --singleSideContactFontSize:1rem;
-  --singleSidePriceFontSize:.9rem;
-  --singleSideStockFontSize:.8rem;
+  --singleSidePriceFontSize:1rem;
+  --singleSideStockFontSize:1.1rem;
   --singleSideStock2FontSize:.6rem;
-  --singleSideAnoMarcaFontSize:1.1rem;
-  --singleSideDataFontSize:.7rem;
-  --singleFeatureDescFontSize:.5rem;
+  --singleSideAnoMarcaFontSize:1.5rem;
+  --singleSideDataFontSize:1rem;
+  --singleFeatureDescFontSize:.8rem;
   --singleStock2IDFontSize: 1.2rem;
   --singleStock2IDPadding: .6rem;
   --singleSideVideoDisplay:none;
@@ -200,13 +201,21 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSideSocialContMargin:.5rem auto;
   --sS_newArrivalMargin:0 auto;
 
+  --hotCardAnoMarcaFontSize:1rem;
+  --hotCardTitleFontSize:1.2rem;
+  --hotCardBidsFontSize:.9rem;
+  --hotCardBidPriceFontSize:1.2rem;
+
+  --galleryStockGTC:repeat(5,1fr);
   --galleryMoreFontSize: 1rem;
   --newArrivalFontSize:.8rem;
   --legalFooterJustification: flex-start;
   --singleSocialSvgHeight: 2rem;
+  --singleFeatureWidth:50%;
 
-  --auctionDataGTC:1fr 1fr;
-
+  --auctionDataGTC:1fr;
+  --auctionDetailsTitleFontSize:1rem;
+  --auctionDetailsValueFontSize:1.2rem;
 
   /* ABOUT US */
 
@@ -358,7 +367,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* HEADER */
-    --logoImgWidth: 60%;
+    --logoImgWidth: 50%;
 
 
    /* FRONT PAGE */
@@ -368,7 +377,7 @@ FIN DE MAPA DE CONTENIDOS */
     --searchLinesDisplay: block;
     --searchSeparatorDisplay: grid;
     --hotCardWidth: 40;
-    --hotCardMargin: 1rem;
+    /* --hotCardMargin: 1rem; */
 
 
     /* FOOTER */
@@ -391,7 +400,13 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* SINGLE */
     --singleSideContactFontSize:.7rem;
+
     --auctionDataGTC:1fr 1fr 1fr 1fr;
+    --auctionDetailsTitleFontSize:.7rem;
+    --auctionDetailsValueFontSize:.9rem;
+    --singleFeatureWidth:unset;
+
+
 
 
     /* PARTS AND RACING PRODUCTS */
@@ -433,9 +448,9 @@ FIN DE MAPA DE CONTENIDOS */
     --headerDisplay: grid;
     --mobileNavButtonDisplay: none;
 
-    --mobileNavBtnWidth: 80px;
-    --mobileNavBtnHeight: 60px;
-    --mobileNavBtnTop: 2rem;
+    /* --mobileNavBtnWidth: 80px; */
+    /* --mobileNavBtnHeight: 60px; */
+    /* --mobileNavBtnTop: 2rem; */
     --mobileNavBtnRight: 2rem;
     --navStripeHeight: 10px;
     --dosMotosCaptionPadding: 1rem;
@@ -479,7 +494,7 @@ FIN DE MAPA DE CONTENIDOS */
     /* --consignSectionMargin: 2rem 0; */
     --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
-    --hotCardMargin: 0;
+    /* --hotCardMargin: 0; */
     --hotAuctionsMargin: 1rem;
     --hotCardWidth: 30;
 
@@ -528,6 +543,11 @@ FIN DE MAPA DE CONTENIDOS */
     --notFoundPadding: 6rem;
 
     /* ?SINGLE */
+    --galleryStockGTC:repeat(8,1fr);
+    --hotCardAnoMarcaFontSize:.7rem;
+    --hotCardTitleFontSize:1rem;
+    --hotCardBidsFontSize:.6rem;
+    --hotCardBidPriceFontSize:.9rem;
 
     --singlePageGridTemplateC: 1fr 2.5fr;
     --galleryMoreFontSize:.6rem;
@@ -541,6 +561,8 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideContactContainerMargin:0;
     --singleSideSocialContMargin:.5rem 0;
     --sS_newArrivalMargin:0;
+    --singleFeatureDescFontSize:.5rem;
+
     /* --auctionDataGTC:1fr 1fr; */
 
 
@@ -909,7 +931,8 @@ main li {margin: .3rem 0;}
 }
 .galleryStock{
   display: grid;
-  grid-template-columns:repeat(8, 1fr);
+  /* grid-template-columns:repeat(8, 1fr); */
+  grid-template-columns:var(--galleryStockGTC);
   grid-gap:.2rem;
   grid-row-gap:.3rem;
   overflow: hidden;
@@ -979,7 +1002,7 @@ main li {margin: .3rem 0;}
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 20;
+  z-index: 25;
 }
 
 .logo {
@@ -1042,7 +1065,7 @@ main li {margin: .3rem 0;}
   height: min-content;
   margin-right: .5rem;
 }
-
+.mobileNav .socialedia{justify-content:center;}
 
 .socialMediaLink {
   display: flex;
@@ -1181,22 +1204,33 @@ main li {margin: .3rem 0;}
 .mobileNavButton {
   display: var(--mobileNavButtonDisplay);
   flex-direction: column;
-  flex-wrap: nowrap;
-  width: var(--mobileNavBtnWidth);
-  height: var(--mobileNavBtnHeight);
+  /* flex-wrap: nowrap; */
+  /* width: var(--mobileNavBtnWidth); */
+  /* height: var(--mobileNavBtnHeight); */
+  /* top: var(--mobileNavBtnTop); */
+  /* right: var(--mobileNavBtnRight); */
+  height:2rem;
+  width: 2rem;
   position: fixed;
-  top: var(--mobileNavBtnTop);
-  right: var(--mobileNavBtnRight);
+  top:  40px;
+  right:40px;
+  transform:translate(50%,-50%);
   z-index: 12;
   justify-content: space-around;
   cursor: pointer;
 }
+.mobileNavButton.alt {
+  right:calc(80px + 1rem);
+  /* transform:translate(50%,-50%); */
+}
 
 .navStripe {
-  width: 90%;
-  height: var(--navStripeHeight);
   background: black;
+  border-radius:2px;
+  /* height: var(--navStripeHeight); */
+  height:4px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .mobileNav.menuActive {left: 0;}
@@ -1220,11 +1254,15 @@ main li {margin: .3rem 0;}
 
 
 .upperNavMobile {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: .5rem 0;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
   /* height: 100%; */
+  padding: .5rem 0;
+  display:grid;
+  grid-auto-flow:column;
+  grid-template-rows:1fr 1fr 1fr;
+  grid-gap:.5rem;
 }
 
 .navBarMobile {
@@ -1244,7 +1282,8 @@ main li {margin: .3rem 0;}
 .upperNavInfoMobile {
   width: 100%;
   display: flex;
-  margin-bottom:1rem;
+  /* margin-bottom:1rem; */
+  /* margin:; */
 }
 .upperNavInfoMobile:hover{background: rgba(0,0,0,.1);}
 
@@ -1439,12 +1478,12 @@ background: #ddd;
 .productCardCaption>* {margin-bottom: .4rem;}
 .productCardAnoMarca{
   font-weight: 300;
-  font-size:.7rem;
+  font-size:var(--hotCardAnoMarcaFontSize);
   margin-bottom:.1rem;
 }
 .productCardTitle{
   font-weight: 400;
-  font-size: 1rem;
+  font-size:var(--hotCardTitleFontSize);
 }
 .productCardTxt{font-size: .8rem; font-weight: 400;}
 .productCardPrice{
@@ -1485,13 +1524,15 @@ background: #ddd;
 
 .hotCardAnoMarca{
   font-weight: 300;
-  font-size:.7rem;
+  /* font-size:.7rem; */
+  font-size:var(--hotCardAnoMarcaFontSize);
   margin-bottom:.1rem;
 }
 
 .hotCardTitle{
   border-bottom: 1px solid #ddd;
-  font-size: 1rem;
+  /* font-size: 1rem; */
+  font-size:var(--hotCardTitleFontSize);
   margin-bottom: .5rem;
   margin-top:0;
   text-align: left;
@@ -1502,13 +1543,14 @@ background: #ddd;
 
 .hotCardBids {
   width: max-content;
-  font-size: .6rem;
+  /* font-size: .6rem; */
+  font-size:var(--hotCardBidsFontSize);
   margin: auto;
   margin-left: 0;
   text-align: left;
   color: #333;
 }
-.hotCardBidPrice {color: red; font-size: .8rem; }
+.hotCardBidPrice {color:var(--color1);font-size:var(--hotCardBidPriceFontSize)}
 
 .hotCardEnd {
   width: max-content;
@@ -2064,11 +2106,13 @@ background: #ddd;
   position: fixed;
   right:0;
   /* top: 0; */
-  top:112px;
+  /* top:112px; */
+  top:var(--headerHeight);
+
   transition:.4s;
   transform:translateY(-100%);
   width:100%;
-  z-index:5;
+  z-index:20;
 }
 .logForm.alt{transform:translateY(0)}
 
@@ -2110,7 +2154,9 @@ background: #ddd;
   grid-row:1/3;
   margin:auto;
   margin-bottom:0;
+  width:100%;
 }
+.logFormFields .mateput{width:100%}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.n) =theGarageSection:
@@ -2369,6 +2415,7 @@ background: #ddd;
   transition: .25s;
 }
 .logButton:last-child{margin-right:0}
+.mobileNav .logButton{margin:auto;}
 /* .logButton.alt{color:var(--color1)} */
 .logButton:hover,.logButton:focus{color:var(--color1);outline:none}
 /* ---------------------------------------------------------------------------
@@ -2895,12 +2942,12 @@ background: #ddd;
 
   /* VERSION SIDEBAR */
 }
-.auctionDetailsTitle{font-size:.7rem}
+.auctionDetailsTitle{font-size:var(--auctionDetailsTitleFontSize)}
 .auctionDetailsValue{
   font-size:.6rem;
   width: max-content;
   /* font-size: 1rem; */
-  font-size:.8rem;
+  font-size:var(--auctionDetailsValueFontSize);
   /* margin-right: 0; */
   text-align: left;
   color:var(--color1);
@@ -3176,7 +3223,11 @@ background: #ddd;
   padding: 1rem 0;
   flex-wrap: wrap;
 }
-.singleFeature {display: flex;flex-direction: column; align-items: center;
+.singleFeature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:var(--singleFeatureWidth);
 }
 .singleFeatureDesc {
   text-transform: uppercase;
@@ -3577,7 +3628,7 @@ a.contactInformationText:hover{
 }
 
 .character {
-  border: 1px solid #666;
+  border: 1px solid #ddd;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -3620,6 +3671,10 @@ a.contactInformationText:hover{
   justify-content: center;
 }
 .lowerFooter .socialMedia{margin:auto}
+.upperNavMobile .socialMedia{
+  width:max-content;
+  margin:auto;
+}
 
 .contactContainer {
   display: var(--contactContainerDisplay);
@@ -3750,6 +3805,7 @@ a.contactInformationText:hover{
   margin:0 .5rem;
   color:var(--color1);
 }
+.accountSection ul.products li.product a:nth-child(3){display:none}
 .accountSection ul.products li.product a img{
   /* height:auto; */
   /* max-height: calc(var(--hotCardWidth) / 1.48 * 1vw); */
@@ -3825,4 +3881,48 @@ h3.newPassFormTitle{
 }
 .newPassForm .newPassFormSuccess{
   color:green;
+}
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.13) =pagination
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.paginationCont{
+  display:grid;
+  grid-gap:.5rem;
+}
+.paginationTitle{
+  text-align: center;
+  font-size:1.2rem;
+  font-weight:300;
+}
+.pagination{
+  display:grid;
+  grid-auto-flow:column;
+  grid-gap:.5rem;
+  width:min-content;
+  margin:auto;
+}
+.paginationLink{
+  padding:0 .8rem;
+  border:1px solid #ddd;
+  height:40px;
+  display:grid;
+  /* font-weight:300; */
+  align-items:center;
+  text-transform:uppercase;
+  /* font-size:.8rem; */
+  transition:.3s;
+}
+.paginationLink.current{color:var(--color1)}
+a.paginationLink:hover{
+  /* background:#ddd; */
+  color:var(--color1);
 }

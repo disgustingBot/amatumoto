@@ -112,14 +112,31 @@ add_filter('wpcf7_form_elements', function($content) {
 function latte_pagination($max){
   // This part gets the current pagination
   if(get_query_var('paged')){$paged=get_query_var('paged');}elseif(get_query_var('page')){$paged=get_query_var('page');}else{$paged=1;}
-
-  $result.= 'Page '.$paged.' of '.$max;
+  // $result.='<div class="paginationCont"><h5 class="paginationTitle">';
+  // $result.=  'Page '.$paged.' of '.$max;
+  // $result.='</h5>';
+  $result.='<div class="pagination">';
   $next=$paged + 1;
   $prev=$paged - 1;
 
-  if($prev>=1   ){$result.='<a href="'.site_url('inventory/').$prev.'">Prev</a>';}
-  if($next<=$max){$result.='<a href="'.site_url('inventory/').$next.'">Next</a>';}
+  if($prev>=1){$result.='<a class="paginationLink" href="'.site_url('inventory/').$prev.'">Prev</a>';}
+  else{$result.='<p class="paginationLink">Prev</p>';}
 
+  for ( $i=1; $i <= $max; $i++ ) {
+    if ( $i - $paged <= 2 ) {
+      if ( $i != $paged ) {
+        $result.='<a class="paginationLink" href="'.site_url('inventory/').$i.'">'.$i.'</a>';
+      } else {
+        $result.='<p class="paginationLink current">'.$i.'</p>';
+      }
+    }
+  }
+
+  if($next<=$max){$result.='<a class="paginationLink" href="'.site_url('inventory/').$next.'">Next</a>';}
+  else{$result.='<p class="paginationLink">Next</p>';}
+
+  $result.='</div>';
+  // $result.='</div>';
   return $result;
 }
 
