@@ -286,6 +286,9 @@ FIN DE MAPA DE CONTENIDOS */
   --contactFormAndInformationMargin: 0;
   --contactInformationTextFontSize: .8rem;
   --contactTitleSection1FontSize: 1rem;
+  --contactMenuDisplay: flex;
+  --contactMenuUlLiWidth: 50%;
+  --contactMenuJustifyContent: center;
 
   /* PARTS AND RACING PRODUCTS */
   --shopArchiveMargin: 1rem;
@@ -403,6 +406,8 @@ FIN DE MAPA DE CONTENIDOS */
     /* CONTACT */
 
     --contactLogoMargin: 1rem 3.2rem;
+    --contactMenuDisplay: grid;
+    --contactMenuUlLiWidth: ;
 
   }
 }
@@ -677,6 +682,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     /* CONTACT */
     --contactLogoMargin: 1rem 2.7rem;
+    --contactMenuJustifyContent: flex-start;
   }
   .consignmentSection .wp-block-column:nth-child(2n) {
       margin-left: 32px!important;
@@ -685,9 +691,6 @@ FIN DE MAPA DE CONTENIDOS */
       margin-left: 32px!important;
   }
 }
-
-
-
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1965,8 +1968,8 @@ background: #ddd;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  /* margin:.5rem auto; */
-  margin:.5rem 0;
+  margin:.5rem auto;
+  /* margin:.5rem 0; */
 }
 
 
@@ -3333,9 +3336,10 @@ background: #ddd;
 /* CONTACT */
 
 .contactMenu ul{
-  display: var(--navBarDesktopDisplay);
+  display: var(--contactMenuDisplay);
+  flex-wrap: wrap;
   grid-auto-flow:column;
-  justify-content: flex-start;
+  justify-content: var(--contactMenuJustifyContent);
   grid-gap:1rem;
   list-style: none;
   padding: 0 var(--lateral);
@@ -3344,18 +3348,19 @@ background: #ddd;
 .contactMenu ul li{
   text-transform: uppercase;
   font-size: .7rem;
-  margin: .9rem 0;
+  margin: .8rem 0 .9rem 0;
+  width: var(--contactMenuUlLiWidth);
+  text-align: center;
 }
 
 .contactMenu ul li a{
   font-weight: bold;
-  padding: .8rem 1rem;
+  padding: .8rem 1rem .8rem 1rem;
 }
 .contactMenu ul li.current-menu-item a{
   background: #E6E6E6;
   border-bottom: solid 2px #E7A61A;
 }
-
 
 main.contact>p:first-child{display:none;}
 
@@ -3388,8 +3393,6 @@ main.contact{
   font-weight: bold;
 }
 
-
-
 a.contactInformationText:hover{
   color: #F78D15;
   cursor: pointer;
@@ -3421,68 +3424,8 @@ a.contactInformationText:hover{
   justify-content: var(--contactPageFormJustifyContent);
 }
 
-.contactNavBar{
-  display: flex;
-  list-style: none;
-  font-size: .65rem;
-  text-transform: uppercase;
-  justify-content: space-around;
-  margin: 0;
-
-}
-
-.contactNavBar li{
-  margin: 1rem auto;
-}
-.contactNavBar li a{
-  position: relative;
-  transition: .25s;
-  font-weight: 700;
-}
-
-
-.contactNavBar li a:hover{
-  color: #F78D15;
-  cursor: pointer;
-}
-
 .contactLogo{
   margin: var(--contactLogoMargin);
-}
-
-
-
-
-/*Esto es de antes*/
-
-.contactInfoContainer {
-  padding: 2rem 5rem;
-  border-bottom: 1px solid #ddd;
-  order: var(--contactInfoContainerOrder);
-  margin: 1rem auto;
-}
-
-.moreInfoContainer {order: var(--moreInfoContainerOrder);margin: 1rem auto;}
-
-.contactInfoCol {
-  margin-bottom: 1.5rem;
-}
-
-.contactInfoItem {
-  display: flex;
-  flex-direction: column;
-}
-
-.contactMoreInfoCol {
-  margin-bottom: 1.5rem;
-}
-
-
-.contactInfoItem img {
-  height: 3rem;
-  width: unset!important;
-  object-fit: contain;
-  margin-bottom: 1rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -3651,54 +3594,6 @@ a.contactInformationText:hover{
 
 .legalFooterA{padding:.5rem 1rem}
 #cookie-law-info-again{display:none!important;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
