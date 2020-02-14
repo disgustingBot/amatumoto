@@ -73,6 +73,9 @@
 
     </div>
   </footer>
+  <footer class="signature">
+    <p>&#60;&#47;&#62; by <a href="https://lattedev.com/" target="_blank" class="latteLink">Latte</a></p>
+</footer>
   <?php wp_footer(); ?>
 </body>
 </html>
