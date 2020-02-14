@@ -568,7 +568,7 @@
       </figure>
     </div>
 
-    <div class="singleDescription"><?php echo $product->description; ?></div>
+    <div class="singleDescription"><?php echo $product->get_description(); ?></div>
 
 
   </article>
