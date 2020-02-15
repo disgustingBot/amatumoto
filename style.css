@@ -178,7 +178,7 @@ FIN DE MAPA DE CONTENIDOS */
   --singlePagePadding:1.8rem 1.3rem;
   --singlePageGG:.8rem;
   --singleSidePadding:;
-  --singleSideTitleFontSize:2rem;
+  --singleSideTitleFontSize:1.5rem;
   --singleFeatureIconMargin: 1rem;
   --singleSideTextAlign:center;
   --singleSideMaxWidth:;
@@ -187,10 +187,10 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSideContactBorder:2px solid black;
   --singleSideContactFontSize:1rem;
   --singleSidePriceFontSize:1rem;
-  --singleSideStockFontSize:1.1rem;
   --singleSideStock2FontSize:.6rem;
   --singleSideAnoMarcaFontSize:1.5rem;
-  --singleSideDataFontSize:1rem;
+  --singleSideStockFontSize:.8rem;
+  --singleSideDataFontSize: .8rem;
   --singleFeatureDescFontSize:.8rem;
   --singleStock2IDFontSize: 1.2rem;
   --singleStock2IDPadding: .6rem;
@@ -198,6 +198,12 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSideContactContainerMargin:0 auto;
   --singleSideSocialContMargin:.5rem auto;
   --sS_newArrivalMargin:0 auto;
+  --singleSideContactContainerDisplay: flex;
+  --singleSideContactMargin: .5rem;
+  --singleSideContactWidth: 40%;
+  --singleSideContactFontSize:.7rem;
+
+  --singleSideStock2Display: none;
 
   --hotCardAnoMarcaFontSize:1rem;
   --hotCardTitleFontSize:1.2rem;
@@ -329,6 +335,7 @@ FIN DE MAPA DE CONTENIDOS */
   --characterSvgPaddingBottom:0;
   --characterSvgMarginRight:.5rem;
   --characterSvgWidth:3rem;
+  --footerTitleFontSize: 1rem;
 }
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -398,7 +405,6 @@ FIN DE MAPA DE CONTENIDOS */
 
 
     /* SINGLE */
-    --singleSideContactFontSize:.7rem;
 
     --auctionDataGTC:1fr 1fr 1fr 1fr;
     --auctionDetailsTitleFontSize:.7rem;
@@ -561,6 +567,10 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideSocialContMargin:.5rem 0;
     --sS_newArrivalMargin:0;
     --singleFeatureDescFontSize:.5rem;
+    --singleSideStock2Display: block;
+    --singleSideContactContainerDisplay: ;
+    --singleSideContactMargin: 0 0 .5rem 0;
+    --singleSideContactWidth: 100%;
 
     /* --auctionDataGTC:1fr 1fr; */
 
@@ -617,6 +627,7 @@ FIN DE MAPA DE CONTENIDOS */
     --characterSvgPaddingBottom:.5rem;
     --characterSvgMarginRight:0;
     --characterSvgWidth:2rem;
+    --footerTitleFontSize: .7rem;
 
   }
 }
@@ -801,16 +812,16 @@ FIN DE MAPA DE CONTENIDOS */
       /* SINGLE */
       --singlePagePadding:1rem 5.5rem;
       --singleSidePadding:1rem 3rem;
-      --singleSideTitleFontSize:2rem;
+      --singleSideTitleFontSize:1.5rem;
       --singleFeatureIconMargin:2rem;
       --singleSideContactBorder:3px solid black;
       --singleSideContactFontSize:.9rem;
-      --singleSidePriceFontSize:1.8rem;
-      --singleSideStockFontSize:1.4rem;
-      --singleSideAnoMarcaFontSize:1.8rem;
-      --singleSideDataFontSize:1rem;
+      --singleSidePriceFontSize:1.3rem;
+      --singleSideAnoMarcaFontSize:1.4rem;
+      --singleSideStockFontSize:.9rem;
+      --singleSideDataFontSize:.9rem;
       --singleSideStock2FontSize:.9rem;
-      --singleStock2IDFontSize:2rem;
+      --singleStock2IDFontSize:1.5rem;
       --singleStock2IDPadding:1rem;
       --galleryMoreFontSize:.8rem;
       --newArrivalFontSize:1.5rem;
@@ -923,7 +934,7 @@ main li {margin: .3rem 0;}
 .galleryMain{
   width: 100%;
   /* height: 350px; */
-  height:43vw!important;
+  height:30vw!important;
 }
 .galleryStock{
   display: grid;
@@ -2062,6 +2073,22 @@ background: #ddd;
   height: 150px;
 }
 
+.formTermsAndConditions{
+  margin: .5rem auto;
+  width: 100%;
+  text-align: center;
+}
+
+.formTermsAndConditions .checkboxTermAndConditions{
+  width: min-content;
+
+}
+
+.formTermsAndConditions .linkTermAndConditionsForm{
+  text-transform: uppercase;
+  font-size: .7rem;
+}
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -2133,7 +2160,7 @@ background: #ddd;
 .logFormFields .mateput{width:100%}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
-                          6.n) =theGarageSection:
+                          6.n) =the Garage Section:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
@@ -2164,6 +2191,13 @@ background: #ddd;
 .theGarageSeparator{
   width: 90%;
   margin: auto;
+}
+
+.theGarageMainImg figure {
+  width: 100%;
+}
+.theGarageMainImg figure img {
+  width: 100%;
 }
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -2855,12 +2889,6 @@ background: #ddd;
 
 
 
-
-
-
-
-
-
 .auctionData{
   display: grid;
   grid-gap:.5rem;
@@ -3025,6 +3053,7 @@ background: #ddd;
   margin-top:1rem;
   max-width:unset;
   grid-row:var(--singleSide2GR);
+  padding: .5rem;
 }
 
 .singleSideAnoMarca {
@@ -3065,22 +3094,40 @@ background: #ddd;
 }
 
 .singleSideContactContainer{
-  width:max-content;
-  /* margin:0 auto; */
+  display: var(--singleSideContactContainerDisplay);
+  flex-wrap: wrap;
   margin:var(--singleSideContactContainerMargin);
+  justify-content: center;
 }
+.singleSideContactContainer button:nth-child(1){
+  color:#F78D15;
+  border-color: #F78D15;
+}
+
+.singleSideContactContainer button:nth-child(1):hover{
+  color: white;
+  border-color: #F78D15;
+  background: #F78D15;
+}
+
+.singleSideContactContainer button:hover{
+  color: white;
+  border-color: black;
+  background: black;
+}
+
 .singleSideContact{
   background:white;
   border:var(--singleSideContactBorder);
   padding: .6rem 1rem;
   display: block;
-  width: 100%;
+  width: var(--singleSideContactWidth);
   text-align: center;
   cursor: pointer;
   transition: .3s;
   font-weight:700;
   font-size:var(--singleSideContactFontSize);
-  margin-bottom: .5rem;
+  margin: var(--singleSideContactMargin);
 }
 .singleSideContact:hover{
   color:#F78D15;
@@ -3103,14 +3150,14 @@ background: #ddd;
 }
 
 .singleSideStock2 {
-  display:inline-flex;
+  display: var(--singleSideStock2Display);
   font-weight: 700;
   letter-spacing: 2px;
   font-size:var(--singleSideStock2FontSize);
 }
 
 .singleStock2ID {
-  display:inline-flex;
+  display:var(--singleSideStock2Display);
   position: relative;
   padding:var(--singleStock2IDPadding);
   font-size:var(--singleStock2IDFontSize);
@@ -3161,9 +3208,16 @@ background: #ddd;
 }
 .singleSideSintBoxCaption .singleSideContact{
   text-transform:uppercase;
+  width: 100%;
   font-size:.6rem;
   margin:0;
 }
+
+.singleSideSintBoxCaption .singleSideContact:hover{
+  color: white;
+  background: black;
+}
+
 .singleSideSintBoxCaption .singleSideSocialCont{
   justify-content: space-around;
   /* padding:0 20%; */
@@ -3204,6 +3258,10 @@ background: #ddd;
 }
 
 .breaksRotation {transform: rotate(45deg);}
+
+.singlePage .singleDescription {
+  font-size: .8rem;
+}
 
 .singleDescription ul {
   list-style: none;
@@ -3455,7 +3513,7 @@ a.contactInformationText:hover{
   padding-bottom:0;
 }
 
-.footerTitle {font-size: .7rem;}
+.footerTitle {font-size: var(--footerTitleFontSize);}
 
 /* NEWSLETTER */
 #mc4wp-form-1 {
@@ -3609,6 +3667,9 @@ a.contactInformationText:hover{
 .legalFooterA{padding:.5rem 1rem}
 #cookie-law-info-again{display:none!important;}
 
+
+.signature {display: flex; color: #616161; font-size: .6rem}
+.signature>* {margin: .5rem auto}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.12) =accountSection
