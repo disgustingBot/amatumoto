@@ -24,12 +24,17 @@
       'paged' => $paged,
     );
     if (isset($_GET['filter_year']) AND $_GET['filter_year']!=0) {
-      $args['tax_query'] = array(
-          array(
-              'taxonomy' => 'product_cat',
-              'field'    => 'slug',
-              'terms'    => $_GET['filter_year'],
-          ),
+      $args['tax_query'][] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $_GET['filter_year'],
+      );
+    }
+    if (isset($_GET['type']) AND $_GET['type']=='auction') {
+      $args['tax_query'][] = array(
+        'taxonomy' => 'product_type',
+        'field'    => 'slug',
+        'terms'    => 'auction',
       );
     }
     // chequea si hay una busqueda de texto solicitada por el usuario, de haberla la pasa al query

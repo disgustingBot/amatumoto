@@ -30,18 +30,6 @@ add_action('after_setup_theme', 'gp_init');
 
 
 
-add_action('woocommerce_before_shop_loop', 'daleQueVa');
-function daleQueVa(){
-  echo '<h1>soy un nene malo</h1>';
-  echo '<h1>soy un nene malo</h1>';
-  echo '<h1>soy un nene malo</h1>';
-  echo '<h1>soy un nene malo</h1>';
-  echo '<h1>soy un nene malo</h1>';
-  echo '<h1>soy un nene malo</h1>';
-  echo '<h1>soy un nene malo</h1>';
-}
-
-
 
 
 
@@ -87,9 +75,6 @@ function excerpt($charNumber){
    register_nav_menu('navBar',__( 'Header' ));
    register_nav_menu('navBarMobile',__( 'Header Mobile' ));
    register_nav_menu('contactMenu',__( 'Contact Menu' ));
-   // register_nav_menu('homeMobile-menu',__( 'Home Mobile Menu' ));
-   // register_nav_menu('magazine-menu',__( 'Magazine Menu' ));
-   // register_nav_menu('magazineMobile-menu',__( 'Magazine Mobile Menu' ));
  }
  add_action( 'init', 'register_menus' );
 
@@ -97,10 +82,8 @@ function excerpt($charNumber){
 
 
 // DISABLES AUTO SPAN ON CONTACT FORM 7
-
 add_filter('wpcf7_form_elements', function($content) {
     $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
-
     return $content;
 });
 
@@ -156,16 +139,58 @@ function latte_pagination($max){
 
 
 
-// add_action( 'admin_post_nopriv_nds_form_response', 'the_form_response');
-// function the_form_response() {
-//  if( isset( $_POST['filter_nonce'] ) && wp_verify_nonce( $_POST['filter_nonce'], 'nds_add_user_meta_form_nonce') ) {
-//    var_dump($_POST['year']);
-//    echo 'hello World';
-//    $url = 'http://localhost/grandPrix/test/';
-//    wp_redirect( $url );
-//    exit;
-//  }
-// }
+add_action(        'admin_post_lt_form_response', 'lt_form_handler');
+add_action( 'admin_post_nopriv_lt_form_response', 'lt_form_handler');
+function lt_form_handler() {
+  $link=$_POST['link'];
+  $mail=$_POST['mail'];
+
+  $subject='Form from '.$link;
+  $message='';
+
+  if(isset($_POST['a01'])){$a01=$_POST['a01'];$message.='<strong>Data 01:</strong> '.$a01.'</br>';}
+  if(isset($_POST['a02'])){$a02=$_POST['a02'];$message.='<strong>Data 02:</strong> '.$a02.'</br>';}
+  if(isset($_POST['a03'])){$a03=$_POST['a03'];$message.='<strong>Data 03:</strong> '.$a03.'</br>';}
+  if(isset($_POST['a04'])){$a04=$_POST['a04'];$message.='<strong>Data 04:</strong> '.$a04.'</br>';}
+  if(isset($_POST['a05'])){$a05=$_POST['a05'];$message.='<strong>Data 05:</strong> '.$a05.'</br>';}
+  if(isset($_POST['a06'])){$a06=$_POST['a06'];$message.='<strong>Data 06:</strong> '.$a06.'</br>';}
+  if(isset($_POST['a07'])){$a07=$_POST['a07'];$message.='<strong>Data 07:</strong> '.$a07.'</br>';}
+  if(isset($_POST['a08'])){$a08=$_POST['a08'];$message.='<strong>Data 08:</strong> '.$a08.'</br>';}
+  if(isset($_POST['a09'])){$a09=$_POST['a09'];$message.='<strong>Data 09:</strong> '.$a09.'</br>';}
+  if(isset($_POST['a10'])){$a10=$_POST['a10'];$message.='<strong>Data 10:</strong> '.$a10.'</br>';}
+  if(isset($_POST['a11'])){$a11=$_POST['a11'];$message.='<strong>Data 11:</strong> '.$a11.'</br>';}
+  if(isset($_POST['a12'])){$a12=$_POST['a12'];$message.='<strong>Data 12:</strong> '.$a12.'</br>';}
+  if(isset($_POST['a13'])){$a13=$_POST['a13'];$message.='<strong>Data 13:</strong> '.$a13.'</br>';}
+  if(isset($_POST['a14'])){$a14=$_POST['a14'];$message.='<strong>Data 14:</strong> '.$a14.'</br>';}
+  if(isset($_POST['a15'])){$a15=$_POST['a15'];$message.='<strong>Data 15:</strong> '.$a15.'</br>';}
+  if(isset($_POST['a16'])){$a16=$_POST['a16'];$message.='<strong>Data 16:</strong> '.$a16.'</br>';}
+  if(isset($_POST['a17'])){$a17=$_POST['a17'];$message.='<strong>Data 17:</strong> '.$a17.'</br>';}
+  if(isset($_POST['a18'])){$a18=$_POST['a18'];$message.='<strong>Data 18:</strong> '.$a18.'</br>';}
+  if(isset($_POST['a19'])){$a19=$_POST['a19'];$message.='<strong>Data 19:</strong> '.$a19.'</br>';}
+  if(isset($_POST['a20'])){$a20=$_POST['a20'];$message.='<strong>Data 20:</strong> '.$a20.'</br>';}
+
+
+
+
+  // wp_mail( $mail , $subject , $message );
+
+
+  // $a2 = $_POST['a2'];
+  // $a3 = $_POST['a3'];
+  // $a4 = $_POST['a4'];
+  // $a5 = $_POST['a5'];
+  // $a6 = $_POST['a6'];
+
+  $link = add_query_arg( array(
+    'email' => 'sent',
+    // 'status' => $status,
+    // 'resultado' => username_exists( $mail ),
+  ), $link );
+
+
+
+  wp_redirect($link);
+}
 
 
 
@@ -352,28 +377,10 @@ function lt_new_pass(){
   }
   if(empty($errors)){
       wp_set_password( $new_password, $current_user->ID );
-      // echo '<h4>Password successfully changed!</h4>';
-
       $link = add_query_arg( array(
         'success'  => true,
       ), $link );
-  } else {
-    // Echo Errors
-    // echo '<h3>Errors:</h3>';
-    // foreach($errors as $error){
-    //     echo '<p>';
-    //     echo "<strong>$error</strong>";
-    //     echo '</p>';
-    // }
   }
-
-
-  // $link = add_query_arg( array(
-  //   'action' => $action,
-  //   'error'  => $error,
-  //   // 'status' => $status,
-  //   // 'resultado' => username_exists( $mail ),
-  // ), $link );
   wp_redirect($link);
 }
 
