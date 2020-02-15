@@ -66,7 +66,7 @@
             // get the parent category
             $parent=get_term_by('id', $term->parent, 'product_cat', 'ARRAY_A')['slug'];
             // check if parent is either year or brand
-            if ($parent=="year" OR $parent=="brand") { ?>
+            if ($parent=="year-bikes" OR $parent=="brand") { ?>
               <span><?php echo $term->name; ?></span>
             <?php }
           } ?>
