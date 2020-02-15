@@ -44,27 +44,67 @@
 
 
 <section class="hotAuctions">
-  <h3 class="hotAuctionsTitle">HOT AUCTIONS</h3>
   <?php
   $args = array(
     'post_type'=>'product',
     'posts_per_page'=>3,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'product_type',
+            'field'    => 'slug',
+            'terms'    => 'auction',
+        ),
+    ),
   );
   $blogPosts=new WP_Query($args);
+  if ( count( $blogPosts->posts ) >= 3 ) {
+    ?><h3 class="hotAuctionsTitle">HOT AUCTIONS</h3><?php
+    $cardName='hotCard';
+  } else {
+    ?><h3 class="hotAuctionsTitle">FEATURED PRODUCTS</h3><?php
+    $cardName='productCard';
+    $args = array(
+      'post_type'=>'product',
+      'posts_per_page'=>3,
+      'tax_query' => array(
+          array(
+              'taxonomy' => 'product_type',
+              'field'    => 'slug',
+              'terms'    => 'simple',
+          ),
+          array(
+            'taxonomy' => 'product_visibility',
+            'field'    => 'term_id',
+            'terms'    => 'featured',
+            'operator' => 'IN',
+        ),
+      ),
+    );
+    $blogPosts=new WP_Query($args);
+  }
+
   while($blogPosts->have_posts()){$blogPosts->the_post(); ?>
     <?php global $product; ?>
 
-    <figure class="hotCard">
-      <a class="hotCardImg rowcol1" href="<?php echo get_permalink(); ?>">
-        <img class="hotCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+    <figure class="<?php echo $cardName; ?>">
+
+        <?php
+        global $product;
+        $newness_days = 1;
+        $created = strtotime( $product->get_date_created() );
+        if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
+          <span class="newArrival"><i>New arrival</i></span>
+          <?php } ?>
+      <a class="<?php echo $cardName; ?>Img rowcol1" href="<?php echo get_permalink(); ?>">
+        <img class="<?php echo $cardName; ?>Img lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       </a>
-      <figcaption class="hotCardCaption">
+      <figcaption class="<?php echo $cardName; ?>Caption">
         <?php
           // get all the categories on the product
           $terms = get_the_terms( get_the_ID(), 'product_cat' );
           // for each category
           if($terms){ ?>
-            <p class="hotCardAnoMarca"><a href="<?php echo get_permalink(); ?>">
+            <p class="<?php echo $cardName; ?>AnoMarca"><a href="<?php echo get_permalink(); ?>">
             <?php foreach ($terms as $term) {
               // get the parent category
               $parent=get_term_by('id', $term->parent, 'product_cat', 'ARRAY_A')['slug'];
@@ -75,22 +115,40 @@
             } ?>
           </a></p>
         <?php } ?>
-        <h4 class="hotCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
+        <h4 class="<?php echo $cardName; ?>Title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
 
         <?php if(method_exists($product,'get_seconds_remaining')){ ?>
-          <p class="hotCardBids">
-            <?php echo $product->auction_bid_count; ?> Bids<br>
-            <span class="hotCardBidPrice">€ <?php echo $product->auction_current_bid; ?></span>
+          <p class="auctionDetails">
+            <?php if ($product->auction_current_bid){ ?>
+              <span class="auctionDetailsTitle"><?php echo $product->auction_bid_count; ?> Bids</span>
+              <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_current_bid,0,",","."); ?></span>
+            <?php } else { ?>
+              <span class="auctionDetailsTitle">Starting price:</span>
+              <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
+            <?php } ?>
           </p>
 
         <?php } ?>
 
         <?php if(method_exists($product,'get_seconds_remaining')){ ?>
-          <div class="auction-time" id="countdown"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Time left:', 'auctions-for-woocommerce' ), $product_id ) ); ?>
-            <div class="hotCardEnd main-auction auction-time-countdown" data-time="<?php echo esc_attr( $product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></div>
+          <p class="auctionDetails">
+            <?php
+              $start=new DateTime($product->get_auction_start_time()); $now = new DateTime();
+              if ( $start > $now ) { ?>
+                <span class="auctionDetailsTitle">Auction starts:</span>
+                <span class="auctionDetailsValue auction-time-countdown" data-time="<?php echo esc_attr( $product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
+              <?php } else { ?>
+                <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Time left:', 'auctions-for-woocommerce' ), $product_id ) ); ?></span>
+                <span class="auctionDetailsValue main-auction auction-time-countdown" data-time="<?php echo esc_attr( $product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
+              <?php }
+            ?>
           </div>
         <?php } ?>
-        <!-- <p class="hotCardEnd">Auction ends in:<br><span class="hotCardTime">12 Days 09:45:08</span></p> -->
+
+        <?php if(!method_exists($product,'get_seconds_remaining')){ ?>
+          <p class="productCardTxt"><a href="<?php echo get_permalink(); ?>"><?php echo excerpt(70); ?></a></p>
+        <?php } ?>
+
 
       </figcaption>
     </figure>

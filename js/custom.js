@@ -109,9 +109,7 @@ const selectBoxControler=(a, selectBoxId, current)=>{c.log(a)
 
 
 // GO BACK BUTTONS
-function goBack() {
-  window.history.back();
-}
+function goBack(){w.history.back()}
 
 
 
@@ -119,18 +117,6 @@ function goBack() {
 
 
 
-
-var t=1,circles=d.getElementsByClassName("filterButtonCircle");
-
-const filterButton1=()=>{
-  for(i=0;i<circles.length;i++){circles[i].classList.add("inactive");}
-  setTimeout(filterButton2, 5000); // Change image every N/1000 seconds
-}
-const filterButton2=()=>{
-  for(i=0;i<circles.length;i++){circles[i].classList.remove("inactive");}
-  setTimeout(filterButton1, 1000); // Change image every N/1000 seconds
-}
-filterButton1();
 
 
 

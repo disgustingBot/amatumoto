@@ -141,7 +141,7 @@
           <!-- <p class="singleFeatureDesc">Daytona sunrise orange</p> -->
 
 
-          <?php $dashboard_color = get_post_meta( $product->id, 'dashboard_color' )[0]; ?>
+          <?php $dashboard_color = get_post_meta( $product->id, 'dashboard' )[0]; ?>
           <?php if($dashboard_color){ ?>
               <p class="singleFeatureDesc"><?php echo $dashboard_color; ?></p>
           <?php } ?>
@@ -183,7 +183,7 @@
 
 
 
-          <?php $engine_color = get_post_meta( $product->id, 'engine_color' )[0]; ?>
+          <?php $engine_color = get_post_meta( $product->id, 'engine' )[0]; ?>
           <?php if($engine_color){ ?>
               <p class="singleFeatureDesc"><?php echo $engine_color; ?></p>
           <?php } ?>
@@ -249,9 +249,8 @@
              *
              */
 
-            if ( ! ( $product && $product->is_type( 'auction' ) ) ) {
-            	return;
-            }
+            if ( ( $product && $product->is_type( 'auction' ) ) ) {
+            	// return;
             $product_id       = $product->get_id();
             $user_max_bid     = $product->get_user_max_bid( $product_id, get_current_user_id() );
             $max_min_bid_text = $product->get_auction_type() === 'reverse' ? esc_html__( 'Your min bid is', 'auctions-for-woocommerce' ) : esc_html__( 'Your max bid is', 'auctions-for-woocommerce' );
@@ -421,15 +420,35 @@
             	</div>
 
             <?php elseif ( ( false === $product->is_closed ) && ( false === $product->is_started ) ) : ?>
+              <div class='auctionData' >
 
-            	<div class="auction-time future" id="countdown"><?php echo wp_kses_post( apply_filters( 'auction_starts_text', esc_html__( 'Auction starts in:', 'auctions-for-woocommerce' ), $product ) ); ?>
-            		<div class="auction-time-countdown future" data-time="<?php echo esc_attr( $product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></div>
-            	</div>
+                <div class="auctionTitle">
+                  <h2>Auction info:</h2>
+                  <?php do_action( 'woocommerce_after_bid_form' ); ?>
+                </div>
 
-            	<p class="auction-starts"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Auction starts:', 'auctions-for-woocommerce' ), $product_id ) ); ?> <?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_start_time() ) ) ); ?>  <?php echo esc_html( date_i18n( get_option( 'time_format' ), strtotime( $product->get_auction_start_time() ) ) ); ?></p>
-            	<p class="auction-end"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Auction ends:', 'auctions-for-woocommerce' ), $product_id ) ); ?> <?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?>  <?php echo esc_html( date_i18n( get_option( 'time_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?> </p>
+          			<p class="auctionDetails">
+                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'auction_starts_text', esc_html__( 'Auction starts in:', 'auctions-for-woocommerce' ), $product ) ); ?></span>
+                  <span class="auctionDetailsValue auction-time-countdown future" data-time="<?php echo esc_attr( $product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
+                </p>
+                <p class="auctionDetails">
+                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Auction starts:', 'auctions-for-woocommerce' ), $product_id ) ); ?></span>
+                  <span class="auctionDetailsValue"><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_start_time() ) ) ); ?></span>
+                  <?php // echo esc_html( date_i18n( get_option( 'time_format' ), strtotime( $product->get_auction_start_time() ) ) ); ?>
+                </p>
+              	<p class="auctionDetails">
+                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Auction ends:', 'auctions-for-woocommerce' ), $product_id ) ); ?></span>
+                  <span class="auctionDetailsValue"><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?></span>
+                  <?php // echo esc_html( date_i18n( get_option( 'time_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?>
+                </p>
+                <p class="auctionDetails">
+                  <span class="auctionDetailsTitle">Starting bid:</span>
+                  <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
+                </p>
 
-            <?php endif; ?>
+              </div>
+
+            <?php endif; } ?>
 
 
 
@@ -576,16 +595,19 @@
 
 
 
-  <div class="singleFormContainer" id="singleRequestInfo">
+
+  <div class="singleFormContainer" id="singleRequestInfo" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
     <form action="index.php" class="singleContact ">
+      <input type="hidden" name="action" value="lt_form_handler">
+      <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleRequestInfo')">+</p>
       <label  class="formLabel">CONTACT DETAILS</label>
-      <input type="text" placeholder="First Name"  class="formInput100 formInput">
-      <input type="text" placeholder="Last Name"  class="formInput100 formInput">
-      <input type="email" placeholder="Email" class="formInput100 formInput">
-      <input type="number" placeholder="Phone" class="formInput100 formInput">
-      <input type="text" placeholder="Country"  class="formInput100 formInput">
-      <select name="bestTime" value="time-preference" id="bestTimeToCall" class="formInput100 formInput">
+      <input type="text"   placeholder="First Name"   class="formInput100 formInput" name="a01">
+      <input type="text"   placeholder="Last Name"    class="formInput100 formInput" name="a02">
+      <input type="email"  placeholder="Email"        class="formInput100 formInput" name="a03">
+      <input type="number" placeholder="Phone"        class="formInput100 formInput" name="a04">
+      <input type="text"   placeholder="Country"      class="formInput100 formInput" name="a05">
+      <select value="time-preference" class="formInput100 formInput" name="a06" id="bestTimeToCall">
         <option value="any_time" class="form">Any Time</option>
         <option value="from-9-to-13">9:00 a.m. - 1:00 p.m.</option>
         <option value="from-13-to-17">1:00 p.m. - 5:00 p.m.</option>
@@ -594,12 +616,12 @@
       <label  class="formLabel ">TRADE VEHICLE</label>
       <div class="tradeOrNot">
         <label for="yes" class="formRadioFor">yes</label>
-        <input type="radio" name="trade" id="yes" value="yes">
+        <input type="radio" name="a07" id="yes" value="yes">
         <label for="no" class="formRadioFor">no</label>
-        <input type="radio" name="trade" id="no" value="no">
+        <input type="radio" name="a07" id="no" value="no">
       </div>
       <label  class="formLabel">COMMENT</label>
-      <textarea class="singleFormTxtArea" value="comments" placeholder="" name="name"></textarea>
+      <textarea class="singleFormTxtArea" value="comments" placeholder="" name="a08"></textarea>
       <div class="formTermsAndConditions">
          <input type="checkbox">
          <a href="#" class="linkTermAndConditionsForm">I accept terms and conditions</a>
@@ -609,20 +631,22 @@
   </div>
 
   <div class="singleFormContainer" id="singleMakeOffer">
-    <form action="index.php" class="singleContact ">
+    <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+      <input type="hidden" name="action" value="lt_form_handler">
+      <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleMakeOffer')">+</p>
       <label  class="formLabelBig">Make An Offer</label>
-      <label  class="formLabel">product title HERE</label>
+      <label  class="formLabel"><?php the_title(); ?></label>
       <label  class="formLabel">OFFER AMOUNT</label>
       <div class="offerAmmountIcon">
         <p>$</p>
       </div>
-      <input type="number" placeholder="Offer" class="formInput100 formInput offerAmmount">
-      <input type="text" placeholder="Name"  class="formInput100 formInput">
-      <input type="number" placeholder="Phone" class="formInput100 formInput">
-      <input type="email" placeholder="Email" class="formInput100 formInput">
-      <input type="text" placeholder="Country"  class="formInput100 formInput">
-      <select name="bestTime" value="time-preference" id="bestTimeToCall" class="formInput100 formInput">
+      <input type="number" placeholder="Offer"        name="a01" class="formInput100 formInput offerAmmount">
+      <input type="text"   placeholder="Name"         name="a02" class="formInput100 formInput">
+      <input type="number" placeholder="Phone"        name="a03" class="formInput100 formInput">
+      <input type="email"  placeholder="Email"        name="a04" class="formInput100 formInput">
+      <input type="text"   placeholder="Country"      name="a05" class="formInput100 formInput">
+      <select value="time-preference" name="a06" class="formInput100 formInput" id="bestTimeToCall">
         <option value="any_time" class="form">Any Time</option>
         <option value="from-9-to-13">9:00 a.m. - 1:00 p.m.</option>
         <option value="from-13-to-17">1:00 p.m. - 5:00 p.m.</option>
@@ -631,12 +655,12 @@
       <label  class="formLabel ">TRADE VEHICLE</label>
       <div class="tradeOrNot">
         <label for="yes" class="formRadioFor">yes</label>
-        <input type="radio" name="trade" id="yes" value="yes">
+        <input type="radio" name="a07" id="yes" value="yes">
         <label for="no" class="formRadioFor">no</label>
-        <input type="radio" name="trade" id="no" value="no">
+        <input type="radio" name="a07" id="no" value="no">
       </div>
       <label  class="formLabel">COMMENT</label>
-      <textarea class="singleFormTxtArea" value="comments" placeholder="" name="name"></textarea>
+      <textarea class="singleFormTxtArea" value="comments" placeholder="" name="a08"></textarea>
       <div class="formTermsAndConditions">
          <input type="checkbox">
          <a href="#" class="linkTermAndConditionsForm">I accept terms and conditions</a>
@@ -646,21 +670,23 @@
   </div>
 
   <div class="singleFormContainer" id="singleTrade">
-    <form action="index.php" class="singleContact ">
+    <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+      <input type="hidden" name="action" value="lt_form_handler">
+      <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleTrade')">+</p>
-      <label  class="formLabelBig">Trade this ENTER PRODUCT TITLE HERE</label>
+      <label  class="formLabelBig">Trade this <?php the_title(); ?></label>
       <p class="singleFormTxt mainTxtType1">We are always looking for new inventory. If you are interested in trading your high quality bike for one of ours, simply fill out this form.<br>A member of our sales department will be in touch within 24 hours. No one makes the trade-in process easier than amatumoto.com.</p>
-      <input type="text" placeholder="Name"  class="formInput50 formInput">
-      <input type="number" placeholder="Year"  class="formInput50 formInput">
-      <input type="text" placeholder="Last Name"  class="formInput50 formInput">
-      <input type="text" placeholder="Make"  class="formInput50 formInput">
-      <input type="email" placeholder="Email" class="formInput50 formInput">
-      <input type="text" placeholder="Model" class="formInput50 formInput">
-      <input type="number" placeholder="Phone" class="formInput50 formInput">
-      <input type="text" placeholder="VIN" class="formInput50 formInput">
+      <input type="text"   placeholder="Name"       class="formInput50 formInput" name="a01">
+      <input type="number" placeholder="Year"       class="formInput50 formInput" name="a02">
+      <input type="text"   placeholder="Last Name"  class="formInput50 formInput" name="a03">
+      <input type="text"   placeholder="Make"       class="formInput50 formInput" name="a04">
+      <input type="email"  placeholder="Email"      class="formInput50 formInput" name="a05">
+      <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06">
+      <input type="number" placeholder="Phone"      class="formInput50 formInput" name="a07">
+      <input type="text"   placeholder="VIN"        class="formInput50 formInput" name="a08">
       <label  class="formLabel">Upload photos here</label>
-      <input type="file" placeholder="upload files" class="formInput50 formInput">
-      <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="name"></textarea>
+      <input type="file" placeholder="upload files" class="formInput50 formInput" name="a09">
+      <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="a10"></textarea>
       <div class="formTermsAndConditions">
          <input type="checkbox">
          <a href="#" class="linkTermAndConditionsForm">I accept terms and conditions</a>
@@ -670,13 +696,15 @@
   </div>
 
   <div class="singleFormContainer" id="singleFinance">
-    <form action="index.php" class="singleContact ">
+    <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+      <input type="hidden" name="action" value="lt_form_handler">
+      <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleFinance')">+</p>
-      <label  class="formLabelBig">finance this ENTER PRODUCT TITLE HERE</label>
+      <label  class="formLabelBig">finance this <?php the_title(); ?></label>
       <p class="singleFormTxt mainTxtType1">Please enter the information below to begin the financing process.</p>
-      <input type="number" placeholder="INTEREST RATE"  class="formInput50 formInput">
-      <input type="text" placeholder="NAME"  class="formInput50 formInput">
-      <select class="formInput50 formInput" id="rkm-vdp-loan-term" class="form-control" name="contact_rkm_financing[loan_term]">
+      <input type="number" placeholder="INTEREST RATE"  class="formInput50 formInput" name="a01">
+      <input type="text" placeholder="NAME"  class="formInput50 formInput" name="a02">
+      <select class="formInput50 formInput" id="rkm-vdp-loan-term" class="form-control" name="a03">
         <option value="36">3 Years (36 Months)</option>
         <option value="48">4 Years (48 Months)</option>
         <option value="60">5 Years (60 Months)</option>
@@ -686,22 +714,23 @@
         <option value="108">9 Years (108 Months)</option>
         <option selected="selected" value="120">10 Years (120 Months)</option>
         <option value="132">11 Years (132 Months)</option>
-        <option value="144">12 Years (144 Months)</option></select>
-        <input type="text" placeholder="LAST NAME"  class="formInput50 formInput">
-        <input type="text" placeholder="PURCHASE PRICE" class="formInput50 formInput">
-        <input type="number" placeholder="PHONE" class="formInput50 formInput">
-        <input type="number" placeholder="DOWN PAYMENT" class="formInput50 formInput">
-        <input type="email" placeholder="EMAIL" class="formInput50 formInput">
-        <button class="singleRequestInfoButton contactButton formInput50" type="">CALCULATE RATE</button>
-        <input type="text" placeholder="COUNTRY" class="formInput50 formInput lastCountryInput">
-        <input type="number" placeholder="0.00" class="formInput50 formInput colorfulInput">
-        <select name="bestTime" value="time-preference" id="bestTimeToCall" class="formInput50 formInput">
-          <option value="any_time" class="form">Any Time</option>
-          <option value="from-9-to-13">9:00 a.m. - 1:00 p.m.</option>
-          <option value="from-13-to-17">1:00 p.m. - 5:00 p.m.</option>
-          <option value="from-17-to-20">5:00 p.m. - 8:00 p.m.</option></select>
-        </select>
-        <textarea class="singleFormTxtArea" value="comments" placeholder="your comments" name="name"></textarea>
+        <option value="144">12 Years (144 Months)</option>
+      </select>
+      <input name="a04" type="text"   placeholder="LAST NAME"      class="formInput50 formInput">
+      <input name="a05" type="text"   placeholder="PURCHASE PRICE" class="formInput50 formInput">
+      <input name="a06" type="number" placeholder="PHONE"          class="formInput50 formInput">
+      <input name="a07" type="number" placeholder="DOWN PAYMENT"   class="formInput50 formInput">
+      <input name="a08" type="email"  placeholder="EMAIL"          class="formInput50 formInput">
+      <button class="singleRequestInfoButton contactButton formInput50" type="">CALCULATE RATE</button>
+      <input name="a09" type="text"   placeholder="COUNTRY"        class="formInput50 formInput lastCountryInput">
+      <input name="a10" type="number" placeholder="0.00"           class="formInput50 formInput colorfulInput">
+      <select name="a11" value="time-preference"   class="formInput50 formInput" id="bestTimeToCall">
+        <option value="any_time" class="form">Any Time</option>
+        <option value="from-9-to-13">9:00 a.m. - 1:00 p.m.</option>
+        <option value="from-13-to-17">1:00 p.m. - 5:00 p.m.</option>
+        <option value="from-17-to-20">5:00 p.m. - 8:00 p.m.</option></select>
+      </select>
+      <textarea class="singleFormTxtArea" value="comments" placeholder="your comments" name="a12"></textarea>
         <div class="formTermsAndConditions">
            <input type="checkbox">
            <a href="#" class="linkTermAndConditionsForm">I accept terms and conditions</a>

@@ -142,21 +142,15 @@ FIN DE MAPA DE CONTENIDOS */
   --filterLinkBarHeight:40px;
   --filterLinkBarMarginTop:.5rem;
 
-  /* FRONT PAGE */
 
-
-  --hotAuctionsDisplay: block;
+  /* ?FRONT PAGE */
   --dosMotosGridTemplateRows: min-content 1fr;
   --dosMotosGridTemplateColumns: 1fr;
   --consignSectionGalleryGridTemplateColumns: 1fr;
   --consignSectionGalleryGridTemplateRows: repeat(4, min-content);
   --searchLinesDisplay: none;
   --searchSeparatorDisplay: flex;
-  --hotAutcionsPadding: 1rem;
-  --hotAuctionsPadding: 0;
   /* --dosMotosMargin: 1rem 0; */
-  /* --hotAuctionsTitleFontSize: 1rem; */
-  --hotAuctionsTitleMarginLeft: 0;
   --dosMotosPaddingRight: 0;
   --dosMotosCaptionPadding: 0;
   --mainTxtType1FontSize: .9rem;
@@ -170,10 +164,14 @@ FIN DE MAPA DE CONTENIDOS */
   --consignSectionGalleryWidth: 80%;
   --hotCardWidth: 90;
   --hotCardMargin: .5rem 0;
-  --hotAuctionsMargin: 0;
   --viewInventoryMarginTop: 1rem;
   --viewInventoryBtnBorder: 2px solid #000;
   --viewInventoryBackground: transparent;
+
+
+  /* ?HOT AUCTIONS */
+  --hotAuctionsGTC:1fr;
+
 
   /* ?SINGLE */
   --singlePageGridTemplateC: 1fr;
@@ -209,8 +207,6 @@ FIN DE MAPA DE CONTENIDOS */
 
   --hotCardAnoMarcaFontSize:1rem;
   --hotCardTitleFontSize:1.2rem;
-  --hotCardBidsFontSize:.9rem;
-  --hotCardBidPriceFontSize:1.2rem;
 
   --galleryStockGTC:repeat(5,1fr);
   --galleryMoreFontSize: 1rem;
@@ -489,11 +485,7 @@ FIN DE MAPA DE CONTENIDOS */
     --dosMotosGridTemplateColumns: 1fr 1fr;
     --consignSectionGalleryGridTemplateColumns: repeat(4,1fr);
     --consignSectionGalleryGridTemplateRows: 1fr;
-    --hotAutcionsPadding: 2rem 4rem;
-    --hotAuctionsPadding: 2rem 0;
     /* --dosMotosMargin: 2rem 0; */
-    /* --hotAuctionsTitleFontSize: 1.1rem; */
-    --hotAuctionsTitleMarginLeft: 1.2rem;
     --dosMotosPaddingRight: 3rem;
     --mainTxtType1FontSize: .66rem;
     --maintTxtType1LineHeight: 1.1rem;
@@ -506,12 +498,16 @@ FIN DE MAPA DE CONTENIDOS */
     --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
     /* --hotCardMargin: 0; */
-    --hotAuctionsMargin: 1rem;
     --hotCardWidth: 30;
 
     --viewInventoryMarginTop: -4rem;
     --viewInventoryBtnBorder: none;
     --viewInventoryBackground: white;
+
+
+
+    /* ?HOT AUCTIONS */
+    --hotAuctionsGTC:1fr 1fr 1fr;
 
     /* ABOUT US */
 
@@ -557,8 +553,6 @@ FIN DE MAPA DE CONTENIDOS */
     --galleryStockGTC:repeat(8,1fr);
     --hotCardAnoMarcaFontSize:.7rem;
     --hotCardTitleFontSize:1rem;
-    --hotCardBidsFontSize:.6rem;
-    --hotCardBidPriceFontSize:.9rem;
 
     --singlePageGridTemplateC: 1fr 2.5fr;
     --galleryMoreFontSize:.6rem;
@@ -742,7 +736,6 @@ FIN DE MAPA DE CONTENIDOS */
     --logoImgWidth: 100%;
     --logoWidth: 70%;
     --navBarMargin: auto 4rem;
-    --hotAuctionsDisplay: grid;
     --navBarPadding:2rem;
     --filterBarBottomPaddingX:5rem;
     --filterBarLinkPadding: .5rem 1.8rem;
@@ -1433,21 +1426,21 @@ background: #ddd;
 --------------------------------------------------------------------------- */
 
 .hotAuctions{
-  display: flex;
-  flex-wrap: wrap;
-  /* margin: var(--hotAuctionsMargin); */
+  display: grid;
+  grid-template-columns:var(--hotAuctionsGTC);
   padding:1rem var(--lateral);
-  justify-content: space-between;
+  grid-gap:1rem;
+
 }
 
 
 .hotAuctionsTitle{
-  /* font-size: var(--hotAuctionsTitleFontSize); */
   font-size: 1rem;
   font-weight:400;
   margin: .5rem 0;
   text-transform:uppercase;
   width: 100%;
+  grid-column:1/-1;
 }
 
 
@@ -1467,7 +1460,8 @@ background: #ddd;
 
 
 .newArrival {
-  background: #007EFF;
+  /* background: #007EFF; */
+  background:var(--color1);
   letter-spacing: 1px;
   padding: .3rem .5rem;
   font-size:var(--newArrivalFontSize);
@@ -1478,6 +1472,9 @@ background: #ddd;
   font-weight: 500;
   color: white;
 }
+.productCard .newArrival{
+  position: absolute;
+}
 .singleSide .newArrival{margin:var(--sS_newArrivalMargin)}
 
 .productCard img {
@@ -1486,6 +1483,7 @@ background: #ddd;
   grid-column: 1;
   height: auto;
   max-height: calc(var(--hotCardWidth) / 1.48 * 1vw);
+  height: calc(var(--hotCardWidth) / 1.48 * 1vw);
   width: 100%;
 }
 .productCardCaption{ padding: .3rem .5rem;}
@@ -1530,7 +1528,6 @@ background: #ddd;
 
 .hotCardCaption{
   padding:.5rem;
-  /* padding-top: 0; */
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -1538,44 +1535,18 @@ background: #ddd;
 
 .hotCardAnoMarca{
   font-weight: 300;
-  /* font-size:.7rem; */
   font-size:var(--hotCardAnoMarcaFontSize);
   margin-bottom:.1rem;
 }
 
 .hotCardTitle{
   border-bottom: 1px solid #ddd;
-  /* font-size: 1rem; */
   font-size:var(--hotCardTitleFontSize);
   margin-bottom: .5rem;
   margin-top:0;
   text-align: left;
   width: 100%;
 }
-
-.hotCardSubtitle {font-size: .9rem; width: 100%;}
-
-.hotCardBids {
-  width: max-content;
-  /* font-size: .6rem; */
-  font-size:var(--hotCardBidsFontSize);
-  margin: auto;
-  margin-left: 0;
-  text-align: left;
-  color: #333;
-}
-.hotCardBidPrice {color:var(--color1);font-size:var(--hotCardBidPriceFontSize)}
-
-.hotCardEnd {
-  width: max-content;
-  font-size: .4rem;
-  margin: auto;
-  margin-right: 0;
-  text-align: left;
-  color: #333;
-}
-
-.hotCardTime {font-size: .8rem; color: black;}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -2342,31 +2313,14 @@ background: #ddd;
   margin: auto;
   margin-bottom: 0;
 }
-.filterButtonCircle{
-  animation:filterButtonCircle .6s infinite alternate linear;
-  animation-play-state: running;
-}
-.filterButtonCircle.inactive{
-  animation-play-state: paused;
-}
-.filterButton:hover .filterButtonCircle{
-  animation-play-state: running;
-}
-.filterButtonCircle:nth-child(1){
-  transform:translateX(72px);
-  animation-delay:-1s;
-}
-.filterButtonCircle:nth-child(2){
-  transform:translateX(66px);
-  animation-delay:-1.5s;
-}
-.filterButtonCircle:nth-child(3){
-  transform:translateX(52px);
-  animation-delay:-1.3s;
-}
-@keyframes filterButtonCircle {
-  to{transform:translateX(0)}
-}
+.filterButtonCircle{transition:1s}
+
+.filterButtonCircle:nth-child(1){transform:translateX(72px)}
+.filterButtonCircle:nth-child(2){transform:translateX(0)}
+.filterButtonCircle:nth-child(3){transform:translateX(52px)}
+.alt .filterButtonCircle:nth-child(1){transform:translateX(0)}
+.alt .filterButtonCircle:nth-child(2){transform:translateX(66px)}
+.alt .filterButtonCircle:nth-child(3){transform:translateX(0)}
 
 
 /* ---------------------------------------------------------------------------
@@ -2973,6 +2927,10 @@ background: #ddd;
 
   /* VERSION SIDEBAR */
 }
+.hotCard .auctionDetails:nth-last-child(2){margin-left: 0;align-items:flex-start}
+.hotCard .auctionDetails:nth-last-child(1){margin-right:0;align-items:flex-end}
+.hotCard .auctionDetailsValue{margin:0}
+
 .auctionDetailsTitle{font-size:var(--auctionDetailsTitleFontSize)}
 .auctionDetailsValue{
   font-size:.6rem;
@@ -2986,6 +2944,7 @@ background: #ddd;
   /* VERSION MAIN */
   margin: auto;
 }
+.auctionDetailsValue .wc_auctions_countdown-row.wc_auctions_countdown-amount{font-size:inherit!important}
 .singlePage .wc_auctions_countdown-row.wc_auctions_countdown-amount{font-size:inherit!important}
 /* .is-wc_auctions_countdown:after{font-size:inherit!important} */
 
