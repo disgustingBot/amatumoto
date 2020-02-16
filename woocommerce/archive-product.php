@@ -67,9 +67,7 @@
   <?php } ?>
 
 </div>
-      <?php if (function_exists("pagination")) {
-          pagination($custom_query->max_num_pages);
-      } ?>
+<?php echo latte_pagination($blogPosts->max_num_pages); ?>
 
 
 <?php get_footer(); ?>
