@@ -421,3 +421,32 @@ function extra_user_profile_fields( $user ) { ?>
     </tr>
   </table>
 <?php }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Second solution : two or more files.
+//If you're using a child theme you could use:
+// get_stylesheet_directory_uri() instead of get_template_directory_uri()
+add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
+function load_admin_styles() {
+  wp_enqueue_style( 'admin_css_foo', get_template_directory_uri() . '/css/backoffice.css', false, '1.0.0' );
+  // wp_enqueue_style( 'admin_css_foo', get_template_directory_uri() . '/admin-style-foo.css', false, '1.0.0' );
+  // wp_enqueue_style( 'admin_css_bar', get_template_directory_uri() . '/admin-style-bar.css', false, '1.0.0' );
+}
