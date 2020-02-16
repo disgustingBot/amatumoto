@@ -37,6 +37,16 @@
         'terms'    => 'auction',
       );
     }
+    if (isset($_GET['status']) AND $_GET['status']=='sold') {
+      $args['tax_query'][] = array(
+        'taxonomy' => 'product_visibility',
+        'field'    => 'slug',
+        'terms'   => array('outofstock'),
+        'compare' => 'IN',
+        // 'compare' => 'NOT IN',
+      );
+    }
+
     // chequea si hay una busqueda de texto solicitada por el usuario, de haberla la pasa al query
     if (isset($_GET['filter_search']) AND $_GET['filter_search']!=''){$args['s']=$_GET['filter_search'];}
 

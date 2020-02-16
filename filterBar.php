@@ -27,7 +27,7 @@
     </button>
     <a href="<?php echo site_url('inventory'); ?>" class="filterBarLink">inventory</a>
     <a href="<?php echo site_url('inventory').'?type=auction'; ?>" class="filterBarLink">auctions</a>
-    <a href="<?php echo site_url('inventory'); ?>" class="filterBarLink">sold</a>
+    <a href="<?php echo site_url('inventory').'?status=sold'; ?>" class="filterBarLink">sold</a>
   </div>
   <div class="filterBarBotttom">
 
