@@ -57,7 +57,7 @@
         <figcaption class="singleSideSintBoxCaption">
           <h4 class="singleSideAnoMarca">
             <?php foreach ($terms as $term) { ?>
-              <?php echo $term->name; ?>
+              <?php echo $term->brand; ?>
             <?php } ?>
           </h4>
           <h4 class="singleSideTitle"><?php the_title(); ?></h4>
