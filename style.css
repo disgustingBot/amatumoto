@@ -187,7 +187,6 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSide2GR:4;
   --singleSide2Position:static;
   --singleSideContactBorder:2px solid black;
-  --singleSideContactFontSize:1rem;
   --singleSidePriceFontSize:1rem;
   --singleSideStock2FontSize:.6rem;
   --singleSideAnoMarcaFontSize:1.5rem;
@@ -818,11 +817,11 @@ FIN DE MAPA DE CONTENIDOS */
 
       /* SINGLE */
       --singlePagePadding:1rem 5.5rem;
-      --singleSidePadding:1rem 3rem;
+      --singleSidePadding: 1rem 0;
       --singleSideTitleFontSize:1.5rem;
       --singleFeatureIconMargin:2rem;
       --singleSideContactBorder:3px solid black;
-      --singleSideContactFontSize:.9rem;
+      --singleSideContactFontSize:.7rem;
       --singleSidePriceFontSize:1.3rem;
       --singleSideAnoMarcaFontSize:1.4rem;
       --singleSideStockFontSize:.9rem;
