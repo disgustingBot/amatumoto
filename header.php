@@ -12,6 +12,10 @@
 </head>
 <body <?php body_class(); ?>>
 
+	<view id="load" class="load">
+			<div class="circle"></div>
+	</view>
+
   <header class="header loading" id="header">
     <a href="<?php echo site_url('');  ?>" class="logo">
       <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo" class="logoImg">
@@ -218,6 +222,10 @@
         <div class="logFormTitle">
           <h3>Enter</h3>
           <button class="logFormTitleRegister" onclick="altClassFromSelector('alt','#logFormFields')" type="button" name="button">you don't have an account?</button>
+          <button class="logFormClose" type="button" onclick="altClassFromSelector('alt','#logForm')">
+            <div class="logFormCloseLine"></div>
+            <div class="logFormCloseLine"></div>
+          </button>
         </div>
 
 

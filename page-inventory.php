@@ -19,9 +19,23 @@
 
     if(get_query_var('paged')){$paged=get_query_var('paged');}elseif(get_query_var('page')){$paged=get_query_var('page');}else{$paged=1;}
     $args = array(
-      'post_type'=>'product',
-      'posts_per_page'=>9,
-      'paged' => $paged,
+      'post_type'      => 'product',
+      'posts_per_page' => 9,
+      'paged'          => $paged,
+      'tax_query'            => array(
+          array(
+              'taxonomy' => 'product_cat',
+              'field'    => 'slug', // Or 'name' or 'term_id'
+              'terms'    => array('parts-racing-products'),
+              'operator' => 'NOT IN', // Excluded
+          ),
+      ),
+      // 'tax_query'      => array(array(
+      //   'taxonomy' => 'product_cat',
+      //   'field'    => 'slug',
+      //   'terms'    => array('parts-racing-products'),
+      //   'compare' => 'NOT IN',
+      // ),),
     );
     if (isset($_GET['filter_year']) AND $_GET['filter_year']!=0) {
       $args['tax_query'][] = array(

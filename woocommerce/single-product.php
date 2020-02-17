@@ -18,16 +18,16 @@
       <!-- <div class="newArrival">NEW ARRIVAL</div> -->
       <?php
         // get all the categories on the product
-        $terms = get_the_terms( get_the_ID(), 'product_cat' );
+        $categories = get_the_terms( get_the_ID(), 'product_cat' );
         // for each category
-        if($terms){ ?>
+        if($categories){ ?>
           <h4 class="singleSideAnoMarca">
-          <?php foreach ($terms as $term) {
+          <?php foreach ($categories as $cat) {
             // get the parent category
-            $parent=get_term_by('id', $term->parent, 'product_cat', 'ARRAY_A')['slug'];
+            $parent=get_term_by('id', $cat->parent, 'product_cat', 'ARRAY_A')['slug'];
             // check if parent is either year or brand
             if ($parent=="year-bikes" OR $parent=="brand") { ?>
-              <span><?php echo $term->name; ?></span>
+              <span><?php echo $cat->name; ?></span>
             <?php }
           } ?>
         </h4>
@@ -124,6 +124,9 @@
         </div>
         <button class="galleryMore" onclick="altClassFromSelector('alt', '#galleryStock')">More photos</button>
       </div>
+
+      <?php function selection($v){return $v->slug;}$cates=array_map('selection',$categories); ?>
+      <?php if (!in_array('parts-racing-products', $cates)) { ?>
       <div class="singleFeatures">
         <figure class="singleFeature">
           <svg class="singleFeatureIcon" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -208,6 +211,7 @@
 
         </figure>
       </div>
+      <?php } ?>
 
 
 
@@ -259,7 +263,7 @@
 
             <!-- <p class="auction-condition"><?php echo wp_kses_post( apply_filters( 'conditiond_text', esc_html__( 'Item condition:', 'auctions-for-woocommerce' ), $product ) ); ?><span class="curent-bid"> <?php echo esc_html( $product->get_condition() ); ?></span></p> -->
 
-            <?php if ( ( false === $product->is_closed ) && ( true === $product->is_started ) && ( is_user_logged_in() ) ) : ?>
+            <?php if ( ( false === $product->is_closed ) && ( true === $product->is_started ) ) : ?>
 
 
             	<div class='auction-ajax-change auctionData' >
@@ -375,7 +379,7 @@
 
 
 
-
+                <?php if (is_user_logged_in()) { ?>
 
             		<form class="auction_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo intval( $product_id ); ?>">
 
@@ -408,6 +412,9 @@
             			<?php // do_action( 'woocommerce_after_bid_button' ); ?>
             		</form>
 
+              <?php } else { ?>
+                <p class="mustLogin">you must <span class="mustLoginButton" onclick="altClassFromSelector('alt','#logForm')">login</span> to place a bid</p>
+              <?php } ?>
 
 
 
@@ -543,16 +550,16 @@
             <h4 class="singleSideAnoMarca">
               <?php
               // get all the categories on the product
-              $terms = get_the_terms( get_the_ID(), 'product_cat' );
+              // $categories = get_the_terms( get_the_ID(), 'product_cat' );
               // for each category
-              if($terms){ ?>
+              if($categories){ ?>
                 <h4 class="singleSideAnoMarca">
-                  <?php foreach ($terms as $term) {
+                  <?php foreach ($categories as $cat) {
                     // get the parent category
-                    $parent=get_term_by('id', $term->parent, 'product_cat', 'ARRAY_A')['slug'];
+                    $parent=get_term_by('id', $cat->parent, 'product_cat', 'ARRAY_A')['slug'];
                     // check if parent is either year or brand
                     if ($parent=="year-bikes" OR $parent=="brand") { ?>
-                      <span><?php echo $term->name; ?></span>
+                      <span><?php echo $cat->name; ?></span>
                     <?php }
                   } ?>
                 </h4>

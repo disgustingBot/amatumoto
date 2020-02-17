@@ -450,3 +450,29 @@ function load_admin_styles() {
   // wp_enqueue_style( 'admin_css_foo', get_template_directory_uri() . '/admin-style-foo.css', false, '1.0.0' );
   // wp_enqueue_style( 'admin_css_bar', get_template_directory_uri() . '/admin-style-bar.css', false, '1.0.0' );
 }
+
+
+
+
+
+
+
+// You could use this simple function call which returns either TRUE or FALSE depending on if $children is an empty array or not.
+
+/**
+ * Check if given term has child terms
+ *
+ * @param Integer $term_id
+ * @param String $taxonomy
+ *
+ * @return Boolean
+ */
+function category_has_children( $term_id = 0, $taxonomy = 'category' ) {
+    $children = get_categories( array(
+        'child_of'      => $term_id,
+        'taxonomy'      => $taxonomy,
+        'hide_empty'    => false,
+        'fields'        => 'ids',
+    ) );
+    return ( $children );
+}
