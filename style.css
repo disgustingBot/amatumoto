@@ -182,7 +182,6 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSideTitleFontSize:1.5rem;
   --singleFeatureIconMargin: 1rem;
   --singleSideTextAlign:center;
-  --singleSideMaxWidth:;
   --singleSide2GR:4;
   --singleSide2Position:static;
   --singleSideContactBorder:2px solid black;
@@ -205,6 +204,7 @@ FIN DE MAPA DE CONTENIDOS */
 
   --singleSideStock2Display: none;
 
+
   --hotCardAnoMarcaFontSize:1rem;
   --hotCardTitleFontSize:1.2rem;
 
@@ -218,6 +218,11 @@ FIN DE MAPA DE CONTENIDOS */
   --auctionDataGTC:1fr;
   --auctionDetailsTitleFontSize:1rem;
   --auctionDetailsValueFontSize:1.2rem;
+
+
+    /* Single contact Form */
+  --lastCountryInputMarginRight: auto;
+
 
   /* ABOUT US */
 
@@ -559,7 +564,6 @@ FIN DE MAPA DE CONTENIDOS */
     --legalFooterJustification: flex-end;
     --singleSocialSvgHeight: 1rem;
     --singleSideTextAlign:left;
-    --singleSideMaxWidth:250px;
     --singleSide2GR:2;
     --singleSide2Position:sticky;
     --singleSideVideoDisplay:flex;
@@ -573,6 +577,10 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideContactWidth: 100%;
 
     /* --auctionDataGTC:1fr 1fr; */
+
+
+      /* Single contact Form */
+    --lastCountryInputMarginRight: .5%;
 
 
     /* FORMS */
@@ -811,7 +819,7 @@ FIN DE MAPA DE CONTENIDOS */
 
       /* SINGLE */
       --singlePagePadding:1rem 5.5rem;
-      --singleSidePadding: 1rem 0;
+      --singleSidePadding: 0 .5rem;
       --singleSideTitleFontSize:1.5rem;
       --singleFeatureIconMargin:2rem;
       --singleSideContactBorder:3px solid black;
@@ -1977,7 +1985,7 @@ background: #ddd;
   top:50%;
   left:50%;
   transform:translate(-50%, -50%);
-  padding: 50px;
+  padding: .3rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -2011,7 +2019,7 @@ background: #ddd;
 .formInput {
   border-color: #ddd;
   height: 1.5rem;
-  padding: 6px 12px;
+  padding: 2px 12px;
   line-height: 1.42857143;
   color: #555555;
   background-color: #fff;
@@ -2053,13 +2061,21 @@ background: #ddd;
   display: flex;
 }
 
+.singleFormContainer .singleContactButton.contactButton{
+  width: 8rem;
+  margin: 0 auto;
+}
 /* MAKE OFFER */
 
 #singleMakeOffer.alt {
   display: flex;
 }
-.offerAmmount {
-  width: 83%;
+.formInput100.formInput.offerAmmount{
+  width: 82%!important;
+}
+
+.singleRequestInfoButton.contactButton{
+  margin: 0 auto;
 }
 
 .offerAmmountIcon {
@@ -2091,7 +2107,7 @@ background: #ddd;
 }
 
 .lastCountryInput {
-  margin-right: 0;
+  margin-right: var(--lastCountryInputMarginRight);
 }
 
 #singleFinance .singleFormTxtArea {
@@ -2112,6 +2128,16 @@ background: #ddd;
 .formTermsAndConditions .linkTermAndConditionsForm{
   text-transform: uppercase;
   font-size: .7rem;
+}
+
+.tradeOrNot{
+  text-transform: uppercase;
+  margin: 0 auto;
+
+}
+
+#singleMakeOffer .singleContact{
+  width: 82%!important;
 }
 
 
@@ -3087,8 +3113,6 @@ background: #ddd;
   grid-gap:.3rem;
   margin-bottom: auto;
   text-align:var(--singleSideTextAlign);
-  /* max-width:250px; */
-  max-width:var(--singleSideMaxWidth);
   padding:var(--singleSidePadding);
 }
 .singleSide2{
@@ -3553,6 +3577,10 @@ a.contactInformationText:hover{
 
 .contactLogo{
   margin: var(--contactLogoMargin);
+}
+
+.contactFormColumn .MainContactForm .formInput33 .formInput{
+  margin-left: var(--) 0;
 }
 
 /* ---------------------------------------------------------------------------
