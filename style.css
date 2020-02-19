@@ -3540,6 +3540,21 @@ background: #ddd;
 
 .lawLinkLeft {margin-right: 1rem}
 
+/* PRIVACY POLICY */
+
+.privacyPolicy p, .privacyPolicy li {
+  font-size: .8rem;
+}
+
+.termsAndConditions p, .privacyPolicy li {
+  font-size: .8rem;
+}
+
+.topPrivacy {
+  border: 1px solid #ddd;
+  padding: 1rem;
+}
+
 
 /* CONTACT */
 
