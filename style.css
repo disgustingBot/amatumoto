@@ -2122,6 +2122,7 @@ background: #ddd;
 .offerAmmount {
   margin-left: 0;
   width: 83%;
+}
 .formInput100.formInput.offerAmmount{
   width: 82%!important;
 }
@@ -3752,9 +3753,10 @@ a.contactInformationText:hover{
 
 .newsLetterSignUp {
   grid-column: span 2;
-  font-weight: 700;
+  font-weight: 900;
   margin: .2rem 0;
   font-size: 1.5rem;
+  transform: skewX(-25deg);
 }
 
 .newsLetterEnterMail {
@@ -3785,6 +3787,7 @@ a.contactInformationText:hover{
   letter-spacing: 2px;
   cursor: pointer;
   padding: .5rem;
+  border-radius: 4px;
 }
 
 

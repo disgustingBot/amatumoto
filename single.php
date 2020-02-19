@@ -9,7 +9,7 @@
       $newness_days = 1;
       $created = strtotime( $product->get_date_created() );
       if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
-        <span class="newArrival"><i>New arrival</i></span>
+        <span class="newArrival"><i>NEW ARRIVAL</i></span>
       <?php } ?>
       <div class="newArrival">NEW ARRIVAL</div>
       <h4 class="singleSideAnoMarca">

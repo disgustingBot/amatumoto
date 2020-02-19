@@ -64,11 +64,11 @@
       <?php include 'socialSharing.php'; ?>
 
       <div class="legalFooter">
-        <p class="legalFooterA">C 2020 | Amatumoto</p>
-        <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Disclaimer</a>
-        <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Terms & Conditions</a>
-        <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Privacy</a>
-        <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Cookie Policy</a>
+        <p class="legalFooterA">© 2020 | Amatumoto</p>
+        <a class="legalFooterA" href="<?php echo site_url('privacy-policy'); ?>">Privacy & Cookies</a>
+        <a class="legalFooterA" href="<?php echo site_url('terms-conditions'); ?>">Terms & Conditions</a>
+        <a class="legalFooterA" href="<?php echo site_url('about-us'); ?>">About us</a>
+        <a class="legalFooterA" href="<?php echo site_url('consignment'); ?>">Consign your bike</a>
       </div>
 
     </div>
