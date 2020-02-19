@@ -30,7 +30,7 @@ const carousel=()=>{j++;
   setTimeout(carousel, 8000); // Change image every N/1000 seconds
 }
 const plusDivs=n=>{showDivs(j+=n)}
-if(x.length>0){showDivs(j);carousel()}
+if(x.length>0){showDivs(j);setTimeout(carousel, 8000);}
 
 
 // SLIDER TESTIMONIALS
@@ -48,7 +48,36 @@ const testi=()=>{t++;
   setTimeout(testi, 10000); // Change image every N/1000 seconds
 }
 const plusTesti=n=>{showTesti(t+=n)}
-if(e.length>0){showTesti(t);testi()}
+if(e.length>0){showTesti(t);setTimeout(testi, 10000);}
+
+
+
+// Gallery SLIDER:
+var k=1,y=d.getElementsByClassName("galleryCarousel");
+c.log(y)
+const showImgs=(n,plus)=>{
+  if(n>=y.length){k=0}
+  if(n<0){k=y.length-1}
+  for(i=0;i<y.length;i++){y[i].classList.add("inactive")}
+  if(plus){y[k].classList.remove("inactive")}
+  else{k=n;y[n].classList.remove("inactive")}
+}
+// const carouselImgs=()=>{k++;
+//   for(i=0;i<y.length;i++){y[i].classList.add("inactive")}
+//   if(k>y.length){k=1}
+//   y[k-1].classList.remove("inactive");
+//   setTimeout(carouselImgs, 8000); // Change image every N/1000 seconds
+// }
+// const plusImgs=n=>{showImgs(n)}
+const plusImgs=n=>{showImgs(k+=n,true)}
+const selectImgs=n=>{showImgs(n,false)}
+if(y.length>0){
+  showImgs(0);
+  // setTimeout(carouselImgs, 8000);
+}
+
+
+
 
 // Mobile behavior
 

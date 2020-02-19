@@ -81,7 +81,7 @@
     <figure class="productCard">
       <?php
       global $product;
-      $newness_days = 1;
+      // $newness_days = 1;
       $created = strtotime( $product->get_date_created() );
       if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
         <span class="newArrival"><i>New arrival</i></span>

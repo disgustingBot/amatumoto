@@ -89,6 +89,7 @@ FIN DE MAPA DE CONTENIDOS */
   /* Al editar colores siempre usar HEX y nunca
   dejar espacio entre los dos puntos y el color */
   --color1:#F78D15;
+  --color1oposite:#2415f7;
   --color2:#FFFFFF;
   --color3:#D2AA6C;
   /* --color4:#EBE1C8; */
@@ -186,7 +187,7 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSideContactBorder:2px solid black;
   --singleSidePriceFontSize:1rem;
   --singleSideStock2FontSize:.6rem;
-  --singleSideAnoMarcaFontSize:1.5rem;
+  --singleSideAnoMarcaFontSize:1rem;
   --singleSideStockFontSize:.8rem;
   --singleSideDataFontSize: .8rem;
   --singleFeatureDescFontSize:.8rem;
@@ -947,7 +948,7 @@ main li {margin: .3rem 0;}
   display: grid;
   height: 100vh;
   width:  100vw;
-  position: absolute;
+  position: fixed;
   top:0;
   left:0;
   transition: 2s;
@@ -974,16 +975,39 @@ main li {margin: .3rem 0;}
 .gallery{
   position: relative;
   margin-bottom: 2rem;
+  display:grid;
+  grid-gap:.3rem;
+}
+.gallery.alt{
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100%;
+  grid-template-rows:100vh;
+  overflow:hidden;
+  z-index:10000;
 }
 
 .galleryStock img{
   height: 2rem;
 }
+.galleryMainCarousel{
+  display:grid;
+  grid-column:1;
+  grid-row:1;
+}
+.gallery.alt .galleryMain{background:white;height:100vh!important;object-fit:contain;}
 .galleryMain{
-  width: 100%;
   /* height: 350px; */
   height:30vw!important;
+  grid-column:1;
+  grid-row:1;
+  position:relative;
+  width: 100%;
+  z-index:1;
 }
+.galleryMain.inactive{z-index:0}
 .galleryStock{
   display: grid;
   /* grid-template-columns:repeat(8, 1fr); */
@@ -1021,7 +1045,7 @@ main li {margin: .3rem 0;}
 .galleryMore {
   position:absolute;
   left:50%;
-  transform: translate(-50%,120%);
+  transform: translate(-50%,calc(100% + 1rem));
   background:#252525;
   color:#fff;
   padding:.3rem 1rem;
@@ -1149,6 +1173,8 @@ main li {margin: .3rem 0;}
 .socialMediaInst:hover{color:#E1306C}
 .socialMediaFace:hover{color:#3B5998}
 .socialMediaYouT:hover{color:#CD201F}
+.socialMediaMail:hover{color:var(--color1);}
+.socialMediaFono:hover{color:var(--color1);}
 .socialMediaWhatsapp:hover{color:#4AC959}
 .mail.upperNavInfo:hover svg{color:#F78D15}
 
@@ -1519,7 +1545,7 @@ background: #ddd;
 
 .newArrival {
   /* background: #007EFF; */
-  background:var(--color1);
+  background:var(--color1oposite);
   letter-spacing: 1px;
   padding: .3rem .5rem;
   font-size:var(--newArrivalFontSize);
@@ -2093,6 +2119,9 @@ background: #ddd;
 #singleMakeOffer.alt {
   display: flex;
 }
+.offerAmmount {
+  margin-left: 0;
+  width: 83%;
 .formInput100.formInput.offerAmmount{
   width: 82%!important;
 }
@@ -2102,17 +2131,46 @@ background: #ddd;
 }
 
 .offerAmmountIcon {
-  width: 8%;
+  align-items: center;
+  /* background: #ddd; */
+  /* border:1px solid #ddd; */
+  display: flex;
+  font-size: .8rem;
   height: 1.5rem;
-  background: #F78D15;
+  justify-content: center;
   margin: auto;
   margin-right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: .8rem;
+  /* width: 8%; */
+  position:relative;
+  transition:.3s;
+  width:2rem;
 }
-.offerAmmount {margin-left: 0;}
+.offerAmmountIcon:hover{background:#ddd}
+.offerAmmountIconInput{
+  position:absolute;
+  left:-2000vw;
+}
+.offerAmmountIconLabel{
+  align-items:center;
+  cursor:pointer;
+  display:grid;
+  height: 100%;
+  position:relative;
+  text-align:center;
+  width:50%;
+  z-index:5;
+}
+.offerAmmountIconSignal{
+  background:var(--color1);
+  height:100%;
+  left:0;
+  top:0;
+  pointer-events:none;
+  position:absolute;
+  transition:.3s;
+  width:50%;
+}
+.offerAmmountIconInput:checked + .offerAmmountIconSignal{left:50%}
 
 #singleTrade.alt {
   display: flex;
@@ -2975,6 +3033,7 @@ background: #ddd;
 .testimonialTxt {
   margin: auto;
   padding: 1rem;
+  text-align:center;
 }
 
 .testiQuote {
