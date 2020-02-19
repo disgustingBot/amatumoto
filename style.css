@@ -126,6 +126,7 @@ FIN DE MAPA DE CONTENIDOS */
   --navBarFontSize: .6rem;
   --navBarPadding: 0;
   --subMenuDisplay:none;
+  --notDisplayOnDesktop: ;
 
 
   /* ?FILTER */
@@ -450,6 +451,7 @@ FIN DE MAPA DE CONTENIDOS */
     --upperNavAlignment: center;
     --navBarMargin: auto 1rem;
     --subMenuDisplay:grid;
+    --notDisplayOnDesktop: none;
 
     /* --navBarDesktopDisplay: flex; */
     --navBarDesktopDisplay: grid;
@@ -1230,6 +1232,10 @@ main li {margin: .3rem 0;}
   height:100%;
   /* align-items: stretch; */
 }
+.navBar ul li:nth-child(n+6){
+  display: var(--notDisplayOnDesktop);
+}
+
 .navBarMobile ul li{
   font-size: 1rem;
   margin:auto;
