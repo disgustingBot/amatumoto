@@ -862,6 +862,22 @@ FIN DE MAPA DE CONTENIDOS */
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
+                           4) =TOPOGRAFIAS:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'highlandgothicflfregular';
+    src: url('/localhost/GPMotorbikes/fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('/localhost/GPMotorbikes/fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('/localhost/GPMotorbikes/fonts/HighlandGothicFLF.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
                            4) =ETIQUETAS GLOBALES:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
@@ -869,11 +885,9 @@ FIN DE MAPA DE CONTENIDOS */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* font-family: 'Raleway', sans-serif; */
   font-family: 'Lato', sans-serif;
 }
 
-/* *:focus{outline:none} */
 
 html{overflow-x:hidden}
 body{display: grid; color: #333333;}
@@ -1061,13 +1075,18 @@ main li {margin: .3rem 0;}
   height: auto;
   margin: auto;
   margin-left:0;
+  margin-bottom: .1rem;
 }
 
 .copy {
   color: black;
-  font-size: 1.25rem;
-  font-weight: bolder;
-  transform: skewX(-30deg);
+  font-size: 1rem;
+  font-family: 'highlandgothicflfregular', sans-serif;
+  margin: auto 0;
+  margin-top: 0;
+  font-weight: 900;
+  font-style: italic;
+
 }
 
 
@@ -1081,7 +1100,6 @@ main li {margin: .3rem 0;}
   align-items: var(--upperNavAlignment);
   margin: auto;
   justify-content: flex-end;
-  /* margin-right: var(--upperNavMarginLeft); */
   margin-right:0;
 }
 
