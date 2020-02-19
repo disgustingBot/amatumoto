@@ -20,7 +20,7 @@
     if(get_query_var('paged')){$paged=get_query_var('paged');}elseif(get_query_var('page')){$paged=get_query_var('page');}else{$paged=1;}
     $args = array(
       'post_type'      => 'product',
-      'posts_per_page' => 9,
+      'posts_per_page' => 18,
       'paged'          => $paged,
       'tax_query'            => array(
           array(
