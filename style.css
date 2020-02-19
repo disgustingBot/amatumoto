@@ -164,7 +164,6 @@ FIN DE MAPA DE CONTENIDOS */
   /* --consignSectionMargin: 1rem 0; */
   --consignSectionGalleryWidth: 80%;
   --hotCardWidth: 90;
-  --hotCardMargin: .5rem 0;
   --viewInventoryMarginTop: 1rem;
   --viewInventoryBtnBorder: 2px solid #000;
   --viewInventoryBackground: transparent;
@@ -388,7 +387,6 @@ FIN DE MAPA DE CONTENIDOS */
     --searchLinesDisplay: block;
     --searchSeparatorDisplay: grid;
     --hotCardWidth: 40;
-    /* --hotCardMargin: 1rem; */
 
 
     /* FOOTER */
@@ -502,7 +500,6 @@ FIN DE MAPA DE CONTENIDOS */
     /* --consignSectionMargin: 2rem 0; */
     --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
-    /* --hotCardMargin: 0; */
     --hotCardWidth: 30;
 
     --viewInventoryMarginTop: -4rem;
@@ -568,7 +565,7 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSide2Position:sticky;
     --singleSideVideoDisplay:flex;
     --singleSideContactContainerMargin:0;
-    --singleSideSocialContMargin:.5rem 0;
+    --singleSideSocialContMargin:.5rem auto;
     --sS_newArrivalMargin:0;
     --singleFeatureDescFontSize:.5rem;
     --singleSideStock2Display: block;
@@ -691,6 +688,7 @@ FIN DE MAPA DE CONTENIDOS */
 
         /* SINGLE */
     --singleSideContactFontSize: .7rem;
+    --singleFeatureDescFontSize:.6rem;
     /* --auctionDataGTC:1fr 1fr 1fr; */
 
 
@@ -833,6 +831,7 @@ FIN DE MAPA DE CONTENIDOS */
       --singleStock2IDPadding:1rem;
       --galleryMoreFontSize:.8rem;
       --newArrivalFontSize:1.5rem;
+      --singleFeatureDescFontSize:.7rem;
 
       /* CONTACT */
       --contactLogoMargin: 1.5rem 5rem;
@@ -1546,8 +1545,6 @@ background: #ddd;
 .hotCard{
   display: flex;
   flex-wrap: wrap;
-  width: calc(var(--hotCardWidth) * 1vw);
-  margin: var(--hotCardMargin);
   transition: .25s;
   border:1px solid #ddd;
   text-align: center;
@@ -2886,7 +2883,6 @@ background: #ddd;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin:auto;
 }
 
 .testimonialBtn {
@@ -2957,12 +2953,14 @@ background: #ddd;
 
 /* SINGLE MAIN */
 .singleMain {
+  display: grid;
   /* grid-row: 1; */
 }
 
 
 
 .auctionData{
+  grid-row: 2;
   display: grid;
   grid-gap:.5rem;
   margin:.6rem 0;
