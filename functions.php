@@ -476,3 +476,8 @@ function category_has_children( $term_id = 0, $taxonomy = 'category' ) {
     ) );
     return ( $children );
 }
+
+
+
+
+$newness_days = 25;
