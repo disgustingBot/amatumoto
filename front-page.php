@@ -142,7 +142,7 @@
                 <span class="auctionDetailsValue main-auction auction-time-countdown" data-time="<?php echo esc_attr( $product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
               <?php }
             ?>
-          </div>
+          </p>
         <?php } ?>
 
         <?php if(!method_exists($product,'get_seconds_remaining')){ ?>

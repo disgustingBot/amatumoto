@@ -239,36 +239,6 @@
       </div>
       <?php } ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <?php
             // AUCTION INFORRMATION HERE
             // var_dump(get_post_meta( $product->id));
@@ -295,17 +265,10 @@
             	<div class='auction-ajax-change auctionData' >
 
             		<?php if ( 'yes' !== $product->get_auction_sealed() ) { ?>
-
-
-
                 <div class="auctionTitle">
                   <h2>Auction info:</h2>
                   <?php do_action( 'woocommerce_after_bid_form' ); ?>
                 </div>
-
-
-
-
 
                   <p class="auctionDetails">
                     <span class="auctionDetailsTitle">
@@ -400,11 +363,6 @@
             		<?php do_action( 'woocommerce_before_bid_form' ); ?>
 
 
-
-
-
-
-
                 <?php if (is_user_logged_in()) { ?>
 
             		<form class="auction_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo intval( $product_id ); ?>">
@@ -413,7 +371,7 @@
 
             			<input type="hidden" name="bid" value="<?php echo esc_attr( $product_id ); ?>" />
             				<div class="quantity buttons_added">
-            					<input type="button" value="+" class="plus" />
+            					<input type="button" value="-" class="minus" />
             					<input type="text" name="bid_value" data-auction-id="<?php echo intval( $product_id ); ?>"
             							<?php
             							if ( 'yes' !== $product->get_auction_sealed() ) {
@@ -426,7 +384,7 @@
             								<?php endif; ?>
             							<?php } ?>
             							step="100" size="<?php echo intval( strlen( $product->get_curent_bid() ) ) + 6; ?>" title="bid"  class="input-text qty  bid text left">
-            					<input type="button" value="-" class="minus" />
+                      <input type="button" value="+" class="plus" />
             				</div>
             			<button type="submit" class="bid_button button alt"><?php echo wp_kses_post( apply_filters( 'bid_text', esc_html__( 'Bid', 'auctions-for-woocommerce' ), $product ) ); ?></button>
             			<input type="hidden" name="place-bid" value="<?php echo intval( $product_id ); ?>" />
@@ -441,12 +399,6 @@
               <?php } else { ?>
                 <p class="mustLogin">you must <span class="mustLoginButton" onclick="altClassFromSelector('alt','#logForm')">login</span> to place a bid</p>
               <?php } ?>
-
-
-
-
-
-
 
 
 
@@ -482,59 +434,6 @@
               </div>
 
             <?php endif; } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
 

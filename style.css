@@ -117,9 +117,6 @@ FIN DE MAPA DE CONTENIDOS */
   --headerDisplay: flex;
   --mobileNavButtonDisplay: flex;
   --logoPaddingRight: 5rem;
-  /* --mobileNavBtnWidth: 45px; */
-  /* --mobileNavBtnHeight: 30px; */
-  /* --mobileNavBtnTop: 1.5rem; */
   --mobileNavBtnRight: 1rem;
   --navStripeHeight: 5px;
   --logoImgWidth: 70%;
@@ -152,7 +149,6 @@ FIN DE MAPA DE CONTENIDOS */
   --consignSectionGalleryGridTemplateRows: repeat(4, min-content);
   --searchLinesDisplay: none;
   --searchSeparatorDisplay: flex;
-  /* --dosMotosMargin: 1rem 0; */
   --dosMotosPaddingRight: 0;
   --dosMotosCaptionPadding: 0;
   --mainTxtType1FontSize: .9rem;
@@ -162,13 +158,16 @@ FIN DE MAPA DE CONTENIDOS */
   --buttonType1Margin: 1rem auto;
   --buttonType1FontSize: 1.1rem;
   --dosMotosGridGap: 2rem;
-  /* --consignSectionMargin: 1rem 0; */
   --consignSectionGalleryWidth: 80%;
   --hotCardWidth: 90;
-  --hotCardMargin: .5rem 0;
   --viewInventoryMarginTop: 1rem;
   --viewInventoryBtnBorder: 2px solid #000;
   --viewInventoryBackground: transparent;
+  --homeSearchGridTemplateC: 1fr 1fr 1fr;
+  --homeMateputGridC: 1/4;
+  --homeFilterBarLink: 100%;
+  --HomeButtonType1Padding: .5rem;
+  --homeFilterBarTop: 1rem;
 
 
   /* ?HOT AUCTIONS */
@@ -183,7 +182,6 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSideTitleFontSize:1.5rem;
   --singleFeatureIconMargin: 1rem;
   --singleSideTextAlign:center;
-  --singleSideMaxWidth:;
   --singleSide2GR:4;
   --singleSide2Position:static;
   --singleSideContactBorder:2px solid black;
@@ -206,6 +204,7 @@ FIN DE MAPA DE CONTENIDOS */
 
   --singleSideStock2Display: none;
 
+
   --hotCardAnoMarcaFontSize:1rem;
   --hotCardTitleFontSize:1.2rem;
 
@@ -219,6 +218,11 @@ FIN DE MAPA DE CONTENIDOS */
   --auctionDataGTC:1fr;
   --auctionDetailsTitleFontSize:1rem;
   --auctionDetailsValueFontSize:1.2rem;
+
+
+    /* Single contact Form */
+  --lastCountryInputMarginRight: auto;
+
 
   /* ABOUT US */
 
@@ -384,7 +388,6 @@ FIN DE MAPA DE CONTENIDOS */
     --searchLinesDisplay: block;
     --searchSeparatorDisplay: grid;
     --hotCardWidth: 40;
-    /* --hotCardMargin: 1rem; */
 
 
     /* FOOTER */
@@ -469,7 +472,7 @@ FIN DE MAPA DE CONTENIDOS */
     --filterSeparatorDisplay: block;
     --filterBarSearchWidth: 100%;
     --filterBarBottomCol: repeat(5,1fr);
-    --filterLinkBarWidth: ;
+    --filterLinkBarWidth: unset;
     --filterBarLinkPadding: .5rem 1.2rem;
     /* --filterBarContraction: calc(4.5rem + 2px); */
     --filterBarContraction: calc(2rem + 40px + 2px);
@@ -486,7 +489,6 @@ FIN DE MAPA DE CONTENIDOS */
     --dosMotosGridTemplateColumns: 1fr 1fr;
     --consignSectionGalleryGridTemplateColumns: repeat(4,1fr);
     --consignSectionGalleryGridTemplateRows: 1fr;
-    /* --dosMotosMargin: 2rem 0; */
     --dosMotosPaddingRight: 3rem;
     --mainTxtType1FontSize: .66rem;
     --maintTxtType1LineHeight: 1.1rem;
@@ -495,15 +497,17 @@ FIN DE MAPA DE CONTENIDOS */
     --buttonType1Margin: 2rem auto;
     --buttonType1FontSize: .8rem;
     --dosMotosGridGap: 1rem;
-    /* --consignSectionMargin: 2rem 0; */
     --consignSectionGalleryWidth: 100%;
     --characterContainerJustifyContent: ;
-    /* --hotCardMargin: 0; */
     --hotCardWidth: 30;
-
     --viewInventoryMarginTop: -4rem;
     --viewInventoryBtnBorder: none;
     --viewInventoryBackground: white;
+    --homeSearchGridTemplateC: 2fr 1fr 1fr 1fr;
+    --homeMateputGridC: 1;
+    --homeFilterBarLink: unset;
+    --HomeButtonType1Padding: .4rem 1.4rem;
+    --homeFilterBarTop: 3rem;
 
 
 
@@ -560,12 +564,11 @@ FIN DE MAPA DE CONTENIDOS */
     --legalFooterJustification: flex-end;
     --singleSocialSvgHeight: 1rem;
     --singleSideTextAlign:left;
-    --singleSideMaxWidth:250px;
     --singleSide2GR:2;
     --singleSide2Position:sticky;
     --singleSideVideoDisplay:flex;
     --singleSideContactContainerMargin:0;
-    --singleSideSocialContMargin:.5rem 0;
+    --singleSideSocialContMargin:.5rem auto;
     --sS_newArrivalMargin:0;
     --singleFeatureDescFontSize:.5rem;
     --singleSideStock2Display: block;
@@ -574,6 +577,10 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideContactWidth: 100%;
 
     /* --auctionDataGTC:1fr 1fr; */
+
+
+      /* Single contact Form */
+    --lastCountryInputMarginRight: .5%;
 
 
     /* FORMS */
@@ -684,6 +691,7 @@ FIN DE MAPA DE CONTENIDOS */
 
         /* SINGLE */
     --singleSideContactFontSize: .7rem;
+    --singleFeatureDescFontSize:.6rem;
     /* --auctionDataGTC:1fr 1fr 1fr; */
 
 
@@ -812,7 +820,7 @@ FIN DE MAPA DE CONTENIDOS */
 
       /* SINGLE */
       --singlePagePadding:1rem 5.5rem;
-      --singleSidePadding: 1rem 0;
+      --singleSidePadding: 0 .5rem;
       --singleSideTitleFontSize:1.5rem;
       --singleFeatureIconMargin:2rem;
       --singleSideContactBorder:3px solid black;
@@ -826,6 +834,7 @@ FIN DE MAPA DE CONTENIDOS */
       --singleStock2IDPadding:1rem;
       --galleryMoreFontSize:.8rem;
       --newArrivalFontSize:1.5rem;
+      --singleFeatureDescFontSize:.7rem;
 
       /* CONTACT */
       --contactLogoMargin: 1.5rem 5rem;
@@ -854,6 +863,22 @@ FIN DE MAPA DE CONTENIDOS */
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
+                           4) =TOPOGRAFIAS:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'highlandgothicflfregular';
+    src: url('/localhost/GPMotorbikes/fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('/localhost/GPMotorbikes/fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('/localhost/GPMotorbikes/fonts/HighlandGothicFLF.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
                            4) =ETIQUETAS GLOBALES:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
@@ -861,11 +886,9 @@ FIN DE MAPA DE CONTENIDOS */
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* font-family: 'Raleway', sans-serif; */
   font-family: 'Lato', sans-serif;
 }
 
-/* *:focus{outline:none} */
 
 html{overflow-x:hidden}
 body{display: grid; color: #333333;}
@@ -1063,8 +1086,8 @@ main li {margin: .3rem 0;}
 
 .logo {
   display: flex;
+  flex-direction: column;
   width: var(--logoWidth);
-  grid-row: span 2;
   height: 100%;
   width: auto;
   padding-right: var(--logoPaddingRight);
@@ -1075,8 +1098,19 @@ main li {margin: .3rem 0;}
   width: var(--logoImgWidth);
   height: auto;
   margin: auto;
-  /* margin-left: var(--upperNavMarginLeft); */
   margin-left:0;
+  margin-bottom: .1rem;
+}
+
+.copy {
+  color: black;
+  font-size: 1rem;
+  font-family: 'highlandgothicflfregular', sans-serif;
+  margin: auto 0;
+  margin-top: 0;
+  font-weight: 900;
+  font-style: italic;
+
 }
 
 
@@ -1090,7 +1124,6 @@ main li {margin: .3rem 0;}
   align-items: var(--upperNavAlignment);
   margin: auto;
   justify-content: flex-end;
-  /* margin-right: var(--upperNavMarginLeft); */
   margin-right:0;
 }
 
@@ -1564,8 +1597,6 @@ background: #ddd;
 .hotCard{
   display: flex;
   flex-wrap: wrap;
-  width: calc(var(--hotCardWidth) * 1vw);
-  margin: var(--hotCardMargin);
   transition: .25s;
   border:1px solid #ddd;
   text-align: center;
@@ -2003,7 +2034,7 @@ background: #ddd;
   top:50%;
   left:50%;
   transform:translate(-50%, -50%);
-  padding: 50px;
+  padding: .3rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -2037,7 +2068,7 @@ background: #ddd;
 .formInput {
   border-color: #ddd;
   height: 1.5rem;
-  padding: 6px 12px;
+  padding: 2px 12px;
   line-height: 1.42857143;
   color: #555555;
   background-color: #fff;
@@ -2079,6 +2110,10 @@ background: #ddd;
   display: flex;
 }
 
+.singleFormContainer .singleContactButton.contactButton{
+  width: 8rem;
+  margin: 0 auto;
+}
 /* MAKE OFFER */
 
 #singleMakeOffer.alt {
@@ -2087,6 +2122,12 @@ background: #ddd;
 .offerAmmount {
   margin-left: 0;
   width: 83%;
+.formInput100.formInput.offerAmmount{
+  width: 82%!important;
+}
+
+.singleRequestInfoButton.contactButton{
+  margin: 0 auto;
 }
 
 .offerAmmountIcon {
@@ -2147,7 +2188,7 @@ background: #ddd;
 }
 
 .lastCountryInput {
-  margin-right: 0;
+  margin-right: var(--lastCountryInputMarginRight);
 }
 
 #singleFinance .singleFormTxtArea {
@@ -2168,6 +2209,16 @@ background: #ddd;
 .formTermsAndConditions .linkTermAndConditionsForm{
   text-transform: uppercase;
   font-size: .7rem;
+}
+
+.tradeOrNot{
+  text-transform: uppercase;
+  margin: 0 auto;
+
+}
+
+#singleMakeOffer .singleContact{
+  width: 82%!important;
 }
 
 
@@ -2565,7 +2616,6 @@ background: #ddd;
   grid-gap: 3rem;
   grid-template-columns:min-content 1fr max-content max-content max-content;
   justify-content: space-evenly;
-  /* padding:.5rem var(--filterBarBottomPaddingX); */
   padding:.5rem var(--lateral);
   position: relative;
   width:100%;
@@ -2708,6 +2758,40 @@ background: #ddd;
   display:none;
 }
 
+
+.home .filterBarBotttom {
+  display: none;
+}
+
+.home .filterBar .mateput {
+  grid-column: var(--homeMateputGridC);
+  grid-row: 1;
+}
+
+.home .filterBarTop {
+  display: grid;
+  grid-template-columns: var(--homeSearchGridTemplateC);
+  padding: 1rem var(--lateral);
+  grid-gap: var(--homeFilterBarTop);
+}
+
+.home .filterBarTop .searchBtn {
+  grid-column: var(--homeMateputGridC);
+  grid-row: 1;
+}
+
+.home .filterBarTop .filterBarLink {
+  background: transparent;
+  border: solid 2px black;
+  padding: var(--HomeButtonType1Padding);
+  margin: unset;
+  width: var(--homeFilterBarLink);
+
+}
+
+.home .filterBarTop .filterButton {
+  display: none;
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.8) =selectBox:
@@ -2916,7 +3000,6 @@ background: #ddd;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin:auto;
 }
 
 .testimonialBtn {
@@ -2988,12 +3071,14 @@ background: #ddd;
 
 /* SINGLE MAIN */
 .singleMain {
+  display: grid;
   /* grid-row: 1; */
 }
 
 
 
 .auctionData{
+  grid-row: 2;
   display: grid;
   grid-gap:.5rem;
   margin:.6rem 0;
@@ -3144,8 +3229,6 @@ background: #ddd;
   grid-gap:.3rem;
   margin-bottom: auto;
   text-align:var(--singleSideTextAlign);
-  /* max-width:250px; */
-  max-width:var(--singleSideMaxWidth);
   padding:var(--singleSidePadding);
 }
 .singleSide2{
@@ -3610,6 +3693,10 @@ a.contactInformationText:hover{
 
 .contactLogo{
   margin: var(--contactLogoMargin);
+}
+
+.contactFormColumn .MainContactForm .formInput33 .formInput{
+  margin-left: var(--) 0;
 }
 
 /* ---------------------------------------------------------------------------
