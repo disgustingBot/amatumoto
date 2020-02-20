@@ -1168,8 +1168,8 @@ main li {margin: .3rem 0;}
 }
 .socialMediaLink:last-child{margin-right:0}
 
-.socialMediaLink svg {height: 20px; width: 20px;}
-.footer .socialMediaLink svg {height: 30px; width: 30px;}
+.socialMediaLink svg {height: 20px; width: auto;}
+.footer .socialMediaLink svg {height: 20px; width: auto;}
 
 
 .socialMediaInst:hover{color:#E1306C}
@@ -2011,7 +2011,7 @@ background: #ddd;
 
 .SingleContactCloseButton {
   position: absolute;
-  top: .5rem;
+  top: -.4rem;
   right: .5rem;
   font-size: 2rem;
   transform: rotate(45deg);
@@ -2030,7 +2030,7 @@ background: #ddd;
   display: none;
 }
 .singleContact {
-  margin: 50px auto;
+  margin: auto;
   top: 0;
   left: 0;
   max-width: 700px;
@@ -3460,10 +3460,10 @@ background: #ddd;
 
 .singleFeatureIcon {
   height: 75px;
+  width: auto;
   margin:var(--singleFeatureIconMargin);
 }
 
-.breaksRotation {transform: rotate(45deg);}
 
 .singlePage .singleDescription {
   font-size: .8rem;
