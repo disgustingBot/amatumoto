@@ -33,12 +33,17 @@
       <h1 class="singleSideTitle"><?php the_title(); ?></h1>
       <?php if($yearBike){ ?><h4 class="singleSideAnoMarca"><?php echo $yearBike; ?></h4><?php } ?>
       <p class="singleSidePrice"><?php echo $product->get_price_html(); ?></p>
-      <p class="singleSideStock">
-        Stock # <?php echo $product->id; ?>
-        <?php if (method_exists($product,'get_condition')) { ?>
-          <br>Condition: <?php echo esc_html( $product->get_condition() ); ?>
-        <?php } ?>
-      </p>
+      <?php $stockNumber = get_post_meta( $product->id, 'stockNumber' )[0]; ?>
+      <?php if($stockNumber){ ?>
+        <p class="singleSideStock">
+          Stock # <?php echo $stockNumber; ?>
+          <?php if (method_exists($product,'get_condition')) { ?>
+            <br>Condition: <?php echo esc_html( $product->get_condition() ); ?>
+          <?php } ?>
+        </p>
+      <?php } ?>
+
+
       <p class="singleSideData"><?php echo excerpt(140); ?></p>
 
       <?php $video = get_post_meta( $product->id, 'video' )[0]; ?>
@@ -287,12 +292,18 @@
                 	</p>
 
             			<p class="auctionDetails">
-                    <span class="auctionDetailsTitle">Current bid:</span>
-                    <?php // echo wp_kses_post( $product->get_price_html() ); ?>
+                    <?php if ($product->auction_current_bid){ ?>
+                      <span class="auctionDetailsTitle">Current bid:</span>
+                      <?php // echo wp_kses_post( $product->get_price_html() ); ?>
+                      <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_current_bid,0,",","."); ?></span>
+                      <!-- <span class="auctionDetailsValue">€ <?php echo $product->auction_current_bid; ?></span> -->
+                    <?php } else { ?>
+                      <span class="auctionDetailsTitle">Starting bid:</span>
+                      <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
+                    <?php } ?>
 
 
-                    <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_current_bid,0,",","."); ?></span>
-                    <!-- <span class="auctionDetailsValue">€ <?php echo $product->auction_current_bid; ?></span> -->
+
                   </p>
 
                   <p class="auctionDetails">
@@ -467,7 +478,11 @@
       <div class="superFicha">
         <div>
           <p class="singleSideStock2">STOCK #</p>
-          <p class="singleStock2ID"><?php echo $product->id; ?></p>
+
+
+          <?php if($stockNumber){ ?>
+            <p class="singleStock2ID"><?php echo $stockNumber; ?></p>
+          <?php } ?>
         </div>
         <figure class="singleSideSintBox">
           <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">

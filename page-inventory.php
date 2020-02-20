@@ -68,6 +68,21 @@
   $blogPosts=new WP_Query($args);
   while($blogPosts->have_posts()){$blogPosts->the_post();$product_id = get_the_ID(); ?>
 
+    <?php
+    // get all the categories on the product
+    $categories = get_the_terms( get_the_ID(), 'product_cat' );
+    // if it finds sometthing
+    if ($categories) {
+      // for each category
+      foreach ($categories as $cat) {
+        // get the slug of parent cattegory
+        $parent=get_term_by('id', $cat->parent, 'product_cat', 'ARRAY_A')['slug'];
+        if ($parent=="year-bikes") {$yearBike = $cat->name;}
+        if ($parent=="brand") {$brand = $cat->name;}
+      }
+    }
+    ?>
+
 
   <?php if (method_exists($product,'get_condition')){
     $cardName='hotCard';
@@ -87,22 +102,10 @@
       <img class="<?php echo $cardName; ?>Img lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
     </a>
     <figcaption class="<?php echo $cardName; ?>Caption">
-      <?php
-        // get all the categories on the product
-        $terms = get_the_terms( get_the_ID(), 'product_cat' );
-        // for each category
-        if($terms){ ?>
           <p class="<?php echo $cardName; ?>AnoMarca"><a href="<?php echo get_permalink(); ?>">
-          <?php foreach ($terms as $term) {
-            // get the parent category
-            $parent=get_term_by('id', $term->parent, 'product_cat', 'ARRAY_A')['slug'];
-            // check if parent is either year or brand
-            if ($parent=="year-bikes" OR $parent=="brand") { ?>
-              <span><?php echo $term->name; ?></span>
-            <?php }
-          } ?>
+            <span><?php echo $yearBike; ?></span>
+            <span><?php echo $brand; ?></span>
         </a></p>
-      <?php } ?>
       <h4 class="<?php echo $cardName; ?>Title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
 
       <?php if(method_exists($product,'get_seconds_remaining')){ ?>
@@ -134,7 +137,7 @@
       <?php } ?>
 
       <?php if(!method_exists($product,'get_seconds_remaining')){ ?>
-        <p class="productCardTxt"><a href="<?php echo get_permalink(); ?>"><?php echo excerpt(70); ?></a></p>
+        <!-- <p class="productCardTxt"><a href="<?php echo get_permalink(); ?>"><?php echo excerpt(70); ?></a></p> -->
       <?php } ?>
 
 
