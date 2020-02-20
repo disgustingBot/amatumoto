@@ -102,7 +102,7 @@
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleMakeOffer')">MAKE OFFER</button>
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
-        <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleFinance')">FINANCE</button>
+        <!-- <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleFinance')">FINANCE</button> -->
       </div>
 
 
@@ -564,29 +564,16 @@
       <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleRequestInfo')">+</p>
       <label  class="formLabel">CONTACT DETAILS</label>
-      <input type="text"   placeholder="First Name"   class="formInput100 formInput" name="a01">
-      <input type="text"   placeholder="Last Name"    class="formInput100 formInput" name="a02">
-      <input type="email"  placeholder="Email"        class="formInput100 formInput" name="a03">
+      <input type="text"   placeholder="Name*"   class="formInput100 formInput" name="a01" required>
+      <input type="email"  placeholder="Email*"        class="formInput100 formInput" name="a03" required>
       <input type="number" placeholder="Phone"        class="formInput100 formInput" name="a04">
-      <input type="text"   placeholder="Country"      class="formInput100 formInput" name="a05">
-      <select value="time-preference" class="formInput100 formInput" name="a06" id="bestTimeToCall">
-        <option value="any_time" class="form">Any Time</option>
-        <option value="from-9-to-13">9:00 a.m. - 1:00 p.m.</option>
-        <option value="from-13-to-17">1:00 p.m. - 5:00 p.m.</option>
-        <option value="from-17-to-20">5:00 p.m. - 8:00 p.m.</option></select>
-      </select>
-      <label  class="formLabel ">TRADE VEHICLE</label>
-      <div class="tradeOrNot">
-        <label for="yes" class="formRadioFor">yes</label>
-        <input type="radio" name="a07" id="yes" value="yes">
-        <label for="no" class="formRadioFor">no</label>
-        <input type="radio" name="a07" id="no" value="no">
-      </div>
-      <label  class="formLabel">COMMENT</label>
-      <textarea class="singleFormTxtArea" value="comments" placeholder="" name="a08"></textarea>
+      <input type="text"   placeholder="Country*"      class="formInput100 formInput" name="a05" required>
+
+      <label  class="formLabel">SUBJECT</label>
+      <textarea class="singleFormTxtArea" value="SUBJECT" placeholder="" name="a08"></textarea>
       <div class="formTermsAndConditions">
-         <input type="checkbox">
-         <a href="#" class="linkTermAndConditionsForm">I accept terms and conditions</a>
+         <input type="checkbox" required>
+         <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
       </div>
       <button class="singleContactButton contactButton" type="submit">SEND</button>
     </form>
@@ -608,28 +595,16 @@
         <label class="offerAmmountIconLabel" for="dollar">$</label><br>
       </div>
       <input type="number" placeholder="Offer"        name="a01" class="formInput100 formInput offerAmmount">
-      <input type="text"   placeholder="Name"         name="a02" class="formInput100 formInput">
+      <input type="text"   placeholder="Name"         name="a02" class="formInput100 formInput" required>
+      <input type="email"  placeholder="Email"        name="a04" class="formInput100 formInput" required>
       <input type="number" placeholder="Phone"        name="a03" class="formInput100 formInput">
-      <input type="email"  placeholder="Email"        name="a04" class="formInput100 formInput">
-      <input type="text"   placeholder="Country"      name="a05" class="formInput100 formInput">
-      <select value="time-preference" name="a06" class="formInput100 formInput" id="bestTimeToCall">
-        <option value="any_time" class="form">Any Time</option>
-        <option value="from-9-to-13">9:00 a.m. - 1:00 p.m.</option>
-        <option value="from-13-to-17">1:00 p.m. - 5:00 p.m.</option>
-        <option value="from-17-to-20">5:00 p.m. - 8:00 p.m.</option></select>
-      </select>
-      <label  class="formLabel ">TRADE VEHICLE</label>
-      <div class="tradeOrNot">
-        <label for="yes" class="formRadioFor">yes</label>
-        <input type="radio" name="a07" id="yes" value="yes">
-        <label for="no" class="formRadioFor">no</label>
-        <input type="radio" name="a07" id="no" value="no">
-      </div>
-      <label  class="formLabel">COMMENT</label>
-      <textarea class="singleFormTxtArea" value="comments" placeholder="" name="a08"></textarea>
+      <input type="text"   placeholder="Country"      name="a05" class="formInput100 formInput" required>
+
+      <label  class="formLabel">SUBJECT</label>
+      <textarea class="singleFormTxtArea" value="" placeholder="SUBJECT" name="a08"></textarea>
       <div class="formTermsAndConditions">
          <input type="checkbox">
-         <a href="#" class="linkTermAndConditionsForm">I accept terms and conditions</a>
+         <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
       </div>
       <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>
     </form>
@@ -641,27 +616,26 @@
       <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleTrade')">+</p>
       <label  class="formLabelBig">Trade this <?php the_title(); ?></label>
-      <p class="singleFormTxt mainTxtType1">We are always looking for new inventory. If you are interested in trading your high quality bike for one of ours, simply fill out this form.<br>A member of our sales department will be in touch within 24 hours. No one makes the trade-in process easier than amatumoto.com.</p>
-      <input type="text"   placeholder="Name"       class="formInput50 formInput" name="a01">
-      <input type="number" placeholder="Year"       class="formInput50 formInput" name="a02">
-      <input type="text"   placeholder="Last Name"  class="formInput50 formInput" name="a03">
-      <input type="text"   placeholder="Make"       class="formInput50 formInput" name="a04">
-      <input type="email"  placeholder="Email"      class="formInput50 formInput" name="a05">
-      <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06">
+      <p class="singleFormTxt mainTxtType1">We are always looking for new inventory. If you are interested in trading your high quality bike for one of ours, simply fill out this form.<br>A member of our sales department will be in touch within 24 hours. No one makes the trade-in process easier than <a href="amatumoto.com" target="_blank">amatumoto.com</a>. (Amatumoto Grand Prix Motorbikes)</p>
+      <input type="text"   placeholder="Name"       class="formInput50 formInput" name="a01" required>
+      <input type="email"  placeholder="Email"      class="formInput50 formInput" name="a05" required>
       <input type="number" placeholder="Phone"      class="formInput50 formInput" name="a07">
+      <input type="number" placeholder="Year"       class="formInput50 formInput" name="a02" required>
+      <input type="text"   placeholder="Make"       class="formInput50 formInput" name="a04">
+      <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06" required>
       <input type="text"   placeholder="VIN"        class="formInput50 formInput" name="a08">
       <label  class="formLabel">Upload photos here</label>
       <input type="file" placeholder="upload files" class="formInput50 formInput" name="a09">
       <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="a10"></textarea>
       <div class="formTermsAndConditions">
          <input type="checkbox">
-         <a href="#" class="linkTermAndConditionsForm">I accept terms and conditions</a>
+         <a href="<?php echo site_url('privacy-policy'); ?>" class="linkTermAndConditionsForm">I accept terms and conditions</a>
       </div>
       <button class="singleRequestInfoButton contactButton" type="submit">REQUEST TRADE IN</button>
     </form>
   </div>
 
-  <div class="singleFormContainer" id="singleFinance">
+  <!-- <div class="singleFormContainer" id="singleFinance">
     <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
       <input type="hidden" name="action" value="lt_form_handler">
       <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
@@ -703,7 +677,7 @@
         </div>
         <button class="singleRequestInfoButton contactButton" type="submit">SEND</button>
       </form>
-    </div>
+    </div> -->
 
 
 

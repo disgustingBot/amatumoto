@@ -2011,7 +2011,7 @@ background: #ddd;
 
 .SingleContactCloseButton {
   position: absolute;
-  top: .5rem;
+  top: -.4rem;
   right: .5rem;
   font-size: 2rem;
   transform: rotate(45deg);
@@ -2030,7 +2030,7 @@ background: #ddd;
   display: none;
 }
 .singleContact {
-  margin: 50px auto;
+  margin: auto;
   top: 0;
   left: 0;
   max-width: 700px;
