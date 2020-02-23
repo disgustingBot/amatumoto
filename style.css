@@ -3140,6 +3140,8 @@ background: #ddd;
   /* VERSION MAIN */
   margin: auto;
 }
+.auctionDetailsValue.notMet{color:red}
+.auctionDetailsValue.yesMet{color:green}
 .auctionDetailsValue .wc_auctions_countdown-row.wc_auctions_countdown-amount{font-size:inherit!important}
 .singlePage .wc_auctions_countdown-row.wc_auctions_countdown-amount{font-size:inherit!important}
 /* .is-wc_auctions_countdown:after{font-size:inherit!important} */
