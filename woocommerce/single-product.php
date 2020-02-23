@@ -290,7 +290,7 @@
                     <span class="auctionDetailsTitle">
                       <?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Time left:', 'auctions-for-woocommerce' ), $product_id ) ); ?>
                     </span>
-                		<span class="auctionDetailsValue main-auction auction-time-countdown" data-time="<?php echo esc_attr( $product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
+                		<span class="auctionDetailsValue main-auction auction-time-countdown notMet" data-time="<?php echo esc_attr( $product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
                 	</p>
 
             			<p class="auctionDetails">
@@ -311,10 +311,10 @@
                   <p class="auctionDetails">
                     <span class="auctionDetailsTitle">Reserve price:</span>
                     <?php if ( ( $product->is_reserved() === true ) && ( $product->is_reserve_met() === false ) ) : ?>
-                      <span class="auctionDetailsValue reserve hold"  data-auction-id="<?php echo intval( $product_id ); ?>" >has not been met</span>
+                      <span class="auctionDetailsValue reserve notMet"  data-auction-id="<?php echo intval( $product_id ); ?>" >has not been met</span>
                     <?php endif; ?>
                     <?php if ( ( $product->is_reserved() === true ) && ( $product->is_reserve_met() === true ) ) : ?>
-                      <span class="auctionDetailsValue reserve hold"  data-auction-id="<?php echo intval( $product_id ); ?>" >has been met</span>
+                      <span class="auctionDetailsValue reserve yesMet"  data-auction-id="<?php echo intval( $product_id ); ?>" >has been met</span>
                     <?php endif; ?>
                   </p>
 
@@ -427,7 +427,7 @@
 
           			<p class="auctionDetails">
                   <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'auction_starts_text', esc_html__( 'Auction starts in:', 'auctions-for-woocommerce' ), $product ) ); ?></span>
-                  <span class="auctionDetailsValue auction-time-countdown future" data-time="<?php echo esc_attr( $product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
+                  <span class="auctionDetailsValue auction-time-countdown future notMet" data-time="<?php echo esc_attr( $product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
                 </p>
                 <p class="auctionDetails">
                   <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Auction starts:', 'auctions-for-woocommerce' ), $product_id ) ); ?></span>
@@ -448,6 +448,13 @@
 
             <?php endif; } ?>
     </div>
+
+
+
+
+
+
+
 
 
     <div class="singleSide singleSide2">
