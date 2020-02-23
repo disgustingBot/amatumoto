@@ -871,9 +871,9 @@ FIN DE MAPA DE CONTENIDOS */
 
 @font-face {
     font-family: 'highlandgothicflfregular';
-    src: url('/localhost/GPMotorbikes/fonts/highlandgothicflf-webfont.woff2') format('woff2'),
-         url('/localhost/GPMotorbikes/fonts/highlandgothicflf-webfont.woff2') format('woff2'),
-         url('/localhost/GPMotorbikes/fonts/HighlandGothicFLF.ttf') format('ttf');
+    src: url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('fonts/HighlandGothicFLF.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 
@@ -1104,10 +1104,10 @@ main li {margin: .3rem 0;}
   margin-bottom: .1rem;
 }
 
-.copy {
+.copy nobr{
   color: black;
   font-size: 1rem;
-  font-family: 'highlandgothicflfregular', sans-serif;
+  font-family: 'highlandgothicflfregular';
   margin: auto 0;
   margin-top: 0;
   font-weight: 900;
