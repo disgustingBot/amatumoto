@@ -19,7 +19,7 @@
   <header class="header loading" id="header">
     <a href="<?php echo site_url('');  ?>" class="logo">
       <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="logo" class="logoImg">
-      <h1 class="copy"><nobr>GRAND PRIX MOTORBIKES</nobr></h1>
+      <h1 class="copy">GRAND PRIX MOTORBIKES</h1>
     </a>
     <nav class="upperNav">
 
