@@ -1,2 +1,2 @@
 /* #metakeyselect option{display:none!important} */
-#metakeyselect option:not([value="video"]):not([value="brake"]):not([value="engine"]):not([value="suspension"]):not([value="dashboard"]):not([value="stockNumber"]){display:none!important}
+#metakeyselect option:not([value="video"]):not([value="brake"]):not([value="engine"]):not([value="suspension"]):not([value="dashboard"]):not([value="stockNumber"]):not([value="download"]){display:none!important}

@@ -31,10 +31,21 @@
           <p class="serviceCardSubtitle"><?php echo excerpt(90); ?></p>
           <hr class="serviceCardDivisor">
           <div class="serviceCardContent"><?php the_content(); ?></div>
-          <a href="<?php echo site_url('contact');  ?>" class="serviceCardCtA">Contact</a>
-          <svg class="serviceCardExpandArrow" onclick="altClassFromSelector('alt','#serviceCard<?php echo $product_id; ?>')" viewBox="0 0 62 38" xmlns="http://www.w3.org/2000/svg">
+          <div class="serviceCardButtons">
+            <!-- <a href="<?php echo site_url('contact');  ?>" class="serviceCardCtA">Contact</a> -->
+            <a class="serviceCardCtA" onclick="altClassFromSelector('alt','#serviceCard<?php echo $product_id; ?>')">Expand</a>
+
+            <?php // $downloadPdf = get_post_meta( $product->id, 'downloadPdf' )[0]; ?>
+            <?php $downloadPdf = get_post_custom($product->id)['downloadPdf'][0]; ?>
+
+            <?php // var_dump($downloadPdf); ?>
+            <?php if($downloadPdf){ ?>
+              <a class="serviceCardCtA" href="<?php echo $downloadPdf; ?>" download>Download</a>
+            <?php } ?>
+            <!-- <svg class="serviceCardExpandArrow" onclick="altClassFromSelector('alt','#serviceCard<?php echo $product_id; ?>')" viewBox="0 0 62 38" xmlns="http://www.w3.org/2000/svg">
             <path fill="currentColor" d="M27.9897 36.5597C29.5833 38.381 32.4167 38.381 34.0103 36.5596L60.1952 6.63401C62.4583 4.04768 60.6216 -2.98023e-07 57.1849 -2.98023e-07H4.81507C1.37844 -2.98023e-07 -0.458274 4.04769 1.80477 6.63402L27.9897 36.5597Z" fill="black"/>
-          </svg>
+          </svg> -->
+          </div>
         </figcaption>
       </figure>
     <?php $i++;} ?>
