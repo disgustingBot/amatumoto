@@ -129,6 +129,7 @@ FIN DE MAPA DE CONTENIDOS */
   --navBarPadding: 0;
   --subMenuDisplay:none;
   --notDisplayOnDesktop: ;
+  --logoImgHeight: 1.2rem;
 
 
   /* ?FILTER */
@@ -310,6 +311,7 @@ FIN DE MAPA DE CONTENIDOS */
   --contactMenuDisplay: flex;
   --contactMenuUlLiWidth: 50%;
   --contactMenuJustifyContent: center;
+  --formInputMargin: .5rem auto;
 
   /* PARTS AND RACING PRODUCTS */
   --shopArchiveMargin: 1rem;
@@ -613,6 +615,7 @@ FIN DE MAPA DE CONTENIDOS */
     --contactFormAndInformationMargin: 0 3rem;
     --contactInformationTextFontSize: .6rem;
     --contactTitleSection1FontSize: .7rem;
+    --formInputMargin: .5rem 0;
 
     /* ARCHIVE */
 
@@ -762,6 +765,7 @@ FIN DE MAPA DE CONTENIDOS */
     --filterBarBottomPaddingX:5rem;
     --filterBarLinkPadding: .5rem 1.8rem;
     --copyFontSize: 1.2rem;
+    --logoImgHeight: 1.5rem;
 
 
     /* FRONT PAGE */
@@ -947,6 +951,10 @@ main h5,
 main h6,
 main ul,
 main li {margin: .3rem 0;}
+
+main ul, main ol{
+  padding-left: 1rem;
+}
 
 
 
@@ -1158,11 +1166,14 @@ main li {margin: .3rem 0;}
   grid-row: span 2;
   margin: var(--logoMargin);
 }
+
 .logoImg {
   object-fit: contain;
-  width: var(--logoImgWidth);
-  height: auto;
-  margin: var(--logoImgMargin);
+  width: auto;
+  /* var(--logoImgWidth); */
+  height: var(--logoImgHeight) ;
+  /* margin: var(--logoImgMargin); */
+  margin: auto;
 }
 
 .copy {
@@ -2095,8 +2106,9 @@ background: #ddd;
   margin: auto;
   top: 0;
   left: 0;
-  max-width: 700px;
-  width: 70%;
+  /* max-width: 700px; */
+  /* width: 70%; */
+  width: 90%;
   background:#fff;
   position: fixed;
   top:50%;
@@ -2142,7 +2154,7 @@ background: #ddd;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
-  margin:.5rem auto;
+  margin: .5rem auto;
   /* margin:.5rem 0; */
 }
 
@@ -2209,7 +2221,7 @@ background: #ddd;
   justify-content: center;
   margin: auto;
   margin-right: 0;
-  /* width: 8%; */
+  width: 8%!important;
   position:relative;
   transition:.3s;
   width:2rem;
@@ -3529,6 +3541,10 @@ background: #ddd;
 }
 
 
+.singleDescription{
+  margin: 0;
+}
+
 .singlePage .singleDescription {
   font-size: .8rem;
 }
@@ -3672,16 +3688,39 @@ background: #ddd;
 
 /* PRIVACY POLICY */
 
+.privacyPolicy *{
+  font-family: 'Rubik', sans-serif;
+  text-align: justify;
+}
+
+.privacyPolicy h2{
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .privacyPolicy p, .privacyPolicy li {
   font-size: .8rem;
+  /* margin-left: 2rem; */
 }
+
+.privacyPolicy h4{
+  text-transform: uppercase;
+}
+
+.privacyPolicy a{
+  color: var(--color1);
+}
+
+
 
 .termsAndConditions p, .privacyPolicy li {
   font-size: .8rem;
 }
 
 .topPrivacy {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   padding: 1rem;
 }
 
@@ -3738,12 +3777,12 @@ main.contact{
 .contactInformationText{
   font-size: var(--contactInformationTextFontSize);
   font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
 }
 
 .contactTitleSection1.contactInformationText{
   font-size: var(--contactTitleSection1FontSize);
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 a.contactInformationText:hover{
@@ -3775,6 +3814,10 @@ a.contactInformationText:hover{
 
 .contactFormColumn .MainContactForm {
   justify-content: var(--contactPageFormJustifyContent);
+}
+
+.MainContactForm .formInput{
+  margin: var(--formInputMargin);
 }
 
 .contactLogo{

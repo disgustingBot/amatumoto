@@ -777,7 +777,7 @@
       </div>
     </div>
 
-    <div class="singleDescription"><?php echo the_content(); ?></div>
+    <main class="singleDescription"><?php echo the_content(); ?></main>
 
 
   </article>
