@@ -3,6 +3,8 @@
 
 <?php while(have_posts()){the_post(); ?>
   <?php global $woocommerce, $product, $post; ?>
+  <?php $categories = get_the_terms( get_the_ID(), 'product_cat' ); ?>
+  <?php function selection($v){return $v->slug;}$cates=array_map('selection',$categories); ?>
 
   <!-- <h1>single-product.php</h1> -->
 
@@ -17,7 +19,7 @@
       <?php } ?>
       <?php
       // get all the categories on the product
-      $categories = get_the_terms( get_the_ID(), 'product_cat' );
+      // $categories = get_the_terms( get_the_ID(), 'product_cat' );
       // if it finds sometthing
       if ($categories) {
         // for each category
@@ -29,9 +31,23 @@
         }
       }
       ?>
-      <?php if($brand){ ?><h4 class="singleSideAnoMarca"><?php echo $brand; ?></h4><?php } ?>
+
+
+      <!-- OLD TITLE -->
+      <!-- <?php if($brand){ ?><span class="singleSideAnoMarca"><?php echo $brand; ?></span><?php } ?>
       <h1 class="singleSideTitle"><?php the_title(); ?></h1>
-      <?php if($yearBike){ ?><h4 class="singleSideAnoMarca"><?php echo $yearBike; ?></h4><?php } ?>
+      <?php if($yearBike){ ?><span class="singleSideAnoMarca"><?php echo $yearBike; ?></span><?php } ?> -->
+
+
+      <!-- NEW TITLE -->
+      <h1 class="singleSideTitle">
+        <?php if($brand){ ?><span class="singleSideAnoMarca"><?php echo $brand; ?></span><?php } ?>
+        <?php the_title(); ?>
+        <?php if($yearBike){ ?><span class="singleSideAnoMarca"><?php echo $yearBike; ?></span><?php } ?>
+      </h1>
+
+
+
       <p class="singleSidePrice"><?php echo $product->get_price_html(); ?></p>
       <?php $stockNumber = get_post_meta( $product->id, 'stockNumber' )[0]; ?>
       <?php if($stockNumber){ ?>
@@ -44,31 +60,19 @@
       <?php } ?>
 
 
-      <p class="singleSideData"><?php echo excerpt(140); ?></p>
+      <p class="singleSideData onlyDesktopG"><?php echo excerpt(140); ?></p>
 
       <?php $video = get_post_meta( $product->id, 'video' )[0]; ?>
       <?php if($video){ ?>
           <!-- <video class="singleSideVideo" controls src="<?php echo $video; ?>"></video> -->
-          <iframe class="singleSideVideo" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe>
+          <iframe class="singleSideVideo onlyDesktopG" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe>
       <?php } ?>
 
 
 
-      <!-- <div class="singleSideSocialCont">
-        <a class="singleSocialLink" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost/GPMotorbikes/producto/motomel-eameo-recatate-gp-1100cc/" target="_blank">
-          <svg class="singleSocialSvg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>
-        </a>
-        <a class="singleSocialLink" href="https://twitter.com/home?status=http://localhost/GPMotorbikes/producto/motomel-eameo-recatate-gp-1100cc/" target="_blank">
-          <svg class="singleSocialSvg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
-        </a>
-        <a class="singleSocialLink" href="tel:+34-938-364-911">
-          <svg class="singleSocialSvg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone" class="svg-inline--fa fa-phone fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="transform: scaleX(-1)"><path fill="currentColor" d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>
-        </a>
-      </div> -->
 
 
-
-      <div class="singleSideSocialCont socialMedia">
+      <div class="singleSideSocialCont socialMedia onlyDesktopF">
 
         <a href="https://es-la.facebook.com/gpmotorbikes/" target="_blank" class="socialMediaLink socialMediaFace">
           <svg width="auto" height="25" viewBox="0 0 313 500" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -103,17 +107,21 @@
 
 
 
-      <div class="singleSideContactContainer">
+      <div class="singleSideContactContainer onlyDesktopG">
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleMakeOffer')">MAKE OFFER</button>
-        <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
+        <?php if($product->is_type( 'auction' )){ ?>
+          <a class="singleSideContact" href="<?php echo site_url('auctions-information');  ?>">AUCTION INFO</a>
+        <?php } else if(!in_array('parts-racing-products', $cates)) { ?>
+          <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
+        <?php } ?>
         <!-- <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleFinance')">FINANCE</button> -->
       </div>
 
 
+      <?php function testimonial( $clase ){ ?>
 
-
-            <div class="testimonialsContainer">
+            <div class="testimonialsContainer <?php echo $clase; ?>">
               <?php
               $args = array(
                 'post_type'=>'testimonials',
@@ -137,12 +145,16 @@
               <?php } wp_reset_postdata(); ?>
             </div>
 
-
+    <?php } ?>
+    <?php if( $product->is_type( 'auction' ) ){ ?>
+    <?php testimonial( 'onlyDesktopG' ); ?>
+    <?php } ?>
 
     </div>
 
 
     <div class="singleMain">
+
 
 
 
@@ -177,7 +189,321 @@
 
 
 
-      <?php function selection($v){return $v->slug;}$cates=array_map('selection',$categories); ?>
+
+      <div class="singleSideMobileSchema onlyMobileG">
+
+
+
+                  <p class="singleSideData onlyMobileG"><?php echo excerpt(140); ?></p>
+
+                  <?php $video = get_post_meta( $product->id, 'video' )[0]; ?>
+                  <?php if($video){ ?>
+                      <!-- <video class="singleSideVideo" controls src="<?php echo $video; ?>"></video> -->
+                      <iframe class="singleSideVideo onlyMobileG" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe>
+                  <?php } ?>
+
+
+
+
+
+                  <div class="singleSideSocialCont socialMedia onlyMobileF">
+
+                    <a href="https://es-la.facebook.com/gpmotorbikes/" target="_blank" class="socialMediaLink socialMediaFace">
+                      <svg width="auto" height="25" viewBox="0 0 313 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M272.598 281.25L286.484 190.762H199.658V132.041C199.658 107.285 211.787 83.1543 250.674 83.1543H290.146V6.11328C290.146 6.11328 254.326 0 220.078 0C148.574 0 101.836 43.3398 101.836 121.797V190.762H22.3535V281.25H101.836V500H199.658V281.25H272.598Z" fill="currentColor"/>
+                      </svg>
+                    </a>
+
+                    <a href="tel:+34 938 364 911" target="_blank" class="socialMediaLink socialMediaFono">
+                      <svg width="auto" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.04444 17.3111C11.2444 23.6 16.4 28.7333 22.6889 31.9556L27.5778 27.0667C28.1778 26.4667 29.0667 26.2667 29.8444 26.5333C32.3333 27.3556 35.0222 27.8 37.7778 27.8C39 27.8 40 28.8 40 30.0222V37.7778C40 39 39 40 37.7778 40C16.9111 40 0 23.0889 0 2.22222C0 1 1 0 2.22222 0H10C11.2222 0 12.2222 1 12.2222 2.22222C12.2222 5 12.6667 7.66667 13.4889 10.1556C13.7333 10.9333 13.5556 11.8 12.9333 12.4222L8.04444 17.3111Z" fill="currentColor"/>
+                      </svg>
+                    </a>
+
+                    <a href="https://wa.me/15551234567" target="_blank" class="socialMediaLink socialMediaWhatsapp">
+                      <svg viewBox="0 0 500 500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M425.112 72.6563C378.348 25.7812 316.071 0 249.888 0C113.281 0 2.12054 111.161 2.12054 247.768C2.12054 291.406 13.5045 334.04 35.1563 371.652L0 500L131.362 465.513C167.522 485.268 208.259 495.647 249.777 495.647H249.888C386.384 495.647 500 384.487 500 247.879C500 181.696 471.875 119.531 425.112 72.6563V72.6563ZM249.888 453.906C212.835 453.906 176.562 443.973 144.978 425.223L137.5 420.759L59.5982 441.183L80.3571 365.179L75.4464 357.366C54.7991 324.554 43.9732 286.719 43.9732 247.768C43.9732 134.263 136.384 41.8527 250 41.8527C305.022 41.8527 356.696 63.2812 395.536 102.232C434.375 141.183 458.259 192.857 458.147 247.879C458.147 361.496 363.393 453.906 249.888 453.906V453.906ZM362.835 299.665C356.696 296.54 326.228 281.585 320.536 279.576C314.844 277.455 310.714 276.451 306.585 282.701C302.455 288.951 290.625 302.79 286.942 307.031C283.371 311.161 279.688 311.719 273.549 308.594C237.165 290.402 213.281 276.116 189.286 234.933C182.924 223.996 195.647 224.777 207.478 201.116C209.487 196.987 208.482 193.415 206.92 190.29C205.357 187.165 192.969 156.696 187.835 144.308C182.813 132.254 177.679 133.929 173.884 133.705C170.313 133.482 166.183 133.482 162.054 133.482C157.924 133.482 151.228 135.045 145.536 141.183C139.844 147.433 123.884 162.388 123.884 192.857C123.884 223.326 146.094 252.79 149.107 256.92C152.232 261.049 192.746 323.549 254.911 350.446C294.196 367.411 309.598 368.862 329.241 365.96C341.183 364.174 365.848 351.004 370.982 336.496C376.116 321.987 376.116 309.598 374.554 307.031C373.103 304.241 368.973 302.679 362.835 299.665Z" fill="currentColor"/>
+                      </svg>
+                    </a>
+
+
+
+                    <a class="socialMediaLink socialMediaMail" href="" target="_blank">
+                      <svg width="auto" height="40" viewBox="0 0 55 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M49.6053 0H5.13158C2.29745 0 0 2.23854 0 5V35C0 37.7615 2.29745 40 5.13158 40H49.6053C52.4394 40 54.7368 37.7615 54.7368 35V5C54.7368 2.23854 52.4394 0 49.6053 0ZM49.6053 5V9.25052C47.2082 11.1525 43.3866 14.11 35.2169 20.3432C33.4164 21.7231 29.85 25.0382 27.3684 24.9996C24.8873 25.0386 21.3197 21.7226 19.52 20.3432C11.3515 14.1109 7.52899 11.1528 5.13158 9.25052V5H49.6053ZM5.13158 35V15.6665C7.58127 17.5676 11.0552 20.2354 16.3503 24.2754C18.687 26.0676 22.7791 30.024 27.3684 29.9999C31.9352 30.024 35.9755 26.125 38.3856 24.2762C43.6805 20.2364 47.1555 17.5678 49.6053 15.6666V35H5.13158Z" fill="currentColor"/>
+                      </svg>
+                    </a>
+
+
+                  </div>
+
+
+
+
+
+                  <div class="singleSideContactContainer onlyMobileG">
+                    <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
+                    <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleMakeOffer')">MAKE OFFER</button>
+                    <?php if($product->is_type( 'auction' )){ ?>
+                      <a class="singleSideContact" href="<?php echo site_url('auctions-information');  ?>">AUCTION INFO</a>
+                    <?php } else if(!in_array('parts-racing-products', $cates)) { ?>
+                      <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
+                    <?php } ?>
+                    <!-- <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleFinance')">FINANCE</button> -->
+                  </div>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <?php
+                            // AUCTION INFORRMATION HERE
+                            // var_dump(get_post_meta( $product->id));
+                            // var_dump($product->auction_bid_count);
+                            // echo $product->auction_bid_count;
+                            /**
+                             * Auction bid
+                             *
+                             */
+
+                            if ( ( $product && $product->is_type( 'auction' ) ) ) {
+                            	// return;
+                            $product_id       = $product->get_id();
+                            $user_max_bid     = $product->get_user_max_bid( $product_id, get_current_user_id() );
+                            $max_min_bid_text = $product->get_auction_type() === 'reverse' ? esc_html__( 'Your min bid is', 'auctions-for-woocommerce' ) : esc_html__( 'Your max bid is', 'auctions-for-woocommerce' );
+                            $gmt_offset       = get_option( 'gmt_offset' ) > 0 ? '+' . get_option( 'gmt_offset' ) : get_option( 'gmt_offset' );
+                            ?>
+
+                            <!-- <p class="auction-condition"><?php echo wp_kses_post( apply_filters( 'conditiond_text', esc_html__( 'Item condition:', 'auctions-for-woocommerce' ), $product ) ); ?><span class="curent-bid"> <?php echo esc_html( $product->get_condition() ); ?></span></p> -->
+
+                            <?php if ( ( false === $product->is_closed ) && ( true === $product->is_started ) ) : ?>
+
+
+                            	<div class='auction-ajax-change auctionData' >
+
+                            		<?php if ( 'yes' !== $product->get_auction_sealed() ) { ?>
+                                <div class="auctionTitle">
+                                  <h2>Auction info:</h2>
+                                  <?php do_action( 'woocommerce_after_bid_form' ); ?>
+                                </div>
+
+                                  <p class="auctionDetails">
+                                    <span class="auctionDetailsTitle">
+                                      <?php echo wp_kses_post( apply_filters( 'time_left_text', esc_html__( 'Auction ends:', 'auctions-for-woocommerce' ), $product ) ); ?>
+                                    </span>
+                                    <span class="auctionDetailsValue">
+                                      <?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?>
+                                    </span>
+                                  </p>
+
+                                	<p class="auctionDetails" id="countdown">
+                                    <span class="auctionDetailsTitle">
+                                      <?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Time left:', 'auctions-for-woocommerce' ), $product_id ) ); ?>
+                                    </span>
+                                		<span class="auctionDetailsValue main-auction auction-time-countdown notMet" data-time="<?php echo esc_attr( $product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
+                                	</p>
+
+                            			<p class="auctionDetails">
+                                    <?php if ($product->auction_current_bid){ ?>
+                                      <span class="auctionDetailsTitle">Current bid:</span>
+                                      <?php // echo wp_kses_post( $product->get_price_html() ); ?>
+                                      <span class="auctionDetailsValue bluTxt">€ <?php echo number_format($product->auction_current_bid,0,",","."); ?></span>
+                                      <!-- <span class="auctionDetailsValue">€ <?php echo $product->auction_current_bid; ?></span> -->
+                                    <?php } else { ?>
+                                      <span class="auctionDetailsTitle">Starting bid:</span>
+                                      <span class="auctionDetailsValue bluTxt">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
+                                    <?php } ?>
+
+
+
+                                  </p>
+
+                                  <p class="auctionDetails">
+                                    <span class="auctionDetailsTitle">Reserve price:</span>
+                                    <?php if ( ( $product->is_reserved() === true ) && ( $product->is_reserve_met() === false ) ) : ?>
+                                      <span class="auctionDetailsValue reserve notMet"  data-auction-id="<?php echo intval( $product_id ); ?>" >has not been met</span>
+                                    <?php endif; ?>
+                                    <?php if ( ( $product->is_reserved() === true ) && ( $product->is_reserve_met() === true ) ) : ?>
+                                      <span class="auctionDetailsValue reserve yesMet"  data-auction-id="<?php echo intval( $product_id ); ?>" >has been met</span>
+                                    <?php endif; ?>
+                                  </p>
+
+
+
+
+                            		<?php } elseif ( 'yes' === $product->get_auction_sealed() ) { ?>
+                            				<p class="sealed-text"><?php echo wp_kses_post( apply_filters( 'sealed_bid_text', __( "This auction is <a href='#'>sealed</a>.", 'auctions-for-woocommerce' ) ) ); ?>
+                            					<span class='sealed-bid-desc' style="display:grid;"><?php esc_html_e( 'In this type of auction all bidders simultaneously submit sealed bids so that no bidder knows the bid of any other participant. The highest bidder pays the price they submitted. If two bids with same value are placed for auction the one which was placed first wins the auction.', 'auctions-for-woocommerce' ); ?></span>
+                            				</p>
+                            				<?php
+                            				if ( ! empty( $product->get_auction_start_price() ) ) {
+                            					?>
+                            					<?php if ( 'reverse' === $product->get_auction_type() ) : ?>
+                            							<p class="sealed-min-text">
+                            								<?php
+                            									echo wp_kses_post(
+                            										apply_filters(
+                            											'sealed_min_text',
+                            											sprintf(
+                            												// translators: 1) bid value
+                            												esc_html__( 'Maximum bid for this auction is %s.', 'auctions-for-woocommerce' ),
+                            												wc_price( $product->get_auction_start_price() )
+                            											)
+                            										)
+                            									);
+                            								?>
+                        									</p>
+                            					<?php else : ?>
+                            							<p class="sealed-min-text">
+                            								<?php
+                            								echo wp_kses_post(
+                            									apply_filters(
+                            										'sealed_min_text',
+                            										sprintf(
+                            											// translators: 1) bid value
+                            											esc_html__( 'Minimum bid for this auction is %s.', 'auctions-for-woocommerce' ),
+                            											wc_price( $product->get_auction_start_price() )
+                            										)
+                            									)
+                            								);
+                            								?>
+                          								</p>
+                            					<?php endif; ?>
+                            				<?php } ?>
+                            		<?php } ?>
+
+                            		<?php if ( 'reverse' === $product->get_auction_type() ) : ?>
+                            			<p class="reverse"><?php echo wp_kses_post( apply_filters( 'reverse_auction_text', esc_html__( 'This is reverse auction.', 'auctions-for-woocommerce' ) ) ); ?></p>
+                            		<?php endif; ?>
+                            		<?php if ( 'yes' !== $product->get_auction_sealed() ) { ?>
+                            			<?php if ( $product->get_auction_proxy() && $product->get_auction_max_current_bider() && get_current_user_id() === $product->get_auction_max_current_bider() ) { ?>
+                            				<p class="max-bid"><?php echo esc_html( $max_min_bid_text ); ?> <?php echo wp_kses_post( wc_price( $product->get_auction_max_bid() ) ); ?>
+                            			<?php } ?>
+                            		<?php } elseif ( $user_max_bid > 0 ) { ?>
+                            			<p class="max-bid"><?php echo esc_html( $max_min_bid_text ); ?> <?php echo wp_kses_post( wc_price( $user_max_bid ) ); ?>
+                            		<?php } ?>
+
+                            		<?php do_action( 'woocommerce_before_bid_form' ); ?>
+
+
+                                <?php if (is_user_logged_in()) { ?>
+
+                            		<form class="auction_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo intval( $product_id ); ?>">
+
+                            			<?php do_action( 'woocommerce_before_bid_button' ); ?>
+
+                            			<input type="hidden" name="bid" value="<?php echo esc_attr( $product_id ); ?>" />
+                            				<div class="quantity buttons_added">
+                            					<input type="button" value="-" class="minus" />
+                            					<input type="text" name="bid_value" data-auction-id="<?php echo intval( $product_id ); ?>"
+                            							<?php
+                            							if ( 'yes' !== $product->get_auction_sealed() ) {
+                            								?>
+                            								value="<?php echo esc_attr( $product->bid_value() ); ?>"
+                            								<?php if ( 'reverse' === $product->get_auction_type() ) : ?>
+                            									max="<?php echo esc_attr( $product->bid_value() ); ?>"
+                            								<?php else : ?>
+                            									min="<?php echo esc_attr( $product->bid_value() ); ?>"
+                            								<?php endif; ?>
+                            							<?php } ?>
+                            							step="100" size="<?php echo intval( strlen( $product->get_curent_bid() ) ) + 6; ?>" title="bid"  class="input-text qty  bid text left">
+                                      <input type="button" value="+" class="plus" />
+                            				</div>
+                            			<button type="submit" class="bid_button button alt"><?php echo wp_kses_post( apply_filters( 'bid_text', esc_html__( 'Bid', 'auctions-for-woocommerce' ), $product ) ); ?></button>
+                            			<input type="hidden" name="place-bid" value="<?php echo intval( $product_id ); ?>" />
+                            			<input type="hidden" name="product_id" value="<?php echo intval( $product_id ); ?>" />
+                            			<?php if ( is_user_logged_in() ) { ?>
+                            				<input type="hidden" name="user_id" value="<?php echo intval( get_current_user_id() ); ?>" />
+                            			<?php } ?>
+
+                            			<?php // do_action( 'woocommerce_after_bid_button' ); ?>
+                            		</form>
+
+                              <?php } else { ?>
+                                <p class="mustLogin">you must <span class="mustLoginButton" onclick="altClassFromSelector('alt','#logForm')">login</span> to place a bid</p>
+                              <?php } ?>
+
+
+
+                            	</div>
+
+                            <?php elseif ( ( false === $product->is_closed ) && ( false === $product->is_started ) ) : ?>
+                              <div class='auctionData' >
+
+                                <div class="auctionTitle">
+                                  <h2>Auction info:</h2>
+                                  <?php do_action( 'woocommerce_after_bid_form' ); ?>
+                                </div>
+
+                          			<p class="auctionDetails">
+                                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'auction_starts_text', esc_html__( 'Auction starts in:', 'auctions-for-woocommerce' ), $product ) ); ?></span>
+                                  <span class="auctionDetailsValue auction-time-countdown future notMet" data-time="<?php echo esc_attr( $product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
+                                </p>
+                                <p class="auctionDetails">
+                                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Auction starts:', 'auctions-for-woocommerce' ), $product_id ) ); ?></span>
+                                  <span class="auctionDetailsValue"><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_start_time() ) ) ); ?></span>
+                                  <?php // echo esc_html( date_i18n( get_option( 'time_format' ), strtotime( $product->get_auction_start_time() ) ) ); ?>
+                                </p>
+                              	<p class="auctionDetails">
+                                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Auction ends:', 'auctions-for-woocommerce' ), $product_id ) ); ?></span>
+                                  <span class="auctionDetailsValue"><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?></span>
+                                  <?php // echo esc_html( date_i18n( get_option( 'time_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?>
+                                </p>
+                                <p class="auctionDetails">
+                                  <span class="auctionDetailsTitle">Starting bid:</span>
+                                  <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
+                                </p>
+
+                              </div>
+
+                            <?php endif; } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <?php if (!in_array('parts-racing-products', $cates)) { ?>
       <div class="singleFeatures">
 
@@ -273,207 +599,6 @@
       </div>
       <?php } ?>
 
-            <?php
-            // AUCTION INFORRMATION HERE
-            // var_dump(get_post_meta( $product->id));
-            // var_dump($product->auction_bid_count);
-            // echo $product->auction_bid_count;
-            /**
-             * Auction bid
-             *
-             */
-
-            if ( ( $product && $product->is_type( 'auction' ) ) ) {
-            	// return;
-            $product_id       = $product->get_id();
-            $user_max_bid     = $product->get_user_max_bid( $product_id, get_current_user_id() );
-            $max_min_bid_text = $product->get_auction_type() === 'reverse' ? esc_html__( 'Your min bid is', 'auctions-for-woocommerce' ) : esc_html__( 'Your max bid is', 'auctions-for-woocommerce' );
-            $gmt_offset       = get_option( 'gmt_offset' ) > 0 ? '+' . get_option( 'gmt_offset' ) : get_option( 'gmt_offset' );
-            ?>
-
-            <!-- <p class="auction-condition"><?php echo wp_kses_post( apply_filters( 'conditiond_text', esc_html__( 'Item condition:', 'auctions-for-woocommerce' ), $product ) ); ?><span class="curent-bid"> <?php echo esc_html( $product->get_condition() ); ?></span></p> -->
-
-            <?php if ( ( false === $product->is_closed ) && ( true === $product->is_started ) ) : ?>
-
-
-            	<div class='auction-ajax-change auctionData' >
-
-            		<?php if ( 'yes' !== $product->get_auction_sealed() ) { ?>
-                <div class="auctionTitle">
-                  <h2>Auction info:</h2>
-                  <?php do_action( 'woocommerce_after_bid_form' ); ?>
-                </div>
-
-                  <p class="auctionDetails">
-                    <span class="auctionDetailsTitle">
-                      <?php echo wp_kses_post( apply_filters( 'time_left_text', esc_html__( 'Auction ends:', 'auctions-for-woocommerce' ), $product ) ); ?>
-                    </span>
-                    <span class="auctionDetailsValue">
-                      <?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?>
-                    </span>
-                  </p>
-
-                	<p class="auctionDetails" id="countdown">
-                    <span class="auctionDetailsTitle">
-                      <?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Time left:', 'auctions-for-woocommerce' ), $product_id ) ); ?>
-                    </span>
-                		<span class="auctionDetailsValue main-auction auction-time-countdown notMet" data-time="<?php echo esc_attr( $product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
-                	</p>
-
-            			<p class="auctionDetails">
-                    <?php if ($product->auction_current_bid){ ?>
-                      <span class="auctionDetailsTitle">Current bid:</span>
-                      <?php // echo wp_kses_post( $product->get_price_html() ); ?>
-                      <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_current_bid,0,",","."); ?></span>
-                      <!-- <span class="auctionDetailsValue">€ <?php echo $product->auction_current_bid; ?></span> -->
-                    <?php } else { ?>
-                      <span class="auctionDetailsTitle">Starting bid:</span>
-                      <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
-                    <?php } ?>
-
-
-
-                  </p>
-
-                  <p class="auctionDetails">
-                    <span class="auctionDetailsTitle">Reserve price:</span>
-                    <?php if ( ( $product->is_reserved() === true ) && ( $product->is_reserve_met() === false ) ) : ?>
-                      <span class="auctionDetailsValue reserve notMet"  data-auction-id="<?php echo intval( $product_id ); ?>" >has not been met</span>
-                    <?php endif; ?>
-                    <?php if ( ( $product->is_reserved() === true ) && ( $product->is_reserve_met() === true ) ) : ?>
-                      <span class="auctionDetailsValue reserve yesMet"  data-auction-id="<?php echo intval( $product_id ); ?>" >has been met</span>
-                    <?php endif; ?>
-                  </p>
-
-
-
-
-            		<?php } elseif ( 'yes' === $product->get_auction_sealed() ) { ?>
-            				<p class="sealed-text"><?php echo wp_kses_post( apply_filters( 'sealed_bid_text', __( "This auction is <a href='#'>sealed</a>.", 'auctions-for-woocommerce' ) ) ); ?>
-            					<span class='sealed-bid-desc' style="display:grid;"><?php esc_html_e( 'In this type of auction all bidders simultaneously submit sealed bids so that no bidder knows the bid of any other participant. The highest bidder pays the price they submitted. If two bids with same value are placed for auction the one which was placed first wins the auction.', 'auctions-for-woocommerce' ); ?></span>
-            				</p>
-            				<?php
-            				if ( ! empty( $product->get_auction_start_price() ) ) {
-            					?>
-            					<?php if ( 'reverse' === $product->get_auction_type() ) : ?>
-            							<p class="sealed-min-text">
-            								<?php
-            									echo wp_kses_post(
-            										apply_filters(
-            											'sealed_min_text',
-            											sprintf(
-            												// translators: 1) bid value
-            												esc_html__( 'Maximum bid for this auction is %s.', 'auctions-for-woocommerce' ),
-            												wc_price( $product->get_auction_start_price() )
-            											)
-            										)
-            									);
-            								?>
-        									</p>
-            					<?php else : ?>
-            							<p class="sealed-min-text">
-            								<?php
-            								echo wp_kses_post(
-            									apply_filters(
-            										'sealed_min_text',
-            										sprintf(
-            											// translators: 1) bid value
-            											esc_html__( 'Minimum bid for this auction is %s.', 'auctions-for-woocommerce' ),
-            											wc_price( $product->get_auction_start_price() )
-            										)
-            									)
-            								);
-            								?>
-          								</p>
-            					<?php endif; ?>
-            				<?php } ?>
-            		<?php } ?>
-
-            		<?php if ( 'reverse' === $product->get_auction_type() ) : ?>
-            			<p class="reverse"><?php echo wp_kses_post( apply_filters( 'reverse_auction_text', esc_html__( 'This is reverse auction.', 'auctions-for-woocommerce' ) ) ); ?></p>
-            		<?php endif; ?>
-            		<?php if ( 'yes' !== $product->get_auction_sealed() ) { ?>
-            			<?php if ( $product->get_auction_proxy() && $product->get_auction_max_current_bider() && get_current_user_id() === $product->get_auction_max_current_bider() ) { ?>
-            				<p class="max-bid"><?php echo esc_html( $max_min_bid_text ); ?> <?php echo wp_kses_post( wc_price( $product->get_auction_max_bid() ) ); ?>
-            			<?php } ?>
-            		<?php } elseif ( $user_max_bid > 0 ) { ?>
-            			<p class="max-bid"><?php echo esc_html( $max_min_bid_text ); ?> <?php echo wp_kses_post( wc_price( $user_max_bid ) ); ?>
-            		<?php } ?>
-
-            		<?php do_action( 'woocommerce_before_bid_form' ); ?>
-
-
-                <?php if (is_user_logged_in()) { ?>
-
-            		<form class="auction_form cart" method="post" enctype='multipart/form-data' data-product_id="<?php echo intval( $product_id ); ?>">
-
-            			<?php do_action( 'woocommerce_before_bid_button' ); ?>
-
-            			<input type="hidden" name="bid" value="<?php echo esc_attr( $product_id ); ?>" />
-            				<div class="quantity buttons_added">
-            					<input type="button" value="-" class="minus" />
-            					<input type="text" name="bid_value" data-auction-id="<?php echo intval( $product_id ); ?>"
-            							<?php
-            							if ( 'yes' !== $product->get_auction_sealed() ) {
-            								?>
-            								value="<?php echo esc_attr( $product->bid_value() ); ?>"
-            								<?php if ( 'reverse' === $product->get_auction_type() ) : ?>
-            									max="<?php echo esc_attr( $product->bid_value() ); ?>"
-            								<?php else : ?>
-            									min="<?php echo esc_attr( $product->bid_value() ); ?>"
-            								<?php endif; ?>
-            							<?php } ?>
-            							step="100" size="<?php echo intval( strlen( $product->get_curent_bid() ) ) + 6; ?>" title="bid"  class="input-text qty  bid text left">
-                      <input type="button" value="+" class="plus" />
-            				</div>
-            			<button type="submit" class="bid_button button alt"><?php echo wp_kses_post( apply_filters( 'bid_text', esc_html__( 'Bid', 'auctions-for-woocommerce' ), $product ) ); ?></button>
-            			<input type="hidden" name="place-bid" value="<?php echo intval( $product_id ); ?>" />
-            			<input type="hidden" name="product_id" value="<?php echo intval( $product_id ); ?>" />
-            			<?php if ( is_user_logged_in() ) { ?>
-            				<input type="hidden" name="user_id" value="<?php echo intval( get_current_user_id() ); ?>" />
-            			<?php } ?>
-
-            			<?php // do_action( 'woocommerce_after_bid_button' ); ?>
-            		</form>
-
-              <?php } else { ?>
-                <p class="mustLogin">you must <span class="mustLoginButton" onclick="altClassFromSelector('alt','#logForm')">login</span> to place a bid</p>
-              <?php } ?>
-
-
-
-            	</div>
-
-            <?php elseif ( ( false === $product->is_closed ) && ( false === $product->is_started ) ) : ?>
-              <div class='auctionData' >
-
-                <div class="auctionTitle">
-                  <h2>Auction info:</h2>
-                  <?php do_action( 'woocommerce_after_bid_form' ); ?>
-                </div>
-
-          			<p class="auctionDetails">
-                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'auction_starts_text', esc_html__( 'Auction starts in:', 'auctions-for-woocommerce' ), $product ) ); ?></span>
-                  <span class="auctionDetailsValue auction-time-countdown future notMet" data-time="<?php echo esc_attr( $product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
-                </p>
-                <p class="auctionDetails">
-                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Auction starts:', 'auctions-for-woocommerce' ), $product_id ) ); ?></span>
-                  <span class="auctionDetailsValue"><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_start_time() ) ) ); ?></span>
-                  <?php // echo esc_html( date_i18n( get_option( 'time_format' ), strtotime( $product->get_auction_start_time() ) ) ); ?>
-                </p>
-              	<p class="auctionDetails">
-                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Auction ends:', 'auctions-for-woocommerce' ), $product_id ) ); ?></span>
-                  <span class="auctionDetailsValue"><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?></span>
-                  <?php // echo esc_html( date_i18n( get_option( 'time_format' ), strtotime( $product->get_auction_end_time() ) ) ); ?>
-                </p>
-                <p class="auctionDetails">
-                  <span class="auctionDetailsTitle">Starting bid:</span>
-                  <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
-                </p>
-
-              </div>
-
-            <?php endif; } ?>
     </div>
 
 
@@ -487,6 +612,9 @@
     <div class="singleSide singleSide2">
 
 
+      <?php if(!$product->is_type( 'auction' )){ ?>
+      <?php testimonial( 'none' ); ?>
+      <?php } ?>
 
       <div class="superFicha">
         <div>
@@ -570,13 +698,22 @@
 
 
 
-</figcaption>
+  </figcaption>
 </figure>
 
       </div>
     </div>
 
+
+
     <div class="singleDescription"><?php echo the_content(); ?></div>
+
+
+                    <?php if($product->is_type( 'auction' )){ ?>
+                    <?php testimonial('onlyMobileG'); ?>
+                    <?php } ?>
+
+
 
 
   </article>
