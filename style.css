@@ -201,7 +201,6 @@ FIN DE MAPA DE CONTENIDOS */
   --singleFeatureDescFontSize:.8rem;
   --singleStock2IDFontSize: 1.2rem;
   --singleStock2IDPadding: .6rem;
-  --singleSideVideoDisplay:none;
   --singleSideContactContainerMargin:0 auto;
   --singleSideSocialContMargin:.5rem auto;
   --sS_newArrivalMargin:0 auto;
@@ -586,7 +585,6 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideTextAlign:left;
     --singleSide2GR:2;
     --singleSide2Position:sticky;
-    --singleSideVideoDisplay:flex;
     --singleSideContactContainerMargin:0;
     --singleSideSocialContMargin:.5rem auto;
     --sS_newArrivalMargin:0;
@@ -1070,6 +1068,17 @@ main li {margin: .3rem 0;}
   grid-column:1;
   grid-row:1;
 }
+.galleryMainVideo{
+  display:none;
+  grid-column:1;
+  grid-row:1;
+  height:auto;
+  height:100%;
+  position:relative;
+  width: 100%;
+  z-index:3;
+}
+.gallery.video .galleryMainVideo{display:flex}
 .gallery.alt .galleryMain{background:white;height:100vh!important;object-fit:contain;}
 .galleryMain{
   /* height: 350px; */
@@ -3377,11 +3386,16 @@ background: #ddd;
   font-size:var(--singleSideDataFontSize);
 }
 .singleSideVideo{
-  width: 100%;
   border:none;
+  cursor: pointer;
+  filter:brightness(60%);
   height:auto;
   margin: .5rem 0;
-  display:var(--singleSideVideoDisplay);
+  transition:.4s;
+  width: 100%;
+}
+.singleSideVideo:hover{
+  filter:brightness(100%);
 }
 
 .singleSideContactContainer.onlyMobileG{

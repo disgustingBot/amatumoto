@@ -64,8 +64,8 @@
 
       <?php $video = get_post_meta( $product->id, 'video' )[0]; ?>
       <?php if($video){ ?>
-          <!-- <video class="singleSideVideo" controls src="<?php echo $video; ?>"></video> -->
-          <iframe class="singleSideVideo onlyDesktopG" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe>
+          <!-- <iframe class="singleSideVideo onlyDesktopG" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe> -->
+          <img class="singleSideVideo onlyDesktopG" onclick="altClassFromSelector('video','#gallery')" src="https://img.youtube.com/vi/<?php echo $video; ?>/mqdefault.jpg" alt="">
       <?php } ?>
 
 
@@ -166,6 +166,8 @@
         <?php $attachment_ids = $product->get_gallery_attachment_ids(); ?>
 
         <div class="galleryMainCarousel">
+          <iframe class="galleryMainVideo" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe>
+
           <img class="galleryMain galleryCarousel" onclick="altClassFromSelector('alt','#gallery')" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
           <?php $count=0; foreach( $attachment_ids as $attachment_id ) { ?>
             <img class="galleryMain galleryCarousel" onclick="altClassFromSelector('alt','#gallery')" src="<?php echo $image_link = wp_get_attachment_url( $attachment_id ); ?>" alt="">
@@ -179,7 +181,6 @@
           <img class="galleryImgs" onclick="selectImgs(0)" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
           <?php $count=1; foreach( $attachment_ids as $attachment_id ) { ?>
             <img class="galleryImgs" onclick="selectImgs(<?php echo $count; ?>)" src="<?php echo $image_link = wp_get_attachment_url( $attachment_id ); ?>" alt="">
-            <!-- <img class="galleryImgs" src="<?php echo $image_link = wp_get_attachment_url( $attachment_id ); ?>" alt="" onclick="gallerySingle('<?php echo $image_link = wp_get_attachment_url( $attachment_id ); ?>')"> -->
           <?php $count++; } ?>
           <div class="galleryFade"></div>
         </div>
@@ -199,7 +200,8 @@
                   <?php $video = get_post_meta( $product->id, 'video' )[0]; ?>
                   <?php if($video){ ?>
                       <!-- <video class="singleSideVideo" controls src="<?php echo $video; ?>"></video> -->
-                      <iframe class="singleSideVideo onlyMobileG" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe>
+                      <!-- <iframe class="singleSideVideo onlyMobileG" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe> -->
+                      <img class="singleSideVideo onlyMobileG" src="https://img.youtube.com/vi/<?php echo $video; ?>/default.jpg" alt="">
                   <?php } ?>
 
 

@@ -204,11 +204,6 @@
     </svg>
 
 
-    <!-- <div class="mobileNavButton" onclick="alternateMobileMenu()">
-      <div class="navStripe"></div>
-      <div class="navStripe"></div>
-      <div class="navStripe"></div>
-    </div> -->
   </header>
 
 
