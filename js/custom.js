@@ -166,7 +166,7 @@ function detectWidth() {
 }
 
 
-//Desplegables
+//Accordion //Desplegable
 
 var acc = document.getElementsByClassName("accordion");
 var i;
