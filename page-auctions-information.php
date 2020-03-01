@@ -10,7 +10,7 @@
 <?php while(have_posts()){the_post();?>
 
 
-  <main class="auctionsInformationPage"><?php the_content();?></main>
+  <main class="auctionsInformationPage" id="auctionsInformationPage"><?php the_content();?></main>
 
 <?php } ?>
 

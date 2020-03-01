@@ -80,8 +80,18 @@ if(y.length>0){showImgs(0)}
 
 // alternates a class from a selector of choice, example:
 // <div class="someButton" onclick="altClassFromSelector('activ', '#navBar')"></div>
-const altClassFromSelector=(clase,selector)=> {
-  const x=d.querySelector(selector);
+const altClassFromSelector = ( clase, selector, mainClass = false )=> {
+  const x = d.querySelector(selector);
+  // if there is a main class removes all other classes
+  if (mainClass) {
+    x.classList.forEach((item, i) => {
+      if(item!=mainClass){
+        // c.log(item);
+        x.classList.remove(item);
+      }
+    });
+  }
+
   if(x.classList.contains(clase)){
     x.classList.remove(clase)
   }else{
@@ -89,6 +99,20 @@ const altClassFromSelector=(clase,selector)=> {
   }
 }
 
+
+var arr = Array.prototype.slice.call( d.getElementsByClassName("auctionInfoBtn") )
+arr.forEach( (item, i) => { c.log(i);
+  item.addEventListener("click", ()=>{
+    altClassFromSelector('cosa'+i,'#auctionsInformationPage','auctionsInformationPage')
+  });
+});
+
+// for (i = 0; i < acc.length; i++) {
+//   c.log(i);
+//   acc[i].addEventListener("click", ()=>{
+//     altClassFromSelector('cosa'+i,'#auctionsInformationPage','auctionsInformationPage')
+//   });
+// }
 
 
 

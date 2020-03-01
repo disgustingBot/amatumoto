@@ -13,7 +13,8 @@
     <div class="singleSide singleSide1">
       <?php
       // $newness_days = 1;
-      $created = strtotime( $product->get_date_created() );
+      // $created = strtotime( $product->get_date_created() );
+      $created = strtotime( $product->get_the_date() );
       if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
         <span class="newArrival"><i>New arrival</i></span>
       <?php } ?>
