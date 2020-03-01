@@ -9,7 +9,7 @@ w.onload=()=>{
         lIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){let l=e.target;l.classList.remove("lazy");lIO.unobserve(l);l.srcset=l.dataset.url}})},opt);
     lIs.forEach(lI=>{lIO.observe(lI)});lBs.forEach(lB=>{lBO.observe(lB)});
   }
-  
+
   if(detectWidth() < 768 && d.querySelector('#filterBar')){altClassFromSelector('alt','#filterBar')}
 
   d.getElementById("load").style.top="-230vw";
@@ -178,8 +178,10 @@ for (i = 0; i < acc.length; i++) {
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
+      panel.style.padding = "0";
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.style.padding = "20px";
     }
   });
 }

@@ -313,7 +313,7 @@ FIN DE MAPA DE CONTENIDOS */
   --contactInformationTextFontSize: .8rem;
   --contactTitleSection1FontSize: 1rem;
   --contactMenuDisplay: flex;
-  --contactMenuUlLiWidth: 50%;
+  --contactMenuUlLiWidth: 30%;
   --contactMenuJustifyContent: center;
   --formInputMargin: .5rem auto;
 
@@ -474,16 +474,13 @@ FIN DE MAPA DE CONTENIDOS */
     --subMenuDisplay:grid;
     --notDisplayOnDesktop: none;
 
-    /* --navBarDesktopDisplay: flex; */
     --navBarDesktopDisplay: grid;
+    --navBarUlGridGap: .5rem;
     --upperNavDektop: flex;
     --navBarMobileDisplay: none;
     --headerDisplay: grid;
     --mobileNavButtonDisplay: none;
 
-    /* --mobileNavBtnWidth: 80px; */
-    /* --mobileNavBtnHeight: 60px; */
-    /* --mobileNavBtnTop: 2rem; */
     --mobileNavBtnRight: 2rem;
     --navStripeHeight: 10px;
     --dosMotosCaptionPadding: 1rem;
@@ -696,6 +693,7 @@ FIN DE MAPA DE CONTENIDOS */
     --navBarFontSize: .6rem;
     --navBarPadding:6rem;
     --copyFontSize: 1rem;
+    --navBarUlGridGap: 1rem;
 
     /* FOOTER */
     /* --characterContainerPadding: 0; */
@@ -986,8 +984,20 @@ main ul, main ol{
 .auctionsInfoTxtContainer li {padding: 5px 0px;}
 
 .wp-block-button__link {background: unset!important;}
-.auctionInfoBtn {margin: .5rem; transition: .25s;background:white; color: black;}
-.auctionInfoBtn:hover {background: var(--color1)!important; color: white;}
+
+.auctionInfoBtn {
+  margin: .5rem;
+  transition: .25s;
+  background:var(--color1)!important;
+  color: black;
+  border: solid 2px black;
+}
+
+.auctionInfoBtn:hover {
+  background: white!important;
+  color: var(--color1)!important;
+}
+
 .auctionInfoBtn a {width: 100%;}
 
 .accordion {
@@ -1000,6 +1010,7 @@ main ul, main ol{
   border: none;
   outline: none;
   transition: 0.4s;
+  margin-bottom: 0;
 }
 
 .active, .accordion:hover {
@@ -1011,7 +1022,10 @@ main ul, main ol{
     background-color: white;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    transition: 0.2s ease-out;
+    background-color: #ccc;
+    margin-top: 0;
+    box-sizing: content-box;
 }
 
 
@@ -1355,16 +1369,15 @@ main ul, main ol{
   display: var(--navBarDesktopDisplay);
   grid-auto-flow:column;
   justify-content: flex-end;
-  grid-gap:1rem;
-  /* margin-right: var(--upperNavMarginLeft); */
+  grid-gap:var(--navBarUlGridGap);
   margin-right:0;
 }
 .navBarMobile ul{
   display: var(--mobileNavButtonDisplay);
   flex-direction: column;
   height:100%;
-  /* align-items: stretch; */
 }
+
 .navBar ul li:nth-child(n+6){
   display: var(--notDisplayOnDesktop);
 }
@@ -3850,11 +3863,11 @@ a.contactInformationText:hover{
 
 .contactLogo{
   margin: var(--contactLogoMargin);
+  margin-left: 0;
+  width: 10rem;
 }
 
-.contactFormColumn .MainContactForm .formInput33 .formInput{
-  margin-left: var(--) 0;
-}
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
