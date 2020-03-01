@@ -1188,7 +1188,7 @@ main ul, main ol{
   object-fit: contain;
   width: auto;
   /* var(--logoImgWidth); */
-  height: var(--logoImgHeight) ;
+  height: var(--logoImgHeight)!important;
   /* margin: var(--logoImgMargin); */
   margin: auto;
 }
@@ -2588,23 +2588,42 @@ background: #ddd;
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .slideButton{
-  background-color: red;
-  background: linear-gradient(to left, transparent, rgba(0,0,0,.4));
+  background:none;
   border: none;
   color:white;
   cursor: pointer;
   font-size: 2.5rem;
+  opacity:.5;
+  position:relative;
   transition:.3s;
   width: 10%;
   z-index: 2;
 }
-.slideButton:hover{color:var(--color1)}
+.slideButton::before{
+  /* content: &#10094; */
+  background-color: rgba(0,0,0,0.8);
+  box-sizing: border-box;
+  content: ' \003C';
+  margin-top: -20px;
+  font-weight:800;
+  font-size: 30px;
+  left: 0;
+  line-height:27px;
+  padding: 8px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transition: all 0.2s ease-in-out;
+  width:40px;
+}
+.slideButton:hover{opacity:1;}
+.slideButton:focus{outline:none;}
 
 .slideRight{
   margin-left: auto;
-  background: linear-gradient(to right, transparent, rgba(0,0,0,.4));
+  /* background: linear-gradient(to right, transparent, rgba(0,0,0,.4)); */
 }
-
+.slideRight::before{right:0;left:calc(100% - 40px);content: ' \003E';}
 .contactButton{
   background:white;
   border:2px solid black;
@@ -2669,6 +2688,40 @@ background: #ddd;
 .mobileNav .logButton{margin:auto;}
 /* .logButton.alt{color:var(--color1)} */
 .logButton:hover,.logButton:focus{color:var(--color1);outline:none}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.5.4) =fullscreenButton:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+.fullscreenButton{
+  background:none;
+  border: none;
+  color:white;
+  cursor: pointer;
+  font-size: 2.5rem;
+  /* opacity:.5; */
+  position:absolute;
+  transition:.3s;
+  width: 40px;
+  height:40px;
+  z-index: 2;
+  right:0;
+  top:0;
+  background:rgba(0,0,0,.4);
+  cursor:pointer;
+  padding:5px;
+}
+.fullscreenButton:hover{background:rgba(0,0,0,.8)}
+.fullscreenButton svg{
+  position:absolute;
+  top: 10px;
+  left:10px;
+  width: 20px;
+  height:20px;
+  height:auto;
+}
+
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.6) =FORMS:
@@ -3181,6 +3234,7 @@ background: #ddd;
   display: grid;
   grid-gap:1rem;
   /* grid-row: 1; */
+  margin-bottom:auto;
 }
 
 
@@ -3400,16 +3454,26 @@ background: #ddd;
 .singleSideVideo{
   border:none;
   cursor: pointer;
-  filter:brightness(60%);
+  /* filter:brightness(60%); */
   height:auto;
-  margin: .5rem 0;
+  /* margin: .5rem 0; */
   transition:.4s;
   width: 100%;
 }
 .singleSideVideo:hover{
   filter:brightness(100%);
 }
-
+.singleSideVideo img{
+  filter:brightness(60%);
+  transition:.3s;
+}
+.singleSideVideo:hover img{filter:brightness(100%)}
+.singleSideVideo svg{
+  height:50%;
+  margin:auto;
+  width:auto;
+  z-index:2;
+}
 .singleSideContactContainer.onlyMobileG{
   grid-column:2;
   grid-row:1/3;
@@ -3417,7 +3481,7 @@ background: #ddd;
 .singleSideContactContainer{
   /* display: var(--singleSideContactContainerDisplay); */
   display: grid;
-  grid-gap:1rem;
+  grid-gap:.3rem;
   /* flex-wrap: wrap; */
   flex-direction: column;
   margin:var(--singleSideContactContainerMargin);
