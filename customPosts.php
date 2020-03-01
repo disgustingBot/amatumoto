@@ -36,7 +36,7 @@ function lattedev_custom_posts() {
 		'hierarchical'       => true,
     'menu-icon'          => 'dashicons-palmtree',
 		'menu_position'      => 5,
-		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes', 'revisions' )
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes', 'revisions', 'custom-fields' )
 	);
 	register_post_type( 'service', $args );
 
