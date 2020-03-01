@@ -14,7 +14,8 @@
       <?php
       // $newness_days = 1;
       // $created = strtotime( $product->get_date_created() );
-      $created = strtotime( $product->get_the_date() );
+      // var_dump(get_the_date());
+      $created = strtotime( get_the_date() );
       if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
         <span class="newArrival"><i>New arrival</i></span>
       <?php } ?>
@@ -62,7 +63,7 @@
 
 
       <!-- <p class="singleSideData onlyDesktopG"><?php echo excerpt(140); ?></p> -->
-      <p class="singleSideData onlyDesktopG"><?php the_excerpt(); ?></p>
+      <div class="singleSideData onlyDesktopG"><?php the_excerpt(); ?></div>
 
       <?php $video = get_post_meta( $product->id, 'video' )[0]; ?>
       <?php if($video){ ?>
