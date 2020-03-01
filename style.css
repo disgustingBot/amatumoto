@@ -3503,6 +3503,7 @@ background: #ddd;
 .singleSideVideo img{
   filter:brightness(60%);
   transition:.3s;
+  width: 100%;
 }
 .singleSideVideo:hover img{filter:brightness(100%)}
 .singleSideVideo svg{
@@ -3566,6 +3567,7 @@ background: #ddd;
   /* display: flex; */
   /* margin: .5rem 0; */
   margin:var(--singleSideSocialContMargin);
+  margin-left: 0;
   /* margin:.5rem auto; */
   width: min-content;
 }
