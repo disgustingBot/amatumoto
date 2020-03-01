@@ -149,8 +149,10 @@ for (i = 0; i < acc.length; i++) {
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
+      panel.style.padding = "0";
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.style.padding = "20px";
     }
   });
 }
