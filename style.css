@@ -578,6 +578,8 @@ FIN DE MAPA DE CONTENIDOS */
     --hotCardTitleFontSize:1rem;
 
     --singlePageGridTemplateC: 1fr 2.5fr;
+    /* Cálculo que fuerza relación de aspecto del single a un máximo de 4:3 */
+    --galleryMainMaxHeight: calc((70vw - var(--lateral) - var(--singlePageGG) - 16px) * .60);
     --galleryMoreFontSize:.6rem;
     --legalFooterJustification: flex-end;
     --singleSocialSvgHeight: 1rem;
@@ -1082,15 +1084,15 @@ main ul, main ol{
   z-index:10000;
 }
 
-.galleryStock img{
+.galleryStock img {
   height: 2rem;
 }
-.galleryMainCarousel{
+.galleryMainCarousel {
   display:grid;
   grid-column:1;
   grid-row:1;
 }
-.galleryMainVideo{
+.galleryMainVideo {
   display:none;
   grid-column:1;
   grid-row:1;
@@ -1100,15 +1102,23 @@ main ul, main ol{
   width: 100%;
   z-index:3;
 }
-.gallery.video .galleryMainVideo{display:flex}
-.gallery.alt .galleryMain{background:white;height:100vh!important;object-fit:contain;}
-.galleryMain{
-  /* height: 350px; */
-  /* height:30vw!important; */
+.gallery.video .galleryMainVideo {
+  display: flex;
+}
+
+.gallery.alt .galleryMain {
+  background: white;
+  height: 100vh!important;
+  object-fit: contain;
+  max-height: unset;
+}
+
+.galleryMain {
   grid-column:1;
   grid-row:1;
   position:relative;
   width: 100%;
+  max-height: var(--galleryMainMaxHeight);
   z-index:1;
 }
 .galleryMain.inactive{z-index:0}
@@ -3245,8 +3255,7 @@ background: #ddd;
 /* SINGLE MAIN */
 .singleMain {
   display: grid;
-  grid-gap:1rem;
-  /* grid-row: 1; */
+  grid-gap: 1rem;
   margin-bottom:auto;
 }
 
@@ -3675,9 +3684,23 @@ background: #ddd;
   border-top: solid 2px #ddd;
   border-bottom: solid 2px #ddd;
 }
+
+.singleDescription ul ul {
+  border: none;
+  padding: 0 1rem;
+}
+
 .singleDescription ul li {
   margin: .5rem 0;
 }
+.singleDescription ul ul li {
+  margin: .2rem 0;
+}
+.singleDescription ul ul li::before {
+  color: #e1550e;
+  border-radius: 1rem;
+}
+
 .singleDescription ul li::before {
   content: "\25A0";
   color:#F78D15;
