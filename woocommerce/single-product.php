@@ -254,29 +254,7 @@
 
 
 
-
-
-
-
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                             <?php
@@ -480,24 +458,6 @@
                               </div>
 
                             <?php endif; } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -905,9 +865,8 @@
       </div>
     </div>
 
+    <main class="singleDescription"><?php echo the_content(); ?></main>
 
-
-    <div class="singleDescription"><?php echo the_content(); ?></div>
 
 
                     <?php if($product->is_type( 'auction' )){ ?>
@@ -942,6 +901,8 @@
       <button class="singleContactButton contactButton" type="submit">SEND</button>
     </form>
   </div>
+
+  
 
   <div class="singleFormContainer" id="singleMakeOffer">
     <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
