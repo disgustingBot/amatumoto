@@ -103,7 +103,7 @@ const altClassFromSelector = ( clase, selector, mainClass = false )=> {
 var arr = Array.prototype.slice.call( d.getElementsByClassName("auctionInfoBtn") )
 arr.forEach( (item, i) => { c.log(i);
   item.addEventListener("click", ()=>{
-    altClassFromSelector('cosa'+i,'#auctionsInformationPage','auctionsInformationPage')
+    altClassFromSelector('auctionFaq'+i,'#auctionsInformationPage','auctionsInformationPage')
   });
 });
 

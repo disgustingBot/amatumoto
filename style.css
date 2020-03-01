@@ -979,6 +979,9 @@ main ul, main ol{
   margin: 15px;
   color: #333333;
 }
+
+
+
 .auctionsInfoTxtContainer p {margin-bottom: 20px; }
 .auctionsInfoTxtContainer ul {margin-bottom: 30px;padding-left: 20px;}
 .auctionsInfoTxtContainer li {padding: 5px 0px;}
@@ -997,6 +1000,13 @@ main ul, main ol{
   background: white!important;
   color: var(--color1)!important;
 }
+
+.howToContainer {display: none;}
+
+.auctionFaq0 .howToBuyContainer {display: block;}
+.auctionFaq1 .howToSellContainer {display: block;}
+.auctionFaq2 .howToAccountContainer {display: block;}
+.auctionFaq3 .howToGeneralContainer {display: block;}
 
 .auctionInfoBtn a {width: 100%;}
 
