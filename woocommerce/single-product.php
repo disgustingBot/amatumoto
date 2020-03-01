@@ -122,7 +122,7 @@
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleMakeOffer')">MAKE OFFER</button>
         <?php if($product->is_type( 'auction' )){ ?>
-          <a class="singleSideContact" href="<?php echo site_url('auctions-information');  ?>">AUCTION INFO</a>
+          <a class="singleSideContact" href="<?php echo site_url('auctions-information');  ?>">AUCTIONS <br> INFORMATION</a>
         <?php } else if(!in_array('parts-racing-products', $cates)) { ?>
           <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
         <?php } ?>
