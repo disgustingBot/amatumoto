@@ -902,6 +902,8 @@
     </form>
   </div>
 
+  
+
   <div class="singleFormContainer" id="singleMakeOffer">
     <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
       <input type="hidden" name="action" value="lt_form_handler">
