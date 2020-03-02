@@ -110,13 +110,7 @@
           <path d="M49.6053 0H5.13158C2.29745 0 0 2.23854 0 5V35C0 37.7615 2.29745 40 5.13158 40H49.6053C52.4394 40 54.7368 37.7615 54.7368 35V5C54.7368 2.23854 52.4394 0 49.6053 0ZM49.6053 5V9.25052C47.2082 11.1525 43.3866 14.11 35.2169 20.3432C33.4164 21.7231 29.85 25.0382 27.3684 24.9996C24.8873 25.0386 21.3197 21.7226 19.52 20.3432C11.3515 14.1109 7.52899 11.1528 5.13158 9.25052V5H49.6053ZM5.13158 35V15.6665C7.58127 17.5676 11.0552 20.2354 16.3503 24.2754C18.687 26.0676 22.7791 30.024 27.3684 29.9999C31.9352 30.024 35.9755 26.125 38.3856 24.2762C43.6805 20.2364 47.1555 17.5678 49.6053 15.6666V35H5.13158Z" fill="currentColor"/>
           </svg>
         </a>
-
-
       </div>
-
-
-
-
 
       <div class="singleSideContactContainer onlyDesktopG">
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
@@ -126,12 +120,10 @@
         <?php } else if(!in_array('parts-racing-products', $cates)) { ?>
           <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
         <?php } ?>
-        <!-- <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleFinance')">FINANCE</button> -->
       </div>
 
 
       <?php function testimonial( $clase ){ ?>
-
             <div class="testimonialsContainer <?php echo $clase; ?>">
               <?php
               $args = array(
@@ -184,15 +176,10 @@
             <img class="galleryMain galleryCarousel" onclick="altClassFromSelector('alt','#gallery')" src="<?php echo $image_link = wp_get_attachment_url( $attachment_id ); ?>" alt="">
           <?php $count++; } ?>
         </div>
-        <!-- <button class="slideButton rowcol1 slideLeft" onclick="plusImgs(-1)">&#10094;</button> -->
-        <!-- <button class="slideButton rowcol1 slideRight" onclick="plusImgs(+1)">&#10095;</button> -->
         <button class="slideButton rowcol1 slideLeft" onclick="plusImgs(-1)"></button>
         <button class="slideButton rowcol1 slideRight" onclick="plusImgs(+1)"></button>
 
         <button class="fullscreenButton rowcol1" onclick="altClassFromSelector('alt','#gallery')">
-          <!-- <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path fill="currentColor" d="M0 180V56c0-13.3 10.7-24 24-24h124c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H32v116c0 6.6-5.4 12-12 12h-8c-6.6 0-12-5.4-12-12zM300 32h124c13.3 0 24 10.7 24 24v124c0 6.6-5.4 12-12 12h-8c-6.6 0-12-5.4-12-12V64H300c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12zm148 300v124c0 13.3-10.7 24-24 24H300c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h116V332c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12zM148 480H24c-13.3 0-24-10.7-24-24V332c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12v116h116c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12z"></path>
-          </svg> -->
           <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="expand" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-expand fa-w-14 fa-3x"><path fill="currentColor" d="M0 180V56c0-13.3 10.7-24 24-24h124c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H64v84c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12zM288 44v40c0 6.6 5.4 12 12 12h84v84c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12V56c0-13.3-10.7-24-24-24H300c-6.6 0-12 5.4-12 12zm148 276h-40c-6.6 0-12 5.4-12 12v84h-84c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h124c13.3 0 24-10.7 24-24V332c0-6.6-5.4-12-12-12zM160 468v-40c0-6.6-5.4-12-12-12H64v-84c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v124c0 13.3 10.7 24 24 24h124c6.6 0 12-5.4 12-12z" class=""></path></svg>
         </button>
 
@@ -207,21 +194,12 @@
         <button class="galleryMore" onclick="altClassFromSelector('alt', '#galleryStock')">More photos</button>
       </div>
 
-
-
-
-
       <div class="singleSideMobileSchema onlyMobileG">
 
 
 
         <!-- <p class="singleSideData onlyMobileG"><?php echo excerpt(140); ?></p> -->
         <p class="singleSideData onlyMobileG"><?php the_excerpt(); ?></p>
-
-
-
-
-
 
                   <div class="singleSideSocialCont socialMedia onlyMobileF">
 
@@ -266,7 +244,6 @@
                     <?php } else if(!in_array('parts-racing-products', $cates)) { ?>
                       <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
                     <?php } ?>
-                    <!-- <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleFinance')">FINANCE</button> -->
                   </div>
 
 

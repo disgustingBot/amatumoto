@@ -177,6 +177,9 @@ FIN DE MAPA DE CONTENIDOS */
   --homeFilterBarLink: 100%;
   --HomeButtonType1Padding: .5rem;
   --homeFilterBarTop: 1rem;
+  --frontCopyFontSize: 1rem;
+  --testimonialContainerWidth: 100%;
+  --testimonialBtnMargin: .1rem;
 
 
   /* ?HOT AUCTIONS */
@@ -526,6 +529,10 @@ FIN DE MAPA DE CONTENIDOS */
     --homeFilterBarLink: unset;
     --HomeButtonType1Padding: .4rem 1.4rem;
     --homeFilterBarTop: 3rem;
+    --frontCopyFontSize: 1.5rem;
+    --testimonialContainerWidth: 70%;
+    --testimonialBtnMargin: 1rem;
+
 
 
 
@@ -770,7 +777,7 @@ FIN DE MAPA DE CONTENIDOS */
     --navBarPadding:2rem;
     --filterBarBottomPaddingX:5rem;
     --filterBarLinkPadding: .5rem 1.8rem;
-    --copyFontSize: 1.2rem;
+    --copyFontSize: 1rem;
     --logoImgHeight: 1.5rem;
 
 
@@ -814,7 +821,7 @@ FIN DE MAPA DE CONTENIDOS */
   :root {
 
     /* HEADER */
-
+    --copyFontSize: 1.2rem;
     --filterBarLinkPadding: .5rem 2rem;
     /* FOOTER */
     /* --footerPadding: 3rem; */
@@ -1282,6 +1289,9 @@ main ul, main ol{
 }
 .mobileNav .socialedia{justify-content:center;}
 
+
+.mobileNav .socialMediaLink svg {height: 25px!important;}
+
 .socialMediaLink {
   display: flex;
   justify-content: center;
@@ -1541,6 +1551,7 @@ main ul, main ol{
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .carusATF{
+  position: relative;
   display: grid;
   height: 30vw;
   overflow: hidden;
@@ -1553,6 +1564,7 @@ main ul, main ol{
   transform-origin: 100% 0;
   background-size: cover;
 }
+
 .carus.inactive{opacity: 0;pointer-events: none;}
 
 .carusImg{
@@ -1561,6 +1573,22 @@ main ul, main ol{
   object-position: center;
 }
 
+.frontCopy {
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  grid-row: 1;
+  grid-column: 1;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 1rem;
+  /* background-color: rgba(0,0,0,0.5); */
+  /* box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
+  z-index: 1;
+  letter-spacing: 1px;
+  font-size: var(--frontCopyFontSize);
+  text-shadow:  1px 1px 1px rgba(0,0,0,1);
+
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.3) =searchSeparator:
@@ -3187,18 +3215,17 @@ background: #ddd;
 --------------------------------------------------------------------------- */
 
 .testimonial {
-  /* width:var(--testimonialWidth); */
-  /* height:var(--testimonialHeight); */
   display: grid;
   border:1px solid #ddd;
-  /* grid-template-columns:var(--testimonialsGTC); */
   grid-template-columns:1fr;
-  /* margin: 3rem auto; */
   transition: .25s;
   overflow-y: auto;
 }
 
-.testimonialsMain {padding:0; margin:0;}
+.testimonialsMain {
+  padding: 1rem var(--lateral);
+  margin: 0;
+}
 
 .testimonialsTitle {
   margin: 1rem 0;
@@ -3220,6 +3247,7 @@ background: #ddd;
   font-size: 2rem;
   transition: .3s;
   cursor:pointer;
+  margin: var(--testimonialBtnMargin);
 }
 
 .testimonialBtn:hover { color: #F78D15;}
@@ -3250,8 +3278,16 @@ background: #ddd;
 .testimonialAuthor {font-size: 1.5rem; margin-bottom: .5rem;}
 
 
+.testimonialsMain .testimonialsContainer {
+  margin: auto;
+  margin-top: 2rem;
+  width: var(--testimonialContainerWidth);
+  height: auto;
+}
 
+.testimonialsMain .testimonialsContainer  .testimonialQuote {text-align: justify!important;}
 
+.testimonialsMain .testimonial {width: 100%;}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.10) =singlePage:
@@ -3897,6 +3933,9 @@ background: #ddd;
   grid-gap:1rem;
   list-style: none;
   padding: 0 var(--lateral);
+  padding: .5rem;
+  border-top: 2px solid var(--color1);
+  border-bottom: 2px solid var(--color1);
 }
 
 .contactMenu ul li{
@@ -3913,7 +3952,6 @@ background: #ddd;
 }
 .contactMenu ul li.current-menu-item a{
   background: #E6E6E6;
-  border-bottom: solid 2px #E7A61A;
 }
 
 main.contact>p:first-child{display:none;}

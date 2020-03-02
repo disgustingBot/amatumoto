@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php while(have_posts()){the_post();?>
 
 <figure class="pageBanner">
   <img class="pageBannerImg rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
@@ -13,8 +14,7 @@
 
 <main class="testimonialsMain">
 
-  <?php while(have_posts()){the_post();?>
-    <div><?php the_content();?></div>
+    <div class="testimonialsContent"><?php the_content();?></div>
 
   <?php } ?>
 
