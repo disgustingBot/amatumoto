@@ -102,11 +102,26 @@
       <img class="<?php echo $cardName; ?>Img lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
     </a>
     <figcaption class="<?php echo $cardName; ?>Caption">
-          <p class="<?php echo $cardName; ?>AnoMarca"><a href="<?php echo get_permalink(); ?>">
+
+
+          <!-- <p class="<?php echo $cardName; ?>AnoMarca"><a href="<?php echo get_permalink(); ?>">
             <span><?php echo $yearBike; ?></span>
             <span><?php echo $brand; ?></span>
         </a></p>
-      <h4 class="<?php echo $cardName; ?>Title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
+      <h4 class="<?php echo $cardName; ?>Title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4> -->
+
+
+            <!-- NEW TITLE -->
+            <h4 class="<?php echo $cardName; ?>Title">
+              <?php the_title(); ?>
+              <?php if($brand){ ?><span class="singleSideAnoMarca"><?php echo $brand; ?></span><?php } ?>
+              <?php if($yearBike){ ?><span class="singleSideAnoMarca"><?php echo $yearBike; ?></span><?php } ?>
+            </h4>
+
+
+
+
+
 
       <?php if(method_exists($product,'get_seconds_remaining')){ ?>
         <p class="auctionDetails">
