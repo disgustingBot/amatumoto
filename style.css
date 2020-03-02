@@ -928,6 +928,18 @@ h4, h5, h6, ul, li {font-weight: 700;}
 p, a, button {font-weight: 400;}
 
 p, a, ul, li {color: black}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                               5) =ESTRUCTURA:
@@ -1046,7 +1058,7 @@ main ul, main ol{
   position: fixed;
   top:0;
   left:0;
-  transition: 2s;
+  transition:.5s;
   z-index: 10000;
 }
 .circle{
@@ -1069,7 +1081,7 @@ main ul, main ol{
 }
 .gallery{
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom:2rem;
   display:grid;
   grid-gap:.3rem;
 }
@@ -1085,7 +1097,7 @@ main ul, main ol{
 }
 
 .galleryStock img {
-  height: 2rem;
+  /* height: 2rem; */
 }
 .galleryMainCarousel {
   display:grid;
@@ -1118,7 +1130,7 @@ main ul, main ol{
   grid-row:1;
   position:relative;
   width: 100%;
-  max-height: var(--galleryMainMaxHeight);
+  /* max-height: var(--galleryMainMaxHeight); */
   z-index:1;
 }
 .galleryMain.inactive{z-index:0}
@@ -1295,8 +1307,8 @@ main ul, main ol{
 .mail.upperNavInfo:hover svg{color:#F78D15}
 
 
-
-
+.header .socialMediaYouT{display: none;}
+.mail svg{height:25px;}
 
 
 
@@ -2123,7 +2135,7 @@ background: #ddd;
 }
 
 .singleFormTxtArea {
-  height: 7rem;
+  height:3rem;
   width: 80%;
   margin: .5rem auto;
   border: solid 1px #ddd;
@@ -2719,21 +2731,21 @@ background: #ddd;
 --------------------------------------------------------------------------- */
 .fullscreenButton{
   background:none;
+  background:rgba(0,0,0,.4);
   border: none;
   color:white;
-  cursor: pointer;
+  cursor:pointer;
+  display: grid;
   font-size: 2.5rem;
+  height:40px;
   /* opacity:.5; */
   position:absolute;
-  transition:.3s;
-  width: 40px;
-  height:40px;
-  z-index: 2;
-  right:0;
-  top:0;
-  background:rgba(0,0,0,.4);
-  cursor:pointer;
   padding:5px;
+  right:0;
+  transition:.3s;
+  top:0;
+  width: 40px;
+  z-index: 2;
 }
 .fullscreenButton:hover{background:rgba(0,0,0,.8)}
 .fullscreenButton svg{
@@ -2745,6 +2757,9 @@ background: #ddd;
   height:auto;
 }
 
+.alt .fullscreenButton{display:none}
+.fullscreenButton.close{display:none}
+.alt .fullscreenButton.close{display:grid;}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.6) =FORMS:
@@ -2840,7 +2855,7 @@ background: #ddd;
   color:var(--color1);
   /* background: rgba(0,0,0,.1); */
   /* border: 2px solid #000; */
-  border-bottom:2px solid var(--color1);
+  border:2px solid var(--color1);
   /* background:#000; */
 }
 .filterSearch:focus {
@@ -2851,7 +2866,7 @@ background: #ddd;
   align-items:center;
   background: none;
   border:2px solid transparent;
-  border-bottom:2px solid #333;
+  border:2px solid #333;
   color:#333;
   cursor: pointer;
   display:flex;
@@ -2941,7 +2956,7 @@ background: #ddd;
 }
 
 
-.home .filterBarBotttom {
+/* .home .filterBarBotttom {
   display: none;
 }
 
@@ -2973,7 +2988,7 @@ background: #ddd;
 
 .home .filterBarTop .filterButton {
   display: none;
-}
+} */
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.8) =selectBox:
@@ -3458,7 +3473,7 @@ background: #ddd;
   font-weight: 400;
   color: #666;
 }
-
+.singleSideData p{color:inherit;}
 .singleSidePrice {
   font-size:var(--singleSidePriceFontSize);
 }
@@ -3481,6 +3496,8 @@ background: #ddd;
   /* margin: .5rem 0; */
   transition:.4s;
   width: 100%;
+  width:80%;
+  margin-right:auto;
 }
 .singleSideVideo:hover{
   filter:brightness(100%);
@@ -3495,6 +3512,10 @@ background: #ddd;
   margin:auto;
   width:auto;
   z-index:2;
+}
+.singleSideContactContainer.onlyDesktopG{
+  margin-right:auto;
+  justify-content: unset;
 }
 .singleSideContactContainer.onlyMobileG{
   grid-column:2;
@@ -3647,6 +3668,8 @@ background: #ddd;
   justify-content: space-evenly;
   margin: 1rem 0;
   padding: 1rem 0;
+  margin-top:0;
+  padding-top:0;
   flex-wrap: wrap;
 }
 .singleFeature {

@@ -29,7 +29,7 @@
 <a href="<?php echo site_url('inventory'); ?>" class="viewInventoryBtn"><nobr>VIEW INVENTORY</nobr></a>
 
 
-<?php include 'filterBar.php'; ?>
+<?php // include 'filterBar.php'; ?>
 
 
 <section class="hotAuctions">
