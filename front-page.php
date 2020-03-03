@@ -18,11 +18,10 @@
   </figure>
   <?php } wp_reset_query(); ?>
 
-
-  <!-- <button class="slideButton rowcol1 slideLeft" onclick="plusDivs(-1)">&#10094;</button> -->
-  <!-- <button class="slideButton rowcol1 slideRight" onclick="plusDivs(+1)">&#10095;</button> -->
   <button class="slideButton rowcol1 slideLeft" onclick="plusDivs(-1)"></button>
   <button class="slideButton rowcol1 slideRight" onclick="plusDivs(+1)"></button>
+
+  <h2 class="frontCopy"><?php echo get_the_excerpt(); ?></h2>
 
 </section>
 

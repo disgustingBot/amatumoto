@@ -109,13 +109,7 @@
           <path d="M49.6053 0H5.13158C2.29745 0 0 2.23854 0 5V35C0 37.7615 2.29745 40 5.13158 40H49.6053C52.4394 40 54.7368 37.7615 54.7368 35V5C54.7368 2.23854 52.4394 0 49.6053 0ZM49.6053 5V9.25052C47.2082 11.1525 43.3866 14.11 35.2169 20.3432C33.4164 21.7231 29.85 25.0382 27.3684 24.9996C24.8873 25.0386 21.3197 21.7226 19.52 20.3432C11.3515 14.1109 7.52899 11.1528 5.13158 9.25052V5H49.6053ZM5.13158 35V15.6665C7.58127 17.5676 11.0552 20.2354 16.3503 24.2754C18.687 26.0676 22.7791 30.024 27.3684 29.9999C31.9352 30.024 35.9755 26.125 38.3856 24.2762C43.6805 20.2364 47.1555 17.5678 49.6053 15.6666V35H5.13158Z" fill="currentColor"/>
           </svg>
         </a>
-
-
       </div>
-
-
-
-
 
       <div class="singleSideContactContainer onlyDesktopG">
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
@@ -127,35 +121,35 @@
             <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
           <?php } ?>
         <?php } ?>
-        <!-- <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleFinance')">FINANCE</button> -->
       </div>
 
 
       <?php function testimonial( $clase ){ ?>
 
-        <div class="testimonialsContainer <?php echo $clase; ?>">
-          <?php
-          $args = array(
-            'post_type'=>'testimonials',
-            'orderby'=>'rand',
-            'posts_per_page'=>'1'
-          );
-          $testimonials=new WP_Query($args);
-          while($testimonials->have_posts()){$testimonials->the_post();?>
-            <quote class="testimonial">
-              <svg class="testiQuote testiQuote1" width="576" height="448" viewBox="0 0 576 448" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M504 192H448V184C448 161.9 465.9 144 488 144H496C522.5 144 544 122.5 544 96V48C544 21.5 522.5 0 496 0H488C386.5 0 304 82.5 304 184V376C304 415.7 336.3 448 376 448H504C543.7 448 576 415.7 576 376V264C576 224.3 543.7 192 504 192ZM528 376C528 389.2 517.2 400 504 400H376C362.8 400 352 389.2 352 376V184C352 109 413 48 488 48H496V96H488C439.5 96 400 135.5 400 184V240H504C517.2 240 528 250.8 528 264V376ZM200 192H144V184C144 161.9 161.9 144 184 144H192C218.5 144 240 122.5 240 96V48C240 21.5 218.5 0 192 0H184C82.5 0 0 82.5 0 184V376C0 415.7 32.3 448 72 448H200C239.7 448 272 415.7 272 376V264C272 224.3 239.7 192 200 192ZM224 376C224 389.2 213.2 400 200 400H72C58.8 400 48 389.2 48 376V184C48 109 109 48 184 48H192V96H184C135.5 96 96 135.5 96 184V240H200C213.2 240 224 250.8 224 264V376Z" fill="black"/>
-              </svg>
-              <div class="testimonialTxt mainTxtType1">
-                <h4 class="testimonialAuthor"><?php the_title(); ?></h4>
-                <div class="testimonialQuote"><?php the_content(); ?></div>
-              </div>
-              <svg class="testiQuote testiQuote2" width="576" height="448" viewBox="0 0 576 448" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M72 256H128V264C128 286.1 110.1 304 88 304H80C53.5 304 32 325.5 32 352V400C32 426.5 53.5 448 80 448H88C189.5 448 272 365.5 272 264V72C272 32.3 239.7 0 200 0H72C32.3 0 0 32.3 0 72V184C0 223.7 32.3 256 72 256ZM48 72C48 58.8 58.8 48 72 48H200C213.2 48 224 58.8 224 72V264C224 339 163 400 88 400H80V352H88C136.5 352 176 312.5 176 264V208H72C58.8 208 48 197.2 48 184V72ZM376 256H432V264C432 286.1 414.1 304 392 304H384C357.5 304 336 325.5 336 352V400C336 426.5 357.5 448 384 448H392C493.5 448 576 365.5 576 264V72C576 32.3 543.7 0 504 0H376C336.3 0 304 32.3 304 72V184C304 223.7 336.3 256 376 256ZM352 72C352 58.8 362.8 48 376 48H504C517.2 48 528 58.8 528 72V264C528 339 467 400 392 400H384V352H392C440.5 352 480 312.5 480 264V208H376C362.8 208 352 197.2 352 184V72Z" fill="black"/>
-              </svg>
-            </quote>
-          <?php } wp_reset_postdata(); ?>
-        </div>
+            <div class="testimonialsContainer <?php echo $clase; ?>">
+              <?php
+              $args = array(
+                'post_type'=>'testimonials',
+                'orderby'=>'rand',
+                'posts_per_page'=>'1'
+              );
+              $testimonials=new WP_Query($args);
+              while($testimonials->have_posts()){$testimonials->the_post();?>
+                <quote class="testimonial">
+                  <svg class="testiQuote testiQuote1" width="576" height="448" viewBox="0 0 576 448" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M504 192H448V184C448 161.9 465.9 144 488 144H496C522.5 144 544 122.5 544 96V48C544 21.5 522.5 0 496 0H488C386.5 0 304 82.5 304 184V376C304 415.7 336.3 448 376 448H504C543.7 448 576 415.7 576 376V264C576 224.3 543.7 192 504 192ZM528 376C528 389.2 517.2 400 504 400H376C362.8 400 352 389.2 352 376V184C352 109 413 48 488 48H496V96H488C439.5 96 400 135.5 400 184V240H504C517.2 240 528 250.8 528 264V376ZM200 192H144V184C144 161.9 161.9 144 184 144H192C218.5 144 240 122.5 240 96V48C240 21.5 218.5 0 192 0H184C82.5 0 0 82.5 0 184V376C0 415.7 32.3 448 72 448H200C239.7 448 272 415.7 272 376V264C272 224.3 239.7 192 200 192ZM224 376C224 389.2 213.2 400 200 400H72C58.8 400 48 389.2 48 376V184C48 109 109 48 184 48H192V96H184C135.5 96 96 135.5 96 184V240H200C213.2 240 224 250.8 224 264V376Z" fill="black"/>
+                  </svg>
+                  <div class="testimonialTxt mainTxtType1">
+                    <h4 class="testimonialAuthor"><?php the_title(); ?></h4>
+                    <div class="testimonialQuote"><?php the_content(); ?></div>
+                  </div>
+                  <svg class="testiQuote testiQuote2" width="576" height="448" viewBox="0 0 576 448" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M72 256H128V264C128 286.1 110.1 304 88 304H80C53.5 304 32 325.5 32 352V400C32 426.5 53.5 448 80 448H88C189.5 448 272 365.5 272 264V72C272 32.3 239.7 0 200 0H72C32.3 0 0 32.3 0 72V184C0 223.7 32.3 256 72 256ZM48 72C48 58.8 58.8 48 72 48H200C213.2 48 224 58.8 224 72V264C224 339 163 400 88 400H80V352H88C136.5 352 176 312.5 176 264V208H72C58.8 208 48 197.2 48 184V72ZM376 256H432V264C432 286.1 414.1 304 392 304H384C357.5 304 336 325.5 336 352V400C336 426.5 357.5 448 384 448H392C493.5 448 576 365.5 576 264V72C576 32.3 543.7 0 504 0H376C336.3 0 304 32.3 304 72V184C304 223.7 336.3 256 376 256ZM352 72C352 58.8 362.8 48 376 48H504C517.2 48 528 58.8 528 72V264C528 339 467 400 392 400H384V352H392C440.5 352 480 312.5 480 264V208H376C362.8 208 352 197.2 352 184V72Z" fill="black"/>
+                  </svg>
+                </quote>
+              <?php } wp_reset_postdata(); ?>
+            </div>
+
 
       <?php } ?>
 
@@ -179,8 +173,6 @@
             <img class="galleryMain galleryCarousel" onclick="altClassFromSelector('alt','#gallery')" src="<?php echo $image_link = wp_get_attachment_url( $attachment_id ); ?>" alt="">
           <?php $count++; } ?>
         </div>
-        <!-- <button class="slideButton rowcol1 slideLeft" onclick="plusImgs(-1)">&#10094;</button> -->
-        <!-- <button class="slideButton rowcol1 slideRight" onclick="plusImgs(+1)">&#10095;</button> -->
         <button class="slideButton rowcol1 slideLeft" onclick="plusImgs(-1)"></button>
         <button class="slideButton rowcol1 slideRight" onclick="plusImgs(+1)"></button>
 
@@ -206,14 +198,11 @@
         <button class="galleryMore" onclick="altClassFromSelector('alt', '#galleryStock')">More photos</button>
       </div>
 
-
-
-
-
       <div class="singleSideMobileSchema onlyMobileG">
 
         <!-- <p class="singleSideData onlyMobileG"><?php echo excerpt(140); ?></p> -->
         <div class="singleSideData onlyMobileG"><?php the_excerpt(); ?></div>
+
 
         <div class="singleSideSocialCont socialMedia onlyMobileF">
 
@@ -297,6 +286,17 @@
           $max_min_bid_text = $product->get_auction_type() === 'reverse' ? esc_html__( 'Your min bid is', 'auctions-for-woocommerce' ) : esc_html__( 'Your max bid is', 'auctions-for-woocommerce' );
           $gmt_offset       = get_option( 'gmt_offset' ) > 0 ? '+' . get_option( 'gmt_offset' ) : get_option( 'gmt_offset' );
       ?>
+
+
+                  <div class="singleSideContactContainer onlyMobileG">
+                    <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
+                    <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleMakeOffer')">MAKE OFFER</button>
+                    <?php if($product->is_type( 'auction' )){ ?>
+                      <a class="singleSideContact" href="<?php echo site_url('auctions-information');  ?>">AUCTION INFO</a>
+                    <?php } else if(!in_array('parts-racing-products', $cates)) { ?>
+                      <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
+                    <?php } ?>
+                  </div>
 
           <!-- <p class="auction-condition"><?php echo wp_kses_post( apply_filters( 'conditiond_text', esc_html__( 'Item condition:', 'auctions-for-woocommerce' ), $product ) ); ?><span class="curent-bid"> <?php echo esc_html( $product->get_condition() ); ?></span></p> -->
 
@@ -473,6 +473,7 @@
                 <span class="auctionDetailsTitle">Starting bid:</span>
                 <span class="auctionDetailsValue">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
               </p>
+
 
             </div>
 
