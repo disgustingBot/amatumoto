@@ -15,6 +15,7 @@
 <div class="shopArchive shopInventory">
 
   <?php
+  $cardName='productCard';
 
 
     if(get_query_var('paged')){$paged=get_query_var('paged');}elseif(get_query_var('page')){$paged=get_query_var('page');}else{$paged=1;}
@@ -51,6 +52,8 @@
         'terms'    => 'auction',
         'posts_per_page' => 9,
       );
+      $cardName='hotCard';
+
     }
     if (isset($_GET['status']) AND $_GET['status']=='sold') {
       $args['tax_query'][] = array(
@@ -84,12 +87,15 @@
     ?>
 
 
-  <?php if (method_exists($product,'get_condition')){
-    $cardName='hotCard';
-  }
-  else{
-    $cardName='productCard';
-  } ?>
+  <?php
+  // if( $product->is_type( 'auction' ) ){
+  //   $cardName='hotCard';
+  // }
+  // else{
+  //   $cardName='productCard';
+  // }
+  ?>
+
   <figure class="<?php echo $cardName; ?>">
 
       <?php
@@ -123,7 +129,8 @@
 
 
 
-      <?php if(method_exists($product,'get_seconds_remaining')){ ?>
+      <?php // if(method_exists($product,'get_seconds_remaining')){ ?>
+      <?php if($cardName=='hotCard'){ ?>
         <p class="auctionDetails">
           <?php if ($product->auction_current_bid){ ?>
             <span class="auctionDetailsTitle"><?php echo $product->auction_bid_count; ?> Bids</span>
@@ -136,7 +143,8 @@
 
       <?php } ?>
 
-      <?php if(method_exists($product,'get_seconds_remaining')){ ?>
+      <?php if($cardName=='hotCard'){ ?>
+      <?php // if(method_exists($product,'get_seconds_remaining')){ ?>
         <p class="auctionDetails">
           <?php
             $start=new DateTime($product->get_auction_start_time()); $now = new DateTime();

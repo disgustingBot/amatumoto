@@ -35,17 +35,19 @@
 
 
       <!-- OLD TITLE -->
-      <h1 class="singleSideTitle"><?php the_title(); ?></h1>
-      <?php if($brand){ ?><span class="singleSideAnoMarca"><?php echo $brand; ?></span><?php } ?>
-      <?php if($yearBike){ ?><span class="singleSideAnoMarca"><?php echo $yearBike; ?></span><?php } ?>
+      <h1 class="singleSideTitle onlyDesktopF"><?php the_title(); ?></h1>
+      <?php if($brand){ ?><span class="singleSideAnoMarca onlyDesktopF"><?php echo $brand; ?></span><?php } ?>
+      <?php if($yearBike){ ?><span class="singleSideAnoMarca onlyDesktopF"><?php echo $yearBike; ?></span><?php } ?>
 
 
       <!-- NEW TITLE -->
-      <!-- <h1 class="singleSideTitle">
+      <h1 class="singleSideTitle onlyMobileG">
         <?php the_title(); ?>
-        <?php if($yearBike){ ?><span class="singleSideAnoMarca"><?php echo $yearBike; ?></span><?php } ?>
-        <?php if($brand){ ?><span class="singleSideAnoMarca"><?php echo $brand; ?></span><?php } ?>
-      </h1> -->
+
+        <?php if($brand){ ?><span class="singleSideAnoMarca"> <?php echo $brand; ?></span><?php } ?>
+        <?php if($yearBike){ ?><span class="singleSideAnoMarca"> <?php echo $yearBike; ?></span><?php } ?>
+      </h1>
+
 
 
 
@@ -254,17 +256,15 @@
 
       <?php $video = get_post_meta( $product->id, 'video' )[0]; ?>
       <?php if($video){ ?>
-          <!-- <video class="singleSideVideo" controls src="<?php echo $video; ?>"></video> -->
-          <!-- <iframe class="singleSideVideo onlyMobileG" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe> -->
-          <!-- <img class="singleSideVideo onlyMobileG" src="https://img.youtube.com/vi/<?php echo $video; ?>/default.jpg" alt=""> -->
           <div class="singleSideVideo onlyMobileG"  onclick="altClassFromSelector('video','#gallery')">
-            <img class="singleSideVideoImg rowcol1" src="https://img.youtube.com/vi/<?php echo $video; ?>/mqdefault.jpg" alt="">
+            <iframe class="singleSideVideoImg onlyMobileG" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe>
+            <!-- <img class="singleSideVideoImg rowcol1" src="https://img.youtube.com/vi/<?php echo $video; ?>/mqdefault.jpg" alt="">
             <svg class="rowcol1" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 100 100" viewBox="0 0 100 100">
               <g fill="#fff">
                 <path d="m88.9 30.9c-.4-3.5-3.7-6.9-7.2-7.3-21.1-2.6-42.4-2.6-63.4 0-3.5.4-6.8 3.8-7.2 7.3-1.5 12.8-1.5 25.3 0 38.1.4 3.5 3.7 6.9 7.2 7.3 21.1 2.6 42.4 2.6 63.4 0 3.5-.4 6.8-3.8 7.2-7.3 1.5-12.8 1.5-25.2 0-38.1zm-6.6 37.4c-.1.5-.9 1.4-1.4 1.5-10.2 1.2-20.6 1.9-30.9 1.9s-20.7-.7-30.9-1.9c-.4-.1-1.3-1-1.4-1.5-1.4-12.3-1.4-24.2 0-36.6.1-.5.9-1.4 1.4-1.5 10.2-1.2 20.6-1.9 30.9-1.9s20.7.6 30.9 1.9c.4.1 1.3 1 1.4 1.5 1.4 12.3 1.4 24.3 0 36.6z"/>
                 <path d="m43.3 36.7v26.7l20-13.3z"/>
               </g>
-            </svg>
+            </svg> -->
           </div>
       <?php } ?>
 
@@ -288,15 +288,15 @@
       ?>
 
 
-                  <div class="singleSideContactContainer onlyMobileG">
-                    <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
-                    <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleMakeOffer')">MAKE OFFER</button>
-                    <?php if($product->is_type( 'auction' )){ ?>
-                      <a class="singleSideContact" href="<?php echo site_url('auctions-information');  ?>">AUCTION INFO</a>
-                    <?php } else if(!in_array('parts-racing-products', $cates)) { ?>
-                      <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
-                    <?php } ?>
-                  </div>
+          <!-- <div class="singleSideContactContainer onlyMobileG">
+            <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
+            <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleMakeOffer')">MAKE OFFER</button>
+            <?php if($product->is_type( 'auction' )){ ?>
+              <a class="singleSideContact" href="<?php echo site_url('auctions-information');  ?>">AUCTION INFO</a>
+            <?php } else if(!in_array('parts-racing-products', $cates)) { ?>
+              <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleTrade')">TRADE</button>
+            <?php } ?>
+          </div> -->
 
           <!-- <p class="auction-condition"><?php echo wp_kses_post( apply_filters( 'conditiond_text', esc_html__( 'Item condition:', 'auctions-for-woocommerce' ), $product ) ); ?><span class="curent-bid"> <?php echo esc_html( $product->get_condition() ); ?></span></p> -->
 
