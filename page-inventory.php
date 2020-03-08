@@ -113,9 +113,9 @@
 
             <!-- NEW TITLE -->
             <h4 class="<?php echo $cardName; ?>Title">
+              <?php if($brand){ ?><span class="singleSideAnoMarca singleSideBrand"><?php echo $brand; ?></span><?php } ?> 
               <?php the_title(); ?>
-              <?php if($brand){ ?><span class="singleSideAnoMarca"><?php echo $brand; ?></span><?php } ?>
-              <?php if($yearBike){ ?><span class="singleSideAnoMarca"><?php echo $yearBike; ?></span><?php } ?>
+              <?php if($yearBike){ ?><span class="singleSideAnoMarca singleSideYearBike"><?php echo $yearBike; ?></span><?php } ?>
             </h4>
 
 

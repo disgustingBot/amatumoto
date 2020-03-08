@@ -43,8 +43,8 @@
       <!-- NEW TITLE -->
       <!-- <h1 class="singleSideTitle">
         <?php the_title(); ?>
-        <?php if($brand){ ?><span class="singleSideAnoMarca"><?php echo $brand; ?></span><?php } ?>
         <?php if($yearBike){ ?><span class="singleSideAnoMarca"><?php echo $yearBike; ?></span><?php } ?>
+        <?php if($brand){ ?><span class="singleSideAnoMarca"><?php echo $brand; ?></span><?php } ?>
       </h1> -->
 
 
@@ -618,7 +618,7 @@
               <p class="singleSidePrice"><?php echo $product->get_price_html(); ?></p>
               <!-- <p class="singleSideData"><?php echo excerpt(140); ?></p> -->
 
-              <a class="singleSideContact" href="tel:+34-938-364-911">Contact Us:<br>(704) 445-9105</a>
+              <a class="singleSideContact" href="tel:+34-938-364-911">Contact Us:<br> +34 938 36 49 11</a>
 
 
               <div class="singleSideSocialCont socialMedia">

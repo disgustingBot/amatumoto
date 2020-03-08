@@ -25,7 +25,7 @@
     <figure class="standarCard">
       <a class="standarCardImg" href="<?php the_permalink(); ?>"><img class="standarCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""></a>
       <figcaption class="standarCardCaption">
-        <h4 class="standarCardTitle"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+        <h4 class="standarCardTitle"><a href="<?php the_permalink(); ?>"></a></h4>
         <p class="standarCardTxt">
           <a href="<?php the_permalink(); ?>"><?php echo excerpt(80); ?></a>
         </p>

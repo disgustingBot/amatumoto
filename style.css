@@ -1593,8 +1593,7 @@ main ul, main ol{
   margin: auto;
   margin-top: 2rem;
   padding: 1rem;
-  /* background-color: rgba(0,0,0,0.5); */
-  /* box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); */
+  font-style: italic;
   z-index: 1;
   letter-spacing: 1px;
   font-size: var(--frontCopyFontSize);
@@ -1750,8 +1749,10 @@ background: #ddd;
   font-size:var(--hotCardAnoMarcaFontSize);
   margin-bottom:.1rem;
 }
-.productCardTitle{
-  font-weight: 400;
+.productCardTitle {
+  font-weight: 300;
+  display: flex;
+  font-size: var(----singleSideAnoMarcaFontSize);
   font-size:var(--hotCardTitleFontSize);
 }
 .productCardTxt{font-size: .8rem; font-weight: 400;}
@@ -3514,7 +3515,13 @@ background: #ddd;
     font-weight: 300;
     font-size:var(--singleSideAnoMarcaFontSize);
 }
-
+.singleSideYearBike {
+  margin: auto;
+  margin-right: 0;
+}
+.singleSideBrand {
+  margin-right: .3rem;
+}
 .singleSideTitle {
   font-weight: 400;
   font-size:var(--singleSideTitleFontSize);
