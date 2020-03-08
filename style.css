@@ -1749,7 +1749,7 @@ background: #ddd;
   width: 100%;
 }
 .productCardCaption{ padding: .3rem .5rem;}
-.productCardCaption>* {margin-bottom: .4rem;}
+/* .productCardCaption>* {margin-bottom: .4rem;} */
 .productCardAnoMarca{
   font-weight: 300;
   font-size:var(--hotCardAnoMarcaFontSize);
@@ -1804,7 +1804,8 @@ background: #ddd;
   border-bottom: 1px solid #ddd;
   font-size:var(--hotCardTitleFontSize);
   margin-bottom: .5rem;
-  margin-top:0;
+  /* margin-top:0; */
+  padding-bottom:.5rem;
   text-align: left;
   width: 100%;
 }
