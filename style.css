@@ -1758,7 +1758,6 @@ background: #ddd;
   font-weight: 300;
   display: flex;
   font-size: var(----singleSideAnoMarcaFontSize);
-  font-size:var(--hotCardTitleFontSize);
 }
 .productCardTxt{font-size: .8rem; font-weight: 400;}
 .productCardPrice{
