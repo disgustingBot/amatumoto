@@ -7,8 +7,11 @@
 
   <?php wp_head(); ?>
   <!-- TODO: rever que hace falta de aca -->
+
+  <!-- GOOGLE FONTS -->
 <link href="https://fonts.googleapis.com/css?family=Raleway:400,700|Rubik:300,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:800i&display=swap" rel="stylesheet">
 </head>
 <body <?php body_class(); ?>>
 
@@ -26,8 +29,8 @@
       <?php include 'socialSharing.php'; ?>
 <!-- "mailto:someone@example.com?Subject=Hello%20again" -->
       <a href="mailto:info@gpmotorbikes.com" target="_blank" class="mail upperNavInfo">
-        <svg class="upperNavIcon socialMediaLink" aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-          <path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path>
+        <svg class="upperNavIcon socialMediaLink" width="27" height="20" viewBox="0 0 27 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24.1667 0H2.5C1.11927 0 0 1.11927 0 2.5V17.5C0 18.8807 1.11927 20 2.5 20H24.1667C25.5474 20 26.6667 18.8807 26.6667 17.5V2.5C26.6667 1.11927 25.5474 0 24.1667 0ZM24.1667 2.5V4.62526C22.9989 5.57625 21.1371 7.055 17.1569 10.1716C16.2798 10.8616 14.5423 12.5191 13.3333 12.4998C12.1246 12.5193 10.3865 10.8613 9.50974 10.1716C5.53021 7.05547 3.66797 5.57641 2.5 4.62526V2.5H24.1667ZM2.5 17.5V7.83323C3.69344 8.7838 5.38589 10.1177 7.96552 12.1377C9.10391 13.0338 11.0975 15.012 13.3333 14.9999C15.5582 15.012 17.5265 13.0625 18.7007 12.1381C21.2803 10.1182 22.9732 8.78391 24.1667 7.83328V17.5H2.5Z" fill="currentColor"/>
         </svg>
         <p class="upperNavIconTxt">info@gpmotorbikes.com</p>
       </a>
