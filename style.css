@@ -302,6 +302,7 @@ FIN DE MAPA DE CONTENIDOS */
   --formInput50Width: 90%;
   --formInput33Width: 90%;
   --mainContactBtnWidth: 50%;
+  --singleContactWidth: 90%;
 
   /* =CONTACT */
   --contactMapOrder: 3;
@@ -618,6 +619,8 @@ FIN DE MAPA DE CONTENIDOS */
     --formInput50Width: 49%;
     --formInput33Width: 30%;
     --mainContactBtnWidth: 25%;
+    --singleContactWidth: 70%;
+
 
     /* CONTACT */
     --contactMapOrder: 1;
@@ -726,6 +729,7 @@ FIN DE MAPA DE CONTENIDOS */
         /* SINGLE */
     --singleSideContactFontSize: .7rem;
     --singleFeatureDescFontSize:.6rem;
+    --singleContactWidth: 50%;
     /* --auctionDataGTC:1fr 1fr 1fr; */
 
 
@@ -986,7 +990,7 @@ main ul, main ol{
   padding-left: 1rem;
 }
 
-
+hr {border: solid 1px #ddd;}
 
 /* AUCTIONS INFORMATION */
 
@@ -1333,7 +1337,7 @@ main ul, main ol{
 
 
 .header .socialMediaYouT{display: none;}
-.mail svg{height:25px;}
+
 
 
 
@@ -2213,15 +2217,13 @@ background: #ddd;
   margin: auto;
   top: 0;
   left: 0;
-  /* max-width: 700px; */
-  /* width: 70%; */
-  width: 90%;
+  width: var(--singleContactWidth);
   background:#fff;
   position: fixed;
   top:50%;
   left:50%;
   transform:translate(-50%, -50%);
-  padding: .3rem;
+  padding: .3rem 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -2405,9 +2407,7 @@ background: #ddd;
 
 }
 
-#singleMakeOffer .singleContact{
-  width: 82%!important;
-}
+
 
 
 /* ---------------------------------------------------------------------------
@@ -2753,7 +2753,7 @@ background: #ddd;
                           6.5.4) =logButton:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
-.logButton{
+.logButton {
   background:none;
   border:none;
   color:#333;
@@ -2762,6 +2762,7 @@ background: #ddd;
   margin-right: .5rem;
   font-family: 'Lato', sans-serif;
   font-weight: 600;
+  font-size: .5rem;
   position: relative;
   text-transform: uppercase;
   text-align: center;
@@ -3521,25 +3522,22 @@ background: #ddd;
   margin:1rem 0;
 }
 
-.singleSideAnoMarca {
-    font-weight: 300;
-    font-size:var(--singleSideAnoMarcaFontSize);
-}
+
 .singleSideYearBike {
   margin: auto;
   margin-right: 0;
 }
-.singleSideBrand {
-  margin-right: .3rem;
-}
+
 .singleSideTitle {
   align-items: center;
-  font-weight: 400;
+  font-weight: 300;
   font-size:var(--singleSideTitleFontSize);
   grid-auto-flow: column;
   grid-gap:.5rem;
-  /* justify-content:center; */
   justify-content:var(--singleSideTitleJustifyContent);
+}
+.singleSideBrand {
+  margin-right: .3rem;
 }
 
 .singleSidePrice,.singleSideStock,.singleSideCond,.singleSideData {
@@ -3786,8 +3784,6 @@ background: #ddd;
   list-style: none;
   margin: 1rem 0;
   padding: 1rem;
-  border-top: solid 2px #ddd;
-  border-bottom: solid 2px #ddd;
 }
 
 .singleDescription ul ul {
@@ -4115,10 +4111,11 @@ a.contactInformationText:hover{
 
 .newsLetterSignUp {
   grid-column: span 2;
-  font-weight: 900;
   margin: .2rem 0;
   font-size: 1.5rem;
-  transform: skewX(-25deg);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-style: italic;
 }
 
 .newsLetterEnterMail {
