@@ -12,7 +12,7 @@ w.onload=()=>{
 
   if(detectWidth() < 768 && d.querySelector('#filterBar')){altClassFromSelector('alt','#filterBar')}
 
-  d.getElementById("load").style.top="-100vh";
+  // d.getElementById("load").style.top="-100vh";
 }
 
 
@@ -85,7 +85,7 @@ const altClassFromSelector = ( clase, selector, mainClass = false )=> {
   // if there is a main class removes all other classes
   if (mainClass) {
     x.classList.forEach((item, i) => {
-      if(item!=mainClass){
+      if(item!=mainClass&&item!=clase){
         // c.log(item);
         x.classList.remove(item);
       }
@@ -101,7 +101,7 @@ const altClassFromSelector = ( clase, selector, mainClass = false )=> {
 
 
 var arr = Array.prototype.slice.call( d.getElementsByClassName("auctionInfoBtn") )
-arr.forEach( (item, i) => { c.log(i);
+arr.forEach( (item, i) => {
   item.addEventListener("click", ()=>{
     altClassFromSelector('auctionFaq'+i,'#auctionsInformationPage','auctionsInformationPage')
   });
@@ -180,3 +180,21 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
+// Segment dinamic selector (filterbar)
+
+var raceBike = d.getElementById('selectBox43');
+var roadBike = d.getElementById('selectBox44');
+var filterBarBotttom = d.getElementById('filterBarBotttom');
+
+raceBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
+roadBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
+c.clear();
+var arrFilter = Array.prototype.slice.call( d.getElementById('selectBox32').querySelectorAll('input') )
+c.log(item.value);
+arrFilter.forEach( (item, i) => { c.log(item);
+  item.addEventListener("change", ()=>{
+    altClassFromSelector('segment' +i,'#filterBarBotttom','filterBarBotttom')
+  });
+});

@@ -29,7 +29,7 @@
     <a href="<?php echo site_url('inventory').'?type=auction'; ?>" class="filterBarLink">auctions</a>
     <a href="<?php echo site_url('inventory').'?status=sold'; ?>" class="filterBarLink">sold</a>
   </div>
-  <div class="filterBarBotttom">
+  <div class="filterBarBotttom" id="filterBarBotttom">
 
 
 
@@ -74,11 +74,12 @@
       </div>
     <?php } ?>
 
-    <?php woocommerce_subcats_from_parentcat_by_ID(27); ?>
-    <?php //woocommerce_subcats_from_parentcat_by_ID(30); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(32); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(29); ?>
-    <?php woocommerce_subcats_from_parentcat_by_ID(31); ?>
+    <?php woocommerce_subcats_from_parentcat_by_ID(32); ?> <!-- Type -->
+    <?php woocommerce_subcats_from_parentcat_by_ID(105); ?> <!-- Segment (empty default)-->
+    <?php woocommerce_subcats_from_parentcat_by_ID(43); ?> <!-- Race bike -->
+    <?php woocommerce_subcats_from_parentcat_by_ID(44); ?> <!-- Road bike -->
+    <?php woocommerce_subcats_from_parentcat_by_ID(29); ?> <!-- Make -->
+    <?php woocommerce_subcats_from_parentcat_by_ID(30); ?> <!-- Year -->
 
     <button class="filterSearch" type="submit">
       <!-- <span>Search</span> -->
