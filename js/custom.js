@@ -192,9 +192,9 @@ raceBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
 roadBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
 c.clear();
 var arrFilter = Array.prototype.slice.call( d.getElementById('selectBox32').querySelectorAll('input') )
-c.log(item.value);
 arrFilter.forEach( (item, i) => { c.log(item);
   item.addEventListener("change", ()=>{
-    altClassFromSelector('segment' +i,'#filterBarBotttom','filterBarBotttom')
+    altClassFromSelector(item.value,'#filterBarBotttom','filterBarBotttom')
+    c.log(item.value);
   });
 });
