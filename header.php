@@ -171,7 +171,7 @@
           <p class="upperNavIconTxtMobile">USA</p>
         </a>
 
-        <?php include 'socialSharing.php'; ?>
+
 
 
         <?php if (is_user_logged_in()) { ?>
@@ -180,6 +180,7 @@
         <?php } ?>
 
       </div>
+      <?php include 'socialSharing.php'; ?>
     </nav>
 
 
