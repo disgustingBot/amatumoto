@@ -133,6 +133,7 @@ FIN DE MAPA DE CONTENIDOS */
   --subMenuDisplay:none;
   --notDisplayOnDesktop: ;
   --logoImgHeight: 1.2rem;
+  --logButtonFontSize: .8rem;
 
 
   /* ?FILTER */
@@ -489,6 +490,9 @@ FIN DE MAPA DE CONTENIDOS */
     --mobileNavBtnRight: 2rem;
     --navStripeHeight: 10px;
     --dosMotosCaptionPadding: 1rem;
+    --logButtonFontSize: .5rem;
+
+
 
 
     /* FILTER */
@@ -1166,7 +1170,7 @@ hr {border: solid 1px #ddd;}
   grid-gap:.2rem;
   grid-row-gap:.3rem;
   overflow: hidden;
-  height: 5rem;
+  height: 4rem;
   position: relative;
 }
 .galleryStock.alt{
@@ -1563,6 +1567,12 @@ hr {border: solid 1px #ddd;}
 
 
 .socialMediaLinkMobile svg {width: 35px; height: 35px;}
+
+.mobileNav .menuActive .socialedia{
+  border-top: black solid 1px;
+  padding-top: 1rem;
+
+}
 
 
 /* ---------------------------------------------------------------------------
@@ -2762,7 +2772,7 @@ background: #ddd;
   margin-right: .5rem;
   font-family: 'Lato', sans-serif;
   font-weight: 600;
-  font-size: .5rem;
+  font-size: var(--logButtonFontSize);
   position: relative;
   text-transform: uppercase;
   text-align: center;
@@ -3535,11 +3545,13 @@ background: #ddd;
 }
 
 .singleSideTitle {
+  display: grid;
+  grid-template-rows: repeat(3,1fr);
   align-items: center;
   font-weight: 300;
   font-size:var(--singleSideTitleFontSize);
   grid-auto-flow: column;
-  grid-gap:.5rem;
+  grid-gap:.2rem;
   justify-content:var(--singleSideTitleJustifyContent);
 }
 .singleSideBrand {
@@ -4218,9 +4230,12 @@ a.contactInformationText:hover{
 }
 .lowerFooter .socialMedia{margin:auto}
 .upperNavMobile .socialMedia{
-  width: 60%;
+  width: 100%;
   margin:auto;
   grid-row: -1;
+  grid-column: span 2;
+  padding-top: 1rem;
+  border-top: solid black 1px;
 }
 
 .contactContainer {
