@@ -35,16 +35,16 @@
 
 
       <!-- OLD TITLE -->
-      <h1 class="singleSideTitle onlyDesktopF"><?php the_title(); ?></h1>
       <?php if($brand){ ?><span class="singleSideAnoMarca onlyDesktopF"><?php echo $brand; ?></span><?php } ?>
+      <h1 class="singleSideTitle onlyDesktopF"><?php the_title(); ?></h1>
       <?php if($yearBike){ ?><span class="singleSideAnoMarca onlyDesktopF"><?php echo $yearBike; ?></span><?php } ?>
 
 
       <!-- NEW TITLE -->
       <h1 class="singleSideTitle onlyMobileG">
-        <?php the_title(); ?>
 
         <?php if($brand){ ?><span class="singleSideAnoMarca"> <?php echo $brand; ?></span><?php } ?>
+        <?php the_title(); ?>
         <?php if($yearBike){ ?><span class="singleSideAnoMarca"> <?php echo $yearBike; ?></span><?php } ?>
       </h1>
 

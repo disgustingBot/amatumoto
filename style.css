@@ -8,6 +8,7 @@ Version: 1.0
 
 
 
+
 /* MAPA DE CONTENIDOS:
 
 1) =ROOT:
@@ -608,7 +609,7 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideContactContainerDisplay: ;
     --singleSideContactMargin: 0 0 .5rem 0;
     --singleSideContactWidth: 100%;
-    --singleSideVideoWidth:100%;
+    --singleSideVideoWidth:80%;
     --singleSideTitleJustifyContent:flex-start;
 
 
@@ -1124,6 +1125,14 @@ hr {border: solid 1px #ddd;}
   grid-template-rows:100vh;
   overflow:hidden;
   z-index:10000;
+}
+
+.gallery.alt::before{
+  content:"\00d7";
+  position: fixed;
+  border: solid black 2px;
+  background: red;
+  top:10rem;
 }
 
 .galleryStock img {
@@ -3538,6 +3547,9 @@ background: #ddd;
   margin:1rem 0;
 }
 
+.superFicha .singleSideTitle{
+  grid-template-rows: 1fr;
+}
 
 .singleSideYearBike {
   margin: auto;
