@@ -218,6 +218,7 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSideVideoWidth:100%;
 
   --singleSideStock2Display: none;
+  --singleFeaturesMargin: 1rem 0;
 
 
   --hotCardAnoMarcaFontSize:1rem;
@@ -234,6 +235,7 @@ FIN DE MAPA DE CONTENIDOS */
   --auctionDataGTC:1fr 1fr;
   --auctionDetailsTitleFontSize:1rem;
   --auctionDetailsValueFontSize:1.2rem;
+  --singleSideAnoMarca: 1rem;
 
 
     /* Single contact Form */
@@ -591,6 +593,8 @@ FIN DE MAPA DE CONTENIDOS */
     --galleryStockGTC:repeat(8,1fr);
     --hotCardAnoMarcaFontSize:.7rem;
     --hotCardTitleFontSize:1rem;
+    --singleSideAnoMarca: 1.5rem;
+
 
     --singlePageGridTemplateC: 1fr 2.5fr;
     /* Cálculo que fuerza relación de aspecto del single a un máximo de 4:3 */
@@ -611,6 +615,8 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideContactWidth: 100%;
     --singleSideVideoWidth:80%;
     --singleSideTitleJustifyContent:flex-start;
+    --singleFeaturesMargin: 0;
+
 
 
     /* --auctionDataGTC:1fr 1fr; */
@@ -1323,7 +1329,7 @@ hr {border: solid 1px #ddd;}
 .mobileNav .socialedia{justify-content:center;}
 
 
-.mobileNav .socialMediaLink svg {height: 25px!important;}
+.mobileNav .socialMediaLink svg {height: 35px!important;}
 
 .socialMediaLink {
   display: flex;
@@ -2202,7 +2208,7 @@ background: #ddd;
 
 .MainContactForm .contactButton {
   width: var(--mainContactBtnWidth);
-  margin: auto;
+  margin: .5rem auto 1rem;
 }
 
 .singleFormTxtArea {
@@ -3558,7 +3564,7 @@ background: #ddd;
 
 .singleSideTitle {
   display: grid;
-  grid-template-rows: repeat(3,1fr);
+  grid-template-rows: repeat(3, min-content);
   align-items: center;
   font-weight: 300;
   font-size:var(--singleSideTitleFontSize);
@@ -3566,6 +3572,8 @@ background: #ddd;
   grid-gap:.2rem;
   justify-content:var(--singleSideTitleJustifyContent);
 }
+
+
 .singleSideBrand {
   margin-right: .3rem;
 }
@@ -3628,6 +3636,10 @@ background: #ddd;
 }
 .singleSideContactContainer.onlyDesktopG{
   margin-right: auto;
+}
+
+.singleSideAnoMarca {
+  font-size: var(--singleSideAnoMarca);
 }
 .singleSideContactContainer{
   /* display: var(--singleSideContactContainerDisplay); */
@@ -3776,8 +3788,8 @@ background: #ddd;
 .singleFeatures {
   display: flex;
   justify-content: space-evenly;
-  margin: 1rem 0;
-  padding: 1rem 0;
+  margin: var(--singleFeaturesMargin);
+  /* padding: 1rem 0; */
   margin-top:0;
   padding-top:0;
   flex-wrap: wrap;
@@ -3812,8 +3824,6 @@ background: #ddd;
 
 .singleDescription ul {
   list-style: none;
-  margin: 1rem 0;
-  padding: 1rem;
 }
 
 .singleDescription ul ul {
@@ -4034,6 +4044,8 @@ main.contact>p:first-child{display:none;}
 main.contact{
   margin: 0 var(--lateral);
 }
+
+
 
 .contactMap {
   width: 100%;
