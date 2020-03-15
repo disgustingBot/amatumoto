@@ -319,7 +319,8 @@ FIN DE MAPA DE CONTENIDOS */
   --contactFormAndInformationMargin: 0;
   --contactInformationTextFontSize: .8rem;
   --contactTitleSection1FontSize: 1rem;
-  --contactMenuDisplay: flex;
+  --contactMenuDisplay: grid;
+  --contactMenuGTC: repeat(2,1fr);
   --contactMenuUlLiWidth: 30%;
   --contactMenuJustifyContent: center;
   --formInputMargin: .5rem auto;
@@ -451,6 +452,7 @@ FIN DE MAPA DE CONTENIDOS */
 
     --contactLogoMargin: 1rem 3.2rem;
     --contactMenuDisplay: grid;
+    --contactMenuGTC: ;
     --contactMenuUlLiWidth: ;
 
   }
@@ -4002,6 +4004,7 @@ background: #ddd;
 
 .contactMenu ul{
   display: var(--contactMenuDisplay);
+  grid-template-columns: var(--contactMenuGTC);
   flex-wrap: wrap;
   grid-auto-flow:column;
   justify-content: var(--contactMenuJustifyContent);
