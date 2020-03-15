@@ -24,8 +24,21 @@ function gp_init() {
 add_action('after_setup_theme', 'gp_init');
 
 
+function stories_description_exerpt_length() {
+  return 5;
+}
+
+add_filter('excerpt_length', 'stories_description_exerpt_length');
 
 
+
+
+
+//
+// function wpdocs_custom_excerpt_length( $length ) {
+//     return 3;
+// }
+// add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999, 3 );
 
 
 
