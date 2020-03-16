@@ -320,8 +320,12 @@ FIN DE MAPA DE CONTENIDOS */
   --contactInformationTextFontSize: .8rem;
   --contactTitleSection1FontSize: 1rem;
   --contactMenuDisplay: grid;
+  --contactMenuWidth: 100%;
+  --contactMenuAutoFlow: row;
   --contactMenuGTC: repeat(2,1fr);
-  --contactMenuUlLiWidth: 30%;
+  --contactMenuGTR: repeat(2,1fr);
+  --contactMenuUlLiWidth: 100%;
+  --contactMenuLiPadding: .5rem 1rem;
   --contactMenuJustifyContent: center;
   --formInputMargin: .5rem auto;
 
@@ -452,8 +456,11 @@ FIN DE MAPA DE CONTENIDOS */
 
     --contactLogoMargin: 1rem 3.2rem;
     --contactMenuDisplay: grid;
-    --contactMenuGTC: ;
+    --contactMenuGTR: 1fr;
+    --contactMenuAutoFlow: column;
+    --contactMenuGTC: repeat(4,1fr) ;
     --contactMenuUlLiWidth: ;
+    --contactMenuLiPadding: 0;
 
   }
 }
@@ -764,6 +771,9 @@ FIN DE MAPA DE CONTENIDOS */
     /* CONTACT */
     --contactLogoMargin: 1rem 2.7rem;
     --contactMenuJustifyContent: flex-start;
+    --contactMenuWidth: 70vw;
+
+
   }
   .consignmentSection .wp-block-column:nth-child(2n) {
       margin-left: 32px!important;
@@ -821,6 +831,9 @@ FIN DE MAPA DE CONTENIDOS */
 
     --shopArchivePadding: 4rem;
     --subCatArchiveGridTemplateC:1fr 1fr 1fr 1fr;
+
+    /* CONTACT */
+    --contactMenuWidth: 60vw;
   }
   .consignmentSection .wp-block-column:not(:first-child) {
     margin-left: 32px;
@@ -4005,8 +4018,8 @@ background: #ddd;
 .contactMenu ul{
   display: var(--contactMenuDisplay);
   grid-template-columns: var(--contactMenuGTC);
+  grid-template-rows: var(--contactMenuGTR);
   flex-wrap: wrap;
-  grid-auto-flow:column;
   justify-content: var(--contactMenuJustifyContent);
   grid-gap:1rem;
   list-style: none;
@@ -4014,12 +4027,14 @@ background: #ddd;
   padding: .5rem;
   border-top: 2px solid var(--color1);
   border-bottom: 2px solid var(--color1);
+  width: var(--contactMenuWidth);
 }
 
 .contactMenu ul li{
   text-transform: uppercase;
   font-size: .7rem;
   margin: .8rem 0 .9rem 0;
+  padding: var(contactMenuLiPadding);
   width: var(--contactMenuUlLiWidth);
   text-align: center;
 }
