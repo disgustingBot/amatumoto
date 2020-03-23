@@ -2672,6 +2672,14 @@ background: #ddd;
 
 .shopParts {grid-template-columns:var(--PartsGridTemplateC);}
 .shopInventory {grid-template-columns:var(--InventoryGridTemplateC);}
+
+.shopInventory .productCardTitle {
+  font-size: 1.1rem;
+}
+
+.shopInventory .singleSideAnoMarca {
+  font-size: 1.1rem;
+}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.5) =BUTTONS:
