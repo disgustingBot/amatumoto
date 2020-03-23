@@ -1466,7 +1466,7 @@ hr {border: solid 1px #ddd;}
   margin-right:0;
 }
 .navBarMobile ul{
-  display: var(--mobileNavButtonDisplay);
+  display: var(--mobileNavButtonDisplay)!important;
   flex-direction: column;
   height:100%;
 }
@@ -1486,7 +1486,7 @@ hr {border: solid 1px #ddd;}
 /* NAV BAR FOR MOBILE DEVICES */
 
 .mobileNavButton {
-  display: var(--mobileNavButtonDisplay);
+  display: var(--mobileNavButtonDisplay)!important;
   flex-direction: column;
   /* flex-wrap: nowrap; */
   /* width: var(--mobileNavBtnWidth); */
