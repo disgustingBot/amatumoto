@@ -168,7 +168,7 @@
         <?php $attachment_ids = $product->get_gallery_attachment_ids(); ?>
 
         <div class="galleryMainCarousel">
-          <iframe class="galleryMainVideo" src="https://www.youtube.com/embed/<?php echo $video; ?>"></iframe>
+          <iframe class="galleryMainVideo" src="https://www.youtube.com/embed/<?php echo $video; ?>?rel=0"></iframe>
 
           <img class="galleryMain galleryCarousel" onclick="altClassFromSelector('alt','#gallery')" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
           <?php $count=0; foreach( $attachment_ids as $attachment_id ) { ?>

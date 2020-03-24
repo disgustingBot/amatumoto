@@ -1148,14 +1148,6 @@ hr {border: solid 1px #ddd;}
   z-index:10000;
 }
 
-.gallery.alt::before{
-  content:"\00d7";
-  position: fixed;
-  border: solid black 2px;
-  background: red;
-  top:10rem;
-}
-
 .galleryStock img {
   height: 2rem;
 }
@@ -1164,6 +1156,14 @@ hr {border: solid 1px #ddd;}
   grid-column:1;
   grid-row:1;
 }
+
+.gallery.alt .galleryMainCarousel{
+  overflow-y: scroll;
+  background: white;
+  align-items: center;
+  
+}
+
 .galleryMainVideo {
   display:none;
   grid-column:1;
@@ -1180,8 +1180,8 @@ hr {border: solid 1px #ddd;}
 
 .gallery.alt .galleryMain {
   background: white;
-  height: 100vh!important;
-  object-fit: contain;
+  /* height: 100vh!important; */
+  /* object-fit: contain; */
   max-height: unset;
 }
 
