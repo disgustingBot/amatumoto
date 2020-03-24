@@ -955,21 +955,21 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 html{overflow-x:hidden}
-body{display: grid; color: #333333;}
+body:not(.elementor-page){display: grid; color: #333333;}
 /* body:after {content: ' ';} */
-img{object-fit:cover}
-a{text-decoration: none;}
+img:not(.elementor-page){object-fit:cover}
+a:not(.elementor-page){text-decoration: none;}
 
-h1, h2, h3 {
+h1:not(.elementor-page), h2:not(.elementor-page), h3:not(.elementor-page) {
   font-family: 'Rubik', sans-serif;
   color: #252525;
   font-weight: 300;
 }
-h4, h5, h6, ul, li {font-weight: 700;}
+h4:not(.elementor-page), h5:not(.elementor-page), h6:not(.elementor-page), ul:not(.elementor-page), li:not(.elementor-page) {font-weight: 700;}
 
-p, a, button {font-weight: 400;}
+p:not(.elementor-page), a:not(.elementor-page), button:not(.elementor-page) {font-weight: 400;}
 
-p, a, ul, li {color: black}
+p:not(.elementor-page), a:not(.elementor-page), ul:not(.elementor-page), li:not(.elementor-page) {color: black}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -979,7 +979,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type=number]:not(.elementor-page) {
   -moz-appearance:textfield;
 }
 /* ---------------------------------------------------------------------------
@@ -995,7 +995,7 @@ input[type=number] {
 .flex3>*{flex:3 1 calc(33% - 1rem)}
 .flex4>*{flex:4 1 calc(25% - 1rem)}
 
-main {
+main:not(.elementor-page) {
   /* margin: var(--mainContentMargin); */
   margin:1rem var(--lateral);
   display: flex;
@@ -1341,7 +1341,11 @@ hr {border: solid 1px #ddd;}
   height: min-content;
   margin-right: .5rem;
 }
-.mobileNav .socialedia{justify-content:center;}
+
+.mobileNav .socialMedia{
+  border-top: solid black 1px;
+  padding-top: 1rem;
+}
 
 
 .mobileNav .socialMediaLink svg {height: 35px!important;}
