@@ -11,7 +11,7 @@
 
 
 
-<main class="servSection">
+<div class="servSection">
   <div class="servColumn">
 
   <?php
@@ -59,7 +59,7 @@
 
 
   </div>
-</main>
+</div>
 
 
 
