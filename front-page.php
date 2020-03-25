@@ -9,7 +9,7 @@
 <?php
   $args=array(
     'post_type'=>'post',
-    'posts_per_page'=>3,
+    'posts_per_page'=>5,
     'tag' => 'carousel',
   );$atf=new WP_Query($args);
   while($atf->have_posts()){$atf->the_post(); ?>
@@ -148,7 +148,7 @@
 <section class="dosMotos">
   <img class="dosMotosImg" src="<?php echo get_template_directory_uri(); ?>/img/dosMotos.png" alt="">
   <div class="dosMotosCaption">
-    <h1 class="titleType1">Unparalleled Quality</h1>
+    <h1 class="titleType1">Exceptional Quality</h1>
     <h4 class="subtitleType1">A COLLECTION OF ONLY THE EXTRAORDINARY</h4>
     <p class="mainTxtType1">Amatumoto is a prestigious company specializing in the sale motorcycle of Grand Prix and exclusive models. We have been recognized for selling very exclusive motorcycles as well as working with great collectors, museums and world championship teams. <br> <br>
       We offer the ultimate motorbike services experience, providing personal attention to each client that generates our existing success in sales. We are proud that we are able to share our passion for special bikes with a select group of people, our customers. Enter the world of Amatumoto!</p>
@@ -160,15 +160,15 @@
 
 
 <section class="consignSection">
-  <h3 class="consignSectionTitle">World Class consignment</h3>
-  <h5 class="consignSectionSubTitle">LETTTING GO IS HARD, SELLING WITH amatumoto.com IS EASY</h5>
+  <h3 class="consignSectionTitle">World Class Consignment</h3>
+  <h5 class="consignSectionSubTitle">LETTTING GO IS HARD, SELL YOUR RACE & ROAD BIKES WITH AMATUMOTO IS EASY</h5>
   <button class="buttonType1 consignButton">consign with amatumoto.com</button>
-  <div class="consignSectionGallery">
+  <!-- <div class="consignSectionGallery">
     <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery1.png" alt="">
     <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery2.png" alt="">
     <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery3.png" alt="">
     <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery4.png" alt="">
-  </div>
+  </div> -->
 </section>
 
 
