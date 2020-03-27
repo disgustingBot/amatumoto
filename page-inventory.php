@@ -177,22 +177,45 @@
 
 <article class="banner0">
 
-    <img class="banner0Img banner0Img1" src="<?php echo get_template_directory_uri(); ?>/img/fondoMerchandising1.jpg" alt="">
+  <?php
+  $args = array(
+    'post_type'=>'banner',
+    'posts_per_page'=> 1,
+  );
+  $banners=new WP_Query($args); $i=0;
+  while($banners->have_posts()){$banners->the_post();?>
+    <?php $background1 = get_post_meta( get_the_id(), 'background1' )[0]; ?>
+    <?php if($background1){ ?>
+      <img class="banner0Img banner0Img1" src="<?php echo $background1; ?>" alt="">
+    <?php } ?>
     <a href="" class="banner0Link1"></a>
     <div class="banner0FigCap1 banner0FigCap">
-      <p class="banner0Txt banner0FigCap">AMATUMOTO</p>
-      <p class="banner0Txt banner0FigCap">THE GARAGE</p>
+      <?php $bannerTxt1 = get_post_meta( get_the_id(), 'txt1' )[0]; ?>
+      <?php if($bannerTxt1){ ?>
+        <p class="banner0Txt banner0FigCap"><?php echo $bannerTxt1; ?></p>
+      <?php } ?>
+      <?php $bannerTxt2 = get_post_meta( get_the_id(), 'txt2' )[0]; ?>
+      <?php if($bannerTxt2){ ?>
+        <p class="banner0Txt banner0FigCap"><?php echo $bannerTxt2; ?></p>
+      <?php } ?>
     </div>
 
 
-
-    <img class="banner0Img banner0Img2" src="<?php echo get_template_directory_uri(); ?>/img/fondoMerchandising2.jpg" alt="">
+    <?php $background2 = get_post_meta( get_the_id(), 'background2' )[0]; ?>
+    <?php if($background2){ ?>
+      <img class="banner0Img banner0Img2" src="<?php echo $background2; ?>" alt="">
+    <?php } ?>
     <a href="" class="banner0Link2"></a>
-    <p class="banner0FigCap2 banner0FigCap">MERCHANDISE</p>
+    <?php $bannerTxt3 = get_post_meta( get_the_id(), 'txt3' )[0]; ?>
+    <?php if($bannerTxt3){ ?>
+      <p class="banner0FigCap2 banner0FigCap"><?php echo $bannerTxt3; ?></p>
+    <?php } ?>
 
-
-  <img class="banner0FloatingImg" src="<?php echo get_template_directory_uri(); ?>/img/camiseta.png" alt="">
-
+    <?php $floatingImg = get_post_meta( get_the_id(), 'floatingImg' )[0]; ?>
+    <?php if($floatingImg){ ?>
+      <img class="banner0FloatingImg" src="<?php echo $floatingImg; ?>" alt="">
+    <?php } ?>
+  <?php } ?>
 </article>
 
 <?php get_footer(); ?>

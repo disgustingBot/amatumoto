@@ -149,6 +149,6 @@ $args = array(
 	'menu_position'      => 5,
 	'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes', 'revisions', 'custom-fields' )
 );
-register_post_type( 'service', $args );
+register_post_type( 'banner', $args );
 
 }
