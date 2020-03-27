@@ -56,6 +56,8 @@ Version: 1.0
 
 6.12) =accountSection
 6.13) =pagination
+6.14) =BANNERS
+6.14.1) = banner0
 
 
 6.99) =footer
@@ -336,6 +338,21 @@ FIN DE MAPA DE CONTENIDOS */
   --shopArchiveGridGap: 1.5rem;
   --subCatArchiveGridTemplateC:1fr;
 
+
+  /* BANNERS */
+
+  /* BANNER0 */
+  --banner0GTC: 1fr;
+  --banner0GTR:  auto;
+  --banner0Img1GR: 1;
+  --banner0FigCap1GR:  1;
+  --banner0FigCap1: auto;
+  --banner0Img2GC: 1;
+  --banner0FigCap2GC: 1;
+  --banner0FigCap2GR: 2;
+  --banner0FloatingImgGC: 1;
+  --banner0FloatingImgGR: 2;
+  --banner0Img2GR: 2;
 
   /* ?FOOTER */
 
@@ -665,6 +682,22 @@ FIN DE MAPA DE CONTENIDOS */
     --shopArchiveGridTemplateC:1fr 1fr 1fr;
 
     --subCatArchiveGridTemplateC:1fr 1fr 1fr;
+
+    /* BANNERS */
+
+    /* BANNER0 */
+    --banner0GTC: 1fr 1fr;
+    --banner0GTR:  1fr 1.5fr 1.5fr;
+    --banner0Img1GR: 2/ span 2;
+    --banner0FigCap1GR:  2/ span 2;
+    --banner0FigCap1: 1rem .5rem auto auto;
+    --banner0Img2GC: 2;
+    --banner0FigCap2GC: 2;
+    --banner0FigCap2GR: 3;
+    --banner0FloatingImgGC: 2;
+    --banner0FloatingImgGR: 1/-1;
+    --banner0Img2GR: 2/ span 2;
+
 
 
     /* ?FOOTER */
@@ -1161,7 +1194,7 @@ hr {border: solid 1px #ddd;}
   overflow-y: scroll;
   background: white;
   align-items: center;
-  
+
 }
 
 .galleryMainVideo {
@@ -4209,7 +4242,7 @@ a.contactInformationText:hover{
   margin: .2rem 0;
   font-size: 1.5rem;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
+  font-weight: 800!important;
   font-style: italic;
 }
 
@@ -4530,6 +4563,98 @@ a.paginationLink:hover{
 
 
 
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.14) =BANNERS
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.banner0 {
+  display: grid;
+  grid-template-columns: var(--banner0GTC);
+  grid-template-rows: var(--banner0GTR);
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.banner0Link1 {
+  grid-column: 1;
+  grid-row: var(--banner0Img1GR);
+  z-index: 4;
+}
+
+.banner0Link2 {
+  grid-column: var(--banner0Img2GC);
+  grid-row: var(--banner0Img2GR);
+  z-index: 4;
+}
+
+.banner0 .banner0Img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 0;
+  width: calc(100% + 1px)!important;
+}
+
+.banner0Img1 {
+  grid-column: 1;
+  grid-row: var(--banner0Img1GR);
+  margin-right: -1px!important;
+}
+
+.banner0Img2 {
+  grid-column: var(--banner0Img2GC);
+  grid-row: var(--banner0Img2GR);
+  margin-left: -1px!important;
+}
+
+.banner0FloatingImg {
+  grid-column: var(--banner0FloatingImgGC);
+  grid-row: var(--banner0FloatingImgGR);
+}
+
+.banner0FigCap {
+  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800!important;
+  font-style: italic;
+  z-index: 3;
+}
+.banner0Txt:nth-child(2) {margin-right: -2.5rem;}
+
+.banner0FigCap1 {
+  grid-column: 1;
+  grid-row: var(--banner0FigCap1GR);
+  text-align: right;
+  margin: var(--banner0FigCap1);
+}.banner0Txt {color: white!important;}
+
+.banner0FigCap2 {
+  grid-column: var(--banner0FigCap2GC);
+  grid-row: var(--banner0FigCap2GR);
+  text-align: left;
+  color: black!important;
+  height: min-content;
+  margin: auto auto 0 1.5rem;
+
+}
+
+.banner0FloatingImg {
+  margin: auto 3rem 0 auto;
+  height: 95%;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.14.1) = banner0
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
 
 
 

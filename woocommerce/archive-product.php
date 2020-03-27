@@ -69,5 +69,4 @@
 </div>
 <?php echo latte_pagination($blogPosts->max_num_pages); ?>
 
-
 <?php get_footer(); ?>
