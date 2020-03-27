@@ -119,7 +119,7 @@
 
             <!-- NEW TITLE -->
             <h4 class="<?php echo $cardName; ?>Title">
-              <?php if($brand){ ?><span class="singleSideAnoMarca singleSideBrand"><?php echo $brand; ?></span><?php } ?> 
+              <?php if($brand){ ?><span class="singleSideAnoMarca singleSideBrand"><?php echo $brand; ?></span><?php } ?>
               <?php the_title(); ?>
               <?php if($yearBike){ ?><span class="singleSideAnoMarca singleSideYearBike"><?php echo $yearBike; ?></span><?php } ?>
             </h4>
@@ -175,6 +175,24 @@
 
 <?php echo latte_pagination($blogPosts->max_num_pages); ?>
 
+<article class="banner0">
 
+    <img class="banner0Img banner0Img1" src="<?php echo get_template_directory_uri(); ?>/img/fondoMerchandising1.jpg" alt="">
+    <a href="" class="banner0Link1"></a>
+    <div class="banner0FigCap1 banner0FigCap">
+      <p class="banner0Txt banner0FigCap">AMATUMOTO</p>
+      <p class="banner0Txt banner0FigCap">THE GARAGE</p>
+    </div>
+
+
+
+    <img class="banner0Img banner0Img2" src="<?php echo get_template_directory_uri(); ?>/img/fondoMerchandising2.jpg" alt="">
+    <a href="" class="banner0Link2"></a>
+    <p class="banner0FigCap2 banner0FigCap">MERCHANDISE</p>
+
+
+  <img class="banner0FloatingImg" src="<?php echo get_template_directory_uri(); ?>/img/camiseta.png" alt="">
+
+</article>
 
 <?php get_footer(); ?>
