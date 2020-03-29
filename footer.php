@@ -40,23 +40,22 @@
           <p>Spain</p>
           <a href="tel:+34938364911">+34 938 364 911</a><br>
           <a href="tel:+34620959449">+34 620 959 449</a><br>
-          <a href="mailto:elcorreoquequieres@correo.com" target="_blank">info@gpmotorbikes.com</a>
+          <a href="mailto:info@gpmotorbikes.com" target="_blank">info@gpmotorbikes.com</a>
         </div>
         <div class="data">
-          <h5 class="footerTitle">Showroom</h5>
-          <p>Monday to friday 08:00 - 18:00</p>
-          <p>Saturday 10:00 - 17:00</p>
-          <a href="">Current stock</a><br>
-          <!-- <a href="">Make an appointment</a><br> -->
+          <h5 class="footerTitle">Showroom/Workshop</h5>
+          <p>Monday to Friday 08:00 - 18:00</p>
+          <p>aturday 10:00 - 17:00</p>
+          <p>Viewing is strictly by appointment</p>
           <a href="mailto:info@gpmotorbikes.com?Subject=Hello,%20I%20want%20to%20plan%20my%20visit">Plan your visit</a><br>
+          <a href="<?php echo site_url('inventory'); ?>">Current stock</a><br>
         </div>
         <div class="data">
-          <h5 class="footerTitle">Workshop</h5>
-          <p>Monday to friday 08:00 - 18:00</p>
-          <p>Car can be brought in from 07:00</p>
-          <br>
-          <p>Saturday 10:00 - 17:00</p>
-          <a href="">Workshop appointment</a>
+          <h5 class="footerTitle">Amatumoto USA</h5>
+          <p>Melbourne - Miami - Florida</p>
+          <p>USA</p>
+          <a href="mailto:info@gpmotorbikes.com?Subject=Hello,%20I%20want%20to%20plan%20my%20visit">Plan your visit</a><br>
+          <a href="<?php echo site_url('inventory'); ?>">Current stock</a><br>
         </div>
       </div>
 
