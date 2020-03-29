@@ -188,7 +188,8 @@
     <?php if($background1){ ?>
       <img class="banner0Img banner0Img1" src="<?php echo $background1; ?>" alt="">
     <?php } ?>
-    <a href="" class="banner0Link1"></a>
+    <?php $link1 = get_post_meta( get_the_id(), 'link1' )[0]; ?>
+      <a href="<?php echo $link1; ?>" class="banner0Link1"></a>
     <div class="banner0FigCap1 banner0FigCap">
       <?php $bannerTxt1 = get_post_meta( get_the_id(), 'txt1' )[0]; ?>
       <?php if($bannerTxt1){ ?>
@@ -205,7 +206,10 @@
     <?php if($background2){ ?>
       <img class="banner0Img banner0Img2" src="<?php echo $background2; ?>" alt="">
     <?php } ?>
-    <a href="" class="banner0Link2"></a>
+    <?php $link2 = get_post_meta( get_the_id(), 'link2' )[0]; ?>
+    <?php if($link2){ ?>
+      <a href="<?php echo $link2; ?>" class="banner0Link2"></a>
+    <?php } ?>
     <?php $bannerTxt3 = get_post_meta( get_the_id(), 'txt3' )[0]; ?>
     <?php if($bannerTxt3){ ?>
       <p class="banner0FigCap2 banner0FigCap"><?php echo $bannerTxt3; ?></p>
