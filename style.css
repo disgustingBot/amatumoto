@@ -3351,7 +3351,7 @@ background: #ddd;
 }
 .testimonialsContainer .testimonial {
   overflow-y: scroll;
-  max-height: 15rem;
+  height: 13rem;
 }
 
 .testimonialsContainer .testimonial::-webkit-scrollbar-track {
