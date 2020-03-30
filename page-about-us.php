@@ -2,7 +2,7 @@
 
 
 <figure class="pageBanner">
-  <img class="" src="<?php echo get_post_thumbnail_id()?>" alt="">
+  <img class="pageBannerImg rowcol1" src="<?php echo get_post_thumbnail_id()?>" alt="">
   <figcaption class="pageBannerCaption rowcol1">
     <h2><?php the_title();?></h2>
   </figcaption>
