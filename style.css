@@ -4615,6 +4615,8 @@ a.paginationLink:hover{
 .banner0FloatingImg {
   grid-column: var(--banner0FloatingImgGC);
   grid-row: var(--banner0FloatingImgGR);
+  margin: auto 3rem 0 auto;
+  height: 95%!important;
 }
 
 .banner0FigCap {
@@ -4643,10 +4645,6 @@ a.paginationLink:hover{
 
 }
 
-.banner0FloatingImg {
-  margin: auto 3rem 0 auto;
-  height: 95%;
-}
 
 
 
