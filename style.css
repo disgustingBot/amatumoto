@@ -1325,7 +1325,7 @@ hr {border: solid 1px #ddd;}
   color: black;
   font-size: var(--copyFontSize);
   font-family: 'highlandgothicflfregular';
-  font-weight: 900;
+  font-weight: 900!important;
   font-style: italic;
   white-space: nowrap;
   margin: var(--copyMargin);
@@ -3363,6 +3363,7 @@ background: #ddd;
 
 .testimonialsContainer .testimonial::-webkit-scrollbar
 {
+  display: none;
 	width: 12px;
 	background-color: #F5F5F5;
 }
@@ -3903,6 +3904,7 @@ background: #ddd;
 
 .singlePage .singleDescription {
   font-size: .8rem;
+  margin: 0;
 }
 
 .singleDescription ul {
