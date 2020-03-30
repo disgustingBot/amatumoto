@@ -45,7 +45,7 @@
         <div class="data">
           <h5 class="footerTitle">Showroom/Workshop</h5>
           <p>Monday to Friday 08:00 - 18:00</p>
-          <p>aturday 10:00 - 17:00</p>
+          <p>Saturday 10:00 - 17:00</p>
           <p>Viewing is strictly by appointment</p>
           <a href="mailto:info@gpmotorbikes.com?Subject=Hello,%20I%20want%20to%20plan%20my%20visit">Plan your visit</a><br>
           <a href="<?php echo site_url('inventory'); ?>">Current stock</a><br>

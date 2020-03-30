@@ -322,7 +322,7 @@ FIN DE MAPA DE CONTENIDOS */
   --contactLogoMargin: 1rem 3rem;
   --contactFormAndInformationMargin: 0;
   --contactInformationTextFontSize: .8rem;
-  --contactTitleSection1FontSize: 1rem;
+  --contactTitleSection1FontSize: .7rem;
   --contactMenuDisplay: grid;
   --contactMenuWidth: 100%;
   --contactMenuAutoFlow: row;
@@ -1059,7 +1059,7 @@ hr {border: solid 1px #ddd;}
   margin: 1rem var(--lateral);
   margin-top: 0;
 }
-.auctionsInformationPage p, .auctionsInfoTxtContainer li {font-weight: 400;font-size: 18px; line-height: 24px;color: #484848;}
+.auctionsInformationPage p, .auctionsInfoTxtContainer li {font-weight: 400!important;font-size: 18px; line-height: 24px;color: #484848;}
 
 .auctionsInfoTitle {
   line-height: 1.3;
@@ -1273,7 +1273,7 @@ hr {border: solid 1px #ddd;}
   bottom:0;
   cursor: pointer;
   font-size:var(--galleryMoreFontSize);
-  font-weight: bold;
+  font-weight: bold!important;
   transition: .25s;
 }
 .galleryMore:hover{
@@ -1324,7 +1324,7 @@ hr {border: solid 1px #ddd;}
 .copy {
   color: black;
   font-size: var(--copyFontSize);
-  font-family: 'highlandgothicflfregular';
+  font-family: 'highlandgothicflfregular'!important;
   font-weight: 900!important;
   font-style: italic;
   white-space: nowrap;
@@ -1432,7 +1432,7 @@ hr {border: solid 1px #ddd;}
 .navBar ul li,
 .navBarMobile ul li{
   list-style: none;
-  font-weight: 500;
+  font-weight: 500!important;
   text-transform: uppercase;
   text-align: center;
   margin: auto 0;
@@ -1445,7 +1445,7 @@ hr {border: solid 1px #ddd;}
 
 .navBar ul li a {
   position: relative;
-  font-weight: 600;
+  font-weight: 600!important;
   /* padding:0 .5rem; */
   transition: .25s;
 }
@@ -1773,7 +1773,7 @@ background: #ddd;
 
 .hotAuctionsTitle{
   font-size: 1rem;
-  font-weight:400;
+  font-weight:400!important;
   margin: .5rem 0;
   text-transform:uppercase;
   width: 100%;
@@ -1804,7 +1804,7 @@ background: #ddd;
   width: max-content;
   height: min-content;
   z-index: 2;
-  font-weight: 500;
+  font-weight: 500!important;
   color: white;
   position: absolute;
   top: .2rem;
@@ -1839,7 +1839,7 @@ background: #ddd;
   display: flex;
   font-size: var(----singleSideAnoMarcaFontSize);
 }
-.productCardTxt{font-size: .8rem; font-weight: 400;}
+.productCardTxt{font-size: .8rem; font-weight: 400!important;}
 .productCardPrice{
   font-size: .8rem;
   font-weight: 500;
@@ -1875,7 +1875,7 @@ background: #ddd;
 }
 
 .hotCardAnoMarca{
-  font-weight: 300;
+  font-weight: 300!important;
   font-size:var(--hotCardAnoMarcaFontSize);
   margin-bottom:.1rem;
 }
@@ -1915,9 +1915,9 @@ background: #ddd;
 
 .dosMotosImg{width: 100%;height: auto;}
 
-.titleType1{font-size: 2.5rem;font-weight: 300; text-align: center;}
+.titleType1{font-size: 2.5rem;font-weight: 300!important; text-align: center;}
 
-.subtitleType1{margin:-.1rem 0 1rem;font-weight: 300; text-align: center;}
+.subtitleType1{margin:-.1rem 0 1rem;font-weight: 300!important; text-align: center;}
 
 .mainTxtType1{
   font-size: var(--mainTxtType1FontSize);
@@ -1930,7 +1930,7 @@ background: #ddd;
   border:solid 2px black;
   padding: var(--buttonType1Padding);
   margin: var(--buttonType1Margin);
-  font-weight: 600;
+  font-weight: 600!important;
   font-size: var(--buttonType1FontSize);
   cursor: pointer;
   transition: .25s;
@@ -2314,7 +2314,7 @@ background: #ddd;
   color: #333333;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
-  font-weight: bold;
+  font-weight: bold!important;
   padding: 0;
   margin: .5rem auto;
   width: 100%;
@@ -2325,7 +2325,7 @@ background: #ddd;
 }
 .formLabelBig  {
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 300!important;
   font-size: 1rem;
   width: 100%;
   text-align: center;
@@ -2632,7 +2632,7 @@ background: #ddd;
   padding:1rem var(--lateral);
 }
 .consignButton {width: min-content;}
-.consignSectionTitle {font-size: 2.2rem;font-weight: 300;
+.consignSectionTitle {font-size: 2.2rem;font-weight: 300!important;
 }
 .consignSectionSubTitle {
   font-size:.6rem;
@@ -2643,7 +2643,7 @@ background: #ddd;
   background:transparent;
   border:solid 2px black;
   padding:.4rem 1.4rem;
-  font-weight: 600;
+  font-weight: 600!important;
   margin:.8rem auto;
 }
 
@@ -2680,12 +2680,12 @@ background: #ddd;
   color: white;
   padding: 0 var(--lateral);
   font-size: .5rem;
-  font-weight:600;
+  font-weight:600!important;
 }
 .pageBannerCaption p{color:inherit}
 .pageBannerCaption h2 {
   font-size: 1.5rem;
-  font-weight:100;
+  font-weight:100!important;
   color: inherit;
 }
 
@@ -2773,7 +2773,7 @@ background: #ddd;
   box-sizing: border-box;
   content: ' \003C';
   margin-top: -20px;
-  font-weight:800;
+  font-weight:800!important;
   font-size: 30px;
   left: 0;
   line-height:27px;
@@ -2801,7 +2801,7 @@ background: #ddd;
   text-align: center;
   cursor: pointer;
   transition: .3s;
-  font-weight:700;
+  font-weight:700!important;
 }
 
 .contactButton:hover{background:black; color: white;}
@@ -2846,7 +2846,7 @@ background: #ddd;
   margin: auto 0;
   margin-right: .5rem;
   font-family: 'Lato', sans-serif;
-  font-weight: 600;
+  font-weight: 600!important;
   font-size: var(--logButtonFontSize);
   position: relative;
   text-transform: uppercase;
@@ -2971,7 +2971,7 @@ background: #ddd;
   color:#464646;
   display:grid;
   font-size: .7rem;
-  font-weight: 600;
+  font-weight: 600!important;
   letter-spacing:.08rem;
   /* padding: var(--filterBarLinkPadding); */
   text-align: center;
@@ -3006,7 +3006,7 @@ background: #ddd;
   display:flex;
   justify-content:center;
   font-size: .7rem;
-  font-weight: 600;
+  font-weight: 600!important;
   height:calc(40px - 4px);
   min-height:40px;
   padding: var(--filterBarLinkPadding);
@@ -3536,7 +3536,7 @@ background: #ddd;
   background:white;
   border:2px solid #333;
   color:#333;
-  font-weight:400;
+  font-weight:400!important;
   font-size:1rem;
   transition:.3s;
 
@@ -3552,7 +3552,7 @@ background: #ddd;
   background:white;
   border:2px solid #333;
   color:#333;
-  font-weight:400;
+  font-weight:400!important;
 
   /* VERSION MAIN */
   padding:.2rem 1rem;
@@ -3650,7 +3650,7 @@ background: #ddd;
   display: grid;
   grid-template-rows: repeat(3, min-content);
   align-items: center;
-  font-weight: 300;
+  font-weight: 300!important;
   font-size:var(--singleSideTitleFontSize);
   grid-auto-flow: column;
   grid-gap:.2rem;
@@ -3663,7 +3663,7 @@ background: #ddd;
 }
 
 .singleSidePrice,.singleSideStock,.singleSideCond,.singleSideData {
-  font-weight: 400;
+  font-weight: 400!important;
   color: #666;
 }
 .singleSideData p{color:inherit;}
@@ -3760,7 +3760,7 @@ background: #ddd;
   text-align: center;
   cursor: pointer;
   transition: .3s;
-  font-weight:700;
+  font-weight:700!important;
   font-size:var(--singleSideContactFontSize);
   /* margin: var(--singleSideContactMargin); */
 }
@@ -3788,7 +3788,7 @@ background: #ddd;
 
 .singleSideStock2 {
   display: var(--singleSideStock2Display);
-  font-weight: 700;
+  font-weight: 700!important;
   letter-spacing: 2px;
   font-size:var(--singleSideStock2FontSize);
 }
@@ -3834,7 +3834,7 @@ background: #ddd;
 }
 .singleSideSintBoxCaption .singleSideTitle{
   font-size:1.4rem;
-  font-weight:300;
+  font-weight:300!important;
 }
 .singleSideSintBoxCaption .singleSidePrice{
   font-size:.7rem;
@@ -3887,7 +3887,7 @@ background: #ddd;
 .singleFeatureDesc {
   text-transform: uppercase;
   text-align: center;
-  font-weight: 700;
+  font-weight: 700!important;
   font-size:var(--singleFeatureDescFontSize);
 }
 
@@ -4044,7 +4044,7 @@ background: #ddd;
 .lawLink {
   color: black;
   text-decoration: none;
-  font-weight: bolder;
+  font-weight: bolder!important;
   margin: auto;
 }
 
@@ -4120,7 +4120,7 @@ background: #ddd;
 }
 
 .contactMenu ul li a{
-  font-weight: bold;
+  font-weight: bold!important;
   padding: .8rem 1rem .8rem 1rem;
 }
 .contactMenu ul li.current-menu-item a{
@@ -4158,6 +4158,7 @@ main.contact{
   font-size: var(--contactTitleSection1FontSize);
   font-weight: bold;
   text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
 }
 
 a.contactInformationText:hover{
@@ -4272,7 +4273,7 @@ a.contactInformationText:hover{
   box-sizing: content-box;
   margin-top: -1px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 500!important;
   letter-spacing: 2px;
   cursor: pointer;
   padding: .5rem;
@@ -4484,7 +4485,7 @@ a.contactInformationText:hover{
 .wsawl-link a{transition:.4s;color:inherit}
 .active-auctions>h2{
   font-size: 1rem;
-    font-weight: 400;
+    font-weight: 400!important;
     margin: .5rem 0;
     text-transform: uppercase;
     width: 100%;
@@ -4492,12 +4493,12 @@ a.contactInformationText:hover{
 
 h3.newPassFormTitle{
   font-size:1.3rem;
-  font-weight:500;
+  font-weight:500!important;
 }
 .newPassFormTitle{
   font-size:1rem;
   transition: .3s;
-  font-weight:300;
+  font-weight:300!important;
 }
 .newPassForm .newPassFormTitle{cursor:pointer;}
 .newPassForm .newPassFormTitle:hover{color:var(--color1)}
@@ -4537,7 +4538,7 @@ h3.newPassFormTitle{
 .paginationTitle{
   text-align: center;
   font-size:1.2rem;
-  font-weight:300;
+  font-weight:300!important;
 }
 .pagination{
   display:grid;
