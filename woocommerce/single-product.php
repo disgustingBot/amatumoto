@@ -725,7 +725,7 @@
         <input type="email"  placeholder="Email"      class="formInput50 formInput" name="a05" required>
         <input type="number" placeholder="Phone"      class="formInput50 formInput" name="a07">
         <input type="number" placeholder="Year"       class="formInput50 formInput" name="a02" required>
-        <input type="text"   placeholder="Make"       class="formInput50 formInput" name="a04">
+        <input type="text"   placeholder="Brand"       class="formInput50 formInput" name="a04">
         <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06" required>
         <input type="text"   placeholder="vin"        class="formInput50 formInput" name="a08">
         <label  class="formLabel">Upload photos here</label>
