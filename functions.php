@@ -208,21 +208,6 @@ function lt_form_handler() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // FUCTION FOR USER GENERATION
 // https://tommcfarlin.com/create-a-user-in-wordpress/
 add_action( 'admin_post_nopriv_lt_new_user', 'lt_new_user');
