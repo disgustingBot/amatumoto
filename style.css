@@ -4048,7 +4048,7 @@ background: #ddd;
   margin: auto;
 }
 
-.moreInfoPolicy {text-align: center; width: 100%;}
+.moreInfoPolicy {text-align: center; width: 100%; margin-bottom: 1rem;}
 
 .lawLinkRight {margin-left: 1rem}
 
