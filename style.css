@@ -2246,7 +2246,6 @@ background: #ddd;
   height: 7rem;
   width: var(--contactPageTextWidth);
   margin: var(--contactPageTextArea);
-  border: solid 1px #ddd;
 }
 .contactTitle {
   margin: 1rem 0!important;
