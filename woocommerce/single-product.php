@@ -91,22 +91,17 @@
             <path d="M272.598 281.25L286.484 190.762H199.658V132.041C199.658 107.285 211.787 83.1543 250.674 83.1543H290.146V6.11328C290.146 6.11328 254.326 0 220.078 0C148.574 0 101.836 43.3398 101.836 121.797V190.762H22.3535V281.25H101.836V500H199.658V281.25H272.598Z" fill="currentColor"/>
           </svg>
         </a>
-
         <a href="tel:+34 938 364 911" target="_blank" class="socialMediaLink socialMediaFono">
           <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8.04444 17.3111C11.2444 23.6 16.4 28.7333 22.6889 31.9556L27.5778 27.0667C28.1778 26.4667 29.0667 26.2667 29.8444 26.5333C32.3333 27.3556 35.0222 27.8 37.7778 27.8C39 27.8 40 28.8 40 30.0222V37.7778C40 39 39 40 37.7778 40C16.9111 40 0 23.0889 0 2.22222C0 1 1 0 2.22222 0H10C11.2222 0 12.2222 1 12.2222 2.22222C12.2222 5 12.6667 7.66667 13.4889 10.1556C13.7333 10.9333 13.5556 11.8 12.9333 12.4222L8.04444 17.3111Z" fill="currentColor"/>
           </svg>
         </a>
-
         <a href="https://wa.me/15551234567" target="_blank" class="socialMediaLink socialMediaWhatsapp">
           <svg viewBox="0 0 500 500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M425.112 72.6563C378.348 25.7812 316.071 0 249.888 0C113.281 0 2.12054 111.161 2.12054 247.768C2.12054 291.406 13.5045 334.04 35.1563 371.652L0 500L131.362 465.513C167.522 485.268 208.259 495.647 249.777 495.647H249.888C386.384 495.647 500 384.487 500 247.879C500 181.696 471.875 119.531 425.112 72.6563V72.6563ZM249.888 453.906C212.835 453.906 176.562 443.973 144.978 425.223L137.5 420.759L59.5982 441.183L80.3571 365.179L75.4464 357.366C54.7991 324.554 43.9732 286.719 43.9732 247.768C43.9732 134.263 136.384 41.8527 250 41.8527C305.022 41.8527 356.696 63.2812 395.536 102.232C434.375 141.183 458.259 192.857 458.147 247.879C458.147 361.496 363.393 453.906 249.888 453.906V453.906ZM362.835 299.665C356.696 296.54 326.228 281.585 320.536 279.576C314.844 277.455 310.714 276.451 306.585 282.701C302.455 288.951 290.625 302.79 286.942 307.031C283.371 311.161 279.688 311.719 273.549 308.594C237.165 290.402 213.281 276.116 189.286 234.933C182.924 223.996 195.647 224.777 207.478 201.116C209.487 196.987 208.482 193.415 206.92 190.29C205.357 187.165 192.969 156.696 187.835 144.308C182.813 132.254 177.679 133.929 173.884 133.705C170.313 133.482 166.183 133.482 162.054 133.482C157.924 133.482 151.228 135.045 145.536 141.183C139.844 147.433 123.884 162.388 123.884 192.857C123.884 223.326 146.094 252.79 149.107 256.92C152.232 261.049 192.746 323.549 254.911 350.446C294.196 367.411 309.598 368.862 329.241 365.96C341.183 364.174 365.848 351.004 370.982 336.496C376.116 321.987 376.116 309.598 374.554 307.031C373.103 304.241 368.973 302.679 362.835 299.665Z" fill="currentColor"/>
           </svg>
         </a>
-
-
-
-        <a class="socialMediaLink socialMediaMail" href="" target="_blank">
+        <a class="socialMediaLink socialMediaMail" href="mailto:info@gpmotorbikes.com" target="_blank">
           <svg viewBox="0 0 55 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M49.6053 0H5.13158C2.29745 0 0 2.23854 0 5V35C0 37.7615 2.29745 40 5.13158 40H49.6053C52.4394 40 54.7368 37.7615 54.7368 35V5C54.7368 2.23854 52.4394 0 49.6053 0ZM49.6053 5V9.25052C47.2082 11.1525 43.3866 14.11 35.2169 20.3432C33.4164 21.7231 29.85 25.0382 27.3684 24.9996C24.8873 25.0386 21.3197 21.7226 19.52 20.3432C11.3515 14.1109 7.52899 11.1528 5.13158 9.25052V5H49.6053ZM5.13158 35V15.6665C7.58127 17.5676 11.0552 20.2354 16.3503 24.2754C18.687 26.0676 22.7791 30.024 27.3684 29.9999C31.9352 30.024 35.9755 26.125 38.3856 24.2762C43.6805 20.2364 47.1555 17.5678 49.6053 15.6666V35H5.13158Z" fill="currentColor"/>
           </svg>
@@ -634,7 +629,7 @@
                   </svg>
                 </a>
 
-                <a href="https://www.youtube.com/" target="_blank" class="socialMediaLink socialMediaYouT">
+                <a href="https://www.youtube.com/channel/UCRRD5celYJT9fTE7_-brv6Q" target="_blank" class="socialMediaLink socialMediaYouT">
                   <svg viewBox="0 0 547 384" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M534.722 60.083C528.441 36.433 509.935 17.807 486.438 11.486C443.848 0 273.067 0 273.067 0C273.067 0 102.287 0 59.696 11.486C36.199 17.808 17.693 36.433 11.412 60.083C0 102.95 0 192.388 0 192.388C0 192.388 0 281.826 11.412 324.693C17.693 348.343 36.199 366.193 59.696 372.514C102.287 384 273.067 384 273.067 384C273.067 384 443.847 384 486.438 372.514C509.935 366.193 528.441 348.343 534.722 324.693C546.134 281.826 546.134 192.388 546.134 192.388C546.134 192.388 546.134 102.95 534.722 60.083ZM217.212 273.591V111.185L359.951 192.39L217.212 273.591Z" fill="currentColor"/>
                   </svg>
@@ -666,6 +661,7 @@
         <label  class="formLabelBig">More Info</label>
         <input type="hidden" name="action" value="lt_form_handler">
         <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+        <input type="text" name="a00" value="" placeholder="jeje" hidden>
         <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleRequestInfo')">+</p>
         <label  class="formLabel">CONTACT DETAILS</label>
         <input type="text"   placeholder="Name*"   class="formInput100 formInput" name="a01" required>
@@ -676,7 +672,7 @@
         <label  class="formLabel">SUBJECT</label>
         <textarea class="singleFormTxtArea" value="SUBJECT" placeholder="" name="a08"></textarea>
         <div class="formTermsAndConditions">
-           <input type="checkbox" required>
+           <input type="checkbox" name="a11" required>
            <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
         <button class="singleContactButton contactButton" type="submit">SEND</button>
@@ -689,6 +685,7 @@
       <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
         <input type="hidden" name="action" value="lt_form_handler">
         <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+        <input type="text" name="a00" value="" placeholder="jeje" hidden>
         <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleMakeOffer')">+</p>
         <label  class="formLabelBig">Make An Offer</label>
         <label  class="formLabel"><?php the_title(); ?></label>
@@ -709,7 +706,7 @@
         <label  class="formLabel">SUBJECT</label>
         <textarea class="singleFormTxtArea" value="" placeholder="SUBJECT" name="a08"></textarea>
         <div class="formTermsAndConditions">
-           <input type="checkbox">
+           <input type="checkbox" name="a11">
            <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
         <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>
@@ -720,6 +717,7 @@
       <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
         <input type="hidden" name="action" value="lt_form_handler">
         <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+        <input type="text" name="a00" value="" placeholder="jeje" hidden>
         <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleTrade')">+</p>
         <label  class="formLabelBig">Trade this <?php the_title(); ?></label>
         <p class="singleFormTxt mainTxtType1">We are always looking for new inventory. If you are interested in trading your high quality bike for one of ours, simply fill out this form. A member of our sales department will be in touch within 24 hours. No one makes the trade-in process easier than <a href="amatumoto.com" target="_blank">Amatumoto Grand Prix Motorbikes</a>.</p>
@@ -729,69 +727,17 @@
         <input type="number" placeholder="Year"       class="formInput50 formInput" name="a02" required>
         <input type="text"   placeholder="Brand"       class="formInput50 formInput" name="a04">
         <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06" required>
-        <input type="text"   placeholder="VIN"        class="formInput50 formInput" name="a08">
+        <input type="text"   placeholder="vin"        class="formInput50 formInput" name="a08">
         <label  class="formLabel">Upload photos here</label>
         <input type="file" placeholder="upload files" class="formInput50 formInput" name="a09">
         <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="a10"></textarea>
         <div class="formTermsAndConditions">
-           <input type="checkbox">
+           <input type="checkbox" name="a11">
            <a href="<?php echo site_url('privacy-policy'); ?>" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
         <button class="singleRequestInfoButton contactButton" type="submit">REQUEST TRADE IN</button>
       </form>
     </div>
-
-    <!-- <div class="singleFormContainer" id="singleFinance">
-      <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
-        <input type="hidden" name="action" value="lt_form_handler">
-        <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
-        <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleFinance')">+</p>
-        <label  class="formLabelBig">finance this <?php the_title(); ?></label>
-        <p class="singleFormTxt mainTxtType1">Please enter the information below to begin the financing process.</p>
-        <input type="number" placeholder="INTEREST RATE"  class="formInput50 formInput" name="a01">
-        <input type="text" placeholder="NAME"  class="formInput50 formInput" name="a02">
-        <select class="formInput50 formInput" id="rkm-vdp-loan-term" class="form-control" name="a03">
-          <option value="36">3 Years (36 Months)</option>
-          <option value="48">4 Years (48 Months)</option>
-          <option value="60">5 Years (60 Months)</option>
-          <option value="72">6 Years (72 Months)</option>
-          <option value="84">7 Years (84 Months)</option>
-          <option value="96">8 Years (96 Months)</option>
-          <option value="108">9 Years (108 Months)</option>
-          <option selected="selected" value="120">10 Years (120 Months)</option>
-          <option value="132">11 Years (132 Months)</option>
-          <option value="144">12 Years (144 Months)</option>
-        </select>
-        <input name="a04" type="text"   placeholder="LAST NAME"      class="formInput50 formInput">
-        <input name="a05" type="text"   placeholder="PURCHASE PRICE" class="formInput50 formInput">
-        <input name="a06" type="number" placeholder="PHONE"          class="formInput50 formInput">
-        <input name="a07" type="number" placeholder="DOWN PAYMENT"   class="formInput50 formInput">
-        <input name="a08" type="email"  placeholder="EMAIL"          class="formInput50 formInput">
-        <button class="singleRequestInfoButton contactButton formInput50" type="">CALCULATE RATE</button>
-        <input name="a09" type="text"   placeholder="COUNTRY"        class="formInput50 formInput lastCountryInput">
-        <input name="a10" type="number" placeholder="0.00"           class="formInput50 formInput colorfulInput">
-        <select name="a11" value="time-preference"   class="formInput50 formInput" id="bestTimeToCall">
-          <option value="any_time" class="form">Any Time</option>
-          <option value="from-9-to-13">9:00 a.m. - 1:00 p.m.</option>
-          <option value="from-13-to-17">1:00 p.m. - 5:00 p.m.</option>
-          <option value="from-17-to-20">5:00 p.m. - 8:00 p.m.</option></select>
-        </select>
-        <textarea class="singleFormTxtArea" value="comments" placeholder="your comments" name="a12"></textarea>
-        <div class="formTermsAndConditions">
-           <input type="checkbox">
-           <a href="#" class="linkTermAndConditionsForm">I accept terms and conditions</a>
-        </div>
-        <button class="singleRequestInfoButton contactButton" type="submit">SEND</button>
-      </form>
-    </div> -->
-
-    <!-- <form class="" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
-      <input type="hidden" name="action" value="lt_new_user">
-      <input type="hidden" name="url" value="<?php echo home_url( $wp->request ); ?>">
-      <input type="email" name="mail" value="" placeholder="user@example.com">
-      <input type="text" name="pass" value="" placeholder="password">
-      <button type="submit" name="button">Crear</button>
-    </form> -->
 
 
 <?php } wp_reset_query(); ?>
