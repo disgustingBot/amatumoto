@@ -2272,6 +2272,8 @@ background: #ddd;
 .singleFormTxtArea {
   width: 80%;
   margin: .5rem auto;
+  border: solid 1px #ddd;
+  padding: .5rem;
 }
 
 .SingleContactCloseButton {
@@ -2377,6 +2379,10 @@ background: #ddd;
 
 /* REQUEST MORE INFO */
 #singleRequestInfo.alt {
+  display: flex;
+}
+
+#singleConsign.alt {
   display: flex;
 }
 
