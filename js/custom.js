@@ -190,9 +190,9 @@ var filterBarBotttom = d.getElementById('filterBarBotttom');
 
 raceBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
 roadBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
-c.clear();
+// c.clear();
 var arrFilter = Array.prototype.slice.call( d.getElementById('selectBox32').querySelectorAll('input') )
-arrFilter.forEach( (item, i) => { c.log(item);
+arrFilter.forEach( (item, i) => { //  c.log(item);
   item.addEventListener("change", ()=>{
     altClassFromSelector(item.value,'#filterBarBotttom','filterBarBotttom')
     c.log(item.value);

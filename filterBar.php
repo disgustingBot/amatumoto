@@ -74,12 +74,121 @@
       </div>
     <?php } ?>
 
-    <?php woocommerce_subcats_from_parentcat_by_ID(32); ?> <!-- Type -->
-    <?php woocommerce_subcats_from_parentcat_by_ID(105); ?> <!-- Segment (empty default)-->
-    <?php woocommerce_subcats_from_parentcat_by_ID(43); ?> <!-- Race bike -->
-    <?php woocommerce_subcats_from_parentcat_by_ID(44); ?> <!-- Road bike -->
-    <?php woocommerce_subcats_from_parentcat_by_ID(29); ?> <!-- Make -->
-    <?php woocommerce_subcats_from_parentcat_by_ID(30); ?> <!-- Year -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <?php function woocommerce_subcats_from_parentcat($category){
+        if (is_numeric($category)) {$term = get_term(           $category, 'product_cat');}
+        else                       {$term = get_term_by('slug', $category, 'product_cat');}
+
+
+        	// if (isset($_GET[$category])) {
+          //   // var_dump($_GET[$category]);
+        	// 	$parentArray = $_GET[$category];
+        	//   // foreach ($parentArray as $key => $value) {
+      		// 	$wp_query['query']['tax_query'][$key] = array(
+      		// 		'taxonomy' => 'product_cat',
+      		// 		'field'    => 'slug',
+      		// 		'terms'    => $parentArray,
+      		// 	);
+        	//   // }
+        	// }
+
+
+        $args = array(
+         'hierarchical' => 1,
+         'show_option_none' => '',
+         'hide_empty' => 0,
+         'parent' => $term->term_id,
+         'taxonomy' => 'product_cat'
+        );
+        $subcats = get_categories($args); ?>
+
+        <div class="selectBox<?php if(isset($_GET[$term->slug])){ echo ' alt'; } ?>" tabindex="1" id="selectBox<?php echo $term->term_id; ?>">
+          <div class="selectBoxButton">
+            <p class="selectBoxPlaceholder"><?php echo $term->name; ?></p>
+            <p class="selectBoxCurrent" id="selectBoxCurrent<?php echo $term->term_id; ?>">
+              <?php if(isset($_GET[$term->slug])){ echo $_GET[$term->slug]; } ?>
+            </p>
+          </div>
+          <div class="selectBoxList">
+            <label for="nul<?php echo $term->term_id; ?>" class="selectBoxOption">
+              <input
+                class="selectBoxInput"
+                id="nul<?php echo $term->term_id; ?>"
+                type="radio"
+                data-slug="0"
+                data-parent="<?php echo $term->slug; ?>"
+                name="filter_<?php echo $term->slug; ?>"
+                onclick="selectBoxControler('','#selectBox<?php echo $term->term_id; ?>','#selectBoxCurrent<?php echo $term->term_id; ?>')"
+                value="0"
+                <?php if(!isset($_GET[$term->slug])){ ?>
+                  checked
+                <?php } ?>
+              >
+              <!-- <span class="checkmark"></span> -->
+              <p class="colrOptP"></p>
+            </label>
+            <?php foreach ($subcats as $sc) { ?>
+              <?php if ($sc->count > 0){ ?>
+                <label for="<?php echo $sc->slug; ?>" class="selectBoxOption">
+                  <input
+                    class="selectBoxInput"
+                    id="<?php echo $sc->slug; ?>"
+                    data-slug="<?php echo $sc->slug; ?>"
+                    data-parent="<?php echo $term->slug; ?>"
+                    type="radio"
+                    name="filter_<?php echo $term->slug; ?>"
+                    onclick="selectBoxControler('<?php echo $sc->name ?>', '#selectBox<?php echo $term->term_id; ?>', '#selectBoxCurrent<?php echo $term->term_id; ?>')"
+                    value="<?php echo $sc->slug; ?>"
+                    <?php if(isset($_GET[$term->slug]) && $_GET[$term->slug] == $sc->slug){ ?>
+                      checked
+                    <?php } ?>
+                  >
+                  <!-- <span class="checkmark"></span> -->
+                  <p class="colrOptP"><?php echo $sc->name; ?></p>
+                </label>
+              <?php } ?>
+            <?php } ?>
+          </div>
+        </div>
+      <?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <?php woocommerce_subcats_from_parentcat(47); ?> <!-- Year -->
+    <?php // woocommerce_subcats_from_parentcat(32); ?> <!-- Type -->
+    <?php woocommerce_subcats_from_parentcat(105); ?> <!-- Segment (empty default)-->
+    <?php woocommerce_subcats_from_parentcat(43); ?> <!-- Race bike -->
+    <?php woocommerce_subcats_from_parentcat(44); ?> <!-- Road bike -->
+    <?php // woocommerce_subcats_from_parentcat(29); ?> <!-- Make -->
+    <?php // woocommerce_subcats_from_parentcat(30); ?> <!-- Year -->
+    <?php woocommerce_subcats_from_parentcat('year-bikes'); ?> <!-- Year -->
+    <?php woocommerce_subcats_from_parentcat('brand'); ?> <!-- Year -->
 
     <button class="filterSearch" type="submit">
       <!-- <span>Search</span> -->

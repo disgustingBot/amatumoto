@@ -21,7 +21,7 @@
     if(get_query_var('paged')){$paged=get_query_var('paged');}elseif(get_query_var('page')){$paged=get_query_var('page');}else{$paged=1;}
     $args = array(
       'post_type'      => 'product',
-      'posts_per_page' => 18,
+      'posts_per_page' => 3,
       'paged'          => $paged,
       'tax_query'            => array(
           array(
@@ -38,13 +38,48 @@
       //   'compare' => 'NOT IN',
       // ),),
     );
-    if (isset($_GET['filter_year']) AND $_GET['filter_year']!=0) {
+    if (isset($_GET['filter_year-bikes']) AND $_GET['filter_year-bikes']!=0) {
       $args['tax_query'][] = array(
         'taxonomy' => 'product_cat',
         'field'    => 'slug',
-        'terms'    => $_GET['filter_year'],
+        'terms'    => $_GET['filter_year-bikes'],
+      );
+      echo '<script>console.log('.$_GET['filter_year-bikes'].')';
+      echo '</script>';
+    }
+    if (isset($_GET['filter_brand'])) {
+      $brand = $_GET['filter_brand'];
+      $args['tax_query'][] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $brand,
       );
     }
+    if (isset($_GET['filter_type']) AND $_GET['filter_type']!='0') {
+      $type = $_GET['filter_type'];
+      $args['tax_query'][] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $type,
+      );
+    }
+    if (isset($_GET['filter_race-bike']) AND $_GET['filter_race-bike']!='0') {
+      $raceBike = $_GET['filter_race-bike'];
+      $args['tax_query'][] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $raceBike,
+      );
+    }
+    if (isset($_GET['filter_road-bike']) AND $_GET['filter_road-bike']!='0') {
+      $roadBike = $_GET['filter_road-bike'];
+      $args['tax_query'][] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $roadBike,
+      );
+    }
+
     if (isset($_GET['type']) AND $_GET['type']=='auction') {
       $args['tax_query'][] = array(
         'taxonomy' => 'product_type',
@@ -171,9 +206,12 @@
 } ?>
 </div>
 
+<?php
 
+  $atual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-<?php echo latte_pagination($blogPosts->max_num_pages); ?>
+?>
+<?php echo latte_pagination( $blogPosts->max_num_pages, $atual_link ); ?>
 
 <article class="banner0">
 
