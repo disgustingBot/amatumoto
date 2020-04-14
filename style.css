@@ -2240,7 +2240,13 @@ background: #ddd;
   justify-content:space-between;
   flex-wrap: wrap;
   margin: 1rem auto;
-  order: var(--mainContactFormOrder);
+}
+
+.MainContactForm .singleFormTxtArea {
+  height: 7rem;
+  width: var(--contactPageTextWidth);
+  margin: var(--contactPageTextArea);
+  border: solid 1px #ddd;
 }
 .contactTitle {
   margin: 1rem 0!important;
@@ -2264,10 +2270,8 @@ background: #ddd;
 }
 
 .singleFormTxtArea {
-  height:3rem;
   width: 80%;
   margin: .5rem auto;
-  border: solid 1px #ddd;
 }
 
 .SingleContactCloseButton {
@@ -2444,7 +2448,6 @@ background: #ddd;
 }
 
 #singleTrade .singleFormTxtArea {
-  height: 100px;
   padding: .2rem;
 }
 
@@ -4183,16 +4186,13 @@ a.contactInformationText:hover{
   width: 30px;
 }
 
-.contactFormColumn .singleFormTxtArea {
-  height: 7rem;
-  width: var(--contactPageTextWidth);
-  margin: var(--contactPageTextArea);
-  border: solid 1px #ddd;
+.contactFormColumn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.contactFormColumn .MainContactForm {
-  justify-content: var(--contactPageFormJustifyContent);
-}
+
 
 .MainContactForm .formInput{
   margin: var(--formInputMargin);
