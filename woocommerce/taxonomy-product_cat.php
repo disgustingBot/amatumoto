@@ -104,6 +104,14 @@
 
 <?php } ?>
 
-<?php echo latte_pagination($blogPosts->max_num_pages); ?>
+<?php
+  // echo basename($_SERVER['REQUEST_URI']);
+
+  // $urlVars = basename($_SERVER['REQUEST_URI']);
+  // echo $urlVars;
+  $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  // echo $actual_link;
+?>
+<?php echo latte_pagination($blogPosts->max_num_pages, $actual_link); ?>
 
 <?php get_footer(); ?>

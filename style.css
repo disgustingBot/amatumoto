@@ -3172,9 +3172,11 @@ background: #ddd;
   grid-auto-rows:1.5rem;
   padding: .2rem;
   left:0;
+  max-height: 300px;
   position: absolute;
   pointer-events: none;
   opacity:0;
+  overflow-y: scroll;
   right:0;
   top:0;
   transition:.3s;
@@ -4482,11 +4484,11 @@ h3.newPassFormTitle{
   grid-auto-flow:column;
   grid-gap:.5rem;
   width:min-content;
+  grid-column:1/-1;
   margin:auto;
 }
-.paginationLink{
+.paginationLink, .paginationCurrent{
   padding:0 .8rem;
-  border:1px solid #ddd;
   height:40px;
   display:grid;
   /* font-weight:300; */
@@ -4494,6 +4496,10 @@ h3.newPassFormTitle{
   text-transform:uppercase;
   /* font-size:.8rem; */
   transition:.3s;
+}
+.paginationLink{
+  border:1px solid #ddd;
+  cursor:pointer;
 }
 .paginationLink.current{color:var(--color1)}
 a.paginationLink:hover{

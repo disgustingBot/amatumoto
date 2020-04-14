@@ -666,6 +666,7 @@
         <label  class="formLabelBig">More Info</label>
         <input type="hidden" name="action" value="lt_form_handler">
         <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+        <input type="text" name="a00" value="" placeholder="jeje" hidden>
         <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleRequestInfo')">+</p>
         <label  class="formLabel">CONTACT DETAILS</label>
         <input type="text"   placeholder="Name*"   class="formInput100 formInput" name="a01" required>
@@ -676,7 +677,7 @@
         <label  class="formLabel">SUBJECT</label>
         <textarea class="singleFormTxtArea" value="SUBJECT" placeholder="" name="a08"></textarea>
         <div class="formTermsAndConditions">
-           <input type="checkbox" required>
+           <input type="checkbox" name="a11" required>
            <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
         <button class="singleContactButton contactButton" type="submit">SEND</button>
@@ -689,6 +690,7 @@
       <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
         <input type="hidden" name="action" value="lt_form_handler">
         <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+        <input type="text" name="a00" value="" placeholder="jeje" hidden>
         <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleMakeOffer')">+</p>
         <label  class="formLabelBig">Make An Offer</label>
         <label  class="formLabel"><?php the_title(); ?></label>
@@ -709,7 +711,7 @@
         <label  class="formLabel">SUBJECT</label>
         <textarea class="singleFormTxtArea" value="" placeholder="SUBJECT" name="a08"></textarea>
         <div class="formTermsAndConditions">
-           <input type="checkbox">
+           <input type="checkbox" name="a11">
            <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
         <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>
@@ -720,6 +722,7 @@
       <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
         <input type="hidden" name="action" value="lt_form_handler">
         <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+        <input type="text" name="a00" value="" placeholder="jeje" hidden>
         <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleTrade')">+</p>
         <label  class="formLabelBig">Trade this <?php the_title(); ?></label>
         <p class="singleFormTxt mainTxtType1">We are always looking for new inventory. If you are interested in trading your high quality bike for one of ours, simply fill out this form. A member of our sales department will be in touch within 24 hours. No one makes the trade-in process easier than <a href="amatumoto.com" target="_blank">Amatumoto Grand Prix Motorbikes</a>.</p>
@@ -729,69 +732,17 @@
         <input type="number" placeholder="Year"       class="formInput50 formInput" name="a02" required>
         <input type="text"   placeholder="Make"       class="formInput50 formInput" name="a04">
         <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06" required>
-        <input type="text"   placeholder="VIN"        class="formInput50 formInput" name="a08">
+        <input type="text"   placeholder="vin"        class="formInput50 formInput" name="a08">
         <label  class="formLabel">Upload photos here</label>
         <input type="file" placeholder="upload files" class="formInput50 formInput" name="a09">
         <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="a10"></textarea>
         <div class="formTermsAndConditions">
-           <input type="checkbox">
+           <input type="checkbox" name="a11">
            <a href="<?php echo site_url('privacy-policy'); ?>" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
         <button class="singleRequestInfoButton contactButton" type="submit">REQUEST TRADE IN</button>
       </form>
     </div>
-
-    <!-- <div class="singleFormContainer" id="singleFinance">
-      <form class="singleContact" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
-        <input type="hidden" name="action" value="lt_form_handler">
-        <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
-        <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleFinance')">+</p>
-        <label  class="formLabelBig">finance this <?php the_title(); ?></label>
-        <p class="singleFormTxt mainTxtType1">Please enter the information below to begin the financing process.</p>
-        <input type="number" placeholder="INTEREST RATE"  class="formInput50 formInput" name="a01">
-        <input type="text" placeholder="NAME"  class="formInput50 formInput" name="a02">
-        <select class="formInput50 formInput" id="rkm-vdp-loan-term" class="form-control" name="a03">
-          <option value="36">3 Years (36 Months)</option>
-          <option value="48">4 Years (48 Months)</option>
-          <option value="60">5 Years (60 Months)</option>
-          <option value="72">6 Years (72 Months)</option>
-          <option value="84">7 Years (84 Months)</option>
-          <option value="96">8 Years (96 Months)</option>
-          <option value="108">9 Years (108 Months)</option>
-          <option selected="selected" value="120">10 Years (120 Months)</option>
-          <option value="132">11 Years (132 Months)</option>
-          <option value="144">12 Years (144 Months)</option>
-        </select>
-        <input name="a04" type="text"   placeholder="LAST NAME"      class="formInput50 formInput">
-        <input name="a05" type="text"   placeholder="PURCHASE PRICE" class="formInput50 formInput">
-        <input name="a06" type="number" placeholder="PHONE"          class="formInput50 formInput">
-        <input name="a07" type="number" placeholder="DOWN PAYMENT"   class="formInput50 formInput">
-        <input name="a08" type="email"  placeholder="EMAIL"          class="formInput50 formInput">
-        <button class="singleRequestInfoButton contactButton formInput50" type="">CALCULATE RATE</button>
-        <input name="a09" type="text"   placeholder="COUNTRY"        class="formInput50 formInput lastCountryInput">
-        <input name="a10" type="number" placeholder="0.00"           class="formInput50 formInput colorfulInput">
-        <select name="a11" value="time-preference"   class="formInput50 formInput" id="bestTimeToCall">
-          <option value="any_time" class="form">Any Time</option>
-          <option value="from-9-to-13">9:00 a.m. - 1:00 p.m.</option>
-          <option value="from-13-to-17">1:00 p.m. - 5:00 p.m.</option>
-          <option value="from-17-to-20">5:00 p.m. - 8:00 p.m.</option></select>
-        </select>
-        <textarea class="singleFormTxtArea" value="comments" placeholder="your comments" name="a12"></textarea>
-        <div class="formTermsAndConditions">
-           <input type="checkbox">
-           <a href="#" class="linkTermAndConditionsForm">I accept terms and conditions</a>
-        </div>
-        <button class="singleRequestInfoButton contactButton" type="submit">SEND</button>
-      </form>
-    </div> -->
-
-    <!-- <form class="" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
-      <input type="hidden" name="action" value="lt_new_user">
-      <input type="hidden" name="url" value="<?php echo home_url( $wp->request ); ?>">
-      <input type="email" name="mail" value="" placeholder="user@example.com">
-      <input type="text" name="pass" value="" placeholder="password">
-      <button type="submit" name="button">Crear</button>
-    </form> -->
 
 
 <?php } wp_reset_query(); ?>
