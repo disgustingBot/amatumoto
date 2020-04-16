@@ -15,34 +15,34 @@
 <main class="contact">
   <div class="contactFormAndInformation">
     <div class="">
-      <form action="index.php" class="MainContactForm" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
-        <input type="hidden" name="action" value="lt_form_handler">
-        <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
-        <input type="text" name="a00" value="" placeholder="jeje" hidden>
+      <form  class="MainContactForm" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+        <input type="hidden" name="action"   value="lt_form_handler">
+        <input type="hidden" name="link"     value="<?php echo home_url( $wp->request ); ?>">
+        <input type="text"   name="a00"      value="" placeholder="jeje" hidden>
         <label class="formLabel">CONTACT FORM</label>
-        <input type="text" placeholder="Name" class="formInput33 formInput" required="">
-        <input type="text" placeholder="MotoBike(ref ID)" class="formInput33 formInput">
-        <input type="email" placeholder="Email" class="formInput33 formInput" required="">
-        <input type="number" placeholder="Phone" class="formInput50 formInput">
-        <input type="text" placeholder="Country" class="formInput50 formInput" required="">
-        <textarea class="singleFormTxtArea" value="comments" placeholder="" name="name"></textarea>
+        <input type="text"   name="name"     placeholder="Name"     class="formInput33 formInput" required>
+        <input type="text"   name="motoBike" placeholder="MotoBike(ref ID)" class="formInput33 formInput">
+        <input type="email"  name="email"    placeholder="Email"    class="formInput33 formInput" required>
+        <input type="number" name="phone"    placeholder="Phone"    class="formInput50 formInput">
+        <input type="text"   name="country"  placeholder="Country"  class="formInput50 formInput" required>
+        <textarea            name="comment"  placeholder="Comments" class="singleFormTxtArea" ></textarea>
         <div class="formTermsAndConditions">
-          <input type="checkbox" required="">
+          <input name="acceptance" type="checkbox" required>
           <a href="http://localhost/GPMotorbikes/privacy-policy" target="_blank" class="linkTermAndConditionsForm" rel="noopener noreferrer">I accept terms and conditions</a>
         </div>
         <button class="singleContactButton contactButton" type="submit">SEND</button>
       </form>
     </div>
-    <div class="singleFormTxtArea contactInformation">
+    <div class="contactInformation">
       <h3 class="contactTitleSection1 contactInformationText">Contact Information</h3>
       <br>
-      <p class="contactInformationText">ADD Europe | Spain – Castellbisbal – Barcelona </p>
-      <p class="contactInformationText">ADD North America | USA – Florida – Miami</p>
-      <a class="contactPhoneClick contactInformationText" href="tel:938 364 911">TEL +34 938 364 911</a>
+      <p class="contactInformationText"><?php echo get_post_meta($post->ID, 'address1', true); ?></p>
+      <p class="contactInformationText"><?php echo get_post_meta($post->ID, 'address2', true); ?></p>
+      <a class="contactPhoneClick contactInformationText" href="tel:<?php echo get_post_meta($post->ID, 'tel', true); ?>">TEL <?php echo get_post_meta($post->ID, 'tel', true); ?></a>
       <br>
-      <a class="contactPhoneClick contactInformationText" href="tel:620 959 449">MOV +34 620 959 449</a>
+      <a class="contactPhoneClick contactInformationText" href="tel:<?php echo get_post_meta($post->ID, 'mov', true); ?>">MOV <?php echo get_post_meta($post->ID, 'mov', true); ?></a>
       <br>
-      <a class="contactInformationText" href="mailto:info@gpmotorbikes.com">MAIL info@gpmotorbikes.com </a>
+      <a class="contactInformationText" href="mailto:<?php echo get_post_meta($post->ID, 'mail', true); ?>">MAIL <?php echo get_post_meta($post->ID, 'mail', true); ?> </a>
       <div class="socialMediaContact">
         <a href="https://www.instagram.com/gpmotorbikes/?hl=es" target="_blank" class="socialMediaLink socialMediaInst" rel="noopener noreferrer">
           <svg viewBox="0 0 501 500" fill="none" xmlns="http://www.w3.org/2000/svg">
