@@ -28,27 +28,26 @@
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleConsign')">+</p>
       <label  class="formLabelBig">Consign</label>
       <label  class="formLabel">VEHICLE INFORMATION</label>
-        <input type="text"   placeholder="Year*"   class="formInput100 formInput" name="a01" required>
-        <input type="email"  placeholder="Brand*"        class="formInput100 formInput" name="a03" required>
-        <input type="number" placeholder="Model"        class="formInput100 formInput" name="a04">
-        <input type="text"   placeholder="VIN*"      class="formInput100 formInput" name="a05" required>
-        <input type="text"   placeholder="Mileage*"      class="formInput100 formInput" name="a05" required>
-        <input type="text"   placeholder="Estimated Value*"      class="formInput100 formInput" name="a05" required>
+        <input type="text"   placeholder="Year"   class="formInput100 formInput" name="Year" required>
+        <input type="text"  placeholder="Brand*"        class="formInput100 formInput" name="Brand" required>
+        <input type="text" placeholder="Model"        class="formInput100 formInput" name="Model">
+        <input type="text"   placeholder="VIN*"      class="formInput100 formInput" name="VIN" required>
+        <input type="text"   placeholder="Mileage*"      class="formInput100 formInput" name="Mileage" required>
+        <input type="text"   placeholder="Estimated Value*"      class="formInput100 formInput" name="Estimated Value" required>
 
         <label  class="formLabel">VEHICLE DESCRIPTION</label>
-        <textarea class="singleFormTxtArea" value="" placeholder="Short description" name="a08"></textarea>
+        <textarea class="singleFormTxtArea" value="" placeholder="Short description" name="Vehicle Description"></textarea>
 
         <label  class="formLabel">CONTACT DETAILS</label>
-        <input type="text"   placeholder="Name*"   class="formInput100 formInput" name="a01" required>
-        <input type="email"  placeholder="Email*"        class="formInput100 formInput" name="a03" required>
-        <input type="number" placeholder="Phone"        class="formInput100 formInput" name="a04">
-        <input type="text"   placeholder="Country*"      class="formInput100 formInput" name="a05" required>
-        <input type="text"   placeholder="City*"   class="formInput100 formInput" name="a01" required>
-        <input type="email"  placeholder="State*"        class="formInput100 formInput" name="a03" required>
-        <input type="number" placeholder="Country"        class="formInput100 formInput" name="a04">
+        <input type="text"   placeholder="Name*"   class="formInput100 formInput" name="Name" required>
+        <input type="email"  placeholder="Email*"        class="formInput100 formInput" name="Email" required>
+        <input type="number" placeholder="Phone"        class="formInput100 formInput" name="Phone">
+        <input type="text"   placeholder="City*"   class="formInput100 formInput" name="City" required>
+        <input type="text"  placeholder="State*"        class="formInput100 formInput" name="State" required>
+        <input type="text" placeholder="Country"        class="formInput100 formInput" name="Country">
 
       <div class="formTermsAndConditions">
-         <input type="checkbox">
+         <input type="checkbox" required>
          <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
       </div>
       <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>

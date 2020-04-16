@@ -222,7 +222,7 @@ function lt_form_handler() {
 	  // exit;
 	} else {
 		// $mail=$_POST['mail'];
-		$email='molinerozadkiel@gmail.com';
+		$email='rafmoline@gmail.com';
 
 		$subject='Form from '. $link;
 		$message='';
