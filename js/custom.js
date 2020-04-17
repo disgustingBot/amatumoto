@@ -123,7 +123,7 @@ arr.forEach( (item, i) => {
 
 
 // SELECT BOX CONTROLER
-const selectBoxControler=(a, selectBoxId, current)=>{c.log(a)
+const selectBoxControler=(a, selectBoxId, current)=>{ // c.log(a)
   if(!!a){d.querySelector(selectBoxId).classList.add('alt')}
   else   {d.querySelector(selectBoxId).classList.remove('alt')}
 
@@ -191,10 +191,78 @@ var filterBarBotttom = d.getElementById('filterBarBotttom');
 raceBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
 roadBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
 // c.clear();
-var arrFilter = Array.prototype.slice.call( d.getElementById('selectBox32').querySelectorAll('input') )
-arrFilter.forEach( (item, i) => { //  c.log(item);
-  item.addEventListener("change", ()=>{
-    altClassFromSelector(item.value,'#filterBarBotttom','filterBarBotttom')
-    c.log(item.value);
-  });
-});
+// var arrFilter = Array.prototype.slice.call( d.getElementById('selectBox32').querySelectorAll('input') )
+// arrFilter.forEach( (item, i) => { //  c.log(item);
+//   item.addEventListener("change", ()=>{
+//     altClassFromSelector(item.value,'#filterBarBotttom','filterBarBotttom')
+//     c.log(item.value);
+//   });
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+// URL HANDLING
+const setUrlVar = ( variable, value = '' ) => {
+  var filterQueries = new Array();
+	// urlVirg es la url sin variables
+  var urlVirg = w.location.href.split('?')[0];
+	// urlVars será el vector de variables en la url
+  // var urlVars = w.location.href.split('?');
+  // urlVars.shift();
+  // urlVars = !urlVars[0] ? [] : urlVars.join().split('&');
+
+  var urlVars = getUrlVars();
+
+	var variables = urlVars.map( x => x.split('=')[0] );
+  var values  = urlVars.map( x => x.split('=')[1] );
+
+  // c.log(page)
+
+
+	if(variable){
+		if(variables.includes(variable)){
+			let j=0;
+			urlVars.forEach((item, i) => {
+				if ( variables[i] == variable ) {
+					// si la categoria es 0 quita el filtro
+					if (value != '') { filterQueries[j] = variable + '=' + value; j+=1; }
+				} else { filterQueries[j] = item; j+=1; }
+			});
+		} else if (value != '') {
+			urlVars.forEach((item, i) => {
+				filterQueries[i] = item;
+			});
+			filterQueries.push(variable + '=' + value);
+		}
+	}
+  let conector = filterQueries.length != 0 ? '?' : '';
+  w.history.replaceState('', 'Title', urlVirg + conector + filterQueries.join('&'));
+  c.log(filterQueries)
+  return filterQueries;
+}
+
+const getUrlVars = () => {
+  var urlVars = w.location.href.split('?');
+  urlVars.shift();
+  urlVars = !urlVars[0] ? [] : urlVars.join().split('&');
+
+  return urlVars;
+}
+// END OF URL HANDLING
+// setUrlVar('pepe', 1);
+// setUrlVar('camilo', 1);
+// setUrlVar('claudio', 1);
+// setUrlVar('papa', 1);
+// setUrlVar('pipi', 1);
+// setUrlVar('popo', 1);
+// setUrlVar('pupu', 1);

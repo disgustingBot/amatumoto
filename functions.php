@@ -6,6 +6,9 @@ $newness_days = 25;
 function lattte_setup(){
 
 
+  wp_enqueue_script('main', get_theme_file_uri('/js/custom.js'), NULL, microtime(), true);
+
+  
     // TOOOODO ESTO ES PARA AJAX
   	global $wp_query;
   	// In most cases it is already included on the page and this line can be removed
@@ -31,7 +34,6 @@ function lattte_setup(){
 
 
   wp_enqueue_style('style', get_stylesheet_uri(), NULL, microtime(), 'all');
-  wp_enqueue_script('main', get_theme_file_uri('/js/custom.js'), NULL, microtime(), true);
 }
 add_action('wp_enqueue_scripts', 'lattte_setup');
 
@@ -581,7 +583,95 @@ function category_has_children( $term_id = 0, $taxonomy = 'category' ) {
 
 
 
+add_action('pre_get_posts','alter_query');
 
+function alter_query($query) {
+	//gets the global query var object
+	global $wp_query;
+	$max_page = $query->max_num_pages;
+	// var_dump($max_page);
+
+	//gets the front page id set in options
+	$front_page_id = get_option('page_on_front');
+
+	if ( !$query->is_main_query() )
+		return;
+
+	// $args['paged'] = $page;
+	// if (isset($_GET['page']) AND $_GET['page'] <= $max_page ) {
+	if (isset($_GET['page'])) {
+		$query-> set('paged' , $_GET['page']);
+	} else {
+		$query-> set('paged' , 1);
+	}
+
+  if (isset($_GET['filter_search']) AND $_GET['filter_search']!=''){
+    $query->query_vars['s']=$_GET['filter_search'];
+  }
+
+  if (isset($_GET['year-bikes']) AND $_GET['year-bikes']!=0) {
+    $query->query_vars['tax_query']['year-bikes'] = array(
+      'taxonomy' => 'product_cat',
+      'field'    => 'slug',
+      'terms'    => $_GET['year-bikes'],
+    );
+    echo '<script>console.log('.$_GET['year-bikes'].')';
+    echo '</script>';
+  }
+  if (isset($_GET['brand'])) {
+    $brand = $_GET['brand'];
+    $query->query_vars['tax_query']['brand'] = array(
+      'taxonomy' => 'product_cat',
+      'field'    => 'slug',
+      'terms'    => $brand,
+    );
+  }
+  if (isset($_GET['type']) AND $_GET['type']!='') {
+    $type = $_GET['type'];
+    $query->query_vars['tax_query']['type'] = array(
+      'taxonomy' => 'product_cat',
+      'field'    => 'slug',
+      'terms'    => $type,
+    );
+  }
+  if (isset($_GET['race-bike']) AND $_GET['race-bike']!='') {
+    $raceBike = $_GET['race-bike'];
+    $query->query_vars['tax_query']['race-bike'] = array(
+      'taxonomy' => 'product_cat',
+      'field'    => 'slug',
+      'terms'    => $raceBike,
+    );
+  }
+  if (isset($_GET['road-bike']) AND $_GET['road-bike']!='') {
+    $roadBike = $_GET['road-bike'];
+    $query->query_vars['tax_query']['road-bike'] = array(
+      'taxonomy' => 'product_cat',
+      'field'    => 'slug',
+      'terms'    => $roadBike,
+    );
+  }
+
+
+  if (isset($_GET['auction']) AND $_GET['auction']=='true') {
+    $args['tax_query'][] = array(
+      'taxonomy' => 'product_type',
+      'field'    => 'slug',
+      'terms'    => 'auction',
+      // 'posts_per_page' => 9,
+    );
+  }
+
+
+
+	// $query-> set('post__in' ,$front_page_id-);
+	// $query-> set('post__in' ,array( $front_page_id , [YOUR SECOND PAGE ID]  ));
+	// $query-> set('orderby' ,'post__in');
+	// $query-> set('p' , null);
+	// $query-> set( 'page_id' ,null);
+
+	//we remove the actions hooked on the '__after_loop' (post navigation)
+	remove_all_actions ( '__after_loop');
+}
 
 // REMOVES WORDPRESS URL PAGINATION
 remove_action('template_redirect', 'redirect_canonical');
