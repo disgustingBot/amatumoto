@@ -16,58 +16,19 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
 
 
 
-    // TODO: hacer una funcion en plan "changeUrlVar" y ponerlo fuera
     // URL HANDLING
-		// urlVirg es la url sin variables
-    var urlVirg = window.location.href.split('?')[0];
-		// urlVars será el vector de variables en la url
-    var urlVars = window.location.href.split('?');
-    urlVars.shift();
-    urlVars = !urlVars[0] ? [] : urlVars.join().split('&');
+      urlVars = getUrlVars();
+  		var filters = urlVars.map( x => x.split('=')[0]);
+      var values  = urlVars.map( x => x.split('=')[1]);
+  		current = filters.includes("page") ? parseInt(values[filters.findIndex(x=>x=='page')]) : 1;
+  		if ( page == 'next' ) { page = current + 1; }
+  		if ( page == 'prev' ) { page = current - 1; }
+      // c.log(page)
+      if ( page && page != 1 ) { filterQueries = setUrlVar('page', page); }
+      else if ( page )         { filterQueries = setUrlVar('page'); }
 
-		var filters = urlVars.map( x => x.split('=')[0]);
-    var values  = urlVars.map( x => x.split('=')[1]);
-
-		current = filters.includes("page") ? parseInt(values[filters.findIndex(x=>x=='page')]) : 1;
-		if ( page == 'next' ) { page = current + 1; }
-		if ( page == 'prev' ) { page = current - 1; }
-    // c.log(page)
-
-
-		if(parent){
-			if(filters.includes(parent)){
-				let j=0;
-				urlVars.forEach((item, i) => {
-					if (item.split('=')[0] == parent) {
-						// si la categoria es 0 quita el filtro
-						if (category != '0') { filterQueries[j] = parent + '=' + category; j+=1; }
-					} else { filterQueries[j] = item; j+=1; }
-				});
-			} else {
-				urlVars.forEach((item, i) => {
-					filterQueries[i] = item;
-				});
-				filterQueries.push(parent + '=' + category);
-			}
-		}
-
-		if(page){
-			if(filters.includes('page')){
-				c.log(page);
-				let j=0;
-				urlVars.forEach((item, i) => {
-					if (item.split('=')[0] == 'page') {
-						filterQueries[j] = 'page=' + page; j++;
-					} else { filterQueries[j] = item; j++; }
-				});
-			} else {
-				urlVars.forEach((item, i) => {
-					filterQueries[i] = item;
-				});
-				filterQueries.push('page=' + page);
-			}
-		}
-    window.history.replaceState('', 'Title', urlVirg + '?' + filterQueries.join('&'));
+      if (category != 0) { filterQueries = setUrlVar(parent, category); }
+      else if ( parent ) { filterQueries = setUrlVar(parent); }
     // END OF URL HANDLING
 
 
@@ -111,14 +72,14 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
         // c.log(query.tax_query.tipo);
         // c.log(query.tax_query.motivo);
 
-    regex = 'stories';
     // c.log(urlVirg)
     // c.log(!!urlVirg.includes(regex))
-    if (!!urlVirg.includes(regex)) {
-      data['type'] = "story";
-    } else {
-      data['type'] = "product";
-    }
+    // regex = 'stories';
+    // if (!!urlVirg.includes(regex)) {
+    //   data['type'] = "story";
+    // } else {
+    //   data['type'] = "product";
+    // }
     // c.log(data['type'])
 
     // Send the data
