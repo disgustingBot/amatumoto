@@ -966,9 +966,9 @@ FIN DE MAPA DE CONTENIDOS */
 
 @font-face {
     font-family: 'highlandgothicflfregular';
-    src: url('fonts/paradroidMonoLight.woff2') format('woff2'),
-         url('fonts/paradroidMonoLight.woff2') format('woff2'),
-         url('fonts/paradroidMonoLight.ttf') format('ttf');
+    src: url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('fonts/HighlandGothicFLF.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
 
