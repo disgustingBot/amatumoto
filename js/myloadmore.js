@@ -74,12 +74,17 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
 
     // c.log(urlVirg)
     // c.log(!!urlVirg.includes(regex))
-    // regex = 'stories';
-    // if (!!urlVirg.includes(regex)) {
-    //   data['type'] = "story";
-    // } else {
-    //   data['type'] = "product";
-    // }
+
+
+          // var urlVirg = window.location.href.split('?')[0];
+          // regex = 'stories';
+          // if (!!urlVirg.includes(regex)) {
+          //   data['type'] = "story";
+          // } else {
+          //   data['type'] = "product";
+          // }
+
+
     // c.log(data['type'])
 
     // Send the data
