@@ -8,7 +8,7 @@ function lattte_setup(){
 
   wp_enqueue_script('main', get_theme_file_uri('/js/custom.js'), NULL, microtime(), true);
 
-  
+
     // TOOOODO ESTO ES PARA AJAX
   	global $wp_query;
   	// In most cases it is already included on the page and this line can be removed
@@ -557,6 +557,45 @@ function category_has_children( $term_id = 0, $taxonomy = 'category' ) {
 
 
 
+/**
+ * Exclude products from a particular category on the shop page
+ */
+function custom_pre_get_posts_query( $q ) {
+  if(!is_product_category()){
+    $tax_query = (array) $q->get( 'tax_query' );
+
+    $tax_query[] = array(
+      'taxonomy' => 'product_cat',
+      'field' => 'slug',
+      'terms' => array( 'parts-racing-products' ), // Don't display products in the parts-racing-products category on the shop page.
+      'operator' => 'NOT IN'
+    );
+
+    $q->set( 'tax_query', $tax_query );
+  }
+}
+add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -779,13 +818,6 @@ function latte_pagination() {
 		// var_dump($args['term']);
 		unset($args->term);
 		$args['term'] = null;
-		// foreach ($args as $key => $value) {
-		// 	// code...
-		// 	echo $key;
-		// }
-		// echo 'tax_query solicitada';
-		// echo '<br><br>';
-		// var_dump($args['tax_query']);
 		$oldArgs = $args;
 
 		// Sanitize the received page
@@ -794,95 +826,102 @@ function latte_pagination() {
 		$args['paged'] = $page;
 		$args['post_status'] = 'publish';
 
+      if(!is_product_category()){
+        $args['tax_query'][] = array(
+          'taxonomy' => 'product_cat',
+          'field' => 'slug',
+          'terms' => array( 'parts-racing-products' ), // Don't display products in the parts-racing-products category on the shop page.
+          'operator' => 'NOT IN'
+        );
+      }
 
 		query_posts( $args );
-
-
 		if( have_posts() ) :
-
-			// run the loop
 			while( have_posts() ): the_post();
-			if(get_post_type()=='product'){
-				$_pf = new WC_Product_Factory();
-				$_product = $_pf->get_product(get_the_ID());
-			}
-
-      if( $_product->is_type( 'auction' ) ){
-        $cardName='hotCard';
-      }
-      else{
-        $cardName='productCard';
-      }
-			?>
 
 
-            <?php
-            // get all the categories on the product
-            $categories = get_the_terms( get_the_ID(), 'product_cat' );
-            // if it finds sometthing
-            if ($categories) {
-              // for each category
-              foreach ($categories as $cat) {
-                // get the slug of parent cattegory
-                $parent=get_term_by('id', $cat->parent, 'product_cat', 'ARRAY_A')['slug'];
-                if ($parent=="year-bikes") {$yearBike = $cat->name;}
-                if ($parent=="brand") {$brand = $cat->name;}
-              }
-            }
-            ?>
-              <figure class="<?php echo $cardName; ?>">
-                <?php $created = strtotime( $_product->get_date_created() );
-                if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
-                  <span class="newArrival"><i>New arrival</i></span>
+
+
+  			if(get_post_type()=='product'){
+  				$_pf = new WC_Product_Factory();
+  				$_product = $_pf->get_product(get_the_ID());
+  			}
+
+        if( $_product->is_type( 'auction' ) ){ $cardName = 'hotCard'; } else { $cardName = 'productCard'; }
+  			?>
+
+
+        <?php
+        // get all the categories on the product
+        $categories = get_the_terms( get_the_ID(), 'product_cat' );
+        // if it finds sometthing
+        if ($categories) {
+          // for each category
+          foreach ($categories as $cat) {
+            // get the slug of parent cattegory
+            $parent=get_term_by('id', $cat->parent, 'product_cat', 'ARRAY_A')['slug'];
+            if ($parent=="year-bikes") {$yearBike = $cat->name;}
+            if ($parent=="brand") {$brand = $cat->name;}
+          }
+        }
+        ?>
+
+
+
+        <figure class="<?php echo $cardName; ?>">
+          <?php $created = strtotime( $_product->get_date_created() );
+          if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
+            <span class="newArrival"><i>New arrival</i></span>
+          <?php } ?>
+          <a class="<?php echo $cardName; ?>Img rowcol1" href="<?php echo get_permalink(); ?>">
+            <img class="<?php echo $cardName; ?>Img" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+          </a>
+          <figcaption class="<?php echo $cardName; ?>Caption">
+            <!-- NEW TITLE -->
+            <h4 class="<?php echo $cardName; ?>Title">
+              <?php if($brand){ ?><span class="singleSideAnoMarca singleSideBrand"><?php echo $brand; ?></span><?php } ?>
+              <?php the_title(); ?>
+              <?php if($yearBike){ ?><span class="singleSideAnoMarca singleSideYearBike"><?php echo $yearBike; ?></span><?php } ?>
+            </h4>
+
+            <?php if($cardName=='hotCard'){ ?>
+              <p class="auctionDetails">
+                <?php if ($_product->auction_current_bid){ ?>
+                  <span class="auctionDetailsTitle"><?php echo $_product->auction_bid_count; ?> Bids</span>
+                  <span class="auctionDetailsValue">€ <?php echo number_format($_product->auction_current_bid,0,",","."); ?></span>
+                <?php } else { ?>
+                  <span class="auctionDetailsTitle">Starting price:</span>
+                  <span class="auctionDetailsValue">€ <?php echo number_format($_product->auction_start_price,0,",","."); ?></span>
                 <?php } ?>
-                <a class="<?php echo $cardName; ?>Img rowcol1" href="<?php echo get_permalink(); ?>">
-                  <img class="<?php echo $cardName; ?>Img" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-                </a>
-                <figcaption class="<?php echo $cardName; ?>Caption">
-                  <!-- NEW TITLE -->
-                  <h4 class="<?php echo $cardName; ?>Title">
-                    <?php if($brand){ ?><span class="singleSideAnoMarca singleSideBrand"><?php echo $brand; ?></span><?php } ?>
-                    <?php the_title(); ?>
-                    <?php if($yearBike){ ?><span class="singleSideAnoMarca singleSideYearBike"><?php echo $yearBike; ?></span><?php } ?>
-                  </h4>
+              </p>
+            <?php } ?>
 
-                  <?php if($cardName=='hotCard'){ ?>
-                    <p class="auctionDetails">
-                      <?php if ($_product->auction_current_bid){ ?>
-                        <span class="auctionDetailsTitle"><?php echo $_product->auction_bid_count; ?> Bids</span>
-                        <span class="auctionDetailsValue">€ <?php echo number_format($_product->auction_current_bid,0,",","."); ?></span>
-                      <?php } else { ?>
-                        <span class="auctionDetailsTitle">Starting price:</span>
-                        <span class="auctionDetailsValue">€ <?php echo number_format($_product->auction_start_price,0,",","."); ?></span>
-                      <?php } ?>
-                    </p>
-                  <?php } ?>
+            <?php if($cardName=='hotCard'){ ?>
+              <p class="auctionDetails">
+                <?php
+                $start=new DateTime($_product->get_auction_start_time()); $now = new DateTime();
+                if ( $start > $now ) { ?>
+                  <span class="auctionDetailsTitle">Auction starts:</span>
+                  <span class="auctionDetailsValue auction-time-countdown notMet" data-time="<?php echo esc_attr( $_product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
+                <?php } else { ?>
+                  <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Time left:', 'auctions-for-woocommerce' ), $_product_id ) ); ?></span>
+                  <span class="auctionDetailsValue main-auction auction-time-countdown notMet" data-time="<?php echo esc_attr( $_product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $_product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
+                <?php } ?>
+              </p>
+            <?php } ?>
+          </figcaption>
+        </figure>
 
-                  <?php if($cardName=='hotCard'){ ?>
-                    <p class="auctionDetails">
-                      <?php
-                      $start=new DateTime($_product->get_auction_start_time()); $now = new DateTime();
-                      if ( $start > $now ) { ?>
-                        <span class="auctionDetailsTitle">Auction starts:</span>
-                        <span class="auctionDetailsValue auction-time-countdown notMet" data-time="<?php echo esc_attr( $_product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
-                      <?php } else { ?>
-                        <span class="auctionDetailsTitle"><?php echo wp_kses_post( apply_filters( 'time_text', esc_html__( 'Time left:', 'auctions-for-woocommerce' ), $_product_id ) ); ?></span>
-                        <span class="auctionDetailsValue main-auction auction-time-countdown notMet" data-time="<?php echo esc_attr( $_product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $_product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
-                      <?php } ?>
-                    </p>
-                  <?php } ?>
-                </figcaption>
-              </figure>
+
+
 	      <?php
 
 			endwhile;
-
 		endif;
 
 		// var_dump(misha_paginator(5));
 		// echo latte_pagination(5);
 		echo misha_paginator(get_pagenum_link());
-
   }
   // Always exit to avoid further execution
   exit();
