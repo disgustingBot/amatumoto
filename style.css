@@ -967,10 +967,11 @@ FIN DE MAPA DE CONTENIDOS */
 @font-face {
     font-family: 'highlandgothicflfregular';
     src: url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
-         url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('fonts/highlandgothicflf-webfont.woff') format('woff'),
          url('fonts/HighlandGothicFLF.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 
 }
 
