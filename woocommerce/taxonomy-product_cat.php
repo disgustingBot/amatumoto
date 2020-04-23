@@ -21,11 +21,12 @@
 
   <?php
   $args = array(
-   'hierarchical' => 1,
-   'show_option_none' => '',
+   // 'hierarchical' => 1,
+   // 'show_option_none' => '',
    'hide_empty' => 0,
    'parent' => get_queried_object()->term_id,
-   'taxonomy' => 'product_cat'
+   'taxonomy' => 'product_cat',
+   // 'number' => 3,
   );
   $subcats = get_categories($args);
   foreach ($subcats as $sc) {
@@ -42,13 +43,14 @@
       </figcaption>
     </figure>
   <?php } ?>
+  <?php // echo misha_paginator(get_pagenum_link()); ?>
+
 </div>
 
 
 
 <?php } else { ?>
-
-  <div class="shopArchive">
+  <div class="shopArchive" id="slider">
 
 
 
@@ -80,13 +82,12 @@
 
     <figure class="productCard">
       <?php
-      global $product;
+      // global $product;
       // $newness_days = 1;
-      $created = strtotime( $product->get_date_created() );
-      if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
+      // $created = strtotime( $product->get_date_created() );
+      // if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
         <span class="newArrival"><i>New arrival</i></span>
-      <?php } ?>
-      <!-- <span class="newArrival"><i>New arrival</i></span> -->
+      <?php // } ?>
       <a class="productCardImg" href="<?php echo get_permalink(); ?>"><img class="productCardImg lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt=""></a>
       <figcaption class="productCardCaption">
         <h5 class="productCardTitle"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h5>
@@ -94,11 +95,12 @@
         <p class="productCardPrice">
           <?php
           // $product = wc_get_product( $product_id );
-          echo $product->get_price_html(); ?>
+          // echo $product->get_price_html(); ?>
         </p>
       </figcaption>
     </figure>
     <?php } ?>
+    <?php echo misha_paginator(get_pagenum_link()); ?>
 
   </div>
 
@@ -112,7 +114,6 @@
   $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   // echo $actual_link;
 ?>
-<?php echo latte_pagination($blogPosts->max_num_pages, $actual_link); ?>
 
 <article class="banner0">
 

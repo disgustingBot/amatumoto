@@ -192,7 +192,11 @@ add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
 function new_loop_shop_per_page( $cols ) {
   // $cols contains the current number of products per page based on the value stored on Options -> Reading
   // Return the number of products you wanna show per page.
-  $cols = 3;
+  if(is_product_category()){
+    $cols = -1;
+  } else {
+    $cols = 9;
+  }
   return $cols;
 }
 
@@ -224,7 +228,7 @@ function lt_form_handler() {
 	  // exit;
 	} else {
 		// $mail=$_POST['mail'];
-		$email='rafmoline@gmail.com';
+		$email='info@gpmotorbikes.com';
 
 		$subject='Form from '. $link;
 		$message='';
@@ -570,9 +574,11 @@ function custom_pre_get_posts_query( $q ) {
       'terms' => array( 'parts-racing-products' ), // Don't display products in the parts-racing-products category on the shop page.
       'operator' => 'NOT IN'
     );
-
     $q->set( 'tax_query', $tax_query );
   }
+
+
+  
 }
 add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );
 
@@ -674,10 +680,10 @@ function alter_query($query) {
       'terms'    => $roadBike,
     );
   }
-
+  // var_dump($_GET['auction'])
 
   if (isset($_GET['auction']) AND $_GET['auction']=='true') {
-    $args['tax_query'][] = array(
+    $query->query_vars['tax_query'][] = array(
       'taxonomy' => 'product_type',
       'field'    => 'slug',
       'terms'    => 'auction',
@@ -686,6 +692,21 @@ function alter_query($query) {
   }
 
 
+  if (isset($_GET['sold']) AND $_GET['sold']=='true') {
+    $query->query_vars['tax_query'][] = array(
+      'taxonomy' => 'product_visibility',
+      'field'    => 'slug',
+      'terms'   => array('outofstock'),
+      'compare' => 'IN',
+      // 'compare' => 'NOT IN',
+    );
+  }
+
+
+  // chequea si hay una busqueda de texto solicitada por el usuario, de haberla la pasa al query
+  if (isset($_GET['filter_search']) AND $_GET['filter_search']!=''){
+    $query->query_vars['s']=$_GET['filter_search'];
+  }
 
 	// $query-> set('post__in' ,$front_page_id-);
 	// $query-> set('post__in' ,array( $front_page_id , [YOUR SECOND PAGE ID]  ));
@@ -834,7 +855,6 @@ function latte_pagination() {
           'operator' => 'NOT IN'
         );
       }
-
 		query_posts( $args );
 		if( have_posts() ) :
 			while( have_posts() ): the_post();
