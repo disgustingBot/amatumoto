@@ -1,5 +1,5 @@
 d=document;w=window;c=console;
-
+const id = x => d.getElementById(x);
 
 w.onload=()=>{
   // LAZY LOAD FUNCTIONS
@@ -183,26 +183,30 @@ for (i = 0; i < acc.length; i++) {
 
 
 // Segment dinamic selector (filterbar)
+if(!!d.querySelector('#filterBar')){
+  var raceBike = d.getElementById('selectBox43');
+  var roadBike = d.getElementById('selectBox44');
+  var filterBarBotttom = d.getElementById('filterBarBotttom');
+  raceBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
+  roadBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
+  // c.clear();
+  var arrFilter = Array.prototype.slice.call( d.getElementById('selectBox32').querySelectorAll('input') )
+  arrFilter.forEach( (item, i) => { //  c.log(item);
+    item.addEventListener("change", ()=>{
+      altClassFromSelector(item.value,'#filterBarBotttom','filterBarBotttom')
+      c.log(item.value);
 
-var raceBike = d.getElementById('selectBox43');
-var roadBike = d.getElementById('selectBox44');
-var filterBarBotttom = d.getElementById('filterBarBotttom');
-
-raceBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
-roadBike.querySelector('.selectBoxPlaceholder').innerText = 'Segment';
-// c.clear();
-// var arrFilter = Array.prototype.slice.call( d.getElementById('selectBox32').querySelectorAll('input') )
-// arrFilter.forEach( (item, i) => { //  c.log(item);
-//   item.addEventListener("change", ()=>{
-//     altClassFromSelector(item.value,'#filterBarBotttom','filterBarBotttom')
-//     c.log(item.value);
-//   });
-// });
-
-
-
-
-
+      if(raceBike.classList.contains('alt')){raceBike.classList.remove('alt')}
+      if(roadBike.classList.contains('alt')){roadBike.classList.remove('alt')}
+      id('nul43').checked=true;
+      id('nul44').checked=true;
+      selectBoxControler('','#selectBox43','#selectBoxCurrent43')
+      selectBoxControler('','#selectBox44','#selectBoxCurrent44')
+      setUrlVar('race-bike','')
+      setUrlVar('road-bike','')
+    });
+  });
+}
 
 
 

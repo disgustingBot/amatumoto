@@ -120,6 +120,24 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
 	// END OF PAGINATION CONTROLLER
 	// END OF FILTER BAR CONTROLLER
 
+  // searchController
+  var searchTimeOut;
+  // const searchController = () => {
+  //   clearTimeout(searchTimeOut);
+  //   searchTimeOut = setTimeout(send, 2000);
+  // }
+  if(d.querySelector('#filterBar')){
+    id('searchInput').addEventListener('input', ()=>{
+      clearTimeout(searchTimeOut);
+      searchTimeOut = setTimeout(send, 1000);
+    })
+
+  }
+  function send(){
+    c.log(id('searchInput').value);
+    filterPagination('s', id('searchInput').value, false);
+  }
+
 
 
 
