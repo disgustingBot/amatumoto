@@ -12,7 +12,20 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway:400,700|Rubik:300,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:800i&display=swap" rel="stylesheet">
+<style>
+@font-face {
+    font-family: 'highlandgothicflfregular';
+    src: url('fonts/highlandgothicflf-webfont.woff') format('woff'),
+         url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
+         url('fonts/HighlandGothicFLF.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+
+}
+</style>
 </head>
+
 <body <?php body_class(); ?>>
 
 	<!-- <view id="load" class="load">

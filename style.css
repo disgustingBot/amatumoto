@@ -964,16 +964,16 @@ FIN DE MAPA DE CONTENIDOS */
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
-@font-face {
+/* @font-face {
     font-family: 'highlandgothicflfregular';
-    src: url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
-         url('fonts/highlandgothicflf-webfont.woff') format('woff'),
+    src: url('fonts/highlandgothicflf-webfont.woff') format('woff'),
+         url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
          url('fonts/HighlandGothicFLF.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 
-}
+} */
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1331,10 +1331,6 @@ hr {border: solid 1px #ddd;}
   white-space: nowrap;
   margin: var(--copyMargin);
 }
-
-
-
-
 
 
 .upperNav {
