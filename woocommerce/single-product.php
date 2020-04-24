@@ -673,7 +673,7 @@
         <textarea class="singleFormTxtArea" value="SUBJECT" placeholder="" name="a08"></textarea>
         <div class="formTermsAndConditions">
            <input type="checkbox" name="a11" required>
-           <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
+           <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
         <button class="singleContactButton contactButton" type="submit">SEND</button>
       </form>
@@ -706,8 +706,8 @@
         <label  class="formLabel">SUBJECT</label>
         <textarea class="singleFormTxtArea" value="" placeholder="SUBJECT" name="a08"></textarea>
         <div class="formTermsAndConditions">
-           <input type="checkbox" name="a11">
-           <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
+           <input type="checkbox" name="a11" required>
+           <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
         <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>
       </form>
@@ -728,12 +728,11 @@
         <input type="text"   placeholder="Brand"       class="formInput50 formInput" name="a04">
         <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06" required>
         <input type="text"   placeholder="vin"        class="formInput50 formInput" name="a08">
-        <label  class="formLabel">Upload photos here</label>
-        <input type="file" placeholder="upload files" class="formInput50 formInput" name="a09">
+        <label  class="formLabel">Subject</label>        
         <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="a10"></textarea>
         <div class="formTermsAndConditions">
-           <input type="checkbox" name="a11">
-           <a href="<?php echo site_url('privacy-policy'); ?>" class="linkTermAndConditionsForm">I accept terms and conditions</a>
+           <input type="checkbox" name="a11" required>
+           <a href="<?php echo site_url('terms-conditions'); ?>" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
         <button class="singleRequestInfoButton contactButton" type="submit">REQUEST TRADE IN</button>
       </form>

@@ -28,7 +28,7 @@
         <textarea            name="comment"  placeholder="Comments" class="singleFormTxtArea" ></textarea>
         <div class="formTermsAndConditions">
           <input name="acceptance" type="checkbox" required>
-          <a href="http://localhost/GPMotorbikes/privacy-policy" target="_blank" class="linkTermAndConditionsForm" rel="noopener noreferrer">I accept terms and conditions</a>
+          <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm" rel="noopener noreferrer">I accept terms and conditions</a>
         </div>
         <button class="singleContactButton contactButton" type="submit">SEND</button>
       </form>

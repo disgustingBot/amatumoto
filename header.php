@@ -234,13 +234,12 @@
 
         <div class="logFormTitle">
           <h3>Enter</h3>
-          <button class="logFormTitleRegister" onclick="altClassFromSelector('alt','#logFormFields')" type="button" name="button">you don't have an account?</button>
+          <button class="logFormTitleRegister" onclick="altClassFromSelector('alt','#logFormFields'); addRequired()" type="button" name="button">you don't have an account?</button>
           <button class="logFormClose" type="button" onclick="altClassFromSelector('alt','#logForm')">
             <div class="logFormCloseLine"></div>
             <div class="logFormCloseLine"></div>
           </button>
         </div>
-
 
         <div class="logFormFields" id="logFormFields">
 
@@ -252,7 +251,7 @@
           </div>
 
           <div class="mateput logFormPhono">
-            <input class="mateputInput" type="number" name="fono" autocomplete="off" value="">
+            <input class="mateputInput variableRequired" type="number" name="fono" autocomplete="off" value="">
             <label for="fono" class="mateputLabel">
               <span class="mateputName">Phone</span>
             </label>
@@ -263,6 +262,11 @@
             <label for="mail" class="mateputLabel">
               <span class="mateputName">E-Mail</span>
             </label>
+          </div>
+
+          <div class="formTermsAndConditions logCheckBox">
+            <input class="variableRequired" type="checkbox">
+            <a href="http://gpmotors.wave-host.net/privacy-policy" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
           </div>
 
           <div class="mateput logFormPass">

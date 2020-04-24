@@ -270,3 +270,18 @@ const getUrlVars = () => {
 // setUrlVar('pipi', 1);
 // setUrlVar('popo', 1);
 // setUrlVar('pupu', 1);
+
+
+
+
+
+function addRequired() {
+    const requiredElement = d.querySelectorAll('.variableRequired');
+    requiredElement.forEach( element => {
+      if(element.hasAttribute('required')) {
+        element.removeAttribute('required');
+      }else {
+          element.setAttribute('required', 'true');
+      }
+    });
+  }

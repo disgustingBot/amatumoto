@@ -300,6 +300,10 @@ FIN DE MAPA DE CONTENIDOS */
   --order4: 4;
   --order5: 5;
 
+  --consignmentSingleStepWidth: 90%;
+  --consignmentImgWidth: 100%;
+  --consignmentSec1FlexD:  column;
+
   /* =404 NOT FOUND */
   --notFoundPadding: 2rem;
 
@@ -481,6 +485,10 @@ FIN DE MAPA DE CONTENIDOS */
     --contactMenuUlLiWidth: ;
     --contactMenuLiPadding: 0;
 
+    /* CONSIGNMENT */
+    --consignmentImgWidth: 90%;
+
+
   }
 }
 
@@ -605,12 +613,18 @@ FIN DE MAPA DE CONTENIDOS */
     /* CONSIGNMENT */
     --consignmentStepsMargin: .5rem;
     --consignmentSingleStepMarginB: 32px;
-    --consignmentSection1Display: grid;
+    --consignmentSection1Display: flex;
     --order1: auto;
     --order2: auto;
     --order3: auto;
     --order4: auto;
     --order5: auto;
+    --consignmentImgWidth: 45%;
+    --consignmentSec1FlexD:  row;
+    --consignmentSingleStepWidth: 45%;
+
+
+
 
     /* 404 NOT FOUND */
     --notFoundPadding: 6rem;
@@ -734,17 +748,7 @@ FIN DE MAPA DE CONTENIDOS */
   }
 } */
 
-@media (min-width: 782px) {
-  .consignmentSection .wp-block-column:not(:first-child) {
-    margin-left: 0;
-  }
-  .consignmentSection .wp-block-column:nth-child(2n) {
-      margin-left: 32px!important;
-    }
-  .consignmentSection .wp-block-column{
-    margin-bottom: 32px;
-  }
-}
+
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -813,13 +817,13 @@ FIN DE MAPA DE CONTENIDOS */
     --contactMenuWidth: 70vw;
 
 
+
+    /* CONSIGNMENT */
+    --consignmentSingleStepWidth: 23%;
+
+
   }
-  .consignmentSection .wp-block-column:nth-child(2n) {
-      margin-left: 32px!important;
-  }
-  .consignmentSection .wp-block-column:nth-child(2n) {
-      margin-left: 32px!important;
-  }
+
 }
 
 /* ---------------------------------------------------------------------------
@@ -2497,18 +2501,14 @@ background: #ddd;
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .logForm{
-  background:white;
-  border-bottom:1px solid #ddd;
-  display:grid;
-  grid-template-rows:40px;
-  /* grid-template-columns:1fr 1fr min-content; */
+  background: white;
+  border-bottom: 1px solid #ddd;
+  display: grid;
+  grid-template-rows: 40px;
   grid-gap:.5rem;
-  padding:1rem var(--lateral);
-  /* padding-top:.5rem; */
+  padding: 1rem var(--lateral);
   position: fixed;
   right:0;
-  /* top: 0; */
-  /* top:112px; */
   top:var(--headerHeight);
 
   transition:.4s;
@@ -2581,6 +2581,23 @@ background: #ddd;
   width:100%;
 }
 .logFormFields .mateput{width:100%}
+
+.logFormFields .formTermsAndConditions {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.logFormFields .formTermsAndConditions.logCheckBox a {
+  font-size: .5rem!important;
+  line-height: .5rem;
+}
+
+.logCheckBox {
+  margin: auto!important;
+  display: none;
+}
+
+.logFormFields.alt .logCheckBox {display: flex}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.n) =the Garage Section:
@@ -2721,6 +2738,8 @@ background: #ddd;
 .shopInventory .singleSideAnoMarca {
   font-size: 1.1rem!important;
 }
+
+.shopInventory .hotCard{display: block}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.5) =BUTTONS:
@@ -3979,6 +3998,8 @@ background: #ddd;
 .consignmentSteps {
   margin: var(--consignmentStepsMargin);
   flex-wrap: var(--consignmentStepsFlexWrap);
+  display: flex;
+  justify-content: space-around;
 }
 
 .consignmentSteps1{order: var(--order3);}
@@ -3994,6 +4015,7 @@ background: #ddd;
   display: var(--consignmentSection1Display);
   margin: 2rem 0;
   order: var(--order1);
+  justify-content: space-around;
 }
 
 .consignmentSingleStep {
@@ -4006,6 +4028,26 @@ background: #ddd;
   display: grid;
   grid-template-rows: min-content 1fr;
   align-items: center;
+  width: var(--consignmentSingleStepWidth);
+}
+.wp-block-media-text__media {
+  display: flex;
+  flex-direction: var(--consignmentSec1FlexD);
+}
+
+.wp-block-media-text__media  {
+  width: var(--consignmentImgWidth);
+}
+
+.wp-block-media-text__media img {
+  height: auto;
+  object-fit: contain;
+  width: 100%;
+}
+
+
+.wp-block-media-text__content {
+  width: var(--consignmentImgWidth);
 }
 
 .consignmentTxt{text-align: center; font-size: .8rem!important;}
