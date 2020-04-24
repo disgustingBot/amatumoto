@@ -195,7 +195,7 @@ function new_loop_shop_per_page( $cols ) {
   if(is_product_category()){
     $cols = -1;
   } else {
-    $cols = 9;
+    $cols = 18;
   }
   return $cols;
 }
@@ -578,7 +578,7 @@ function custom_pre_get_posts_query( $q ) {
   }
 
 
-  
+
 }
 add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );
 

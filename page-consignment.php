@@ -48,7 +48,7 @@
 
       <div class="formTermsAndConditions">
          <input type="checkbox" required>
-         <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
+         <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
       </div>
       <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>
     </form>
