@@ -14,6 +14,8 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
     var query = JSON.parse(misha_loadmore_params.posts);
     var filterQueries = new Array();
 
+    query.orderby = 'date';
+    query.order   = 'DESC';
 
 
     // URL HANDLING
@@ -99,6 +101,7 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
         // If successful Append the data into our html container
         $('#slider').empty();
         $('#slider').append(respuesta);
+        w.scrollTo(0, 0); // values are x,y-offset
       }
     });
   }

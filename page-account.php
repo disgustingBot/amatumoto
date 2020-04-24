@@ -17,8 +17,8 @@
     <!-- <h3 class="hotAuctionsTitle">Your auctions:</h3> -->
     <?php echo do_shortcode('[auctions_for_woocommerce_my_auctions]'); ?>
 
-    <!-- <h3 class="hotAuctionsTitle">Your Watchlist:</h3> -->
-    <?php // echo do_shortcode('[auctions_watchlist]'); ?>
+    <h3 class="hotAuctionsTitle">Your Watchlist:</h3>
+    <?php echo do_shortcode('[auctions_watchlist]'); ?>
 
 
     <!-- <h3 class="hotAuctionsTitle">Your Activity:</h3> -->
