@@ -2497,18 +2497,14 @@ background: #ddd;
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 .logForm{
-  background:white;
-  border-bottom:1px solid #ddd;
-  display:grid;
-  grid-template-rows:40px;
-  /* grid-template-columns:1fr 1fr min-content; */
+  background: white;
+  border-bottom: 1px solid #ddd;
+  display: grid;
+  grid-template-rows: 40px;
   grid-gap:.5rem;
-  padding:1rem var(--lateral);
-  /* padding-top:.5rem; */
+  padding: 1rem var(--lateral);
   position: fixed;
   right:0;
-  /* top: 0; */
-  /* top:112px; */
   top:var(--headerHeight);
 
   transition:.4s;
@@ -2581,6 +2577,23 @@ background: #ddd;
   width:100%;
 }
 .logFormFields .mateput{width:100%}
+
+.logFormFields .formTermsAndConditions {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.logFormFields .formTermsAndConditions.logCheckBox a {
+  font-size: .5rem!important;
+  line-height: .5rem;
+}
+
+.logCheckBox {
+  margin: auto!important;
+  display: none;
+}
+
+.logFormFields.alt .logCheckBox {display: flex}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.n) =the Garage Section:
