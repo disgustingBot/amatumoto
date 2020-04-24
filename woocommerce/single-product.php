@@ -728,8 +728,7 @@
         <input type="text"   placeholder="Brand"       class="formInput50 formInput" name="a04">
         <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06" required>
         <input type="text"   placeholder="vin"        class="formInput50 formInput" name="a08">
-        <label  class="formLabel">Upload photos here</label>
-        <input type="file" placeholder="upload files" class="formInput50 formInput" name="a09">
+        <label  class="formLabel">Subject</label>        
         <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="a10"></textarea>
         <div class="formTermsAndConditions">
            <input type="checkbox" name="a11">
