@@ -12,7 +12,7 @@ w.onload=()=>{
 
   if(detectWidth() < 768 && d.querySelector('#filterBar')){altClassFromSelector('alt','#filterBar')}
 
-  // d.getElementById("load").style.top="-100vh";
+  d.getElementById("load").style.top="-100vh";
 }
 
 
