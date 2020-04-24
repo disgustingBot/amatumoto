@@ -576,9 +576,6 @@ function custom_pre_get_posts_query( $q ) {
     );
     $q->set( 'tax_query', $tax_query );
   }
-
-
-
 }
 add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );
 
@@ -630,10 +627,14 @@ function alter_query($query) {
 	// $args['paged'] = $page;
 	// if (isset($_GET['page']) AND $_GET['page'] <= $max_page ) {
 	if (isset($_GET['page'])) {
-		$query-> set('paged' , $_GET['page']);
+		// $query-> set('paged' , $_GET['page']);
+    $query->query_vars['paged'] = $_GET['page'];
 	} else {
-		$query-> set('paged' , 1);
+    $query->query_vars['paged'] = 1;
+		// $query-> set('paged' , 1);
 	}
+  $query->query_vars['orderby'] = 'date';
+  $query->query_vars['order'] = 'DESC';
 
   if (isset($_GET['filter_search']) AND $_GET['filter_search']!=''){
     $query->query_vars['s']=$_GET['filter_search'];
@@ -687,7 +688,15 @@ function alter_query($query) {
       'taxonomy' => 'product_type',
       'field'    => 'slug',
       'terms'    => 'auction',
-      // 'posts_per_page' => 9,
+      'operator' => 'IN',
+    );
+  }
+  if (!isset($_GET['auction'])) {
+    $query->query_vars['tax_query'][] = array(
+      'taxonomy' => 'product_type',
+      'field'    => 'slug',
+      'terms'    => 'auction',
+      'operator' => 'NOT IN',
     );
   }
 
@@ -847,14 +856,34 @@ function latte_pagination() {
 		$args['paged'] = $page;
 		$args['post_status'] = 'publish';
 
-      if(!is_product_category()){
-        $args['tax_query'][] = array(
-          'taxonomy' => 'product_cat',
-          'field' => 'slug',
-          'terms' => array( 'parts-racing-products' ), // Don't display products in the parts-racing-products category on the shop page.
-          'operator' => 'NOT IN'
-        );
-      }
+    if(!is_product_category()){
+      $args['tax_query'][] = array(
+        'taxonomy' => 'product_cat',
+        'field' => 'slug',
+        'terms' => array( 'parts-racing-products' ), // Don't display products in the parts-racing-products category on the shop page.
+        'operator' => 'NOT IN'
+      );
+    }
+
+    if(!isset($_POST['auction'])){
+      $args['tax_query']['auction'] = array(
+        'taxonomy' => 'product_type',
+        'field'    => 'slug',
+        'terms'    => 'auction',
+        'operator' => 'NOT IN',
+      );
+    }
+
+    if(!isset($_POST['sold'])){
+      $args['tax_query']['sold'] = array(
+        'taxonomy' => 'product_visibility',
+        'field'    => 'slug',
+        'terms'    => array('outofstock'),
+        'operator' => 'NOT IN',
+      );
+    }
+
+
 		query_posts( $args );
 		if( have_posts() ) :
 			while( have_posts() ): the_post();
