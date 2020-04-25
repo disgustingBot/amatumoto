@@ -2737,6 +2737,8 @@ background: #ddd;
 .shopInventory .singleSideAnoMarca {
   font-size: 1.1rem!important;
 }
+
+.shopInventory .hotCard{display: block}
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
                           6.5) =BUTTONS:
