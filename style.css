@@ -968,7 +968,7 @@ FIN DE MAPA DE CONTENIDOS */
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
 
-/* @font-face {
+ @font-face {
     font-family: 'highlandgothicflfregular';
     src: url('fonts/highlandgothicflf-webfont.woff') format('woff'),
          url('fonts/highlandgothicflf-webfont.woff2') format('woff2'),
@@ -976,8 +976,7 @@ FIN DE MAPA DE CONTENIDOS */
     font-weight: normal;
     font-style: normal;
     font-display: swap;
-
-} */
+}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
