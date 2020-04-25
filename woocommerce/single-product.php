@@ -657,7 +657,11 @@
 
 
     <div class="singleFormContainer" id="singleRequestInfo">
-      <form action="index.php" class="singleContact " action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+      <form class="singleContact " action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+        <input type="hidden" name="action" value="lt_form_handler">
+        <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+        <input type="text" name="a00" value="" placeholder="jeje" hidden>
+
         <label  class="formLabelBig">More Info</label>
         <input type="hidden" name="action" value="lt_form_handler">
         <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
@@ -728,7 +732,7 @@
         <input type="text"   placeholder="Brand"       class="formInput50 formInput" name="a04">
         <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06" required>
         <input type="text"   placeholder="vin"        class="formInput50 formInput" name="a08">
-        <label  class="formLabel">Subject</label>        
+        <label  class="formLabel">Subject</label>
         <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="a10"></textarea>
         <div class="formTermsAndConditions">
            <input type="checkbox" name="a11" required>

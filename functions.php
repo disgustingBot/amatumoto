@@ -9,6 +9,9 @@ function lattte_setup(){
   wp_enqueue_script('main', get_theme_file_uri('/js/custom.js'), NULL, microtime(), true);
 
 
+  wp_enqueue_script('ReCaptcha', 'https://www.google.com/recaptcha/api.js', NULL, microtime(), true);
+
+
     // TOOOODO ESTO ES PARA AJAX
   	global $wp_query;
   	// In most cases it is already included on the page and this line can be removed
@@ -60,6 +63,16 @@ function stories_description_exerpt_length() {
 add_filter('excerpt_length', 'stories_description_exerpt_length');
 
 
+
+//Second solution : two or more files.
+//If you're using a child theme you could use:
+// get_stylesheet_directory_uri() instead of get_template_directory_uri()
+add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
+function load_admin_styles() {
+  wp_enqueue_style( 'admin_css_foo', get_template_directory_uri() . '/css/backoffice.css', false, '1.0.0' );
+  // wp_enqueue_style( 'admin_css_foo', get_template_directory_uri() . '/admin-style-foo.css', false, '1.0.0' );
+  // wp_enqueue_style( 'admin_css_bar', get_template_directory_uri() . '/admin-style-bar.css', false, '1.0.0' );
+}
 
 
 
@@ -228,13 +241,14 @@ function lt_form_handler() {
 	  // exit;
 	} else {
 		// $mail=$_POST['mail'];
-		$email='info@gpmotorbikes.com';
+    // $email='info@gpmotorbikes.com';
+    $email='molinerozadkiel@gmail.com';
 
 		$subject='Form from '. $link;
 		$message='';
 
     foreach ($_POST as $key => $value) {
-      if ( $key != 'action' && $key != 'link' && $key != 'status' ) {
+      if ( $key != 'a00' && $key != 'action' && $key != 'link' && $key != 'status' && $key != 'submit' && $key != 'g-recaptcha-response' ) {
         $message=$message.'<strong>'.$key.':</strong> '.$value.' - <br>';
       }
     }
@@ -244,30 +258,36 @@ function lt_form_handler() {
     // $attachments = array( WP_CONTENT_DIR . '/uploads/file_to_attach.zip' );
 	 // $cosa = var_dump(wp_mail( $mail , $subject , $message ));
    // if (wp_mail( $mail , $subject , $message , $headers , $attachments )) {
-   if (wp_mail( $email , $subject , $message , $headers )) {
-			$link = add_query_arg( array( 'status' => 'sent' , ), $link );
-	 } else {
-      $link = add_query_arg( array( 'status' => 'error', ), $link );
-	 }
-		// wp_mail( $mail , $subject , $message );
 
 
-		// $a2 = $_POST['a2'];
-		// $a3 = $_POST['a3'];
-		// $a4 = $_POST['a4'];
-		// $a5 = $_POST['a5'];
-		// $a6 = $_POST['a6'];
+     $site = '6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B';
+     $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
 
-		// $link = add_query_arg( array(
-		//   'email' => 'sent',
-		//   // 'status' => $status,
-		//   // 'resultado' => username_exists( $mail ),
-		// ), $link );
+     // if (isset($_POST['submit'])) {
+       $response = $_POST['g-recaptcha-response'];
+       $payload = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$scrt.'&response='.$response);
+       // echo $payload;
+       $result = json_decode($payload,true);
+       if ($result['success']!=1) {
+         // code...
+         // header( "Location: https://multiviahr.info/?mail=BOT" );
+         $link = add_query_arg( array( 'status' => 'bot' , ), $link );
+         // echo 'you are evil or a bott';
+         // exit;
+         // return false;
+       } else {
 
 
-
+        if (wp_mail( $email , $subject , $message , $headers )) {
+        	$link = add_query_arg( array( 'status' => 'sent' , ), $link );
+        } else {
+          $link = add_query_arg( array( 'status' => 'error', ), $link );
+        }
+      }
+    // }
 	}
 	wp_redirect($link);
+  exit;
 }
 
 
@@ -298,6 +318,7 @@ function lt_new_user(){
     // Set the role
     $user = new WP_User( $user_id );
     $user->set_role( 'subscriber' );
+    wp_new_user_notification($user, $pass);
 
     // Email the user
     wp_mail( $email_address, 'Welcome!', 'Your Password: ' . $password );
@@ -326,55 +347,89 @@ function lt_login(){
 
   if( null == username_exists( $mail ) ) {
 
-    // Generate the password and create the user for security
-    // $password = wp_generate_password( 12, false );
-    // $user_id = wp_create_user( $mail, $password, $mail );
+    if ($fono=='') {
+      // code...
+      $action='phoneRequired';
+    } else {
+      // Generate the password and create the user for security
+      // $password = wp_generate_password( 12, false );
+      // $user_id = wp_create_user( $mail, $password, $mail );
 
-    // user generated pass for local testing
-    $user_id = wp_create_user( $mail, $pass, $mail );
-    // Set the nickname and display_name
-    wp_update_user(
-      array(
-        'ID'              =>    $user_id,
-        'display_name'    =>    $name,
-        'nickname'        =>    $name,
-      )
-    );
-    update_user_meta( $user_id, 'phone', $fono );
+      // user generated pass for local testing
+      $user_id = wp_create_user( $mail, $pass, $mail );
+      // Set the nickname and display_name
+      wp_update_user(
+        array(
+          'ID'              =>    $user_id,
+          'display_name'    =>    $name,
+          'nickname'        =>    $name,
+        )
+      );
+      update_user_meta( $user_id, 'phone', $fono );
+      $hash = hash ( 'sha256' , time() . $mail );
+      update_user_meta( $user_id, 'confirmation', $hash );
 
 
-    // Set the role
-    $user = new WP_User( $user_id );
-    $user->set_role( 'subscriber' );
+      // Set the role
+      $user = new WP_User( $user_id );
+      $user->set_role( 'subscriber' );
 
-    // Email the user
-    wp_mail( $mail, 'Welcome '.$name.'!', 'Your Password: ' . $pass );
-  // end if
-  $action='register';
-  $creds = array(
-      'user_login'    => $mail,
-      'user_password' => $pass,
-      'remember'      => true
-  );
+      // Email the user
+      $message='';
+      $message=$message.'Your Password: ' . $pass;
+      $message=$message.'<br>';
+      $message=$message.'activation Code: ';
+      $message=$message.'<br>';
+      $enlace=get_template_directory_uri().'/confirmation/?code='.$hash;
+      $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
+      $message=$message.'<br>';
+      $headers = array('Content-Type: text/html; charset=UTF-8');
 
-  $status = wp_signon( $creds, false );
+      wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
+      // wp_mail( $mail, 'Welcome '.$name.'!', $message );
+
+
+
+      // wp_new_user_notification($user, $pass);
+      // end if
+      // $creds = array(
+      //   'user_login'    => $mail,
+      //   'user_password' => $pass,
+      //   'remember'      => true
+      // );
+
+      // $status = wp_signon( $creds, false );
+      $action='register';
+
+    }
+
 } else {
 
-  $creds = array(
-      'user_login'    => $mail,
-      'user_password' => $pass,
-      'remember'      => true
-  );
+  // aqui debo chequear que no tenga confirmation el usuario
+  $user = get_user_by( 'email', $mail );
+  // echo 'User is ' . $user->first_name . ' ' . $user->last_name;
+  if(get_user_meta($user->id, 'confirmation')){
+    echo 'SIII!';
+    $action='needsConfirmation';
+  } else {
 
-  $status = wp_signon( $creds, false );
+    $creds = array(
+        'user_login'    => $mail,
+        'user_password' => $pass,
+        'remember'      => true
+    );
 
-  // $status=wp_login($mail, $pass);
+    $status = wp_signon( $creds, false );
 
-  $action='login';
+    // $status=wp_login($mail, $pass);
+
+    $action='login';
+  }
 }
 
   $link = add_query_arg( array(
     'action' => $action,
+    // 'mail'   => $mail,
     // 'status' => $status,
     // 'resultado' => username_exists( $mail ),
   ), $link );
@@ -502,16 +557,6 @@ function extra_user_profile_fields( $user ) { ?>
 
 
 
-
-//Second solution : two or more files.
-//If you're using a child theme you could use:
-// get_stylesheet_directory_uri() instead of get_template_directory_uri()
-add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
-function load_admin_styles() {
-  wp_enqueue_style( 'admin_css_foo', get_template_directory_uri() . '/css/backoffice.css', false, '1.0.0' );
-  // wp_enqueue_style( 'admin_css_foo', get_template_directory_uri() . '/admin-style-foo.css', false, '1.0.0' );
-  // wp_enqueue_style( 'admin_css_bar', get_template_directory_uri() . '/admin-style-bar.css', false, '1.0.0' );
-}
 
 
 

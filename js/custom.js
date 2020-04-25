@@ -285,3 +285,27 @@ function addRequired() {
       }
     });
   }
+
+
+  var correctCaptcha = function(response) {
+    alert(response);
+    var url='https://www.google.com/recaptcha/api/siteverify';
+    var dataNames=['secret','response'];
+    var dataValues=['6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B',response];
+    postAjaxCall(url, dataNames, dataValues).then(v=>{
+      try{ c.log(v)
+        // d.getElementById(id).innerHTML=JSON.parse(v).length;
+        respuesta=JSON.parse(v);
+        c.log(respuesta);
+      }catch(err){
+        c.log(err);c.log(v)
+      }
+    })
+  };
+
+  function captchaVerified(){
+    var boton = d.querySelector('.butttonSend');
+    boton.removeAttribute('disabled');
+
+    // correctCaptcha('6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0');
+  }
