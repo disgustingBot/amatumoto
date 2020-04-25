@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+<?php
+get_header();
+// TODO cambiar estas claves por las del cliente
+$site = '6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B';
+$scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
+?>
+
 <figure class="pageBanner">
   <img class="pageBannerImg rowcol1" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
   <figcaption class="pageBannerCaption rowcol1">
@@ -30,7 +36,11 @@
           <input name="acceptance" type="checkbox" required>
           <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm" rel="noopener noreferrer">I accept terms and conditions</a>
         </div>
-        <button class="singleContactButton contactButton" type="submit">SEND</button>
+
+        <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
+        <input class="recaptcha" type="text" hidden value="">
+
+        <button class="singleContactButton contactButton butttonSend" type="submit" name="submit" value="true" disabled>SEND</button>
       </form>
     </div>
     <div class="contactInformation">
