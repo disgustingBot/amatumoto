@@ -4707,14 +4707,24 @@ a.paginationLink:hover{
 
 
 
+/* Confirmation Page */
 
 
 
+.confirmationContent {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem var(--lateral);
+  min-height: 100vh;
+}
+.confirmationTxt {text-align: justify;  }
 
-
-
-
-
+.loginConfirm {
+  color: var(--color1);
+  cursor: pointer;
+  margin: auto;
+  text-decoration: underline;
+}
 
 
 
