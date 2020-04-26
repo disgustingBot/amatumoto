@@ -380,13 +380,19 @@ function lt_login(){
       $message=$message.'<br>';
       $message=$message.'activation Code: ';
       $message=$message.'<br>';
-      $enlace=get_template_directory_uri().'/confirmation/?code='.$hash;
+      $enlace=get_site_url().'/confirmation/?confirmation='.$hash;
       $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
       $message=$message.'<br>';
       $headers = array('Content-Type: text/html; charset=UTF-8');
 
-      wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
-      // wp_mail( $mail, 'Welcome '.$name.'!', $message );
+      // wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
+      wp_mail( $mail, 'Welcome '.$name.'!', $message, $headers );
+
+
+
+// delete users eventually?
+// wp_delete_user( $id, $reassign );
+
 
 
 

@@ -12,14 +12,14 @@ $hash = hash ( 'sha256' , time() . 'hola mundo' );
 echo $hash;
 echo '<br>';
 
-// var_dump(get_user_meta(get_current_user_id(), 'confirmation'));
-var_dump(get_user_meta(10, 'confirmation'));
-var_dump(get_user_meta(9, 'confirmation'));
+var_dump(get_user_meta(get_current_user_id(), 'confirmation'));
+// var_dump(get_user_meta(10, 'confirmation'));
+// var_dump(get_user_meta(9, 'confirmation'));
 
 echo '<br>';
-if(get_user_meta(9, 'confirmation')){
-  echo 'SIII!';
-}
+// if(get_user_meta(9, 'confirmation')){
+//   echo 'SIII!';
+// }
 echo '<br>';
 ?>
 
