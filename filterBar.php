@@ -180,15 +180,12 @@
 
 
 
-    <?php // woocommerce_subcats_from_parentcat(47); ?> <!-- Year -->
     <?php woocommerce_subcats_from_parentcat(32); ?> <!-- Type -->
     <?php woocommerce_subcats_from_parentcat(105); ?> <!-- Segment (empty default)-->
     <?php woocommerce_subcats_from_parentcat(43); ?> <!-- Race bike -->
     <?php woocommerce_subcats_from_parentcat(44); ?> <!-- Road bike -->
-    <?php // woocommerce_subcats_from_parentcat(29); ?> <!-- Make -->
-    <?php // woocommerce_subcats_from_parentcat(30); ?> <!-- Year -->
+    <?php woocommerce_subcats_from_parentcat('brand'); ?> <!-- Brand -->
     <?php woocommerce_subcats_from_parentcat('year-bikes'); ?> <!-- Year -->
-    <?php woocommerce_subcats_from_parentcat('brand'); ?> <!-- Year -->
 
     <!-- <button class="filterSearch" type="submit"> -->
       <!-- <span>Filter</span> -->

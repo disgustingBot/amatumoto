@@ -244,7 +244,7 @@
         <div class="logFormFields" id="logFormFields">
 
           <div class="mateput logFormName">
-            <input class="mateputInput" type="text" name="name" autocomplete="off" value="">
+            <input class="mateputInput variableRequired" type="text" name="name" autocomplete="off" value="">
             <label for="name" class="mateputLabel">
               <span class="mateputName">Name</span>
             </label>
@@ -266,13 +266,13 @@
 
           <div class="formTermsAndConditions logCheckBox">
             <input class="variableRequired" type="checkbox">
-            <a href="http://gpmotors.wave-host.net/privacy-policy" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
+            <a href="https://gpmotorbikes.com/terms-conditions/" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
           </div>
 
           <div class="mateput logFormPass">
-            <input class="mateputInput" type="password" name="pass" autocomplete="off" value="" required>
+            <input class="mateputInput" type="password" name="pass" autocomplete="off" value="" required minlength="6">
             <label for="pass" class="mateputLabel">
-              <span class="mateputName">Password</span>
+              <span class="mateputName" >Password</span>
             </label>
           </div>
 

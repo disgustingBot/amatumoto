@@ -660,7 +660,7 @@
       <form class="singleContact " action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
         <input type="hidden" name="action" value="lt_form_handler">
         <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
-        <input type="text" name="a00" value="" placeholder="jeje" hidden>
+        <input type="text" name="a00" value="" placeholderhttps://gpmotorbikes.com/product/kalex-moto2-6?status=bot="jeje" hidden>
 
         <label  class="formLabelBig">More Info</label>
         <input type="hidden" name="action" value="lt_form_handler">
@@ -668,13 +668,13 @@
         <input type="text" name="a00" value="" placeholder="jeje" hidden>
         <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleRequestInfo')">+</p>
         <label  class="formLabel">CONTACT DETAILS</label>
-        <input type="text"   placeholder="Name*"   class="formInput100 formInput" name="a01" required>
-        <input type="email"  placeholder="Email*"        class="formInput100 formInput" name="a03" required>
-        <input type="number" placeholder="Phone"        class="formInput100 formInput" name="a04">
-        <input type="text"   placeholder="Country*"      class="formInput100 formInput" name="a05" required>
+        <input type="text"   placeholder="Name*"   class="formInput100 formInput" name="Nombre" required>
+        <input type="email"  placeholder="Email*"        class="formInput100 formInput" name="Email" required>
+        <input type="number" placeholder="Phone"        class="formInput100 formInput" name="Tel">
+        <input type="text"   placeholder="Country*"      class="formInput100 formInput" name="Pais" required>
 
         <label  class="formLabel">SUBJECT</label>
-        <textarea class="singleFormTxtArea" value="SUBJECT" placeholder="" name="a08"></textarea>
+        <textarea class="singleFormTxtArea" value="SUBJECT" placeholder="" name="Comentarios"></textarea>
         <div class="formTermsAndConditions">
            <input type="checkbox" name="a11" required>
            <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
@@ -695,20 +695,20 @@
         <label  class="formLabel"><?php the_title(); ?></label>
         <label  class="formLabel">OFFER AMOUNT</label>
         <div class="offerAmmountIcon">
-          <input class="offerAmmountIconInput euro" type="radio" id="euro" name="a10" value="euro">
+          <input class="offerAmmountIconInput euro" type="radio" id="euro" name="Euros" value="euro">
           <label class="offerAmmountIconLabel" for="euro">€</label>
-          <input class="offerAmmountIconInput dollar" type="radio" id="dollar" name="a10" value="dollar">
+          <input class="offerAmmountIconInput dollar" type="radio" id="dollar" name="Dolares" value="dollar">
           <div class="offerAmmountIconSignal"></div>
           <label class="offerAmmountIconLabel" for="dollar">$</label><br>
         </div>
-        <input type="number" placeholder="Offer"        name="a01" class="formInput100 formInput offerAmmount">
-        <input type="text"   placeholder="Name"         name="a02" class="formInput100 formInput" required>
-        <input type="email"  placeholder="Email"        name="a04" class="formInput100 formInput" required>
-        <input type="number" placeholder="Phone"        name="a03" class="formInput100 formInput">
-        <input type="text"   placeholder="Country"      name="a05" class="formInput100 formInput" required>
+        <input type="number" placeholder="Offer"        name="Oferta" class="formInput100 formInput offerAmmount">
+        <input type="text"   placeholder="Name"         name="Nombre" class="formInput100 formInput" required>
+        <input type="email"  placeholder="Email"        name="Email" class="formInput100 formInput" required>
+        <input type="number" placeholder="Phone"        name="Tel" class="formInput100 formInput">
+        <input type="text"   placeholder="Country"      name="Pais" class="formInput100 formInput" required>
 
         <label  class="formLabel">SUBJECT</label>
-        <textarea class="singleFormTxtArea" value="" placeholder="SUBJECT" name="a08"></textarea>
+        <textarea class="singleFormTxtArea" value="" placeholder="SUBJECT" name="Comentarios"></textarea>
         <div class="formTermsAndConditions">
            <input type="checkbox" name="a11" required>
            <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
@@ -725,15 +725,16 @@
         <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleTrade')">+</p>
         <label  class="formLabelBig">Trade this <?php the_title(); ?></label>
         <p class="singleFormTxt mainTxtType1">We are always looking for new inventory. If you are interested in trading your high quality bike for one of ours, simply fill out this form. A member of our sales department will be in touch within 24 hours. No one makes the trade-in process easier than <a href="amatumoto.com" target="_blank">Amatumoto Grand Prix Motorbikes</a>.</p>
-        <input type="text"   placeholder="Name"       class="formInput50 formInput" name="a01" required>
-        <input type="email"  placeholder="Email"      class="formInput50 formInput" name="a05" required>
-        <input type="number" placeholder="Phone"      class="formInput50 formInput" name="a07">
-        <input type="number" placeholder="Year"       class="formInput50 formInput" name="a02" required>
-        <input type="text"   placeholder="Brand"       class="formInput50 formInput" name="a04">
-        <input type="text"   placeholder="Model"      class="formInput50 formInput" name="a06" required>
-        <input type="text"   placeholder="vin"        class="formInput50 formInput" name="a08">
+        <input type="text"   placeholder="Name"       class="formInput50 formInput" name="Nombre" required>
+        <input type="email"  placeholder="Email"      class="formInput50 formInput" name="Email" required>
+        <input type="number" placeholder="Phone"      class="formInput50 formInput" name="Tel">
+        <input type="number" placeholder="Year"       class="formInput50 formInput" name="Año" required>
+        <input type="text"   placeholder="Brand"      class="formInput50 formInput" name="Marca" required>
+        <input type="text"   placeholder="Model"      class="formInput50 formInput" name="Modelo" required>
+        <input type="text"   placeholder="Country"    class="formInput100 formInput"name="Pais" required>
+        <input type="text"   placeholder="vin"        class="formInput50 formInput" name="VIN">
         <label  class="formLabel">Subject</label>
-        <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="a10"></textarea>
+        <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="Comentarios"></textarea>
         <div class="formTermsAndConditions">
            <input type="checkbox" name="a11" required>
            <a href="<?php echo site_url('terms-conditions'); ?>" class="linkTermAndConditionsForm">I accept terms and conditions</a>

@@ -31,7 +31,7 @@
         <input type="text"   placeholder="Year"   class="formInput100 formInput" name="Year" required>
         <input type="text"  placeholder="Brand*"        class="formInput100 formInput" name="Brand" required>
         <input type="text" placeholder="Model"        class="formInput100 formInput" name="Model">
-        <input type="text"   placeholder="VIN*"      class="formInput100 formInput" name="VIN" required>
+        <input type="text"   placeholder="VIN*"      class="formInput100 formInput" name="VIN">
         <input type="text"   placeholder="Mileage*"      class="formInput100 formInput" name="Mileage" required>
         <input type="text"   placeholder="Estimated Value*"      class="formInput100 formInput" name="Estimated Value" required>
 
@@ -44,7 +44,7 @@
         <input type="number" placeholder="Phone"        class="formInput100 formInput" name="Phone">
         <input type="text"   placeholder="City*"   class="formInput100 formInput" name="City" required>
         <input type="text"  placeholder="State*"        class="formInput100 formInput" name="State" required>
-        <input type="text" placeholder="Country"        class="formInput100 formInput" name="Country">
+        <input type="text" placeholder="Country"        class="formInput100 formInput" name="Country" required>
 
       <div class="formTermsAndConditions">
          <input type="checkbox" required>

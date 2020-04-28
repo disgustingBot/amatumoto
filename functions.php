@@ -242,7 +242,7 @@ function lt_form_handler() {
 	} else {
 		// $mail=$_POST['mail'];
     // $email='info@gpmotorbikes.com';
-    $email='molinerozadkiel@gmail.com';
+    $email='tomas.moralparra@gmil.com';
 
 		$subject='Form from '. $link;
 		$message='';
