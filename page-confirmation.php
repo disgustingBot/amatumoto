@@ -2,7 +2,7 @@
 
 
 <section class="confirmationContent">
-  <p class="confirmationTxt">Thanks for confirming your account <span class="loginConfirm" onclick="altClassFromSelector('alt','#logForm')"><i>Login</i></span> to see your auctions in the login menu, at the top left of the page.</p>
+  <!-- <p class="confirmationTxt">Thanks for confirming your account <span class="loginConfirm" onclick="altClassFromSelector('alt','#logForm')"><i>Login</i></span> to see your auctions in the login menu, at the top left of the page.</p> -->
   <!-- <p class="confirmationTxt">Your confirmation process could not be carried out, please <span class="loginConfirm" onclick="altClassFromSelector('alt','#logForm')"><i> try again.</i></span></p> -->
 
   <p class="userLoggedInTxt">You are now logged in!</p>
