@@ -702,10 +702,10 @@
           <label class="offerAmmountIconLabel" for="dollar">$</label><br>
         </div>
         <input type="number" placeholder="Offer"        name="Oferta" class="formInput100 formInput offerAmmount">
-        <input type="text"   placeholder="Name"         name="Nombre" class="formInput100 formInput" required>
-        <input type="email"  placeholder="Email"        name="Email" class="formInput100 formInput" required>
+        <input type="text"   placeholder="Name*"         name="Nombre" class="formInput100 formInput" required>
+        <input type="email"  placeholder="Email*"        name="Email" class="formInput100 formInput" required>
         <input type="number" placeholder="Phone"        name="Tel" class="formInput100 formInput">
-        <input type="text"   placeholder="Country"      name="Pais" class="formInput100 formInput" required>
+        <input type="text"   placeholder="Country*"      name="Pais" class="formInput100 formInput" required>
 
         <label  class="formLabel">SUBJECT</label>
         <textarea class="singleFormTxtArea" value="" placeholder="SUBJECT" name="Comentarios"></textarea>
@@ -725,13 +725,13 @@
         <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleTrade')">+</p>
         <label  class="formLabelBig">Trade this <?php the_title(); ?></label>
         <p class="singleFormTxt mainTxtType1">We are always looking for new inventory. If you are interested in trading your high quality bike for one of ours, simply fill out this form. A member of our sales department will be in touch within 24 hours. No one makes the trade-in process easier than <a href="amatumoto.com" target="_blank">Amatumoto Grand Prix Motorbikes</a>.</p>
-        <input type="text"   placeholder="Name"       class="formInput50 formInput" name="Nombre" required>
-        <input type="email"  placeholder="Email"      class="formInput50 formInput" name="Email" required>
+        <input type="text"   placeholder="Name*"       class="formInput50 formInput" name="Nombre" required>
+        <input type="email"  placeholder="Email*"      class="formInput50 formInput" name="Email" required>
         <input type="number" placeholder="Phone"      class="formInput50 formInput" name="Tel">
-        <input type="number" placeholder="Year"       class="formInput50 formInput" name="Año" required>
-        <input type="text"   placeholder="Brand"      class="formInput50 formInput" name="Marca" required>
-        <input type="text"   placeholder="Model"      class="formInput50 formInput" name="Modelo" required>
-        <input type="text"   placeholder="Country"    class="formInput100 formInput"name="Pais" required>
+        <input type="number" placeholder="Year*"       class="formInput50 formInput" name="Año" required>
+        <input type="text"   placeholder="Brand*"      class="formInput50 formInput" name="Marca" required>
+        <input type="text"   placeholder="Model*"      class="formInput50 formInput" name="Modelo" required>
+        <input type="text"   placeholder="Country*"    class="formInput100 formInput"name="Pais" required>
         <input type="text"   placeholder="vin"        class="formInput50 formInput" name="VIN">
         <label  class="formLabel">Subject</label>
         <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="Comentarios"></textarea>

@@ -163,7 +163,7 @@
 <section class="consignSection">
   <h3 class="consignSectionTitle">World Class Consignment</h3>
   <h5 class="consignSectionSubTitle">LETTTING GO IS HARD, SELL YOUR RACE & ROAD BIKES WITH AMATUMOTO IS EASY</h5>
-  <button class="buttonType1 consignButton">consign with amatumoto.com</button>
+  <button class="buttonType1 consignButton"><a style="color: inherit; text-decoration: none;" href="https://gpmotorbikes.com/contact/consignment/">consign with amatumoto.com</a></button>
   <!-- <div class="consignSectionGallery">
     <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery1.png" alt="">
     <img class="consignSectionImg" src="<?php echo get_template_directory_uri(); ?>/img/gallery2.png" alt="">
