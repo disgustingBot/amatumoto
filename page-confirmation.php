@@ -2,10 +2,28 @@
 
 
 <section class="confirmationContent">
-  <p class="confirmationTxt">Thanks for using our auction system! you can now <span class="loginConfirm" onclick="altClassFromSelector('alt','#logForm')"><i>Login</i></span> to see your auctions in the login menu, at the top left of the page.</p>
-    <!-- <p class="confirmationTxt">Your confirmation process could not be carried out, please <span class="loginConfirm" onclick="altClassFromSelector('alt','#logForm')"><i> try again.</i></span></p> -->
-</section>
+  <!-- <p class="confirmationTxt">Thanks for confirming your account <span class="loginConfirm" onclick="altClassFromSelector('alt','#logForm')"><i>Login</i></span> to see your auctions in the login menu, at the top left of the page.</p> -->
+  <!-- <p class="confirmationTxt">Your confirmation process could not be carried out, please <span class="loginConfirm" onclick="altClassFromSelector('alt','#logForm')"><i> try again.</i></span></p> -->
 
+  <p class="userLoggedInTxt">You are now logged in!</p>
+  <br>
+  <p class="youCan">You can now...</p>
+  <br>
+  <ul class="userLoggedOptions">
+    <li class="userLoggedItem">
+      <a href="https://gpmotorbikes.com/account">Go to your account</a>
+    </li>
+    <li class="userLoggedItem">
+      <a href="https://gpmotorbikes.com/inventory/?auction=true">View our current auctions</a>
+    </li>
+    <li class="userLoggedItem">
+      <a href="https://gpmotorbikes.com/inventory/">Explore our inventory</a>
+    </li>
+    <li class="userLoggedItem">
+      <a href="https://gpmotorbikes.com/contact/about-us/">Read about us</a>
+    </li>
+  </ul>
+</section>
 
 
 

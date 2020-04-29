@@ -387,6 +387,11 @@ FIN DE MAPA DE CONTENIDOS */
   --characterSvgMarginRight:.5rem;
   --characterSvgWidth:3rem;
   --footerTitleFontSize: 1rem;
+
+
+  /* CONFIRMATION */
+
+  --userLoggedOptionsFlexDir: column;
 }
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -738,6 +743,11 @@ FIN DE MAPA DE CONTENIDOS */
     --characterSvgMarginRight:0;
     --characterSvgWidth:2rem;
     --footerTitleFontSize: .7rem;
+
+
+    /* CONFIRMATION */
+    --userLoggedOptionsFlexDir: row;
+
 
   }
 }
@@ -4717,6 +4727,7 @@ a.paginationLink:hover{
   margin: 1rem var(--lateral);
   min-height: 100vh;
 }
+
 .confirmationTxt {text-align: justify;  }
 
 .loginConfirm {
@@ -4726,7 +4737,23 @@ a.paginationLink:hover{
   text-decoration: underline;
 }
 
+.userLoggedOptions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: var(--userLoggedOptionsFlexDir);
+}
 
+.userLoggedItem {
+  list-style: none;
+  width: max-content;
+  margin: 1rem auto!important;
+}
+
+.userLoggedItem a:hover {
+  color: var(--color1);
+  transition: .25s;
+}
 
 
 

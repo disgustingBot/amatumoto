@@ -8,7 +8,8 @@
 
 
 <figure class="pageBanner">
-  <img class="pageBannerImg rowcol1" src="<?php echo wp_get_attachment_url(get_woocommerce_term_meta(get_queried_object()->term_id, 'thumbnail_id', true )); ?>" alt="">
+  <img class="pageBannerImg rowcol1" src="<?php echo get_the_post_thumbnail_url('6'); ?>" alt="">
+
   <figcaption class="pageBannerCaption rowcol1">
     <!-- <h2><?php echo get_queried_object()->name; ?></h2> -->
     <p>CURRENT</p>
