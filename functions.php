@@ -3,6 +3,8 @@
 require_once 'customPosts.php';
 $newness_days = 25;
 
+$site = '6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B';
+$scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
 function lattte_setup(){
 
 
@@ -241,8 +243,8 @@ function lt_form_handler() {
 	  // exit;
 	} else {
 		// $mail=$_POST['mail'];
-    $email='info@gpmotorbikes.com';
-    // $email='molinerozadkiel@gmail.com';
+    // $email='info@gpmotorbikes.com';
+    $email='molinerozadkiel@gmail.com';
     // $email='tomas.moralparra@gmil.com';
 
 		$subject='Form from '. $link;

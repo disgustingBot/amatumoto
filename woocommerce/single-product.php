@@ -679,6 +679,8 @@
            <input type="checkbox" name="a11" required>
            <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
+                <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
+                <input class="recaptcha" type="text" hidden value="">
         <button class="singleContactButton contactButton" type="submit">SEND</button>
       </form>
     </div>
@@ -713,6 +715,8 @@
            <input type="checkbox" name="a11" required>
            <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
+                <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
+                <input class="recaptcha" type="text" hidden value="">
         <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>
       </form>
     </div>
@@ -739,6 +743,8 @@
            <input type="checkbox" name="a11" required>
            <a href="<?php echo site_url('terms-conditions'); ?>" class="linkTermAndConditionsForm">I accept terms and conditions</a>
         </div>
+                <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
+                <input class="recaptcha" type="text" hidden value="">
         <button class="singleRequestInfoButton contactButton" type="submit">REQUEST TRADE IN</button>
       </form>
     </div>
