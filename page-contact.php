@@ -1,8 +1,6 @@
 <?php
 get_header();
 // TODO cambiar estas claves por las del cliente
-$site = '6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B';
-$scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
 ?>
 
 <figure class="pageBanner">
