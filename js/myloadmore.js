@@ -70,6 +70,12 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
 			'query'    : JSON.stringify(query), // that's how we get params from wp_localize_script() function
 			'page'     : page,
 		};
+    if (parentsArray.includes('sold')) {
+      data.sold = true;
+    }
+    if (parentsArray.includes('auction')) {
+      data.auction = true;
+    }
 		// DATA READY
         // c.log(query.tax_query.tipo);
         // c.log(query.tax_query.motivo);
