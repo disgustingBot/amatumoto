@@ -1,3 +1,8 @@
+
+<?php
+$site = '6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B';
+$scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +32,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+
 
   <?php $errores = array('wrongPass', 'alreadyExist'); ?>
   <div id="logErrors" class="logErrors <?php if (in_array($_GET['action'],$errores)) { echo 'alt'; } ?>">
@@ -292,6 +298,8 @@
             </label>
           </div>
 
+                  <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
+                  <input class="recaptcha" type="text" hidden value="">
           <button class="filterSearch" type="submit" name="button">Confirm</button>
         </div>
 

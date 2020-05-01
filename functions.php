@@ -210,7 +210,8 @@ function new_loop_shop_per_page( $cols ) {
   if(is_product_category()){
     $cols = -1;
   } else {
-    $cols = 18;
+    // $cols = 18;
+    $cols = 3;
   }
   return $cols;
 }
@@ -358,61 +359,85 @@ function lt_login(){
       if( null != username_exists( $mail ) || email_exists( $mail ) != false  ) {
         $action='alreadyExist';
       } else {
-        // Generate the password and create the user for security
-        // $password = wp_generate_password( 12, false );
-        // $user_id = wp_create_user( $mail, $password, $mail );
 
-        // user generated pass for local testing
-        $user_id = wp_create_user( $mail, $pass, $mail );
-        // Set the nickname and display_name
-        wp_update_user(
-          array(
-            'ID'              =>    $user_id,
-            'display_name'    =>    $name,
-            'nickname'        =>    $name,
-          )
-        );
-        update_user_meta( $user_id, 'phone', $fono );
-        $hash = hash ( 'sha256' , time() . $mail );
-        update_user_meta( $user_id, 'confirmation', $hash );
+        // recaptcha
 
 
-        // Set the role
-        $user = new WP_User( $user_id );
-        $user->set_role( 'subscriber' );
+        $site = '6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B';
+        $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
 
-        // Email the user
-        $message='';
-        $message=$message.'Your Password: ' . $pass;
-        $message=$message.'<br>';
-        $message=$message.'activation Code: ';
-        $message=$message.'<br>';
-        $enlace=get_site_url().'/confirmation/?confirmation='.$hash;
-        $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
-        $message=$message.'<br>';
-        $headers = array('Content-Type: text/html; charset=UTF-8');
-
-        // wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
-        wp_mail( $mail, 'Welcome '.$name.'!', $message, $headers );
+        $response = $_POST['g-recaptcha-response'];
+        $payload = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$scrt.'&response='.$response);
+        // echo $payload;
+        $result = json_decode($payload,true);
+        if ($result['success']!=1) {
+           // code...
+           // header( "Location: https://multiviahr.info/?mail=BOT" );
+           // $link = add_query_arg( array( 'status' => 'bot' , ), $link );
+           // echo 'you are evil or a bott';
+           // exit;
+           $action='bot';
+           // return false;
+        } else {
 
 
 
-        // delete users eventually?
-        // wp_delete_user( $id, $reassign );
+          // Generate the password and create the user for security
+          // $password = wp_generate_password( 12, false );
+          // $user_id = wp_create_user( $mail, $password, $mail );
+
+          // user generated pass for local testing
+          $user_id = wp_create_user( $mail, $pass, $mail );
+          // Set the nickname and display_name
+          wp_update_user(
+            array(
+              'ID'              =>    $user_id,
+              'display_name'    =>    $name,
+              'nickname'        =>    $name,
+            )
+          );
+          update_user_meta( $user_id, 'phone', $fono );
+          $hash = hash ( 'sha256' , time() . $mail );
+          update_user_meta( $user_id, 'confirmation', $hash );
+
+
+          // Set the role
+          $user = new WP_User( $user_id );
+          $user->set_role( 'subscriber' );
+
+          // Email the user
+          $message='';
+          $message=$message.'Your Password: ' . $pass;
+          $message=$message.'<br>';
+          $message=$message.'activation Code: ';
+          $message=$message.'<br>';
+          $enlace=get_site_url().'/confirmation/?confirmation='.$hash;
+          $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
+          $message=$message.'<br>';
+          $headers = array('Content-Type: text/html; charset=UTF-8');
+
+          // wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
+          wp_mail( $mail, 'Welcome '.$name.'!', $message, $headers );
+
+
+
+          // delete users eventually?
+          // wp_delete_user( $id, $reassign );
 
 
 
 
-        // wp_new_user_notification($user, $pass);
-        // end if
-        // $creds = array(
-        //   'user_login'    => $mail,
-        //   'user_password' => $pass,
-        //   'remember'      => true
-        // );
+          // wp_new_user_notification($user, $pass);
+          // end if
+          // $creds = array(
+          //   'user_login'    => $mail,
+          //   'user_password' => $pass,
+          //   'remember'      => true
+          // );
 
-        // $status = wp_signon( $creds, false );
-        $action='register';
+          // $status = wp_signon( $creds, false );
+          $action='register';
+        }
 
       }
 
@@ -460,6 +485,39 @@ if( $actn == 'login' ) {
 
 
 
+
+
+// ONCE A DAY DELETE OLD USERS
+add_action( 'wp', 'lt_setup_schedule' );
+/**
+ * On an early action hook, check if the hook is scheduled - if not, schedule it.
+ */
+function lt_setup_schedule() {
+    if ( ! wp_next_scheduled( 'lt_daily_event' ) ) {
+        wp_schedule_event( time(), 'daily', 'lt_daily_event');
+    }
+}
+add_action( 'lt_daily_event', 'lt_do_this_daily' );
+/**
+ * On the scheduled action hook, run a function.
+ */
+function lt_do_this_daily() {
+  // check every user and see if their account is expiring, if yes, deletes te user.
+  $users = get_users();
+  foreach ($users as $key => $value) {
+    // code...
+    if (get_user_meta( $value->id, 'confirmation' )[0] != ''){
+      $now = new DateTime();
+      $registrationDate = new DateTime( $value->user_registered );
+      $daysAgo = intval($now->diff($registrationDate)->format("%d"));
+
+      if ($daysAgo > 1){
+        require_once(ABSPATH.'wp-admin/includes/user.php' );
+        wp_delete_user( $value->id );
+      }
+    }
+  }
+}
 
 
 
@@ -777,6 +835,14 @@ function alter_query($query) {
       // 'compare' => 'NOT IN',
     );
   }
+  if (!isset($_GET['sold'])) {
+    $query->query_vars['tax_query'][] = array(
+      'taxonomy' => 'product_visibility',
+      'field'    => 'slug',
+      'terms'    => array('outofstock'),
+      'operator' => 'NOT IN',
+    );
+  }
 
 
   // chequea si hay una busqueda de texto solicitada por el usuario, de haberla la pasa al query
@@ -939,6 +1005,13 @@ function latte_pagination() {
         'terms'    => 'auction',
         'operator' => 'NOT IN',
       );
+    } else {
+      $args['tax_query']['auction'] = array(
+        'taxonomy' => 'product_type',
+        'field'    => 'slug',
+        'terms'    => 'auction',
+        'operator' => 'IN',
+      );
     }
 
     if(!isset($_POST['sold'])){
@@ -947,6 +1020,13 @@ function latte_pagination() {
         'field'    => 'slug',
         'terms'    => array('outofstock'),
         'operator' => 'NOT IN',
+      );
+    } else {
+      $args['tax_query']['sold'] = array(
+        'taxonomy' => 'product_visibility',
+        'field'    => 'slug',
+        'terms'    => array('outofstock'),
+        'operator' => 'IN',
       );
     }
 

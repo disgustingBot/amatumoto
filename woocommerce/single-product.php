@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 <?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 
+
 <?php while(have_posts()){the_post(); ?>
   <?php global $woocommerce, $product, $post; ?>
   <?php $categories = get_the_terms( get_the_ID(), 'product_cat' ); ?>
