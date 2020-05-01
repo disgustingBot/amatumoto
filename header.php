@@ -28,6 +28,20 @@
 
 <body <?php body_class(); ?>>
 
+  <?php $errores = array('wrongPass', 'alreadyExist'); ?>
+  <div id="logErrors" class="logErrors <?php if (in_array($_GET['action'],$errores)) { echo 'alt'; } ?>">
+    <?php if ( $_GET['action'] == 'wrongPass' ) { ?>
+      <p>Wrong password, please try again</p>
+    <?php } ?>
+    <?php if ( $_GET['action'] == 'alreadyExist' ) { ?>
+      <p>This email is already registered</p>
+    <?php } ?>
+    <button class="logFormClose" type="button" onclick="altClassFromSelector('alt','#logErrors')">
+      <div class="logFormCloseLine"></div>
+      <div class="logFormCloseLine"></div>
+    </button>
+  </div>
+
 	<!-- <view id="load" class="load">
 			<div class="circle"></div>
 	</view> -->
@@ -231,10 +245,12 @@
       <form class="logForm" id="logForm" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
         <input type="hidden" name="action" value="lt_login">
         <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+        <input type="hidden" name="actn" id="logInterAction" value="login">
 
         <div class="logFormTitle">
           <h3>Enter</h3>
-          <button class="logFormTitleRegister" onclick="altClassFromSelector('alt','#logFormFields'); addRequired()" type="button" name="button">you don't have an account?</button>
+          <!-- <button class="logFormTitleRegister" onclick="altClassFromSelector('alt','#logFormFields'); addRequired()" type="button" name="button">you don't have an account?</button> -->
+          <button class="logFormTitleRegister" onclick="loginHandler()" type="button" name="button">you don't have an account?</button>
           <button class="logFormClose" type="button" onclick="altClassFromSelector('alt','#logForm')">
             <div class="logFormCloseLine"></div>
             <div class="logFormCloseLine"></div>

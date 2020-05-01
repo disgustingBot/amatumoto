@@ -58,6 +58,7 @@ Version: 1.0
 6.13) =pagination
 6.14) =BANNERS
 6.14.1) = banner0
+6.15) = logErrors:
 
 
 6.99) =footer
@@ -4765,3 +4766,61 @@ a.paginationLink:hover{
 .onlyDesktopG{display:var(--onlyDesktopG)}
 .onlyMobileF{display:var(--onlyMobileF)}
 .onlyMobileG{display:var(--onlyMobileG)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                          6.15) = logErrors:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+
+
+
+.logErrors{
+  background:black;
+  border-radius:0 0 8px 8px;
+  color:white;
+  left:50%;
+  padding:1rem 2rem;
+  position:fixed;
+  top:-5rem;
+  transition:.4s;
+  transform:translateX(-50%);
+  z-index:30;
+}
+.logErrors.alt{top:0}
+.logErrors p{color:inherit;}
+.logErrors .logFormCloseLine{background:white;}
+.logErrors .logFormClose {
+  width:20px;
+  height:20px;
+  margin:.3rem;
+}
