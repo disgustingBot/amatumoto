@@ -83,21 +83,54 @@ if(y.length>0){showImgs(0)}
 const altClassFromSelector = ( clase, selector, mainClass = false )=> {
   const x = d.querySelector(selector);
   // if there is a main class removes all other classes
-  if (mainClass) {
-    x.classList.forEach((item, i) => {
-      if(item!=mainClass&&item!=clase){
-        // c.log(item);
-        x.classList.remove(item);
-      }
-    });
-  }
+  // x.forEach( y => {
+    if (mainClass) {
+      x.classList.forEach(item => {
+        if(item!=mainClass && item!=clase){
+          x.classList.remove(item);
+        }
+      });
+    }
 
-  if(x.classList.contains(clase)){
-    x.classList.remove(clase)
-  }else{
-    x.classList.add(clase)
-  }
+    x.classList.toggle(clase)
+
+  // });
+
 }
+
+
+
+
+
+var loginFormState = 0;
+const loginHandler = (a) => {
+  altClassFromSelector('alt','#logFormFields');
+
+  // function addRequired() {
+      const requiredElement = d.querySelectorAll('.variableRequired');
+      requiredElement.forEach( element => {
+        if(element.hasAttribute('required')) {
+          element.removeAttribute('required');
+        }else {
+            element.setAttribute('required', 'true');
+        }
+      });
+
+      if (d.querySelector('#logInterAction').value=='login'){
+        d.querySelector('#logInterAction').value='register'
+      } else {
+        d.querySelector('#logInterAction').value='login'
+      }
+    // }
+}
+
+
+
+
+
+
+
+
 
 
 var arr = Array.prototype.slice.call( d.getElementsByClassName("auctionInfoBtn") )
@@ -275,16 +308,6 @@ const getUrlVars = () => {
 
 
 
-function addRequired() {
-    const requiredElement = d.querySelectorAll('.variableRequired');
-    requiredElement.forEach( element => {
-      if(element.hasAttribute('required')) {
-        element.removeAttribute('required');
-      }else {
-          element.setAttribute('required', 'true');
-      }
-    });
-  }
 
 
   var correctCaptcha = function(response) {

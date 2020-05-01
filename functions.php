@@ -243,8 +243,8 @@ function lt_form_handler() {
 	  // exit;
 	} else {
 		// $mail=$_POST['mail'];
-    // $email='info@gpmotorbikes.com';
-    $email='molinerozadkiel@gmail.com';
+    $email='info@gpmotorbikes.com';
+    // $email='molinerozadkiel@gmail.com';
     // $email='tomas.moralparra@gmil.com';
 
 		$subject='Form from '. $link;
@@ -294,6 +294,9 @@ function lt_form_handler() {
 }
 
 
+
+
+
 // FUCTION FOR USER GENERATION
 // https://tommcfarlin.com/create-a-user-in-wordpress/
 add_action( 'admin_post_nopriv_lt_new_user', 'lt_new_user');
@@ -302,7 +305,7 @@ function lt_new_user(){
   $email_address=$_POST['mail'];
   $url=$_POST['url'];
   $pass=$_POST['pass'];
-  if( null == username_exists( $email_address ) ) {
+  if( null == username_exists( $email_address ) || email_exists( $email ) == false ) {
 
     // Generate the password and create the user for security
     // $password = wp_generate_password( 12, false );
@@ -333,9 +336,6 @@ function lt_new_user(){
 
 
 
-
-
-
 // FUCTION FOR USER GENERATION
 // https://tommcfarlin.com/create-a-user-in-wordpress/
 add_action( 'admin_post_nopriv_lt_login', 'lt_login');
@@ -346,100 +346,113 @@ function lt_login(){
   $fono=$_POST['fono'];
   $mail=$_POST['mail'];
   $pass=$_POST['pass'];
+  $actn=$_POST['actn'];
 
 
-  if( null == username_exists( $mail ) ) {
+  if( $actn == 'register' ) {
 
+    // ERROR HANDLING
     if ($fono=='') {
-      // code...
       $action='phoneRequired';
     } else {
-      // Generate the password and create the user for security
-      // $password = wp_generate_password( 12, false );
-      // $user_id = wp_create_user( $mail, $password, $mail );
+      if( null != username_exists( $mail ) || email_exists( $mail ) != false  ) {
+        $action='alreadyExist';
+      } else {
+        // Generate the password and create the user for security
+        // $password = wp_generate_password( 12, false );
+        // $user_id = wp_create_user( $mail, $password, $mail );
 
-      // user generated pass for local testing
-      $user_id = wp_create_user( $mail, $pass, $mail );
-      // Set the nickname and display_name
-      wp_update_user(
-        array(
-          'ID'              =>    $user_id,
-          'display_name'    =>    $name,
-          'nickname'        =>    $name,
-        )
-      );
-      update_user_meta( $user_id, 'phone', $fono );
-      $hash = hash ( 'sha256' , time() . $mail );
-      update_user_meta( $user_id, 'confirmation', $hash );
-
-
-      // Set the role
-      $user = new WP_User( $user_id );
-      $user->set_role( 'subscriber' );
-
-      // Email the user
-      $message='';
-      $message=$message.'Your Password: ' . $pass;
-      $message=$message.'<br>';
-      $message=$message.'activation Code: ';
-      $message=$message.'<br>';
-      $enlace=get_site_url().'/confirmation/?confirmation='.$hash;
-      $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
-      $message=$message.'<br>';
-      $headers = array('Content-Type: text/html; charset=UTF-8');
-
-      // wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
-      wp_mail( $mail, 'Welcome '.$name.'!', $message, $headers );
+        // user generated pass for local testing
+        $user_id = wp_create_user( $mail, $pass, $mail );
+        // Set the nickname and display_name
+        wp_update_user(
+          array(
+            'ID'              =>    $user_id,
+            'display_name'    =>    $name,
+            'nickname'        =>    $name,
+          )
+        );
+        update_user_meta( $user_id, 'phone', $fono );
+        $hash = hash ( 'sha256' , time() . $mail );
+        update_user_meta( $user_id, 'confirmation', $hash );
 
 
+        // Set the role
+        $user = new WP_User( $user_id );
+        $user->set_role( 'subscriber' );
 
-// delete users eventually?
-// wp_delete_user( $id, $reassign );
+        // Email the user
+        $message='';
+        $message=$message.'Your Password: ' . $pass;
+        $message=$message.'<br>';
+        $message=$message.'activation Code: ';
+        $message=$message.'<br>';
+        $enlace=get_site_url().'/confirmation/?confirmation='.$hash;
+        $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
+        $message=$message.'<br>';
+        $headers = array('Content-Type: text/html; charset=UTF-8');
+
+        // wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
+        wp_mail( $mail, 'Welcome '.$name.'!', $message, $headers );
 
 
 
+        // delete users eventually?
+        // wp_delete_user( $id, $reassign );
 
-      // wp_new_user_notification($user, $pass);
-      // end if
-      // $creds = array(
-      //   'user_login'    => $mail,
-      //   'user_password' => $pass,
-      //   'remember'      => true
-      // );
 
-      // $status = wp_signon( $creds, false );
-      $action='register';
+
+
+        // wp_new_user_notification($user, $pass);
+        // end if
+        // $creds = array(
+        //   'user_login'    => $mail,
+        //   'user_password' => $pass,
+        //   'remember'      => true
+        // );
+
+        // $status = wp_signon( $creds, false );
+        $action='register';
+
+      }
 
     }
 
-} else {
+}
+if( $actn == 'login' ) {
+  if( null == username_exists( $mail ) && email_exists( $mail ) == false  ) {
 
-  // aqui debo chequear que no tenga confirmation el usuario
-  $user = get_user_by( 'email', $mail );
-  // echo 'User is ' . $user->first_name . ' ' . $user->last_name;
-  if(get_user_meta($user->id, 'confirmation')){
-    echo 'SIII!';
-    $action='needsConfirmation';
+    $action='notExist';
   } else {
+    // aqui debo chequear que no tenga confirmation el usuario
+    $user = get_user_by( 'email', $mail );
+    // echo 'User is ' . $user->first_name . ' ' . $user->last_name;
+    if(get_user_meta($user->id, 'confirmation')){
+      // echo 'SIII!';
+      $action='needsConfirmation';
+    } else {
 
-    $creds = array(
+      $creds = array(
         'user_login'    => $mail,
         'user_password' => $pass,
         'remember'      => true
-    );
+      );
 
-    $status = wp_signon( $creds, false );
+      $status = wp_signon( $creds, false );
 
-    // $status=wp_login($mail, $pass);
-
-    $action='login';
+      if ( is_wp_error($status) ){
+        $action='wrongPass';
+      } else {
+        $action='login';
+      }
+    }
   }
 }
 
   $link = add_query_arg( array(
+    // 'status' => $status,
     'action' => $action,
     // 'mail'   => $mail,
-    // 'status' => $status,
     // 'resultado' => username_exists( $mail ),
   ), $link );
   wp_redirect($link);
