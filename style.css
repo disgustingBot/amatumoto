@@ -2262,6 +2262,14 @@ background: #ddd;
 
 .MainContactForm .g-recaptcha {margin: auto;}
 
+.logFormFields.alt .g-recaptcha {
+  display: block;
+}
+
+.logFormFields .g-recaptcha {
+  display: none;
+}
+
 .MainContactForm .singleFormTxtArea {
   height: 7rem;
   width: var(--contactPageTextWidth);
