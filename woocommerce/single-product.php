@@ -682,7 +682,7 @@
         </div>
                 <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
                 <input class="recaptcha" type="text" hidden value="">
-        <button class="singleContactButton contactButton" type="submit">SEND</button>
+        <button class="singleContactButton contactButton butttonSend" type="submit" disabled>SEND</button>
       </form>
     </div>
 
@@ -718,7 +718,7 @@
         </div>
                 <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
                 <input class="recaptcha" type="text" hidden value="">
-        <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>
+        <button class="singleRequestInfoButton contactButton butttonSend" type="submit" disabled>SUBMIT OFFER</button>
       </form>
     </div>
 
@@ -746,7 +746,7 @@
         </div>
                 <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
                 <input class="recaptcha" type="text" hidden value="">
-        <button class="singleRequestInfoButton contactButton" type="submit">REQUEST TRADE IN</button>
+        <button class="singleRequestInfoButton contactButton butttonSend" type="submit" disabled>REQUEST TRADE IN</button>
       </form>
     </div>
 
