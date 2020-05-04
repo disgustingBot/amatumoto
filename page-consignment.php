@@ -45,11 +45,13 @@
         <input type="text"   placeholder="City*"   class="formInput100 formInput" name="City" required>
         <input type="text"  placeholder="State*"        class="formInput100 formInput" name="State" required>
         <input type="text" placeholder="Country*"        class="formInput100 formInput" name="Country" required>
-
+        <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
+        <input class="recaptcha" type="text" hidden value="">
       <div class="formTermsAndConditions">
          <input type="checkbox" required>
          <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
       </div>
+
       <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>
     </form>
   </div>
