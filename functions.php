@@ -210,8 +210,8 @@ function new_loop_shop_per_page( $cols ) {
   if(is_product_category()){
     $cols = -1;
   } else {
-    // $cols = 18;
-    $cols = 3;
+    $cols = 18;
+    // $cols = 3;
   }
   return $cols;
 }
