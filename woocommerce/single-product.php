@@ -737,9 +737,9 @@
         <input type="text"   placeholder="Brand*"      class="formInput50 formInput" name="Marca" required>
         <input type="text"   placeholder="Model*"      class="formInput50 formInput" name="Modelo" required>
         <input type="text"   placeholder="Country*"    class="formInput100 formInput"name="Pais" required>
-        <input type="text"   placeholder="vin"        class="formInput50 formInput" name="VIN">
+        <input type="text"   placeholder="VIN"        class="formInput50 formInput" name="VIN">
         <label  class="formLabel">Subject</label>
-        <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="your comments" name="Comentarios"></textarea>
+        <textarea class="singleFormTxtArea formInput50" value="comments" placeholder="Your comments" name="Comentarios"></textarea>
         <div class="formTermsAndConditions">
            <input type="checkbox" name="a11" required>
            <a href="<?php echo site_url('terms-conditions'); ?>" class="linkTermAndConditionsForm">I accept terms and conditions</a>

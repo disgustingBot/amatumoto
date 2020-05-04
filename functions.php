@@ -244,9 +244,9 @@ function lt_form_handler() {
 	  // exit;
 	} else {
 		// $mail=$_POST['mail'];
-    // $email='info@gpmotorbikes.com';
+    $email='info@gpmotorbikes.com';
     // $email='molinerozadkiel@gmail.com';
-    $email='tomas.moralparra@gmil.com';
+    // $email='tomas.moralparra@gmil.com';
 
 		$subject='Form from '. $link;
 		$message='';
