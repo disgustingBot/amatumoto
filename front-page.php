@@ -46,7 +46,7 @@
     ),
   );
   $blogPosts=new WP_Query($args);
-  if ( count( $blogPosts->posts ) >= 1 ) {
+  if ( count( $blogPosts->posts ) >= 3 ) {
     ?><h3 class="hotAuctionsTitle">HOT AUCTIONS</h3><?php
     $cardName='hotCard';
   } else {

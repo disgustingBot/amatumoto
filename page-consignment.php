@@ -50,7 +50,7 @@
          <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
       </div>
 
-      <button class="singleRequestInfoButton contactButton" type="submit">SUBMIT OFFER</button>
+      <button class="singleRequestInfoButton contactButton butttonSend" type="submit" disabled>SUBMIT OFFER</button>
     </form>
   </div>
 </main>
