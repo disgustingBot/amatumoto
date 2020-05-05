@@ -1784,8 +1784,27 @@ background: #ddd;
   grid-template-columns:var(--hotAuctionsGTC);
   padding:1rem var(--lateral);
   grid-gap:1rem;
-
 }
+
+.hotAuctions .productCardCaption .productCardTxt {
+  display: none!important;
+}
+
+.hotAuctions .productCardCaption {
+  display: flex;
+}
+
+
+
+.hotAuctions .productCardAnoMarca, .hotAuctions .productCardTitle {
+  font-size: 1.1rem!important;
+}
+
+.hotAuctions .productCardTitle {
+  margin: auto 0 auto auto;
+}
+
+
 
 
 .hotAuctionsTitle{
