@@ -134,9 +134,7 @@
           </p>
         <?php } ?>
 
-        <?php if(!method_exists($product,'get_seconds_remaining')){ ?>
-          <p class="productCardTxt"><a href="<?php echo get_permalink(); ?>"><?php echo excerpt(70); ?></a></p>
-        <?php } ?>
+
 
 
       </figcaption>

@@ -27,7 +27,7 @@
       <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
       <p class="SingleContactCloseButton" onclick="altClassFromSelector('alt','#singleConsign')">+</p>
       <label  class="formLabelBig">Consign</label>
-      <label  class="formLabel">VEHICLE INFORMATION</label>
+      <label  class="formLabel">VEHICLE</label>
         <input type="text"   placeholder="Year*"   class="formInput100 formInput" name="Year" required>
         <input type="text"  placeholder="Brand*"        class="formInput100 formInput" name="Brand" required>
         <input type="text" placeholder="Model*"        class="formInput100 formInput" name="Model" required>
