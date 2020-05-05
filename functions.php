@@ -738,126 +738,128 @@ add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );
 add_action('pre_get_posts','alter_query');
 
 function alter_query($query) {
-	//gets the global query var object
-	global $wp_query;
-	$max_page = $query->max_num_pages;
-	// var_dump($max_page);
+  if (!is_admin()) {
+    //gets the global query var object
+    global $wp_query;
+    $max_page = $query->max_num_pages;
+    // var_dump($max_page);
 
-	//gets the front page id set in options
-	$front_page_id = get_option('page_on_front');
+    //gets the front page id set in options
+    $front_page_id = get_option('page_on_front');
 
-	if ( !$query->is_main_query() )
-		return;
+    if ( !$query->is_main_query() )
+    return;
 
-	// $args['paged'] = $page;
-	// if (isset($_GET['page']) AND $_GET['page'] <= $max_page ) {
-	if (isset($_GET['page'])) {
-		// $query-> set('paged' , $_GET['page']);
-    $query->query_vars['paged'] = $_GET['page'];
-	} else {
-    $query->query_vars['paged'] = 1;
-		// $query-> set('paged' , 1);
-	}
-  $query->query_vars['orderby'] = 'date';
-  $query->query_vars['order'] = 'DESC';
+    // $args['paged'] = $page;
+    // if (isset($_GET['page']) AND $_GET['page'] <= $max_page ) {
+    if (isset($_GET['page'])) {
+      // $query-> set('paged' , $_GET['page']);
+      $query->query_vars['paged'] = $_GET['page'];
+    } else {
+      $query->query_vars['paged'] = 1;
+      // $query-> set('paged' , 1);
+    }
+    $query->query_vars['orderby'] = 'date';
+    $query->query_vars['order'] = 'DESC';
 
-  if (isset($_GET['filter_search']) AND $_GET['filter_search']!=''){
-    $query->query_vars['s']=$_GET['filter_search'];
+    if (isset($_GET['filter_search']) AND $_GET['filter_search']!=''){
+      $query->query_vars['s']=$_GET['filter_search'];
+    }
+
+    if (isset($_GET['year-bikes']) AND $_GET['year-bikes']!=0) {
+      $query->query_vars['tax_query']['year-bikes'] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $_GET['year-bikes'],
+      );
+      echo '<script>console.log('.$_GET['year-bikes'].')';
+      echo '</script>';
+    }
+    if (isset($_GET['brand'])) {
+      $brand = $_GET['brand'];
+      $query->query_vars['tax_query']['brand'] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $brand,
+      );
+    }
+    if (isset($_GET['type']) AND $_GET['type']!='') {
+      $type = $_GET['type'];
+      $query->query_vars['tax_query']['type'] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $type,
+        );
+      }
+      if (isset($_GET['race-bike']) AND $_GET['race-bike']!='') {
+        $raceBike = $_GET['race-bike'];
+        $query->query_vars['tax_query']['race-bike'] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $raceBike,
+        );
+      }
+      if (isset($_GET['road-bike']) AND $_GET['road-bike']!='') {
+        $roadBike = $_GET['road-bike'];
+        $query->query_vars['tax_query']['road-bike'] = array(
+        'taxonomy' => 'product_cat',
+        'field'    => 'slug',
+        'terms'    => $roadBike,
+        );
+      }
+      // var_dump($_GET['auction'])
+
+      if (isset($_GET['auction']) AND $_GET['auction']=='true') {
+        $query->query_vars['tax_query'][] = array(
+        'taxonomy' => 'product_type',
+        'field'    => 'slug',
+        'terms'    => 'auction',
+        'operator' => 'IN',
+        );
+      }
+      if (!isset($_GET['auction'])) {
+        $query->query_vars['tax_query'][] = array(
+        'taxonomy' => 'product_type',
+        'field'    => 'slug',
+        'terms'    => 'auction',
+        'operator' => 'NOT IN',
+        );
+      }
+
+
+      if (isset($_GET['sold']) AND $_GET['sold']=='true') {
+        $query->query_vars['tax_query'][] = array(
+        'taxonomy' => 'product_visibility',
+        'field'    => 'slug',
+        'terms'   => array('outofstock'),
+        'compare' => 'IN',
+        // 'compare' => 'NOT IN',
+        );
+      }
+      if (!isset($_GET['sold'])) {
+        $query->query_vars['tax_query'][] = array(
+        'taxonomy' => 'product_visibility',
+        'field'    => 'slug',
+        'terms'    => array('outofstock'),
+        'operator' => 'NOT IN',
+        );
+      }
+
+
+      // chequea si hay una busqueda de texto solicitada por el usuario, de haberla la pasa al query
+      if (isset($_GET['filter_search']) AND $_GET['filter_search']!=''){
+        $query->query_vars['s']=$_GET['filter_search'];
+      }
+
+      // $query-> set('post__in' ,$front_page_id-);
+      // $query-> set('post__in' ,array( $front_page_id , [YOUR SECOND PAGE ID]  ));
+      // $query-> set('orderby' ,'post__in');
+      // $query-> set('p' , null);
+      // $query-> set( 'page_id' ,null);
+
+      //we remove the actions hooked on the '__after_loop' (post navigation)
+      remove_all_actions ( '__after_loop');
   }
-
-  if (isset($_GET['year-bikes']) AND $_GET['year-bikes']!=0) {
-    $query->query_vars['tax_query']['year-bikes'] = array(
-      'taxonomy' => 'product_cat',
-      'field'    => 'slug',
-      'terms'    => $_GET['year-bikes'],
-    );
-    echo '<script>console.log('.$_GET['year-bikes'].')';
-    echo '</script>';
-  }
-  if (isset($_GET['brand'])) {
-    $brand = $_GET['brand'];
-    $query->query_vars['tax_query']['brand'] = array(
-      'taxonomy' => 'product_cat',
-      'field'    => 'slug',
-      'terms'    => $brand,
-    );
-  }
-  if (isset($_GET['type']) AND $_GET['type']!='') {
-    $type = $_GET['type'];
-    $query->query_vars['tax_query']['type'] = array(
-      'taxonomy' => 'product_cat',
-      'field'    => 'slug',
-      'terms'    => $type,
-    );
-  }
-  if (isset($_GET['race-bike']) AND $_GET['race-bike']!='') {
-    $raceBike = $_GET['race-bike'];
-    $query->query_vars['tax_query']['race-bike'] = array(
-      'taxonomy' => 'product_cat',
-      'field'    => 'slug',
-      'terms'    => $raceBike,
-    );
-  }
-  if (isset($_GET['road-bike']) AND $_GET['road-bike']!='') {
-    $roadBike = $_GET['road-bike'];
-    $query->query_vars['tax_query']['road-bike'] = array(
-      'taxonomy' => 'product_cat',
-      'field'    => 'slug',
-      'terms'    => $roadBike,
-    );
-  }
-  // var_dump($_GET['auction'])
-
-  if (isset($_GET['auction']) AND $_GET['auction']=='true') {
-    $query->query_vars['tax_query'][] = array(
-      'taxonomy' => 'product_type',
-      'field'    => 'slug',
-      'terms'    => 'auction',
-      'operator' => 'IN',
-    );
-  }
-  if (!isset($_GET['auction'])) {
-    $query->query_vars['tax_query'][] = array(
-      'taxonomy' => 'product_type',
-      'field'    => 'slug',
-      'terms'    => 'auction',
-      'operator' => 'NOT IN',
-    );
-  }
-
-
-  if (isset($_GET['sold']) AND $_GET['sold']=='true') {
-    $query->query_vars['tax_query'][] = array(
-      'taxonomy' => 'product_visibility',
-      'field'    => 'slug',
-      'terms'   => array('outofstock'),
-      'compare' => 'IN',
-      // 'compare' => 'NOT IN',
-    );
-  }
-  if (!isset($_GET['sold'])) {
-    $query->query_vars['tax_query'][] = array(
-      'taxonomy' => 'product_visibility',
-      'field'    => 'slug',
-      'terms'    => array('outofstock'),
-      'operator' => 'NOT IN',
-    );
-  }
-
-
-  // chequea si hay una busqueda de texto solicitada por el usuario, de haberla la pasa al query
-  if (isset($_GET['filter_search']) AND $_GET['filter_search']!=''){
-    $query->query_vars['s']=$_GET['filter_search'];
-  }
-
-	// $query-> set('post__in' ,$front_page_id-);
-	// $query-> set('post__in' ,array( $front_page_id , [YOUR SECOND PAGE ID]  ));
-	// $query-> set('orderby' ,'post__in');
-	// $query-> set('p' , null);
-	// $query-> set( 'page_id' ,null);
-
-	//we remove the actions hooked on the '__after_loop' (post navigation)
-	remove_all_actions ( '__after_loop');
 }
 
 // REMOVES WORDPRESS URL PAGINATION

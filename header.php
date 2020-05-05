@@ -34,13 +34,16 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
 <body <?php body_class(); ?>>
 
 
-  <?php $errores = array('wrongPass', 'alreadyExist'); ?>
+  <?php $errores = array('wrongPass', 'alreadyExist', 'notExist'); ?>
   <div id="logErrors" class="logErrors <?php if (in_array($_GET['action'],$errores)) { echo 'alt'; } ?>">
     <?php if ( $_GET['action'] == 'wrongPass' ) { ?>
       <p>Wrong password, please try again</p>
     <?php } ?>
     <?php if ( $_GET['action'] == 'alreadyExist' ) { ?>
       <p>This email is already registered</p>
+    <?php } ?>
+    <?php if ( $_GET['action'] == 'notExist' ) { ?>
+      <p>This email doesn't have an account</p>
     <?php } ?>
     <button class="logFormClose" type="button" onclick="altClassFromSelector('alt','#logErrors')">
       <div class="logFormCloseLine"></div>
