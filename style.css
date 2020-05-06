@@ -1020,6 +1020,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 html{overflow-x:hidden}
+/* html{overflow-x:hidden} */
 body:not(.elementor-page){display: grid; color: #333333;}
 /* body:after {content: ' ';} */
 img:not(.elementor-page){object-fit:cover}
