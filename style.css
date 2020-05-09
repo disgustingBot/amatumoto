@@ -1801,7 +1801,7 @@ background: #ddd;
 }
 
 .hotAuctions .productCardTitle {
-  margin: auto 0 auto auto;
+  /* margin: auto 0 auto auto; */
 }
 
 
@@ -1873,7 +1873,7 @@ background: #ddd;
 .productCardTitle {
   font-weight: 300;
   display: flex;
-  font-size: var(----singleSideAnoMarcaFontSize)!important;
+  width:100%;
 }
 .productCardTxt{font-size: .8rem!important; font-weight: 400!important;}
 .productCardPrice{
@@ -2783,10 +2783,8 @@ background: #ddd;
 .shopParts {grid-template-columns:var(--PartsGridTemplateC);}
 .shopInventory {grid-template-columns:var(--InventoryGridTemplateC);}
 
-.shopInventory .productCardTitle {
-  font-size: 1.1rem!important;
-}
-
+.hotAuctions .singleSideAnoMarca,
+.shopInventory .productCardTitle,
 .shopInventory .singleSideAnoMarca {
   font-size: 1.1rem!important;
 }
