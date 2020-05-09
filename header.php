@@ -289,10 +289,6 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
             </label>
           </div>
 
-          <div class="formTermsAndConditions logCheckBox">
-            <input class="variableRequired" type="checkbox">
-            <a href="https://gpmotorbikes.com/terms-conditions/" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
-          </div>
 
           <div class="mateput logFormPass">
             <input class="mateputInput" type="password" name="pass" autocomplete="off" value="" required minlength="6">
@@ -301,8 +297,13 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
             </label>
           </div>
 
-                  <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
-                  <input class="recaptcha" type="text" hidden value="">
+          <div class="formTermsAndConditions logCheckBox">
+            <input class="variableRequired" type="checkbox">
+            <a href="https://gpmotorbikes.com/terms-conditions/" target="_blank" class="linkTermAndConditionsForm">I accept terms and conditions</a>
+          </div>
+
+          <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
+          <input class="recaptcha" type="text" hidden value="">
           <button class="filterSearch" type="submit" name="button">Confirm</button>
         </div>
 

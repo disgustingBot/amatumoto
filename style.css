@@ -2610,14 +2610,22 @@ background: #ddd;
 .logFormFields{
   display:grid;
   grid-column-gap:1rem;
-  grid-row-gap:.5rem;
+  grid-row-gap:1rem;
   grid-template-columns: var(--logoFormFieldsGTC);
-  margin-top:calc(-.5rem - 40px);
+  /* margin-top:calc(-.5rem - 40px); */
   width:100%;
   z-index:5;
   transition:.3s;
 }
-.logFormFields.alt{margin-top:0}
+.logFormFields.alt{margin-top:0;  }
+ .logFormName, .logFormPhono{
+  display: none;
+}
+.logFormFields.alt .logFormName,
+.logFormFields.alt .logFormPhono{
+  display: block;
+}
+
 .logFormFields .filterSearch{
   grid-column: var(--loginBtnGC);
   grid-row: var(--loginBtnGR);
@@ -2629,8 +2637,8 @@ background: #ddd;
 .logFormFields .mateput{width:100%}
 
 .logFormFields .formTermsAndConditions {
-  grid-column: 3;
-  grid-row: 1;
+  /* grid-column: 3;
+  grid-row: 1; */
 }
 
 .logFormFields .formTermsAndConditions.logCheckBox a {

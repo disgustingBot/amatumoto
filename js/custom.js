@@ -114,7 +114,11 @@ const loginHandler = (a) => {
         }else {
             element.setAttribute('required', 'true');
         }
+        // if (d.querySelector('.variableRequired').name==='name'){
+        //   // d.querySelector('.variableRequired').style.display : none;
+        // }
       });
+
 
       if (d.querySelector('#logInterAction').value=='login'){
         d.querySelector('#logInterAction').value='register'
