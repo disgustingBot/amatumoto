@@ -73,7 +73,20 @@
   }
 
   while($blogPosts->have_posts()){$blogPosts->the_post(); ?>
-    <?php global $product; ?>
+    <?php
+    global $product;
+    // get all the categories on the product
+    $categories = get_the_terms( get_the_ID(), 'product_cat' );
+    // if it finds sometthing
+    if ($categories) {
+      // for each category
+      foreach ($categories as $cat) {
+        // get the slug of parent cattegory
+        $parent=get_term_by('id', $cat->parent, 'product_cat', 'ARRAY_A')['slug'];
+        if ($parent=="year-bikes") {$yearBike = $cat->name;}
+        if ($parent=="brand") {$brand = $cat->name;}
+      }
+    } ?>
 
     <figure class="<?php echo $cardName; ?>">
 
@@ -88,24 +101,13 @@
         <img class="<?php echo $cardName; ?>Img lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
       </a>
       <figcaption class="<?php echo $cardName; ?>Caption">
-        <?php
-          // get all the categories on the product
-          $terms = get_the_terms( get_the_ID(), 'product_cat' );
-          // for each category
-          if($terms){ ?>
-            <p class="<?php echo $cardName; ?>AnoMarca"><a href="<?php echo get_permalink(); ?>">
-            <?php foreach ($terms as $term) {
-              // get the parent category
-              $parent=get_term_by('id', $term->parent, 'product_cat', 'ARRAY_A')['slug'];
-              // check if parent is either year or brand
-              if ($parent=="year-bikes" OR $parent=="brand") { ?>
-                <span><?php echo $term->name; ?></span>
-              <?php }
-            } ?>
-          </a></p>
-        <?php } ?>
-        <h4 class="<?php echo $cardName; ?>Title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
-
+        <!-- NEW TITLE -->
+        <h4 class="<?php echo $cardName; ?>Title">
+          <?php if($brand){ ?><span class="singleSideAnoMarca singleSideBrand"><?php echo $brand; ?></span><?php } ?>
+          <?php the_title(); ?>
+          <?php if($yearBike){ ?><span class="singleSideAnoMarca singleSideYearBike"><?php echo $yearBike; ?></span><?php } ?>
+        </h4>
+        
         <?php if(method_exists($product,'get_seconds_remaining')){ ?>
           <p class="auctionDetails">
             <?php if ($product->auction_current_bid){ ?>

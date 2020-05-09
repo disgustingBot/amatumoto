@@ -1065,7 +1065,6 @@ function latte_pagination() {
         ?>
 
 
-
         <figure class="<?php echo $cardName; ?>">
           <?php $created = strtotime( $_product->get_date_created() );
           if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
