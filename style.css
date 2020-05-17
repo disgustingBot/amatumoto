@@ -993,6 +993,17 @@ FIN DE MAPA DE CONTENIDOS */
          url('fonts/HighlandGothicFLF.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
+}
+
+.copy {
+  color: black;
+  font-size: var(--copyFontSize)!important;
+  font-family: 'highlandgothicflfregular'!important;
+  font-weight: 900!important;
+  font-style: italic;
+  white-space: nowrap;
+  margin: var(--copyMargin);
 }
 
 /* ---------------------------------------------------------------------------
@@ -1009,6 +1020,7 @@ FIN DE MAPA DE CONTENIDOS */
 
 
 html{overflow-x:hidden}
+/* html{overflow-x:hidden} */
 body:not(.elementor-page){display: grid; color: #333333;}
 /* body:after {content: ' ';} */
 img:not(.elementor-page){object-fit:cover}
@@ -1342,15 +1354,7 @@ hr {border: solid 1px #ddd;}
   margin: auto;
 }
 
-.copy {
-  color: black;
-  font-size: var(--copyFontSize)!important;
-  font-family: 'highlandgothicflfregular'!important;
-  font-weight: 900!important;
-  font-style: italic;
-  white-space: nowrap;
-  margin: var(--copyMargin);
-}
+
 
 
 .upperNav {
