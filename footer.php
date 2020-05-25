@@ -52,7 +52,7 @@
         </div>
         <div class="data">
           <h5 class="footerTitle">Amatumoto USA</h5>
-          <p>Melbourne - Miami - Florida</p>
+          <p>Melbourne - Florida</p>
           <p>USA</p>
           <a href="mailto:info@gpmotorbikes.com?Subject=Hello,%20I%20want%20to%20plan%20my%20visit">Plan your visit</a><br>
           <a href="<?php echo site_url('inventory'); ?>">Current stock</a><br>
