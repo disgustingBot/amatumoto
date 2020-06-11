@@ -108,7 +108,7 @@
 
             <?php if($cardName=='hotCard'){ ?>
               <p class="auctionDetails">
-                <?php
+                <?php 
                 $start=new DateTime($product->get_auction_start_time()); $now = new DateTime();
                 if ( $start > $now ) { ?>
                   <span class="auctionDetailsTitle">Auction starts:</span>
