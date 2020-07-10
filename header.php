@@ -34,7 +34,7 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
 <body <?php body_class(); ?>>
 
 
-  <?php $errores = array('wrongPass', 'alreadyExist', 'notExist'); ?>
+  <?php $errores = array('newPassConfirm', 'wrongPass', 'alreadyExist', 'notExist', 'register', 'needsConfirmation', 'newPass'); ?>
   <div id="logErrors" class="logErrors <?php if (in_array($_GET['action'],$errores)) { echo 'alt'; } ?>">
     <?php if ( $_GET['action'] == 'wrongPass' ) { ?>
       <p>Wrong password, please try again</p>
@@ -45,15 +45,27 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
     <?php if ( $_GET['action'] == 'notExist' ) { ?>
       <p>This email doesn't have an account</p>
     <?php } ?>
+    <?php if ( $_GET['action'] == 'register' ) { ?>
+      <p>Thank you for registering, click the link in the confirmation email to proceed</p>
+    <?php } ?>
+    <?php if ( $_GET['action'] == 'needsConfirmation' ) { ?>
+      <p>You have to confirm your email before you can log in</p>
+    <?php } ?>
+    <?php if ( $_GET['action'] == 'newPass' ) { ?>
+      <p>We sent you an email with a link to change your password</p>
+    <?php } ?>
+    <?php if ( $_GET['action'] == 'newPassConfirm' ) { ?>
+      <p>Your password was successfully changed, you may now log in</p>
+    <?php } ?>
     <button class="logFormClose" type="button" onclick="altClassFromSelector('alt','#logErrors')">
       <div class="logFormCloseLine"></div>
       <div class="logFormCloseLine"></div>
     </button>
   </div>
 
-	<!-- <view id="load" class="load">
+	<view id="load" class="load">
 			<div class="circle"></div>
-	</view> -->
+	</view>
 
   <header class="header loading" id="header">
     <a href="<?php echo site_url('');  ?>" class="logo">
@@ -247,6 +259,24 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
   </header>
 
 
+  <form class="logForm" id="newPass" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+    <input type="hidden" name="action" value="lt_login">
+    <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
+    <input type="hidden" name="actn" value="newPass">
+    <button class="logFormClose" type="button" onclick="altClassFromSelector('alt','#newPass')">
+      <div class="logFormCloseLine"></div>
+      <div class="logFormCloseLine"></div>
+    </button>
+    <p>enter your email, we will send you a mail to change your password</p>
+    <div class="mateput logFormMail">
+      <input class="mateputInput" type="email" name="mail" autocomplete="off" value="" required>
+      <label for="mail" class="mateputLabel">
+        <span class="mateputName">E-Mail</span>
+      </label>
+    </div>
+
+    <button class="filterSearch" type="submit" name="button">Confirm</button>
+  </form>
 
 
 
@@ -260,6 +290,7 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
           <h3>Enter</h3>
           <!-- <button class="logFormTitleRegister" onclick="altClassFromSelector('alt','#logFormFields'); addRequired()" type="button" name="button">you don't have an account?</button> -->
           <button class="logFormTitleRegister" onclick="loginHandler()" type="button" name="button">you don't have an account?</button>
+          <button class="logFormTitleRegister" onclick="altClassFromSelector('alt','#newPass'), altClassFromSelector('alt','#logForm')" type="button" name="button">forgot your password?</button>
           <button class="logFormClose" type="button" onclick="altClassFromSelector('alt','#logForm')">
             <div class="logFormCloseLine"></div>
             <div class="logFormCloseLine"></div>

@@ -337,6 +337,16 @@ function lt_new_user(){
 
 
 
+// // TODO: 1 – Confirmación de registro de cuenta
+// // TODO: 1_a No aparece ningún mensaje avisando que has de activar la cuenta desde email
+// // TODO: 1_b  Cuando vas al correo y activas la cuenta, va todo bien pero aparece un fallo en la pantalla – adjunto captura de pantalla
+
+// TODO: 2 – Como hacen los clientes para recuperar la contraseña si la han perdido?
+// -          Hace faltan algún botón de recuperar contraseña por email
+
+// // TODO: 3 - mensaje de error " esta cuenta no existe" cuando se loguean de forma incorrecta
+
+
 // FUCTION FOR USER GENERATION
 // https://tommcfarlin.com/create-a-user-in-wordpress/
 add_action( 'admin_post_nopriv_lt_login', 'lt_login');
@@ -376,7 +386,7 @@ function lt_login(){
            // $link = add_query_arg( array( 'status' => 'bot' , ), $link );
            // echo 'you are evil or a bott';
            // exit;
-           $action='bot';
+            $action='bot';
            // return false;
         } else {
 
@@ -443,36 +453,68 @@ function lt_login(){
 
     }
 
-}
-if( $actn == 'login' ) {
-  if( null == username_exists( $mail ) && email_exists( $mail ) == false  ) {
+  }
 
-    $action='notExist';
-  } else {
-    // aqui debo chequear que no tenga confirmation el usuario
+
+  if( $actn == 'newPass' ) {
+    $action='newPass';
+
+
+    $hash = hash ( 'sha256' , time() . $mail );
     $user = get_user_by( 'email', $mail );
-    // echo 'User is ' . $user->first_name . ' ' . $user->last_name;
-    if(get_user_meta($user->id, 'confirmation')){
-      // echo 'SIII!';
-      $action='needsConfirmation';
+    update_user_meta( $user->id, 'newPass', $hash );
+
+
+
+    
+    // Email the user
+    $message='';
+    $message=$message.'Someone has requested to change your password for Amatumoto.';
+    $message=$message.'<br>';
+    $message=$message.'If that was not you, you can ignore this email.';
+    $message=$message.'<br>';
+    $message=$message.'Click here to change you password: ';
+    $message=$message.'<br>';
+    $enlace=get_site_url().'/confirmation/?newPass='.$hash;
+    $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
+    $message=$message.'<br>';
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+
+    // wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
+    wp_mail( $mail, 'Password Reset', $message, $headers );
+
+  }
+
+
+  if( $actn == 'login' ) {
+    if( null == username_exists( $mail ) && email_exists( $mail ) == false  ) {
+
+      $action='notExist';
     } else {
-
-      $creds = array(
-        'user_login'    => $mail,
-        'user_password' => $pass,
-        'remember'      => true
-      );
-
-      $status = wp_signon( $creds, false );
-
-      if ( is_wp_error($status) ){
-        $action='wrongPass';
+      // aqui debo chequear que no tenga confirmation el usuario
+      $user = get_user_by( 'email', $mail );
+      // echo 'User is ' . $user->first_name . ' ' . $user->last_name;
+      if(get_user_meta($user->id, 'confirmation')){
+        // echo 'SIII!';
+        $action='needsConfirmation';
       } else {
-        $action='login';
+
+        $creds = array(
+          'user_login'    => $mail,
+          'user_password' => $pass,
+          'remember'      => true
+        );
+
+        $status = wp_signon( $creds, false );
+
+        if ( is_wp_error($status) ){
+          $action='wrongPass';
+        } else {
+          $action='login';
+        }
       }
     }
   }
-}
 
   $link = add_query_arg( array(
     // 'status' => $status,
@@ -539,44 +581,111 @@ function lt_new_pass(){
   $newp=$_POST['newp'];
   $cnfp=$_POST['cnfp'];
 
-
-
-  // if(isset($_POST['current_password'])){
-  if(isset($_POST['oldp'])){
-    $_POST = array_map('stripslashes_deep', $_POST);
-    $current_password = sanitize_text_field($_POST['oldp']);
-    $new_password = sanitize_text_field($_POST['newp']);
-    $confirm_new_password = sanitize_text_field($_POST['cnfp']);
-    $user_id = get_current_user_id();
-    $errors = array();
-    $current_user = get_user_by('id', $user_id);
-  }
-
-  $link = add_query_arg( array(
-    'action' => $action,
-  ), $link );
-  // Check for errors
-  if($current_user && wp_check_password($current_password, $current_user->data->user_pass, $current_user->ID)){
-  //match
-  } else {
-    $errors[] = 'Password is incorrect';
-
-    $link = add_query_arg( array(
-      'pass'  => 'incorrect',
-    ), $link );
-  }
-  if($new_password != $confirm_new_password){
-    $errors[] = 'Password does not match';
-
-    $link = add_query_arg( array(
-      'match'  => 'no',
-    ), $link );
-  }
-  if(empty($errors)){
-      wp_set_password( $new_password, $current_user->ID );
+  $code=$_POST['code'];
+  if(!isset($_POST['code'])){
+    
+    
+      // if(isset($_POST['current_password'])){
+      if(isset($_POST['oldp'])){
+        $_POST = array_map('stripslashes_deep', $_POST);
+        $current_password = sanitize_text_field($_POST['oldp']);
+        $new_password = sanitize_text_field($_POST['newp']);
+        $confirm_new_password = sanitize_text_field($_POST['cnfp']);
+        $user_id = get_current_user_id();
+        $errors = array();
+        $current_user = get_user_by('id', $user_id);
+      }
+    
       $link = add_query_arg( array(
-        'success'  => true,
+        'action' => $action,
       ), $link );
+      // Check for errors
+      if($current_user && wp_check_password($current_password, $current_user->data->user_pass, $current_user->ID)){
+      //match
+      } else {
+        $errors[] = 'Password is incorrect';
+    
+        $link = add_query_arg( array(
+          'pass'  => 'incorrect',
+        ), $link );
+      }
+      if($new_password != $confirm_new_password){
+        $errors[] = 'Password does not match';
+    
+        $link = add_query_arg( array(
+          'match'  => 'no',
+        ), $link );
+      }
+      if(empty($errors)){
+          wp_set_password( $new_password, $current_user->ID );
+          $link = add_query_arg( array(
+            'success'  => true,
+          ), $link );
+      }
+
+  } else {
+    
+    
+      // if(isset($_POST['current_password'])){
+        // if(isset($_POST['oldp'])){
+          $_POST = array_map('stripslashes_deep', $_POST);
+          // $current_password = sanitize_text_field($_POST['oldp']);
+          $new_password = sanitize_text_field($_POST['newp']);
+          $confirm_new_password = sanitize_text_field($_POST['cnfp']);
+
+
+          // $user_id = get_current_user_id();
+
+          $users = new WP_User_Query(array(
+            // 'search' => $yoursearchquery,
+            'meta_query' => array(
+              'relation' => 'OR',
+              array(
+                'key'     => 'newPass',
+                'value'   => $code,
+                'compare' => '='
+              ),
+            )
+          ));
+          // Get the results
+          $authors = $users->get_results();
+          var_dump($authors);
+          $user = $authors[0];
+          $user_id = $user->id;
+
+
+          $errors = array();
+          $current_user = get_user_by('id', $user_id);
+        // }
+      
+        // $link = add_query_arg( array(
+        //   'action' => $action,
+        // ), $link );
+        // Check for errors
+        // if($current_user && wp_check_password($current_password, $current_user->data->user_pass, $current_user->ID)){
+        // //match
+        // } else {
+        //   $errors[] = 'Password is incorrect';
+      
+        //   $link = add_query_arg( array(
+        //     'pass'  => 'incorrect',
+        //   ), $link );
+        // }
+        if($new_password != $confirm_new_password){
+          $errors[] = 'Password does not match';
+      
+          $link = add_query_arg( array(
+            'match'  => 'no',
+          ), $link );
+        }
+        if(empty($errors)){
+            wp_set_password( $new_password, $current_user->ID );
+            delete_user_meta( $author->ID, 'newPass' );
+
+            $link = add_query_arg( array(
+              'action'  => 'newPassConfirm',
+            ), $link );
+        }
   }
   wp_redirect($link);
 }
