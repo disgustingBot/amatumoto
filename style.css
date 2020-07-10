@@ -2567,7 +2567,7 @@ background: #ddd;
   align-items:center;
   background:white;
   display:grid;
-  grid-template-columns:min-content 1fr;
+  grid-template-columns:min-content 1fr 1fr;
   grid-gap:1rem;
   position:relative;
   z-index:10;
@@ -4774,7 +4774,8 @@ a.paginationLink:hover{
   display: flex;
   flex-direction: column;
   margin: 1rem var(--lateral);
-  min-height: 100vh;
+  min-height: 10vh;
+  text-align: center;
 }
 
 .confirmationTxt {text-align: justify;  }
