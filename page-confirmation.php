@@ -55,7 +55,7 @@ if (isset($_GET['confirmation'])) {
 
               <p class="userLoggedInTxt">Congratulations. Now you can login!</p>
               <br>
-              <p class="youCan">You can now...</p>
+              <p class="youCan">You can also...</p>
               <br>
               <ul class="userLoggedOptions">
                 <li class="userLoggedItem">
