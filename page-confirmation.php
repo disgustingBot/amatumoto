@@ -47,7 +47,7 @@ if (isset($_GET['confirmation'])) {
           // echo '<li>' . $author_info->confirmation . ' ' . $author_info->last_name . '</li>';
           if(get_user_meta($author->ID, 'confirmation')){
             delete_user_meta( $author->ID, 'confirmation' ); ?>
-            
+
 
             <section class="confirmationContent">
               <!-- <p class="confirmationTxt">Thanks for confirming your account <span class="loginConfirm" onclick="altClassFromSelector('alt','#logForm')"><i>Login</i></span> to see your auctions in the login menu, at the top left of the page.</p> -->
@@ -145,11 +145,11 @@ if (isset($_GET['newPass'])) {
           if(get_user_meta($author->ID, 'newPass')){
             // delete_user_meta( $author->ID, 'newPass' );
             ?>
-            
+
 
             <section class="confirmationContent">
-              
-              
+
+
               <form class="newPassForm alt" id="newPassForm" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
                 <input type="hidden" name="action" value="lt_new_pass">
                 <input type="hidden" name="link" value="<?php echo home_url( $wp->request ); ?>">
@@ -161,21 +161,21 @@ if (isset($_GET['newPass'])) {
 
                 <!-- <div class="filterBarBotttom"> -->
 
-                  <div class="mateput logFormPass">
+                  <div class="mateput logFormPass" style="width: 250px; margin-bottom: 16px;">
                     <input class="mateputInput" type="password" name="newp" autocomplete="off" value="" required minlength="6">
                     <label for="newp" class="mateputLabel">
-                      <span class="mateputName">New Pass</span>
+                      <span class="mateputName">New password</span>
                     </label>
                   </div>
 
-                  <div class="mateput logFormPass">
+                  <div class="mateput logFormPass" style="width: 250px; margin-bottom: 16px;">
                     <input class="mateputInput" type="password" name="cnfp" autocomplete="off" value="" required minlength="6">
                     <label for="cnfp" class="mateputLabel">
-                      <span class="mateputName">Repeat</span>
+                      <span class="mateputName">Repeat password</span>
                     </label>
                   </div>
 
-                  <button class="filterSearch" type="submit" name="button">Confirm</button>
+                  <button class="filterSearch" type="submit" name="button"  style="width: 250px;">Confirm</button>
                 <!-- </div> -->
 
                 <?php if (isset($_GET['pass'])) { ?>

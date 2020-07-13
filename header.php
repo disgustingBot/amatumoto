@@ -268,14 +268,14 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
       <div class="logFormCloseLine"></div>
     </button>
     <p>enter your email, we will send you a mail to change your password</p>
-    <div class="mateput logFormMail">
+    <div class="mateput logFormMail" style="width: 250px;">
       <input class="mateputInput" type="email" name="mail" autocomplete="off" value="" required>
       <label for="mail" class="mateputLabel">
         <span class="mateputName">E-Mail</span>
       </label>
     </div>
 
-    <button class="filterSearch" type="submit" name="button">Confirm</button>
+    <button class="filterSearch" type="submit" name="button" style="width: 250px;">Confirm</button>
   </form>
 
 

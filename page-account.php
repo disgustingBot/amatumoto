@@ -71,14 +71,14 @@
            <div class="mateput logFormPhono">
              <input class="mateputInput" type="password" name="newp" autocomplete="off" value="" required minlength="6">
              <label for="newp" class="mateputLabel">
-               <span class="mateputName">New Pass</span>
+               <span class="mateputName">New password</span>
              </label>
            </div>
 
            <div class="mateput logFormMail">
              <input class="mateputInput" type="password" name="cnfp" autocomplete="off" value="" required minlength="6">
              <label for="cnfp" class="mateputLabel">
-               <span class="mateputName">Repeat</span>
+               <span class="mateputName">Repeat password</span>
              </label>
            </div>
 
