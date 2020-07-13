@@ -124,7 +124,9 @@
         <?php if(method_exists($product,'get_seconds_remaining')){ ?>
           <p class="auctionDetails">
             <?php
-              $start=new DateTime($product->get_auction_start_time()); $now = new DateTime();
+              $start=new DateTime($product->get_auction_start_time(), new DateTimeZone(get_option('timezone_string')));
+              $now = new DateTime();
+              // $start=new DateTime($product->get_auction_start_time()); $now = new DateTime();
               if ( $start > $now ) { ?>
                 <span class="auctionDetailsTitle">Auction starts:</span>
                 <span class="auctionDetailsValue auction-time-countdown notMet" data-time="<?php echo esc_attr( $product->get_seconds_to_auction() ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
