@@ -283,6 +283,7 @@ FIN DE MAPA DE CONTENIDOS */
   /* =ESTRUCTURA */
   --mainContentMargin: 0 2rem;
   --consignmentSingleStepMarginB: 2rem;
+  --filterBarTopGridGap: 0;
 
 
   /* =ARCHIVE */
@@ -559,6 +560,7 @@ FIN DE MAPA DE CONTENIDOS */
     --varSearchBtnRight: ;
     --filterLinkBarHeight:unset;
     --filterLinkBarMarginTop:unset;
+    --filterBarTopGridGap: 3rem;
 
 
     /* FRONT PAGE */
@@ -704,7 +706,6 @@ FIN DE MAPA DE CONTENIDOS */
     /* ARCHIVE */
 
     --PartsGridTemplateC:1fr 1fr 1fr;
-    --InventoryGridTemplateC:1fr 1fr 1fr;
 
     --shopArchiveGridTemplateC:1fr 1fr 1fr;
 
@@ -818,7 +819,8 @@ FIN DE MAPA DE CONTENIDOS */
     /* ARCHIVE */
     --shopArchiveGridTemplateC: 1fr 1fr 1fr;
     --PartsGridTemplateC:1fr 1fr 1fr 1fr;
-    /* --shopArchiveGridTemplateC:1fr 1fr 1fr 1fr; */
+    --InventoryGridTemplateC:1fr 1fr 1fr;
+
 
     /* 404 NOT FOUND */
     --notFoundPadding:5rem 10rem;
@@ -3025,7 +3027,7 @@ background: #ddd;
   align-items: center;
   display: var(--filterBarTopDisplay);
   flex-wrap: wrap;
-  grid-gap: 3rem;
+  grid-gap: var(--filterBarTopGridGap);
   grid-template-columns:min-content 1fr max-content max-content max-content;
   justify-content: space-evenly;
   padding:.5rem var(--lateral);
