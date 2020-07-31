@@ -505,11 +505,15 @@ function lt_login(){
           'remember'      => true
         );
 
-        $status = wp_signon( $creds, false );
 
+
+        $status = wp_signon( $creds, false );
         if ( is_wp_error($status) ){
           $action='wrongPass';
         } else {
+          // wp_set_current_user( $user->id, $user->user_login );
+          wp_set_auth_cookie( $user->id );
+          // do_action( 'wp_login', $user->user_login, $user );
           $action='login';
         }
       }
