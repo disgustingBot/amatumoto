@@ -61,13 +61,14 @@
               'field'    => 'slug',
               'terms'    => 'simple',
           ),
-          array(
-            'taxonomy' => 'product_visibility',
-            'field'    => 'term_id',
-            'terms'    => 'featured',
-            'operator' => 'IN',
-        ),
+        //   array(
+        //     'taxonomy' => 'product_visibility',
+        //     'field'    => 'term_id',
+        //     'terms'    => 'featured',
+        //     'operator' => 'IN',
+        // ),
       ),
+      'post__in'            => wc_get_featured_product_ids(),
     );
     $blogPosts=new WP_Query($args);
   }
