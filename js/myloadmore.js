@@ -108,6 +108,10 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
         $('#slider').empty();
         $('#slider').append(respuesta);
         w.scrollTo(0, 0); // values are x,y-offset
+        $('.paginationLink').click(   function(){
+          page = this.dataset.pagination;
+          filterPagination(false, false, page);
+        });
       }
     });
   }
