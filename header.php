@@ -284,6 +284,8 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
         <span class="mateputName">E-Mail</span>
       </label>
     </div>
+          <div class="g-recaptcha" data-callback="captchaVerified" data-sitekey="<?php echo $site; ?>"></div>
+          <input class="recaptcha" type="text" hidden value="">
 
     <button class="filterSearch" type="submit" name="button" style="width: 250px;">Confirm</button>
   </form>
