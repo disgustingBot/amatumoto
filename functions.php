@@ -460,28 +460,51 @@ function lt_login(){
     $action='newPass';
 
 
-    $hash = hash ( 'sha256' , time() . $mail );
-    $user = get_user_by( 'email', $mail );
-    update_user_meta( $user->id, 'newPass', $hash );
-
-
-
     
-    // Email the user
-    $message='';
-    $message=$message.'Someone has requested to change your password for Amatumoto.';
-    $message=$message.'<br>';
-    $message=$message.'If that was not you, you can ignore this email.';
-    $message=$message.'<br>';
-    $message=$message.'Click here to change you password: ';
-    $message=$message.'<br>';
-    $enlace=get_site_url().'/confirmation/?newPass='.$hash;
-    $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
-    $message=$message.'<br>';
-    $headers = array('Content-Type: text/html; charset=UTF-8');
+    $site = '6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B';
+    $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
 
-    // wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
-    wp_mail( $mail, 'Password Reset', $message, $headers );
+    $response = $_POST['g-recaptcha-response'];
+    $payload = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$scrt.'&response='.$response);
+    // echo $payload;
+    $result = json_decode($payload,true);
+    if ($result['success']!=1) {
+       // code...
+       // header( "Location: https://multiviahr.info/?mail=BOT" );
+       // $link = add_query_arg( array( 'status' => 'bot' , ), $link );
+       // echo 'you are evil or a bott';
+       // exit;
+        $action='bot';
+       // return false;
+    } else {
+
+
+
+      $hash = hash ( 'sha256' , time() . $mail );
+      $user = get_user_by( 'email', $mail );
+      update_user_meta( $user->id, 'newPass', $hash );
+  
+  
+  
+      
+      // Email the user
+      $message='';
+      $message=$message.'Someone has requested to change your password for Amatumoto.';
+      $message=$message.'<br>';
+      $message=$message.'If that was not you, you can ignore this email.';
+      $message=$message.'<br>';
+      $message=$message.'Click here to change you password: ';
+      $message=$message.'<br>';
+      $enlace=get_site_url().'/confirmation/?newPass='.$hash;
+      $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
+      $message=$message.'<br>';
+      $headers = array('Content-Type: text/html; charset=UTF-8');
+  
+      // wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
+      wp_mail( $mail, 'Password Reset', $message, $headers );
+  
+
+    }
 
   }
 
