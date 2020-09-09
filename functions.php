@@ -827,15 +827,18 @@ function category_has_children( $term_id = 0, $taxonomy = 'category' ) {
  */
 function custom_pre_get_posts_query( $q ) {
   if(!is_product_category()){
-    $tax_query = (array) $q->get( 'tax_query' );
+    if(!isset($_GET['auction'])){
 
-    $tax_query[] = array(
-      'taxonomy' => 'product_cat',
-      'field' => 'slug',
-      'terms' => array( 'parts-racing-products' ), // Don't display products in the parts-racing-products category on the shop page.
-      'operator' => 'NOT IN'
-    );
-    $q->set( 'tax_query', $tax_query );
+      $tax_query = (array) $q->get( 'tax_query' );
+  
+      $tax_query['not_parts'] = array(
+        'taxonomy' => 'product_cat',
+        'field' => 'slug',
+        'terms' => array( 'parts-racing-products' ), // Don't display products in the parts-racing-products category on the shop page.
+        'operator' => 'NOT IN'
+      );
+      $q->set( 'tax_query', $tax_query );
+    }
   }
 }
 add_action( 'woocommerce_product_query', 'custom_pre_get_posts_query' );
@@ -952,6 +955,14 @@ function alter_query($query) {
         'terms'    => 'auction',
         'operator' => 'IN',
         );
+        // $tax_query['not_parts'] = array();
+        
+        // $query->query_vars['tax_query'][] = array(
+        //     'taxonomy' => 'product_cat',
+        //     'field'    => 'slug', // Or 'name' or 'term_id'
+        //     'terms'    => array('todo'),
+        //     'operator' => 'IN', // Excluded
+        // );
       }
       if (!isset($_GET['auction'])) {
         $query->query_vars['tax_query'][] = array(
@@ -960,6 +971,7 @@ function alter_query($query) {
         'terms'    => 'auction',
         'operator' => 'NOT IN',
         );
+        // $tax_query['not_parts'] = array();
       }
 
 
