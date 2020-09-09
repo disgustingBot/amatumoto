@@ -58,6 +58,8 @@
 
 
       <?php
+      $brand=false;
+      $yearBike=false;
       // get all the categories on the product
       $categories = get_the_terms( get_the_ID(), 'product_cat' );
       // if it finds sometthing

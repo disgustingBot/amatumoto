@@ -33,65 +33,6 @@
 <?php // include 'filterBar.php'; ?>
 
 
-<section class="hotAuctions">
-  <h3 class="hotAuctionsTitle">FEATURED PRODUCTS</h3><?php
-    $cardName='productCard';
-    $args = array(
-      'post_type'=>'product',
-      'posts_per_page'=>3,
-      'tax_query' => array(
-          array(
-              'taxonomy' => 'product_type',
-              'field'    => 'slug',
-              'terms'    => 'simple',
-          ),
-      ),
-      'post__in'            => wc_get_featured_product_ids(),
-    );
-    $blogPosts=new WP_Query($args);
-
-  while($blogPosts->have_posts()){$blogPosts->the_post(); ?>
-    <?php
-    global $product;
-    // get all the categories on the product
-    $categories = get_the_terms( get_the_ID(), 'product_cat' );
-    // if it finds sometthing
-    if ($categories) {
-      // for each category
-      foreach ($categories as $cat) {
-        // get the slug of parent cattegory
-        $parent=get_term_by('id', $cat->parent, 'product_cat', 'ARRAY_A')['slug'];
-        if ($parent=="year-bikes") {$yearBike = $cat->name;}
-        if ($parent=="brand") {$brand = $cat->name;}
-      }
-    } ?>
-
-    <figure class="<?php echo $cardName; ?>">
-
-        <?php
-        global $product;
-        // $newness_days = 1;
-        $created = strtotime( $product->get_date_created() );
-        if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
-          <span class="newArrival"><i>New arrival</i></span>
-          <?php } ?>
-      <a class="<?php echo $cardName; ?>Img rowcol1" href="<?php echo get_permalink(); ?>">
-        <img class="<?php echo $cardName; ?>Img lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
-      </a>
-      <figcaption class="<?php echo $cardName; ?>Caption">
-        <!-- NEW TITLE -->
-        <h4 class="<?php echo $cardName; ?>Title">
-          <?php if($brand){ ?><span class="singleSideAnoMarca singleSideBrand"><?php echo $brand; ?></span><?php } ?>
-          <?php the_title(); ?>
-          <?php if($yearBike){ ?><span class="singleSideAnoMarca singleSideYearBike"><?php echo $yearBike; ?></span><?php } ?>
-        </h4>
-
-      </figcaption>
-    </figure>
-  <?php } ?>
-
-</section>
-
 
 
 
@@ -120,6 +61,8 @@
     // get all the categories on the product
     $categories = get_the_terms( get_the_ID(), 'product_cat' );
     // if it finds sometthing
+    $brand=false;
+    $yearBike=false;
     if ($categories) {
       // for each category
       foreach ($categories as $cat) {
@@ -180,14 +123,85 @@
           </p>
         <?php } ?>
 
+      </figcaption>
+    </figure>
+  <?php } ?>
+
+</section>
 
 
+
+
+
+
+
+
+<section class="hotAuctions">
+  <h3 class="hotAuctionsTitle">FEATURED PRODUCTS</h3><?php
+    $cardName='productCard';
+    $args = array(
+      'post_type'=>'product',
+      'posts_per_page'=>3,
+      'tax_query' => array(
+          array(
+              'taxonomy' => 'product_type',
+              'field'    => 'slug',
+              'terms'    => 'simple',
+          ),
+      ),
+      'post__in'            => wc_get_featured_product_ids(),
+    );
+    $blogPosts=new WP_Query($args);
+
+  while($blogPosts->have_posts()){$blogPosts->the_post(); ?>
+    <?php
+    global $product;
+    $brand=false;
+    $yearBike=false;
+    // get all the categories on the product
+    $categories = get_the_terms( get_the_ID(), 'product_cat' );
+    // if it finds sometthing
+    if ($categories) {
+      // for each category
+      foreach ($categories as $cat) {
+        // get the slug of parent cattegory
+        $parent=get_term_by('id', $cat->parent, 'product_cat', 'ARRAY_A')['slug'];
+        if ($parent=="year-bikes") {$yearBike = $cat->name;}
+        if ($parent=="brand") {$brand = $cat->name;}
+      }
+    } ?>
+
+    <figure class="<?php echo $cardName; ?>">
+
+        <?php
+        global $product;
+        // $newness_days = 1;
+        $created = strtotime( $product->get_date_created() );
+        if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
+          <span class="newArrival"><i>New arrival</i></span>
+          <?php } ?>
+      <a class="<?php echo $cardName; ?>Img rowcol1" href="<?php echo get_permalink(); ?>">
+        <img class="<?php echo $cardName; ?>Img lazy" data-url="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="">
+      </a>
+      <figcaption class="<?php echo $cardName; ?>Caption">
+        <!-- NEW TITLE -->
+        <h4 class="<?php echo $cardName; ?>Title">
+          <?php if($brand){ ?><span class="singleSideAnoMarca singleSideBrand"><?php echo $brand; ?></span><?php } ?>
+          <?php the_title(); ?>
+          <?php if($yearBike){ ?><span class="singleSideAnoMarca singleSideYearBike"><?php echo $yearBike; ?></span><?php } ?>
+        </h4>
 
       </figcaption>
     </figure>
   <?php } ?>
 
 </section>
+
+
+
+
+
+
 
 
 <section class="dosMotos">
