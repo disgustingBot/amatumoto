@@ -40,7 +40,6 @@
 
 
 <section class="hotAuctions">
-  <h3 class="hotAuctionsTitle">HOT AUCTIONS</h3>
   <?php
   $args = array(
     'post_type'=>'product',
@@ -56,6 +55,9 @@
   $blogPosts=new WP_Query($args);
   $cardName='hotCard';
 
+  if ( count( $blogPosts->posts ) > 0 ) { ?>
+    <h3 class="hotAuctionsTitle">HOT AUCTIONS</h3>
+  <?php }
   while($blogPosts->have_posts()){$blogPosts->the_post();
     global $product;
     // get all the categories on the product
@@ -137,22 +139,25 @@
 
 
 <section class="hotAuctions">
-  <h3 class="hotAuctionsTitle">FEATURED PRODUCTS</h3><?php
-    $cardName='productCard';
-    $args = array(
-      'post_type'=>'product',
-      'posts_per_page'=>3,
-      'tax_query' => array(
-          array(
-              'taxonomy' => 'product_type',
-              'field'    => 'slug',
-              'terms'    => 'simple',
-          ),
-      ),
-      'post__in'            => wc_get_featured_product_ids(),
-    );
-    $blogPosts=new WP_Query($args);
+  <?php
+  $cardName='productCard';
+  $args = array(
+    'post_type'=>'product',
+    'posts_per_page'=>3,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'product_type',
+            'field'    => 'slug',
+            'terms'    => 'simple',
+        ),
+    ),
+    'post__in'            => wc_get_featured_product_ids(),
+  );
+  $blogPosts=new WP_Query($args);
 
+  if ( count( $blogPosts->posts ) > 0 ) { ?>
+    <h3 class="hotAuctionsTitle">FEATURED PRODUCTS</h3>
+  <?php }
   while($blogPosts->have_posts()){$blogPosts->the_post(); ?>
     <?php
     global $product;
