@@ -1822,6 +1822,55 @@ background: #ddd;
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
+                           =auctions:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.auctionATFContainer {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 1rem;
+}
+.auctionMediaContainer{
+  display: flex;
+  flex-direction: column;
+}
+.auctionMediaContainer .gallery {
+  order: 2;
+}
+.auctionName{
+  display: flex;
+  order: 1;
+}
+.auctionMarca {
+  margin-right: 16px;
+}
+.auctionModelo {
+  line-height: 45px;
+}
+.auctionAno {
+  margin: auto;
+  margin-right: 0;
+}
+.auctionATFContainer .auctionDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.auctionATFContainer .auctionTitle {
+  margin-top: 38px;
+}
+.auctionDetail .wsawl-link {
+  margin: auto;
+}
+.auctionNewArrival{
+  left: 5px;
+}
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
                           6.4.1) =productCard:
 ------------------------------------------------------------------------------
 --------------------------------------------------------------------------- */
