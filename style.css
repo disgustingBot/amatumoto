@@ -198,7 +198,7 @@ FIN DE MAPA DE CONTENIDOS */
   /* ?SINGLE */
   --singlePageGridTemplateC: 1fr;
   --singlePagePadding:1.8rem 1.3rem;
-  --singlePageGG:.8rem;
+  --singlePageGG:3rem;
   --singleSidePadding:;
   --singleSideTitleFontSize:1.5rem;
   --singleFeatureIconMargin: 1rem;
@@ -208,7 +208,7 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSideContactBorder:2px solid black;
   --singleSidePriceFontSize:1rem;
   --singleSideStock2FontSize:.6rem;
-  --singleSideAnoMarcaFontSize:1rem;
+  --singleSideAnoMarcaFontSize:2rem;
   --singleSideStockFontSize:.8rem;
   --singleSideDataFontSize: .8rem;
   --singleFeatureDescFontSize:.8rem;
@@ -227,6 +227,9 @@ FIN DE MAPA DE CONTENIDOS */
   --singleSideStock2Display: none;
   --singleFeaturesMargin: 1rem 0;
 
+  --auctionDetailHeight: 100vh;
+  --auctionATFContainerWidth:1fr;
+
 
   --hotCardAnoMarcaFontSize:1rem;
   --hotCardTitleFontSize:1.2rem;
@@ -242,7 +245,12 @@ FIN DE MAPA DE CONTENIDOS */
   --auctionDataGTC:1fr 1fr;
   --auctionDetailsTitleFontSize:1rem;
   --auctionDetailsValueFontSize:1.2rem;
-  --singleSideAnoMarca: 1rem;
+  /* --auctionDetailMarginTop: 2rem; */
+  --auctionOtherStuffGTC: 1fr;
+  --acutionOtherStuffAsideGR: 2;
+  --auctionMainGC: 1;
+  --auctionMainGR: 1;
+
 
 
     /* Single contact Form */
@@ -648,7 +656,7 @@ FIN DE MAPA DE CONTENIDOS */
     --galleryStockGTC:repeat(8,1fr);
     --hotCardAnoMarcaFontSize:.7rem;
     --hotCardTitleFontSize:1rem;
-    --singleSideAnoMarca: 1.5rem;
+    --singleSideAnoMarcaFontSize: 1.5rem;
 
 
     --singlePageGridTemplateC: 1fr 2.5fr;
@@ -671,6 +679,16 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideVideoWidth:80%;
     --singleSideTitleJustifyContent:flex-start;
     --singleFeaturesMargin: 0;
+
+    --auctionATFContainerWidth: 2.5fr 1fr;
+    --auctionDetailHeight: unset;
+    /* --auctionDetailMarginTop: unset; */
+    --auctionOtherStuffGTC: 1fr 2.5fr;
+    --acutionOtherStuffAsideGR: unset;
+    --auctionMainGC: 2;
+    --auctionMainGR: 1;
+
+
 
 
 
@@ -806,7 +824,8 @@ FIN DE MAPA DE CONTENIDOS */
     --singleSideContactFontSize: .7rem;
     --singleFeatureDescFontSize:.6rem;
     --singleContactWidth: 50%;
-    /* --auctionDataGTC:1fr 1fr 1fr; */
+    --auctionDetailHeight: calc(100vh - var(--headerHeight));
+
 
 
     /* SERVICES */
@@ -1070,6 +1089,10 @@ main li {margin: .3rem 0;}
 
 main ul, main ol{
   padding-left: 1rem;
+}
+
+main a {
+  word-break: break-word;
 }
 
 hr {border: solid 1px #ddd;}
@@ -1799,14 +1822,12 @@ background: #ddd;
 
 
 .hotAuctions .productCardAnoMarca, .hotAuctions .productCardTitle {
-  font-size: 1.1rem!important;
+  font-size: var(--hotCardTitleFontSize)!important;
 }
 
 .hotAuctions .productCardTitle {
   /* margin: auto 0 auto auto; */
 }
-
-
 
 
 .hotAuctionsTitle{
@@ -1819,6 +1840,79 @@ background: #ddd;
 }
 
 
+
+/* ---------------------------------------------------------------------------
+------------------------------------------------------------------------------
+                           =auctions:
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------- */
+
+.auctionATFContainer {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--auctionATFContainerWidth);
+  grid-gap: 1rem;
+}
+.auctionMediaContainer{
+  display: flex;
+  flex-direction: column;
+}
+.auctionMediaContainer .singleSideData {
+  margin-top: 2rem;
+  order: 3;
+}
+.auctionName{
+  display: flex;
+}
+.auctionMarca {
+  margin-right: 16px;
+}
+.auctionModelo {
+  line-height: 45px;
+}
+.auctionAno {
+  margin: auto;
+  margin-right: 0;
+}
+.auctionATFContainer .auctionDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: var(--headerHeight);
+  height: var(--auctionDetailHeight);
+  /* margin-top: var(--auctionDetailMarginTop); */
+}
+.auctionATFContainer .auctionDetail .singleSideVideo{
+  margin-bottom: 2rem;
+}
+.auctionDetail .wsawl-link {
+  margin: auto;
+}
+.auctionNewArrival{
+  left: 5px;
+}
+.auctionInfoContainer{
+  grid-column: 1/-1;
+  grid-template-columns: 1fr 2.5fr;
+}
+.auctionMain {
+  grid-column: 2;
+  grid-column: var(--auctionMainGC);
+  grid-row: 1fr;
+}
+.auctionOtherStuff {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: var(--auctionOtherStuffGTC);
+  grid-gap: 2rem;
+}
+.auctionOtherStuff
+/*Esto no va acá, pero bueh*/
+.sealed-bid-desc {
+  display:grid;
+}
 
 /* ---------------------------------------------------------------------------
 ------------------------------------------------------------------------------
@@ -1865,7 +1959,9 @@ background: #ddd;
   height: calc(var(--hotCardWidth) / 1.48 * 1vw);
   width: 100%;
 }
-.productCardCaption{ padding: .3rem .5rem;}
+.productCardCaption{
+  padding: .3rem .5rem;
+}
 /* .productCardCaption>* {margin-bottom: .4rem;} */
 .productCardAnoMarca{
   font-weight: 300;
@@ -2796,7 +2892,7 @@ background: #ddd;
 .hotAuctions .singleSideAnoMarca,
 .shopInventory .productCardTitle,
 .shopInventory .singleSideAnoMarca {
-  font-size: 1.1rem!important;
+  font-size: var(--hotCardTitleFontSize)!important;
 }
 
 .shopInventory .hotCard{display: block}
@@ -3647,10 +3743,10 @@ background: #ddd;
 
 
 .auction_form button.button.alt.bid_button{
-  background:none;
+  background:green;
   border-radius:0;
   border-bottom:2px solid green;
-  color:green;
+  color: white;
   text-transform:uppercase;
   font-size:.7rem!important;
   transition:.3s;
@@ -3665,7 +3761,7 @@ background: #ddd;
   /* padding:0; */
   /* height:40px; */
 }
-.auction_form button.button.alt.bid_button:hover{background:green;color:white}
+.auction_form button.button.alt.bid_button:hover{background:#4cb13a; color:black;}
 
 
 
@@ -3738,12 +3834,19 @@ background: #ddd;
   grid-gap:.2rem;
   justify-content:var(--singleSideTitleJustifyContent);
 }
-
-
+.acutionOtherStuffAside {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 16px;
+  grid-column: 1fr;
+  grid-row: var(--acutionOtherStuffAsideGR);
+}
 .singleSideBrand {
   margin-right: .3rem;
 }
-
+.auctionSideData {
+  /* margin-bottom: 16px; */
+}
 .singleSidePrice,.singleSideStock,.singleSideCond,.singleSideData {
   font-weight: 400!important;
   color: #666;
@@ -3766,14 +3869,11 @@ background: #ddd;
 .singleSideVideo{
   border:none;
   cursor: pointer;
-  /* filter:brightness(60%); */
   height:auto;
-  /* margin: .5rem 0; */
   transition:.4s;
-  /* width: 100%; */
-  /* width:80%; */
   width:var(--singleSideVideoWidth);
   margin-right:auto;
+  display: grid;
 }
 .singleSideVideo:hover{
   filter:brightness(100%);
@@ -3805,7 +3905,7 @@ background: #ddd;
 }
 
 .singleSideAnoMarca {
-  font-size: var(--singleSideAnoMarca)!important;
+  font-size: var(--singleSideAnoMarcaFontSize)!important;
 }
 .singleSideContactContainer{
   /* display: var(--singleSideContactContainerDisplay); */
@@ -3844,19 +3944,11 @@ background: #ddd;
   transition: .3s;
   font-weight:700!important;
   font-size:var(--singleSideContactFontSize)!important;
-  /* margin: var(--singleSideContactMargin); */
 }
-/* .singleSideContact:hover{
-  color:#F78D15;
-  border-color: #F78D15;
-} */
-
 .singleSideSocialCont {
-  /* display: flex; */
-  /* margin: .5rem 0; */
+  display: flex;
   margin:var(--singleSideSocialContMargin);
   margin-left: 0;
-  /* margin:.5rem auto; */
   width: min-content;
 }
 .singleSideMobileSchema .singleSideSocialCont{margin-left:0;}
@@ -3903,6 +3995,7 @@ background: #ddd;
 }
 .singleSideSintBox img{
   width:100%;
+  max-height: 160px;
 }
 
 .singleSideSintBoxCaption{
