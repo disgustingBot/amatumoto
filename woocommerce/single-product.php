@@ -10,11 +10,13 @@
   <!-- <h1>single-product.php</h1> -->
 
 
-    <?php if($product->is_type( 'auction' )){
+    <?php
+    if ( $product->is_type( 'auction' ) ){
       include 'auction-product-template.php';
     } else {
       include 'normal-product-template.php';
-     } ?>
+    }
+    ?>
 
 
 <?php } wp_reset_query(); ?>

@@ -1,6 +1,11 @@
 
 <?php
+$product_id       = $product->get_id();
+$user_max_bid     = $product->get_user_max_bid( $product_id, get_current_user_id() );
+$max_min_bid_text = $product->get_auction_type() === 'reverse' ? esc_html__( 'Your min bid is', 'auctions-for-woocommerce' ) : esc_html__( 'Your max bid is', 'auctions-for-woocommerce' );
+$gmt_offset       = get_option( 'gmt_offset' ) > 0 ? '+' . get_option( 'gmt_offset' ) : get_option( 'gmt_offset' );
 // $newness_days = 1;
+// var_dump($product);
 // $created = strtotime( $product->get_date_created() );
 $created = strtotime( get_the_date() );
 if ( ( time() - ( 60 * 60 * 24 * $newness_days ) ) < $created ) { ?>
@@ -21,6 +26,7 @@ if ($categories) {
 }
 ?>
 
+<?php $product_id = get_the_ID(); ?>
 <?php function testimonial( $clase ){ ?>
   <div class="testimonialsContainer <?php echo $clase; ?>">
     <?php
@@ -199,7 +205,8 @@ if ($categories) {
                 min="<?php echo esc_attr( $product->bid_value() ); ?>"
               <?php endif; ?>
             <?php } ?>
-            step="100" size="<?php echo intval( strlen( $product->get_curent_bid() ) ) + 6; ?>" title="bid"  class="input-text qty  bid text left">
+            <?php $auction_bid_increment = ( $product->get_increase_bid_value() ) ? $product->get_increase_bid_value() : 100; ?>
+            step="<?php echo $auction_bid_increment; ?>" size="<?php echo intval( strlen( $product->get_curent_bid() ) ) + 6; ?>" title="bid"  class="input-text qty  bid text left">
             <input type="button" value="+" class="plus" />
           </div>
           <button type="submit" class="bid_button button alt"><?php echo wp_kses_post( apply_filters( 'bid_text', esc_html__( 'Bid NOW', 'auctions-for-woocommerce' ), $product ) ); ?></button>
