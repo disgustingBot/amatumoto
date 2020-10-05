@@ -230,6 +230,8 @@ FIN DE MAPA DE CONTENIDOS */
   --auctionDetailHeight: 100vh;
   --auctionATFContainerWidth:1fr;
 
+  --singleSideVideoImgHeight: 250px;
+
 
   --hotCardAnoMarcaFontSize:1rem;
   --hotCardTitleFontSize:1.2rem;
@@ -250,7 +252,7 @@ FIN DE MAPA DE CONTENIDOS */
   --acutionOtherStuffAsideGR: 2;
   --auctionMainGC: 1;
   --auctionMainGR: 1;
-
+  --singleSideSintBoxImgMaxHeight: unset;
 
 
     /* Single contact Form */
@@ -687,6 +689,10 @@ FIN DE MAPA DE CONTENIDOS */
     --acutionOtherStuffAsideGR: unset;
     --auctionMainGC: 2;
     --auctionMainGR: 1;
+
+    --singleSideVideoImgHeight: unset;
+
+    --singleSideSintBoxImgMaxHeight: 160px;
 
 
 
@@ -1882,6 +1888,7 @@ background: #ddd;
   position: sticky;
   top: var(--headerHeight);
   height: var(--auctionDetailHeight);
+  padding: 2rem 0;
   /* margin-top: var(--auctionDetailMarginTop); */
 }
 .auctionATFContainer .auctionDetail .singleSideVideo{
@@ -3513,6 +3520,7 @@ background: #ddd;
   grid-template-columns:1fr;
   transition: .25s;
   overflow-y: auto;
+  width: 100%;
 }
 
 .testimonialsMain {
@@ -3883,7 +3891,10 @@ background: #ddd;
   transition:.3s;
   width: 100%;
 }
-.singleSideVideoImg{width:100%}
+.singleSideVideoImg{
+  width:100%;
+  height: var(--singleSideVideoImgHeight);
+}
 .singleSideVideo:hover img{filter:brightness(100%)}
 .singleSideVideo svg{
   height:50%;
@@ -3995,7 +4006,7 @@ background: #ddd;
 }
 .singleSideSintBox img{
   width:100%;
-  max-height: 160px;
+  max-height: var(--singleSideSintBoxImgMaxHeight);
 }
 
 .singleSideSintBoxCaption{
