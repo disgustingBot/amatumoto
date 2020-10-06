@@ -1799,7 +1799,8 @@ background: #ddd;
 
 
 .hotAuctions .productCardAnoMarca, .hotAuctions .productCardTitle {
-  font-size: 1.1rem!important;
+  /* font-size: 1.1rem!important; */
+  font-size:var(--hotCardTitleFontSize)!important;
 }
 
 .hotAuctions .productCardTitle {
@@ -1865,7 +1866,7 @@ background: #ddd;
   height: calc(var(--hotCardWidth) / 1.48 * 1vw);
   width: 100%;
 }
-.productCardCaption{ padding: .3rem .5rem;}
+.productCardCaption{padding:.5rem;}
 /* .productCardCaption>* {margin-bottom: .4rem;} */
 .productCardAnoMarca{
   font-weight: 300;
@@ -1925,6 +1926,7 @@ background: #ddd;
   /* margin-top:0; */
   padding-bottom:.5rem;
   text-align: left;
+  display:flex;
   width: 100%;
 }
 
@@ -2796,7 +2798,8 @@ background: #ddd;
 .hotAuctions .singleSideAnoMarca,
 .shopInventory .productCardTitle,
 .shopInventory .singleSideAnoMarca {
-  font-size: 1.1rem!important;
+  /* font-size: 1.1rem!important; */
+  font-size:var(--hotCardTitleFontSize)!important;
 }
 
 .shopInventory .hotCard{display: block}

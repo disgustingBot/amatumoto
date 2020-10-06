@@ -111,7 +111,9 @@
 
       <div class="singleSideContactContainer onlyDesktopG">
         <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleRequestInfo')">REQUEST MORE INFO</button>
-        <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleMakeOffer')">MAKE OFFER</button>
+        <?php if(!$product->is_type( 'auction' )){ ?>
+          <button class="singleSideContact" onclick="altClassFromSelector('alt','#singleMakeOffer')">MAKE OFFER</button>
+        <?php } ?>
         <?php if($product->is_type( 'auction' )){ ?>
           <a class="singleSideContact" href="<?php echo site_url('auctions-information');  ?>">AUCTION INFO</a>
         <?php } else if($cates) { ?>
