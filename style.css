@@ -258,6 +258,8 @@ FIN DE MAPA DE CONTENIDOS */
     /* Single contact Form */
   --lastCountryInputMarginRight: auto;
 
+  --singleFeatureIconHeight: 60px;
+
 
   /* ABOUT US */
 
@@ -831,6 +833,9 @@ FIN DE MAPA DE CONTENIDOS */
     --singleFeatureDescFontSize:.6rem;
     --singleContactWidth: 50%;
     --auctionDetailHeight: calc(100vh - var(--headerHeight));
+
+    --singleFeatureIconHeight: 75px;
+
 
 
 
@@ -1869,12 +1874,16 @@ background: #ddd;
 }
 .auctionName{
   display: flex;
+  margin-bottom: .5rem;
+}
+.auctionName >* {
+  font-size: 1.5rem!important;
+  line-height: 1.5rem!important;
 }
 .auctionMarca {
   margin-right: 16px;
 }
 .auctionModelo {
-  line-height: 45px;
 }
 .auctionAno {
   margin: auto;
@@ -2920,6 +2929,8 @@ background: #ddd;
   width: 50px;
   cursor: pointer;
   display: flex;
+  margin: auto;
+  margin-bottom: 0;
 }
 .filterButton svg {
   height: 30px;
@@ -3623,6 +3634,7 @@ background: #ddd;
   grid-template-columns: var(--singlePageGridTemplateC);
   grid-auto-rows: min-content;
   grid-gap:var(--singlePageGG);
+  grid-row-gap: 0;
   padding: var(--singlePagePadding);
   padding:1rem var(--lateral);
 }
@@ -3632,7 +3644,6 @@ background: #ddd;
 .singleMain {
   display: grid;
   grid-gap: 1rem;
-  margin-bottom:auto;
 }
 
 
@@ -4078,7 +4089,7 @@ background: #ddd;
 }
 
 .singleFeatureIcon {
-  height: 75px;
+  height: var(--singleFeatureIconHeight);
   width: auto;
   margin:var(--singleFeatureIconMargin);
 }

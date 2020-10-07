@@ -63,11 +63,11 @@ if ($categories) {
       </div>
       <div class="auctionName">
         <?php if($brand){ ?>
-          <span class="singleSideAnoMarca auctionMarca"><?php echo $brand; ?></span>
+          <span class="auctionMarca"><?php echo $brand; ?></span>
         <?php } ?>
         <h1 class="auctionModelo"><?php the_title(); ?></h1>
         <?php if($yearBike){ ?>
-          <span class="singleSideAnoMarca auctionAno"><?php echo $yearBike; ?></span>
+          <span class="auctionAno"><?php echo $yearBike; ?></span>
         <?php } ?>
       </div>
       <div class="gallery" id="gallery">
