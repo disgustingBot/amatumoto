@@ -8,6 +8,7 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
 function lattte_setup(){
 
 
+  wp_enqueue_script('modules', get_theme_file_uri('/js/modules.js'), NULL, microtime(), true);
   wp_enqueue_script('main', get_theme_file_uri('/js/custom.js'), NULL, microtime(), true);
 
 
@@ -460,7 +461,7 @@ function lt_login(){
     $action='newPass';
 
 
-    
+
     $site = '6LcRuNAUAAAAADtamJW75fYf8YtNHceSngjKsf-B';
     $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
 
@@ -483,10 +484,10 @@ function lt_login(){
       $hash = hash ( 'sha256' , time() . $mail );
       $user = get_user_by( 'email', $mail );
       update_user_meta( $user->id, 'newPass', $hash );
-  
-  
-  
-      
+
+
+
+
       // Email the user
       $message='';
       $message=$message.'Someone has requested to change your password for Amatumoto.';
@@ -499,10 +500,10 @@ function lt_login(){
       $message=$message.'<a href="'.$enlace.'">'.$enlace.'</a>';
       $message=$message.'<br>';
       $headers = array('Content-Type: text/html; charset=UTF-8');
-  
+
       // wp_mail( 'molinerozadkiel@gmail.com', 'Welcome '.$name.'!', $message, $headers );
       wp_mail( $mail, 'Password Reset', $message, $headers );
-  
+
 
     }
 
@@ -610,8 +611,8 @@ function lt_new_pass(){
 
   $code=$_POST['code'];
   if(!isset($_POST['code'])){
-    
-    
+
+
       // if(isset($_POST['current_password'])){
       if(isset($_POST['oldp'])){
         $_POST = array_map('stripslashes_deep', $_POST);
@@ -622,7 +623,7 @@ function lt_new_pass(){
         $errors = array();
         $current_user = get_user_by('id', $user_id);
       }
-    
+
       $link = add_query_arg( array(
         'action' => $action,
       ), $link );
@@ -631,14 +632,14 @@ function lt_new_pass(){
       //match
       } else {
         $errors[] = 'Password is incorrect';
-    
+
         $link = add_query_arg( array(
           'pass'  => 'incorrect',
         ), $link );
       }
       if($new_password != $confirm_new_password){
         $errors[] = 'Password does not match';
-    
+
         $link = add_query_arg( array(
           'match'  => 'no',
         ), $link );
@@ -651,8 +652,8 @@ function lt_new_pass(){
       }
 
   } else {
-    
-    
+
+
       // if(isset($_POST['current_password'])){
         // if(isset($_POST['oldp'])){
           $_POST = array_map('stripslashes_deep', $_POST);
@@ -684,7 +685,7 @@ function lt_new_pass(){
           $errors = array();
           $current_user = get_user_by('id', $user_id);
         // }
-      
+
         // $link = add_query_arg( array(
         //   'action' => $action,
         // ), $link );
@@ -693,14 +694,14 @@ function lt_new_pass(){
         // //match
         // } else {
         //   $errors[] = 'Password is incorrect';
-      
+
         //   $link = add_query_arg( array(
         //     'pass'  => 'incorrect',
         //   ), $link );
         // }
         if($new_password != $confirm_new_password){
           $errors[] = 'Password does not match';
-      
+
           $link = add_query_arg( array(
             'match'  => 'no',
           ), $link );
@@ -830,7 +831,7 @@ function custom_pre_get_posts_query( $q ) {
     if(!isset($_GET['auction'])){
 
       $tax_query = (array) $q->get( 'tax_query' );
-  
+
       $tax_query['not_parts'] = array(
         'taxonomy' => 'product_cat',
         'field' => 'slug',
@@ -956,7 +957,7 @@ function alter_query($query) {
         'operator' => 'IN',
         );
         // $tax_query['not_parts'] = array();
-        
+
         // $query->query_vars['tax_query'][] = array(
         //     'taxonomy' => 'product_cat',
         //     'field'    => 'slug', // Or 'name' or 'term_id'

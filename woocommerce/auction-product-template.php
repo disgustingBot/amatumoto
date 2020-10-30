@@ -97,7 +97,8 @@ if ($categories) {
           <?php $count++; } ?>
           <div class="galleryFade"></div>
         </div>
-        <button class="galleryMore" onclick="altClassFromSelector('alt', '#galleryStock')">More photos</button>
+        <!-- <button class="galleryMore" onclick="altClassFromSelector('alt', '#galleryStock')">More photos</button> -->
+        <button class="galleryMore" onclick="acordionar('#galleryStock')">More photos</button>
       </div>
     </div>
     <div class='auction-ajax-change auctionDetail' >
