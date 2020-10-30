@@ -78,24 +78,52 @@ if(y.length>0){showImgs(0)}
 
 
 
-// alternates a class from a selector of choice, example:
-// <div class="someButton" onclick="altClassFromSelector('activ', '#navBar')"></div>
-const altClassFromSelector = ( clase, selector, mainClass = false )=> {
+/*
+=altClassFromSelector
+
+alternates a class from a selector of choice, for example:
+<div class="someButton" onclick="altClassFromSelector('activ', '#navBar')"></div>
+*/
+const altClassFromSelector = ( clase, selector, dont_remove = false )=>{
   const x = d.querySelector(selector);
   // if there is a main class removes all other classes
-  // x.forEach( y => {
-    if (mainClass) {
-      x.classList.forEach(item => {
-        if(item!=mainClass && item!=clase){
-          x.classList.remove(item);
-        }
-      });
+  if(dont_remove){
+    x.classList.forEach( item =>{
+      if( dont_remove.findIndex( element => element == item) == -1 && item!=clase ){
+        x.classList.remove(item);
+      }
+    });
+  }
+
+  if(x.classList.contains(clase)){
+		if(dont_remove){
+			if( dont_remove.findIndex( element => element == clase) == -1 ){
+				x.classList.remove(clase)
+			}
+		} else {
+			x.classList.remove(clase)
+		}
+  }else{
+		if(clase){
+			x.classList.add(clase)
+		}
+  }
+}
+
+
+const acordionar = query => {
+
+    // var panel = this.nextElementSibling;
+    var panel = document.querySelector(query);
+    panel.classList.toggle("alt");
+
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+      // panel.style.padding = "0";
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      // panel.style.padding = "20px";
     }
-
-    x.classList.toggle(clase)
-
-  // });
-
 }
 
 
@@ -199,6 +227,15 @@ function detectWidth() {
 }
 
 
+
+
+
+
+
+
+
+
+
 //Accordion //Desplegable
 
 var acc = document.getElementsByClassName("accordion");
@@ -217,6 +254,15 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
+
+
+
+
+
+
+
 
 
 // Segment dinamic selector (filterbar)

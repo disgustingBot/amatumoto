@@ -146,7 +146,8 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
   //   clearTimeout(searchTimeOut);
   //   searchTimeOut = setTimeout(send, 2000);
   // }
-  if(d.querySelector('#filterBar')){
+  // let d = document;
+  if(document.querySelector('#filterBar')){
     id('searchInput').addEventListener('input', ()=>{
       clearTimeout(searchTimeOut);
       searchTimeOut = setTimeout(send, 1000);
