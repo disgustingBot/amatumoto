@@ -276,7 +276,7 @@ if(!!d.querySelector('#filterBar')){
   var arrFilter = Array.prototype.slice.call( d.getElementById('selectBox32').querySelectorAll('input') )
   arrFilter.forEach( (item, i) => { //  c.log(item);
     item.addEventListener("change", ()=>{
-      altClassFromSelector(item.value,'#filterBarBotttom','filterBarBotttom')
+      altClassFromSelector(item.value,'#filterBarBotttom',['filterBarBotttom'])
       c.log(item.value);
 
       if(raceBike.classList.contains('alt')){raceBike.classList.remove('alt')}
