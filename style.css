@@ -4609,18 +4609,24 @@ a.contactInformationText:hover{
 }
 
 .socialMediaFooter{margin-left:auto}
-
-.legalFooter{
+.menu-footer-container{
+  grid-column: span 2;
+}
+#menu-footer{
   display: flex;
   justify-content: var(--legalFooterJustification);
   flex-wrap: wrap;
   font-size: var(--legalFooterFontSize)!important;
-  grid-column: span 2;
   right: 0;
   margin: .5rem 0;
+  width: 100%;
+}
+#menu-footer li{
+  padding:.5rem 1rem;
+  list-style: none;
 }
 
-.legalFooterA{padding:.5rem 1rem}
+/* .legalFooterA{padding:.5rem 1rem} */
 #cookie-law-info-again{display:none!important;}
 
 
