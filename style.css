@@ -3922,7 +3922,7 @@ background: #ddd;
 }
 .singleSideVideo:hover img{filter:brightness(100%)}
 .singleSideVideo svg{
-  height:50%;
+  height:80px;
   margin:auto;
   width:auto;
   z-index:2;
