@@ -112,6 +112,8 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
           page = this.dataset.pagination;
           filterPagination(false, false, page);
         });
+        my_countdown_test()
+        // time_countdown();
       }
     });
   }
@@ -217,4 +219,43 @@ jQuery(function($){ // use jQuery code inside this to avoid "$ is not defined" e
     });
   })
   // END OF ADD TO CART CONTROLLER
+
+
+
+
+  function my_countdown_test (){
+
+    $(".auction-time-countdown").each(function(index) {
+      var time   = $(this).data('time');
+      var format = $(this).data('format');
+
+      if (format === '') {
+        format = 'yowdHMS';
+      }
+      if (afw_data.compact_counter == 'yes') {
+        compact = true;
+      } else {
+        compact = false;
+      }
+      var etext = '';
+      if ($(this).hasClass('future')) {
+        etext = '<div class="started">' + afw_data.started + '</div>';
+      } else {
+        etext = '<div class="over">' + afw_data.finished + '</div>';
+
+      }
+      if ( ! $(' body' ).hasClass('logged-in') ) {
+        time = $.wc_auctions_countdown.UTCDate(-(new Date().getTimezoneOffset()),new Date(time*1000));
+      }
+      $(this).wc_auctions_countdown({
+        until: time,
+        format: format,
+        compact: compact,
+
+        onExpiry: closeAuction,
+        expiryText: etext
+      });
+    });
+  }
+
 });

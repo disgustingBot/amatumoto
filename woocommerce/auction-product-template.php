@@ -26,6 +26,9 @@ if ($categories) {
 }
 ?>
 
+<?php // do_shortcode( "[shop_messages]" );  ?>
+
+
 <?php $product_id = get_the_ID(); ?>
 <?php function testimonial( $clase ){ ?>
   <div class="testimonialsContainer <?php echo $clase; ?>">
@@ -130,15 +133,17 @@ if ($categories) {
           </span>
           <span class="auctionDetailsValue main-auction auction-time-countdown notMet" data-time="<?php echo esc_attr( $product->get_seconds_remaining() ); ?>" data-auctionid="<?php echo intval( $product_id ); ?>" data-format="<?php echo esc_attr( get_option( 'auctions_for_woocommerce_countdown_format' ) ); ?>"></span>
         </p>
-        <p class="auctionDetails">
+        <!-- <p class="auctionDetails auction-price current-bid auction-bid">
           <?php if ($product->auction_current_bid){ ?>
             <span class="auctionDetailsTitle">Current bid:</span>
-            <span class="auctionDetailsValue bluTxt">€ <?php echo number_format($product->auction_current_bid,0,",","."); ?></span>
+            <span class="auctionDetailsValue bluTxt woocommerce-Price-amount amount">€ <?php echo number_format($product->auction_current_bid,0,",","."); ?></span>
           <?php } else { ?>
             <span class="auctionDetailsTitle">Starting bid:</span>
-            <span class="auctionDetailsValue bluTxt">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
+            <span class="auctionDetailsValue bluTxt woocommerce-Price-amount amount">€ <?php echo number_format($product->auction_start_price,0,",","."); ?></span>
           <?php } ?>
-        </p>
+        </p> -->
+        <p class="auction-bid"><?php echo wp_kses_post( $product->get_price_html() ); ?> </p>
+
         <p class="auctionDetails">
           <span class="auctionDetailsTitle">Reserve price:</span>
           <?php if ( ( $product->is_reserved() === true ) && ( $product->is_reserve_met() === false ) ) { ?>

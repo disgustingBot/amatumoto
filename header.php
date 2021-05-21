@@ -351,3 +351,14 @@ $scrt = '6LcRuNAUAAAAALBu7Ymh0yxmTXTJmP0rsnkjGyj0';
         </div>
 
       </form>
+
+      <?php
+
+
+      do_action( 'storefront_content_top' );
+
+      // do_shortcode( "[shop_messages]" );
+
+
+
+      ?>
