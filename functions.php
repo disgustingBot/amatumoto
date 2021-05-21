@@ -1273,3 +1273,47 @@ function latte_pagination() {
   // Always exit to avoid further execution
   exit();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add_action( 'storefront_content_top', 'storefront_shop_messages', 15 );
+
+if ( ! function_exists( 'storefront_shop_messages' ) ) {
+	/**
+	 * Storefront shop messages
+	 *
+	 * @since   1.4.4
+	 * @uses    storefront_do_shortcode
+	 */
+	function storefront_shop_messages() {
+		if ( ! is_checkout() ) {
+			echo wp_kses_post( storefront_do_shortcode( 'woocommerce_messages' ) );
+		}
+	}
+}
+
+
+function storefront_do_shortcode( $tag, array $atts = array(), $content = null ) {
+ global $shortcode_tags;
+
+ if ( ! isset( $shortcode_tags[ $tag ] ) ) {
+   return false;
+ }
+
+ return call_user_func( $shortcode_tags[ $tag ], $atts, $content, $tag );
+}
