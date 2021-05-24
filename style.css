@@ -3796,8 +3796,18 @@ background: #ddd;
 }
 .auction_form button.button.alt.bid_button:hover{background:#4cb13a; color:black;}
 
-
-
+.auction-price.current-bid{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.current.auction{
+  font-size: var(--auctionDetailsTitleFontSize);
+}
+.auction-price.current-bid .woocommerce-Price-amount.amount{
+  color: blue;
+}
 
 
 
