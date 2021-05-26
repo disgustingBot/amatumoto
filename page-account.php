@@ -61,21 +61,21 @@
 
          <div class="filterBarBotttom">
 
-           <div class="mateput logFormName">
+           <div class="mateput">
              <input class="mateputInput" type="password" name="oldp" autocomplete="off" value="" required>
              <label for="oldp" class="mateputLabel">
                <span class="mateputName">Old pass</span>
              </label>
            </div>
 
-           <div class="mateput logFormPhono">
+           <div class="mateput">
              <input class="mateputInput" type="password" name="newp" autocomplete="off" value="" required minlength="6">
              <label for="newp" class="mateputLabel">
                <span class="mateputName">New password</span>
              </label>
            </div>
 
-           <div class="mateput logFormMail">
+           <div class="mateput">
              <input class="mateputInput" type="password" name="cnfp" autocomplete="off" value="" required minlength="6">
              <label for="cnfp" class="mateputLabel">
                <span class="mateputName">Repeat password</span>
