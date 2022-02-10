@@ -54,8 +54,10 @@
           <h5 class="footerTitle">Amatumoto USA</h5>
           <p>Melbourne - Florida</p>
           <p>USA</p>
+          <a href="tel:+13217733900">+1 321-773-3900</a><br>
           <a href="mailto:info@gpmotorbikes.com?Subject=Hello,%20I%20want%20to%20plan%20my%20visit">Plan your visit</a><br>
           <a href="<?php echo site_url('inventory'); ?>">Current stock</a><br>
+          <a href="mailto:info@gpmotorbikes.com">info@gpmotorbikes.com</a>
         </div>
       </div>
 

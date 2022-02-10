@@ -94,7 +94,7 @@
           <?php the_title(); ?>
           <?php if($yearBike){ ?><span class="singleSideAnoMarca singleSideYearBike"><?php echo $yearBike; ?></span><?php } ?>
         </h4>
-        
+
         <?php if(method_exists($product,'get_seconds_remaining')){ ?>
           <p class="auctionDetails">
             <?php if ($product->auction_current_bid){ ?>
@@ -214,7 +214,7 @@
   <div class="dosMotosCaption">
     <h1 class="titleType1">Exceptional Quality</h1>
     <h4 class="subtitleType1">A COLLECTION OF ONLY THE EXTRAORDINARY</h4>
-    <p class="mainTxtType1">Amatumoto is a prestigious company specializing in the sale motorcycle of Grand Prix and exclusive models. We have been recognized for selling very exclusive motorcycles as well as working with great collectors, museums and world championship teams. <br> <br>
+    <p class="mainTxtType1">Amatumoto is a prestigious company specializing in the sale motorcycle of Grand Prix and exclusive models. We have been recognized for selling very exclusive motorcycles as well as working with great collectors, museums and world championship teams. MotoGP, Moto2, Moto3, Superbike, 2 Strokes GP and Racing Parts directly from the paddocks to your hands. <br> <br>
       We offer the ultimate motorbike services experience, providing personal attention to each client that generates our existing success in sales. We are proud that we are able to share our passion for special bikes with a select group of people, our customers. Enter the world of Amatumoto!</p>
     <button class="buttonType1">VIRTUAL TOUR</button>
   </div>
