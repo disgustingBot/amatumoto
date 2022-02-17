@@ -46,9 +46,9 @@ get_header();
       <br>
       <p class="contactInformationText"><?php echo get_post_meta($post->ID, 'address1', true); ?></p>
       <p class="contactInformationText"><?php echo get_post_meta($post->ID, 'address2', true); ?></p>
-      <a class="contactPhoneClick contactInformationText" href="tel:<?php echo get_post_meta($post->ID, 'tel', true); ?>">TEL <?php echo get_post_meta($post->ID, 'tel', true); ?></a>
+      <a class="contactPhoneClick contactInformationText" href="tel:<?php echo get_post_meta($post->ID, 'tel_eu', true); ?>">TEL EU <?php echo get_post_meta($post->ID, 'tel_eu', true); ?></a>
       <br>
-      <a class="contactPhoneClick contactInformationText" href="tel:<?php echo get_post_meta($post->ID, 'mov', true); ?>">MOV <?php echo get_post_meta($post->ID, 'mov', true); ?></a>
+      <a class="contactPhoneClick contactInformationText" href="tel:<?php echo get_post_meta($post->ID, 'tel_usa', true); ?>">TEL USA  <?php echo get_post_meta($post->ID, 'tel_usa', true); ?></a>
       <br>
       <a class="contactInformationText" href="mailto:<?php echo get_post_meta($post->ID, 'mail', true); ?>">MAIL <?php echo get_post_meta($post->ID, 'mail', true); ?> </a>
       <div class="socialMediaContact">
